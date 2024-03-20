@@ -19,5 +19,6 @@ func _on_body_entered(body):
 
 
 func _on_despawn_timer_timeout():
+	print("despawn")
 	queue_free()
 	pass # Replace with function body.

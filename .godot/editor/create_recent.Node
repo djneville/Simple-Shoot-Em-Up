@@ -1,3 +1,5 @@
+PathFollow2D
+Path2D
 Sprite2D
 Line2D
 Marker2D
@@ -11,4 +13,3 @@ Button
 VBoxContainer
 MarginContainer
 Label
-Control

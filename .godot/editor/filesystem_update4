@@ -8,3 +8,5 @@ res://Scenes/Menus/Main Screen.gd
 res://Scenes/Menus/Pause Menu/unpause_node.tscn
 res://Scenes/Menus/Pause Menu/pause_menu.tscn
 res://Scenes/Player/player.tscn
+res://Scenes/Player/PlayerBullet.gd
+res://Scenes/Enemies/Enemy1/enemy_1.tscn

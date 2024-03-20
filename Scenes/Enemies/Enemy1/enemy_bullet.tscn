@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8si0pivk1us1"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/enemy_bullet.gd" id="1_7dq2g"]
+[ext_resource type="Texture2D" uid="uid://del1gn4edml88" path="res://Assets/Tiles/tile_0009.png" id="2_45d16"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qxvxb"]
+radius = 3.0
+height = 6.0
+
+[node name="enemy_bullet" type="Area2D"]
+script = ExtResource("1_7dq2g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_45d16")
+offset = Vector2(0, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qxvxb")
+
+[node name="despawntimer" type="Timer" parent="."]
+wait_time = 7.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="despawntimer" to="." method="_on_despawntimer_timeout"]

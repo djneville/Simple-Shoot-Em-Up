@@ -1,0 +1,6 @@
+res://Scenes/Game/Test Level/Test Level.tscn
+res://Assets/Tilemap/terrain_tileset.tres
+res://Assets/Tilemap/level_1_tilemap.tscn
+res://Scenes/Game/Test Level/ParallaxLayer.gd
+res://Scenes/Player/player.gd
+res://Scenes/Player/player.tscn

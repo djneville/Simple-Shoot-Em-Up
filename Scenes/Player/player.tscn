@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://b18tr3vm35i1n"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_d2esm"]
+[ext_resource type="Texture2D" uid="uid://ddji6d67k2nh4" path="res://Assets/Ships/ship_0001.png" id="1_xecya"]
+[ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="3_brlla"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ai3"]
+size = Vector2(31, 24)
+
+[sub_resource type="Animation" id="Animation_a5wmh"]
+resource_name = "MuzzleAnim"
+length = 0.07
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RightFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftFlash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RightFlash:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftFlash:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqlwd"]
+_data = {
+"MuzzleAnim": SubResource("Animation_a5wmh")
+}
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_d2esm")
+speed = 150
+
+[node name="PlaneSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_xecya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_t1ai3")
+
+[node name="RightGun" type="Marker2D" parent="."]
+position = Vector2(8, -5)
+
+[node name="LeftGun" type="Marker2D" parent="."]
+position = Vector2(-8, -5)
+
+[node name="ShootSpeed" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="RightFlash" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(8, -5)
+rotation = 0.174533
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_brlla")
+
+[node name="LeftFlash" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-8, -5)
+rotation = 0.174533
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_brlla")
+
+[node name="MuzzleFlash" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqlwd")
+}
+
+[connection signal="timeout" from="ShootSpeed" to="." method="_on_shoot_speed_timeout"]

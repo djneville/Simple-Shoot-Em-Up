@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgmivjwe84r0c"]
+
+[ext_resource type="PackedScene" uid="uid://b18tr3vm35i1n" path="res://Scenes/Player/player.tscn" id="1_7ig8h"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Test Level.gd" id="1_11t3y"]
+[ext_resource type="PackedScene" uid="uid://bkjpkm5fr8el4" path="res://Scenes/Menus/Pause Menu/unpause_node.tscn" id="4_0ynby"]
+[ext_resource type="PackedScene" uid="uid://cuy4t2v7uji4a" path="res://Scenes/Menus/Pause Menu/pause_menu.tscn" id="4_75btx"]
+[ext_resource type="PackedScene" uid="uid://8sibimytrhjr" path="res://Assets/Tilemap/level_1_tilemap.tscn" id="5_ktoe4"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/ParallaxLayer.gd" id="5_wocqp"]
+
+[node name="Test Level" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_11t3y")
+
+[node name="Player" parent="." instance=ExtResource("1_7ig8h")]
+position = Vector2(263, 798)
+
+[node name="Pause Menu" parent="." instance=ExtResource("4_75btx")]
+visible = false
+
+[node name="Unpause Node" parent="." instance=ExtResource("4_0ynby")]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+script = ExtResource("5_wocqp")
+
+[node name="Level 1 Tilemap" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("5_ktoe4")]

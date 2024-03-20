@@ -1,2 +1,10 @@
 res://Scenes/Game/Test Level/Test Level.tscn
 res://Assets/Tilemap/terrain_tileset.tres
+res://Scenes/Game/Test Level/Spawning.gd
+res://Scenes/Game/Test Level/Test Level.gd
+res://Scenes/Menus/Pause Menu/Pause Node.gd
+res://Scenes/Player/player.gd
+res://Scenes/Menus/Main Screen.gd
+res://Scenes/Menus/Pause Menu/unpause_node.tscn
+res://Scenes/Menus/Pause Menu/pause_menu.tscn
+res://Scenes/Player/player.tscn

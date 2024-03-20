@@ -48,8 +48,6 @@ func _process(delta):
 	velocity = movement * speed
 	move_and_slide()
 	
-	print()
-	
 	global_position.x = clamp(global_position.x,$PlaneSprite.texture.get_width()/2,get_viewport_rect().size.x - $PlaneSprite.texture.get_width()/2)
 	global_position.y = clamp(global_position.y,$PlaneSprite.texture.get_height()/2,get_viewport_rect().size.y - $PlaneSprite.texture.get_height()/2)
 	

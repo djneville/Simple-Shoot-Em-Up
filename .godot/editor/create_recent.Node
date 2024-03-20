@@ -1,8 +1,10 @@
+Sprite2D
+Line2D
+Marker2D
+Node2D
 ParallaxLayer
 ParallaxBackground
 TileMap
-Sprite2D
-Marker2D
 CenterContainer
 Node
 Button
@@ -10,6 +12,3 @@ VBoxContainer
 MarginContainer
 Label
 Control
-Timer
-Node2D
-PathFollow2D

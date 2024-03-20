@@ -27,11 +27,11 @@ ship_0020.png::CompressedTexture2D::9050389285494241249::1710079005::1710135748:
 ship_0021.png::CompressedTexture2D::2867189714768779224::1710079005::1710135748::1::::<><>::
 ship_0022.png::CompressedTexture2D::7753156162148109754::1710079005::1710135748::1::::<><>::
 ship_0023.png::CompressedTexture2D::3181994252688775329::1710079005::1710135748::1::::<><>::
-::res://Assets/Tilemap/::1710908547
+::res://Assets/Tilemap/::1710909907
 level_1_tilemap.tscn::PackedScene::2353878601205152535::1710908547::0::1::::<><>::uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres
 ships.png::CompressedTexture2D::2778429263055326225::1710079001::1710135748::1::::<><>::
 ships_packed.png::CompressedTexture2D::1405488835539730445::1710079001::1710135748::1::::<><>::
-terrain_tileset.tres::TileSet::5940096069151011174::1710907664::0::1::::<><>::uid://d4k1eauadb1hs::::res://Assets/Tilemap/tiles_packed.png
+terrain_tileset.tres::TileSet::5940096069151011174::1710909907::0::1::::<><>::uid://d4k1eauadb1hs::::res://Assets/Tilemap/tiles_packed.png
 tiles.png::CompressedTexture2D::6600544708290315264::1710079001::1710135748::1::::<><>::
 tiles_packed.png::CompressedTexture2D::9216968110010554656::1710079001::1710135748::1::::<><>::
 ::res://Assets/Tiles/::1710135748
@@ -163,22 +163,23 @@ enemy_1.tscn::PackedScene::1785571240630415591::1710406949::0::1::::<><>::res://
 enemy_bullet.gd::GDScript::-1::1710406790::0::1::::<>Area2D<>::
 enemy_bullet.tscn::PackedScene::7126763188981341278::1710406949::0::1::::<><>::res://Scenes/Enemies/Enemy1/enemy_bullet.gd<>uid://del1gn4edml88::::res://Assets/Tiles/tile_0009.png
 ::res://Scenes/Game/::1710845556
-::res://Scenes/Game/Test Level/::1710908547
+::res://Scenes/Game/Test Level/::1710925378
 ParallaxLayer.gd::GDScript::-1::1710907891::0::1::::<>ParallaxLayer<>::
-Test Level.gd::GDScript::-1::1710845653::0::1::::<>Node2D<>::
-Test Level.tscn::PackedScene::5219270706800097808::1710908547::0::1::::<><>::uid://b18tr3vm35i1n::::res://Scenes/Player/player.tscn<>res://Scenes/Game/Test Level/Test Level.gd<>uid://bkjpkm5fr8el4::::res://Scenes/Menus/Pause Menu/unpause_node.tscn<>uid://cuy4t2v7uji4a::::res://Scenes/Menus/Pause Menu/pause_menu.tscn<>uid://8sibimytrhjr::::res://Assets/Tilemap/level_1_tilemap.tscn<>res://Scenes/Game/Test Level/ParallaxLayer.gd
-::res://Scenes/Menus/::1710845599
+Spawning.gd::GDScript::-1::1710925866::0::1::::<>Node2D<>::
+Test Level.gd::GDScript::-1::1710922782::0::1::::<>Node2D<>::
+Test Level.tscn::PackedScene::5219270706800097808::1710925866::0::1::::<><>::uid://b18tr3vm35i1n::::res://Scenes/Player/player.tscn<>res://Scenes/Game/Test Level/Test Level.gd<>uid://bkjpkm5fr8el4::::res://Scenes/Menus/Pause Menu/unpause_node.tscn<>uid://cuy4t2v7uji4a::::res://Scenes/Menus/Pause Menu/pause_menu.tscn<>res://Scenes/Game/Test Level/ParallaxLayer.gd<>uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres<>res://Scenes/Game/Test Level/Spawning.gd
+::res://Scenes/Menus/::1710922893
 level_select_screen.gd::GDScript::-1::1710845599::0::1::::<>Control<>::
 level_select_screen.tscn::PackedScene::8572461295433056623::1710845599::0::1::::<><>::res://Scenes/Menus/level_select_screen.gd
-Main Screen.gd::GDScript::-1::1710844486::0::1::::<>Control<>::
+Main Screen.gd::GDScript::-1::1710922893::0::1::::<>Control<>::
 main_screen.tscn::PackedScene::7066503362194082697::1710845599::0::1::::<><>::res://Scenes/Menus/Main Screen.gd
-::res://Scenes/Menus/Pause Menu/::1710850141
-Pause Node.gd::GDScript::-1::1710850141::0::1::::<>Node<>::
+::res://Scenes/Menus/Pause Menu/::1710925378
+Pause Node.gd::GDScript::-1::1710922782::0::1::::<>Node<>::
 pause_menu.gd::GDScript::-1::1710755616::0::1::::<>Control<>::
-pause_menu.tscn::PackedScene::6227959481171075778::1710845494::0::1::::<><>::res://Scenes/Menus/Pause Menu/pause_menu.gd
-unpause_node.tscn::PackedScene::3107817809566039899::1710845496::0::1::::<><>::res://Scenes/Menus/Pause Menu/Pause Node.gd
-::res://Scenes/Player/::1710908547
-player.gd::GDScript::-1::1710908547::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::4280640569203390225::1710908547::0::1::::<><>::res://Scenes/Player/player.gd<>uid://ddji6d67k2nh4::::res://Assets/Ships/ship_0001.png<>uid://cb4rd54421yrl::::res://Assets/Tiles/tile_0005.png
+pause_menu.tscn::PackedScene::6227959481171075778::1710925378::0::1::::<><>::res://Scenes/Menus/Pause Menu/pause_menu.gd
+unpause_node.tscn::PackedScene::3107817809566039899::1710925378::0::1::::<><>::res://Scenes/Menus/Pause Menu/Pause Node.gd
+::res://Scenes/Player/::1710925378
+player.gd::GDScript::-1::1710922857::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::4280640569203390225::1710925378::0::1::::<><>::res://Scenes/Player/player.gd<>uid://ddji6d67k2nh4::::res://Assets/Ships/ship_0001.png<>uid://cb4rd54421yrl::::res://Assets/Tiles/tile_0005.png
 PlayerBullet.gd::GDScript::-1::1710406790::0::1::::<>Area2D<>::
 player_bullet.tscn::PackedScene::6323010345445250541::1710406949::0::1::::<><>::res://Scenes/Player/PlayerBullet.gd<>uid://b3txk0h4atnm1::::res://Assets/Tiles/tile_0000.png

@@ -1,12 +1,17 @@
-res://Scenes/Game/Test Level/Test Level.tscn
 res://Assets/Tilemap/terrain_tileset.tres
-res://Scenes/Game/Test Level/Spawning.gd
+res://PathFollow2D.gd
+res://Scenes/Game/Test Level/Test Level.tscn
+res://Scenes/Enemies/Enemy1/enemy1pathed.tscn
+res://Scenes/Game/Test Level/SpawnMarkers.gd
 res://Scenes/Game/Test Level/Test Level.gd
-res://Scenes/Menus/Pause Menu/Pause Node.gd
-res://Scenes/Player/player.gd
-res://Scenes/Menus/Main Screen.gd
-res://Scenes/Menus/Pause Menu/unpause_node.tscn
-res://Scenes/Menus/Pause Menu/pause_menu.tscn
-res://Scenes/Player/player.tscn
+res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd
+res://Scenes/Game/Test Level/Spawner.gd
+res://Scenes/Enemies/Enemy1/enemy1path2.tscn
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E01.gd
 res://Scenes/Player/PlayerBullet.gd
-res://Scenes/Enemies/Enemy1/enemy_1.tscn
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E02.gd
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E03.gd
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E04.gd
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E05.gd
+res://Scenes/Enemies/Enemy1/enemy1path1.tscn
+res://Scenes/Enemies/Enemy1/enemy1path1.gd

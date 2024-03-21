@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var enemybullet = preload("res://Scenes/Enemies/Enemy1/enemy_bullet.tscn")
+var enemybullet = preload("res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_bullet.tscn")
 
 @onready var gun_position = $GunPosition
 @onready var muzzleflash = $MuzzleFlash

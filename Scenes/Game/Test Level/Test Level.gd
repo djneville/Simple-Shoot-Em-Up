@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var pause_menu = $"Pause Menu"
 
-@onready var spawn_markers = $SpawnMarkers
+@onready var spawn_markers = $Spawner
 
 
 var spawnthreshold = 0

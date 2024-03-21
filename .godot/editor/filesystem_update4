@@ -1,17 +1,5 @@
+res://Scenes/Game/Test Level/Test Level.tscn
 res://Assets/Tilemap/terrain_tileset.tres
 res://PathFollow2D.gd
-res://Scenes/Game/Test Level/Test Level.tscn
-res://Scenes/Enemies/Enemy1/enemy1pathed.tscn
-res://Scenes/Game/Test Level/SpawnMarkers.gd
-res://Scenes/Game/Test Level/Test Level.gd
-res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd
 res://Scenes/Game/Test Level/Spawner.gd
-res://Scenes/Enemies/Enemy1/enemy1path2.tscn
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E01.gd
-res://Scenes/Player/PlayerBullet.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E02.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E03.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E04.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E05.gd
 res://Scenes/Enemies/Enemy1/enemy1path1.tscn
-res://Scenes/Enemies/Enemy1/enemy1path1.gd

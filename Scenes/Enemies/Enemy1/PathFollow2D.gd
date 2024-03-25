@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-var speed = 150
+var speed = 140
 
 signal progress_ratio_1
 

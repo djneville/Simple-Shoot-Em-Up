@@ -12,6 +12,7 @@ var spawnthreshold = 0
 #And a child of that node is the Enemy scene that contains the logic for the enemy, sprite, animations, and bullet shooting logic
 @onready var enemy1path1 = preload("res://Scenes/Enemies/Enemy1/enemy1path1.tscn")
 @onready var enemy1path2 = preload("res://Scenes/Enemies/Enemy1/enemy1path2.tscn")
+@onready var enemy1path3 = preload("res://Scenes/Enemies/Enemy1/enemy1path3.tscn")
 
 #this array is created at ready (so, only once), and creates an array of all of the markers in the scene
 var spawn_marker_array = []
@@ -22,6 +23,9 @@ var spawned_markers = []
 
 #this will hold the enemy scene that gets instantiated upon entering the spawn_enemy() function
 var enemy
+
+#this array will keep track of spawned enemies, to check for deletion when their progress_ratio reaches 1
+var spawned_enemies = []
 
 func _ready():
 	#creates the array of markers that are the children of this node
@@ -42,16 +46,26 @@ func _process(delta):
 		if marker.position.y > spawnthreshold && !spawned_markers.has(marker):
 			spawn_enemy(marker, marker.position)
 			spawned_markers.append(marker)
-			print("spawned markers: ", spawned_markers)
 			
 
-func spawn_enemy(marker, position):
+#I honestly don't know how it works, but it seems like the enemy still follows the path_follow2d node 
+# and the progress_ratio still increases even after I've shot down the enemy. I'll take it
+	for each_enemy in spawned_enemies:
+		if is_instance_valid(each_enemy):
+			var path_follow = each_enemy.get_node("PathFollow2D")
+			if path_follow.progress_ratio == 1:
+				each_enemy.queue_free()
+
+func spawn_enemy(marker, pos):
 	#this function will check which enemy and path to spawn based on the to_spawn variable stored in each marker
 	if marker.to_spawn == "Enemy1Path1":
 		enemy = enemy1path1.instantiate()
 	if marker.to_spawn == "Enemy1Path2":
 		enemy = enemy1path2.instantiate()
+	if marker.to_spawn == "Enemy1Path3":
+		enemy = enemy1path3.instantiate()
 	#it sets the position at the position of the marker, and then adds it to the scene
-	enemy.position = position
+	enemy.position = pos
 	add_child(enemy)
+	spawned_enemies.append(enemy)
 	pass

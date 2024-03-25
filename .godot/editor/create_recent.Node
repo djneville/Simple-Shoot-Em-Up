@@ -1,3 +1,10 @@
+AnimatedSprite2D
+AnimationPlayer
+CollisionShape2D
+Area2D
+CharacterBody2D
+StaticBody2D
+Timer
 PathFollow2D
 Path2D
 Sprite2D
@@ -5,10 +12,3 @@ Line2D
 Marker2D
 Node2D
 ParallaxLayer
-ParallaxBackground
-TileMap
-CenterContainer
-Node
-Button
-VBoxContainer
-MarginContainer

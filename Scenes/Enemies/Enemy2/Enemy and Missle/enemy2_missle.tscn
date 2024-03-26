@@ -1,0 +1,178 @@
+[gd_scene load_steps=16 format=3 uid="uid://c672xop4g3dlt"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd" id="1_vadg6"]
+[ext_resource type="Texture2D" uid="uid://xuc40sc1e8px" path="res://Assets/Tiles/missle.png" id="2_g07lj"]
+[ext_resource type="Texture2D" uid="uid://bbc26uj3r735g" path="res://Assets/Tiles/missletail.png" id="3_3hh75"]
+[ext_resource type="Texture2D" uid="uid://dvtcygh0tyxyd" path="res://Assets/Tiles/missleexplosion.png" id="3_62idn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6efi"]
+atlas = ExtResource("3_3hh75")
+region = Rect2(0, 0, 8, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kimv2"]
+atlas = ExtResource("3_3hh75")
+region = Rect2(8, 0, 8, 4)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ap5b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6efi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kimv2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc2dy"]
+atlas = ExtResource("3_62idn")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v5px"]
+atlas = ExtResource("3_62idn")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5cve"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc2dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v5px")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6oaj"]
+size = Vector2(12, 6)
+
+[sub_resource type="Animation" id="Animation_pki7w"]
+resource_name = "missleexplode"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("missle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("missleexplosion:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("missleexplosion:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikqn2"]
+_data = {
+"missleexplode": SubResource("Animation_pki7w")
+}
+
+[sub_resource type="Animation" id="Animation_wr55f"]
+resource_name = "tailflicker"
+length = 0.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("missle/missletail:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcfkp"]
+_data = {
+"tailflicker": SubResource("Animation_wr55f")
+}
+
+[node name="enemy2_missle" type="Area2D"]
+script = ExtResource("1_vadg6")
+
+[node name="missle" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("2_g07lj")
+offset = Vector2(0, -3)
+
+[node name="missletail" type="AnimatedSprite2D" parent="missle"]
+texture_filter = 1
+position = Vector2(2.38419e-07, 2.33333)
+scale = Vector2(1, 0.833333)
+sprite_frames = SubResource("SpriteFrames_ap5b2")
+frame = 1
+
+[node name="missleexplosion" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_u5cve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_w6oaj")
+
+[node name="despawntimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="missleexplode" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ikqn2")
+}
+
+[node name="missletailflicker" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pcfkp")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="despawntimer" to="." method="_on_despawntimer_timeout"]

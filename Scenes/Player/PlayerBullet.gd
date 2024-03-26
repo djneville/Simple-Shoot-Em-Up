@@ -13,9 +13,8 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("enemy"):
 		body.enemy_hit(damage)
-		queue_free()
+		$bulletexplode.play("bullexplode")
 	pass # Replace with function body.
-
 
 
 func _on_despawn_timer_timeout():

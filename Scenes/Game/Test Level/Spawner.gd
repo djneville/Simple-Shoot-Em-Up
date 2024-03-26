@@ -13,7 +13,7 @@ var spawnthreshold = 0
 @onready var enemy1path1 = preload("res://Scenes/Enemies/Enemy1/enemy1path1.tscn")
 @onready var enemy1path2 = preload("res://Scenes/Enemies/Enemy1/enemy1path2.tscn")
 @onready var enemy1path3 = preload("res://Scenes/Enemies/Enemy1/enemy1path3.tscn")
-
+@onready var enemy2path1 = preload("res://Scenes/Enemies/Enemy2/enemy2path1.tscn")
 #this array is created at ready (so, only once), and creates an array of all of the markers in the scene
 var spawn_marker_array = []
 
@@ -64,6 +64,8 @@ func spawn_enemy(marker, pos):
 		enemy = enemy1path2.instantiate()
 	if marker.to_spawn == "Enemy1Path3":
 		enemy = enemy1path3.instantiate()
+	if marker.to_spawn == "Enemy2Path1":
+		enemy = enemy2path1.instantiate()
 	#it sets the position at the position of the marker, and then adds it to the scene
 	enemy.position = pos
 	add_child(enemy)

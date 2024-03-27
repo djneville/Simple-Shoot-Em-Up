@@ -2,13 +2,19 @@ extends CharacterBody2D
 
 var bullet = preload("res://Scenes/Player/player_bullet.tscn")
 
+var bomb = preload("res://Scenes/Player/player_bomb.tscn")
+
 var speed = 150
 var health = 7
 var upgradelvl = 0
+var bombs = 2
 
 var canshoot = true
+var canbomb = true
 var alive = true
 var playerinvulnerable = false
+
+@onready var bombslot = $bombslot
 
 #Upgrade 0
 @onready var plane_sprite_0 = $Upgrade0/PlaneSprite0
@@ -34,6 +40,9 @@ var playerinvulnerable = false
 
 @onready var post_hit_invuln = $PostHitInvuln
 
+func _ready():
+	print("Health: ", health)
+	print("Bombs: ", bombs)
 
 func shoot0():
 	
@@ -61,6 +70,15 @@ func shoot1():
 	canshoot = false
 pass
 
+func dropbomb():
+	if bombs > 0:
+		var centerbomb = bomb.instantiate()
+		centerbomb.position = bombslot.global_position
+		get_tree().current_scene.add_child(centerbomb)
+		canbomb = false
+		bombs -= 1
+		print("Bombs remaining: ",bombs)
+		$BombReload.start()
 
 func _process(_delta):
 	
@@ -102,6 +120,9 @@ func _process(_delta):
 		if upgradelvl == 1:
 			shoot1()
 	
+	if Input.is_action_pressed("bomb") and canbomb:
+		dropbomb()
+	
 	if health < 1:
 		movement = Vector2.ZERO
 		canshoot = false
@@ -121,9 +142,8 @@ func player_hit(damage):
 	if !playerinvulnerable:
 		if upgradelvl == 1:
 			downgrade()
-		print("health calculation: ", health, " - ", damage)
 		health = health - damage
-		print("current health: ", health)
+		print("health: ", health)
 		#go invulnerable
 		if health > 0:
 			Invulnerable()
@@ -194,3 +214,8 @@ func upgrade():
 	u_1_collision_detection.monitoring = true
 	areacollision1.set_deferred("disabled", false)
 	pass
+
+
+func _on_bomb_reload_timeout():
+	canbomb = true
+	pass # Replace with function body.

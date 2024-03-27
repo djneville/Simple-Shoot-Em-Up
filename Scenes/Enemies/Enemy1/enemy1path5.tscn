@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c7qqrintxwdpr"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/Path2D.gd" id="1_cfnep"]
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/PathFollow2D.gd" id="2_ek37b"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd" id="1_cfnep"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd" id="2_ek37b"]
 [ext_resource type="PackedScene" uid="uid://0o7dkwqtyyxj" path="res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn" id="3_fqj57"]
 
 [sub_resource type="Curve2D" id="Curve2D_g1gxh"]
@@ -15,9 +15,8 @@ curve = SubResource("Curve2D_g1gxh")
 script = ExtResource("1_cfnep")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(270, 995)
+position = Vector2(540, -18)
 rotation = 1.83128
-progress = 1145.57
 loop = false
 script = ExtResource("2_ek37b")
 

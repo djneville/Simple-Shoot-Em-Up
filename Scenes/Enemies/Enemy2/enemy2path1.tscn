@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jg7m463t450r"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/Path2D.gd" id="1_ybge5"]
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy1/PathFollow2D.gd" id="2_ag5vp"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy2/Enemy2-Path2D.gd" id="1_lioaa"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy2/Enemy2-PathFollow2D.gd" id="2_kccrj"]
 [ext_resource type="PackedScene" uid="uid://bn81fpt2inink" path="res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.tscn" id="3_qd026"]
 
 [sub_resource type="Curve2D" id="Curve2D_g1gxh"]
@@ -12,12 +12,12 @@ point_count = 2
 
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_g1gxh")
-script = ExtResource("1_ybge5")
+script = ExtResource("1_lioaa")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(0, -30)
 rotation = 1.5708
 loop = false
-script = ExtResource("2_ag5vp")
+script = ExtResource("2_kccrj")
 
 [node name="Enemy2" parent="PathFollow2D" instance=ExtResource("3_qd026")]

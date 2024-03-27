@@ -13,6 +13,9 @@ var spawnthreshold = 0
 @onready var enemy1path1 = preload("res://Scenes/Enemies/Enemy1/enemy1path1.tscn")
 @onready var enemy1path2 = preload("res://Scenes/Enemies/Enemy1/enemy1path2.tscn")
 @onready var enemy1path3 = preload("res://Scenes/Enemies/Enemy1/enemy1path3.tscn")
+@onready var enemy1path4 = preload("res://Scenes/Enemies/Enemy1/enemy1path4.tscn")
+@onready var enemy1path5 = preload("res://Scenes/Enemies/Enemy1/enemy1path5.tscn")
+
 @onready var enemy2path1 = preload("res://Scenes/Enemies/Enemy2/enemy2path1.tscn")
 #this array is created at ready (so, only once), and creates an array of all of the markers in the scene
 var spawn_marker_array = []
@@ -45,6 +48,7 @@ func _process(delta):
 		marker.position.y += move_speed * delta
 		if marker.position.y > spawnthreshold && !spawned_markers.has(marker):
 			spawn_enemy(marker, marker.position)
+			print("Marker: ", marker.name, " position: ", marker.position)
 			spawned_markers.append(marker)
 			
 
@@ -60,10 +64,17 @@ func spawn_enemy(marker, pos):
 	#this function will check which enemy and path to spawn based on the to_spawn variable stored in each marker
 	if marker.to_spawn == "Enemy1Path1":
 		enemy = enemy1path1.instantiate()
+		print("enemy: ", enemy)
 	if marker.to_spawn == "Enemy1Path2":
 		enemy = enemy1path2.instantiate()
 	if marker.to_spawn == "Enemy1Path3":
 		enemy = enemy1path3.instantiate()
+	if marker.to_spawn == "Enemy1Path4":
+		enemy = enemy1path4.instantiate()
+	if marker.to_spawn == "Enemy1Path5":
+		enemy = enemy1path5.instantiate()
+		print("enemy: ", enemy)
+
 	if marker.to_spawn == "Enemy2Path1":
 		enemy = enemy2path1.instantiate()
 	#it sets the position at the position of the marker, and then adds it to the scene

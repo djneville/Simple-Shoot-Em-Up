@@ -1,7 +1,8 @@
 res://Assets/Tiles
+res://Scenes/Enemies/Enemy1
+res://Scenes/Player
 res://Scenes/Enemies/Enemy2/Enemy and Missle
 res://Scenes/Game/Test Level/Enemy Spawn Order Data
-res://Scenes/Enemies/Enemy1
 res://Assets/Tilemap
 res://Scenes/Menus/Pause Menu
 res://Scenes/Menus

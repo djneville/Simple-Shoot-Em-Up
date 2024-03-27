@@ -348,6 +348,9 @@ one_shot = true
 wait_time = 1.5
 one_shot = true
 
+[node name="BombReload" type="Timer" parent="."]
+wait_time = 4.0
+
 [node name="Upgrade0" type="Node2D" parent="."]
 
 [node name="PlaneSprite0" type="Sprite2D" parent="Upgrade0"]
@@ -424,7 +427,11 @@ visible = false
 shape = SubResource("RectangleShape2D_wvjg5")
 disabled = true
 
+[node name="bombslot" type="Marker2D" parent="."]
+position = Vector2(0, -4)
+
 [connection signal="timeout" from="ShootSpeed" to="." method="_on_shoot_speed_timeout"]
 [connection signal="timeout" from="PostHitInvuln" to="." method="_on_post_hit_invuln_timeout"]
+[connection signal="timeout" from="BombReload" to="." method="_on_bomb_reload_timeout"]
 [connection signal="body_entered" from="Upgrade0/U0CollisionDetection" to="." method="_on_collision_detection_body_entered"]
 [connection signal="body_entered" from="Upgrade1/U1CollisionDetection" to="." method="_on_collision_detection_body_entered"]

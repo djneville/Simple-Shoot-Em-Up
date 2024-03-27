@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgmivjwe84r0c"]
+[gd_scene load_steps=14 format=3 uid="uid://cgmivjwe84r0c"]
 
 [ext_resource type="PackedScene" uid="uid://b18tr3vm35i1n" path="res://Scenes/Player/player.tscn" id="1_7ig8h"]
 [ext_resource type="Script" path="res://Scenes/Game/Test Level/Test Level.gd" id="1_11t3y"]
@@ -7,11 +7,12 @@
 [ext_resource type="Script" path="res://Scenes/Game/Test Level/ParallaxLayer.gd" id="5_wocqp"]
 [ext_resource type="TileSet" uid="uid://cqvorqv8ja1xa" path="res://Assets/Tilemap/terrain_tileset.tres" id="6_y3p22"]
 [ext_resource type="Script" path="res://Scenes/Game/Test Level/Spawner.gd" id="7_14koa"]
-[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E01.gd" id="8_um8ov"]
-[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E02.gd" id="9_g7t6s"]
-[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E03.gd" id="10_tqd1i"]
-[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E04.gd" id="11_dklhq"]
-[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E05.gd" id="12_3e6tj"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P1(down).gd" id="8_hy6oq"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P2(loopright).gd" id="9_2b06x"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P3(loopleft).gd" id="10_87a3n"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E2P1(down).gd" id="11_kqygc"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd" id="12_phly0"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P4(diagright).gd" id="13_ljrxw"]
 
 [node name="Test Level" type="Node2D"]
 process_mode = 1
@@ -40,20 +41,44 @@ script = ExtResource("7_14koa")
 
 [node name="E01" type="Marker2D" parent="Spawner"]
 position = Vector2(265, -307)
-script = ExtResource("8_um8ov")
+script = ExtResource("8_hy6oq")
 
 [node name="E02" type="Marker2D" parent="Spawner"]
 position = Vector2(128, -887)
-script = ExtResource("9_g7t6s")
+script = ExtResource("9_2b06x")
 
 [node name="E03" type="Marker2D" parent="Spawner"]
 position = Vector2(439, -1100)
-script = ExtResource("10_tqd1i")
+script = ExtResource("10_87a3n")
 
 [node name="E04" type="Marker2D" parent="Spawner"]
 position = Vector2(155, -1474)
-script = ExtResource("11_dklhq")
+script = ExtResource("11_kqygc")
 
 [node name="E05" type="Marker2D" parent="Spawner"]
-position = Vector2(338, -1697)
-script = ExtResource("12_3e6tj")
+position = Vector2(275, -133)
+script = ExtResource("12_phly0")
+
+[node name="E06" type="Marker2D" parent="Spawner"]
+position = Vector2(270, -2059)
+script = ExtResource("11_kqygc")
+
+[node name="E07" type="Marker2D" parent="Spawner"]
+position = Vector2(382, -2059)
+script = ExtResource("12_phly0")
+
+[node name="E08" type="Marker2D" parent="Spawner"]
+position = Vector2(154, -2059)
+script = ExtResource("13_ljrxw")
+
+[node name="E09" type="Marker2D" parent="Spawner"]
+position = Vector2(268, -2468)
+script = ExtResource("11_kqygc")
+
+[node name="E10" type="Marker2D" parent="Spawner"]
+position = Vector2(237, -2519)
+script = ExtResource("11_kqygc")
+
+[node name="E11" type="Marker2D" parent="Spawner"]
+position = Vector2(297, -2520)
+script = ExtResource("11_kqygc")

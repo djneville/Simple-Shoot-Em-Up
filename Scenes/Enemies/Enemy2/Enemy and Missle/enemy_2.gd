@@ -11,6 +11,8 @@ var enemybullet = preload("res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_m
 var PathRotation
 var noPathRotation
 
+var shotdown = false
+
 var health = 5
 
 func _ready():
@@ -21,7 +23,7 @@ func _process(_delta):
 	PathRotation = path_follow_2d.rotation
 	noPathRotation = rotation + PI/2
 	
-	if canshoot:		
+	if canshoot and !shotdown:		
 		muzzleflash.play("MuzzleAnim")
 		var bullet = enemybullet.instantiate()
 		bullet.position = gun_position.global_position
@@ -41,6 +43,7 @@ func enemy_hit(damage):
 	health = health - damage
 	if health < 1:
 		canshoot = false
+		shotdown = true
 		$ShipExplode.play("explode")
 	pass
 

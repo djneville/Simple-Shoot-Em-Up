@@ -1,30 +1,18 @@
 res://Scenes/Game/Test Level/Test Level.tscn
-res://Assets/Tilemap/terrain_tileset.tres
-res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.gd
-res://Scenes/Enemies/Enemy1/Path2D.gd
-res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.tscn
-res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.tscn
-res://Scenes/Enemies/Enemy2/enemy2path1.tscn
-res://Scenes/Enemies/Enemy1/PathFollow2D.gd
-res://Scenes/Player/player_bullet (2).tscn
-res://Scenes/Player/PlayerBullet (2).gd
-res://Scenes/Player/player_bullet.tscn
-res://Scenes/Player/player.gd
-res://Scenes/Player/player.tscn
-res://Scenes/Player/PlayerBomb.gd
-res://Scenes/Player/player_bomb.tscn
-res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy1_bullet.gd
-res://Scenes/Enemies/Enemy3/enemy1path1.tscn
-res://Scenes/Enemies/Enemy3/enemy3path1.tscn
-res://Scenes/Enemies/Enemy3/Enemy and Bullet/enemy_3.tscn
-res://Scenes/Enemies/Enemy3/Enemy and Bullet/enemy3_bomb.tscn
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E01.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E05.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P4(diagright).gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd
-res://Scenes/Game/Test Level/Spawner.gd
-res://Scenes/Enemies/Enemy1/enemy1path5.tscn
 res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd
-res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd
 res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
+res://Assets/Tilemap/terrain_tileset.tres
+res://Scenes/Enemies/Enemy1/enemy1path5.tscn
 res://Scenes/Enemies/Enemy1/enemy1path1.tscn
+res://Scenes/Game/Test Level/Test Level.gd
+res://Scenes/Enemies/Enemy1/enemy1path6.tscn
+res://Scenes/Game/Test Level/Spawner.gd
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P6(problem).gd
+res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd
+res://Scenes/Enemies/Enemy2/enemy2path1.tscn
+res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.tscn
+res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd
+res://Scenes/Enemies/Enemy1/tenemy1path5.tscn
+res://Scenes/Enemies/Enemy1/enemy1path2.tscn
+res://Scenes/Enemies/Enemy1/enemy1path3.tscn
+res://Scenes/Enemies/Enemy1/enemy1path4.tscn

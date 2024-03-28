@@ -3,7 +3,7 @@ extends Area2D
 var speed = 300
 var current_velocity = Vector2.ZERO
 var desired_velocity
-var drag_factor = .02
+var drag_factor = .04
 var direction
 
 var damage = 1

@@ -4,9 +4,6 @@ extends Node2D
 
 @onready var spawn_markers = $Spawner
 
-
-var spawnthreshold = 0
-
 func pause():
 	get_tree().paused = true
 	pause_menu.show()

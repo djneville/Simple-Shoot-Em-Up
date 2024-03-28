@@ -10,7 +10,7 @@ _data = {
 }
 point_count = 2
 
-[node name="Path2D" type="Path2D"]
+[node name="enemy2path1" type="Path2D"]
 curve = SubResource("Curve2D_g1gxh")
 script = ExtResource("1_lioaa")
 

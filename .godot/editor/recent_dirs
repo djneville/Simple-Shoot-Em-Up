@@ -1,10 +1,16 @@
+C:/Users/gowev/Projects/Simple Shoot Em Up
+res://Scenes/GUI/Menus
+res://Scenes/GUI/Menus/GameOverCompleteScreen
+res://Assets/Font
 res://Assets/Tiles
+res://Scenes/GUI/GameplayGUI
+res://Scenes/Game/Spawners
+res://Scenes/Enemies/Level 1 Boss
+res://Scenes/Drops/Health
 res://Scenes/Enemies/Enemy1
 res://Scenes/Player
 res://Scenes/Enemies/Enemy2/Enemy and Missle
 res://Scenes/Game/Test Level/Enemy Spawn Order Data
 res://Assets/Tilemap
-res://Scenes/Menus/Pause Menu
-res://Scenes/Menus
 res://Scenes
 res://

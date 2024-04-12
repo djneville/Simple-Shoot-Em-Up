@@ -6,4 +6,3 @@ var progress_ratio = 0
 
 func _process(_delta):
 	progress_ratio = path_follow_2d.progress_ratio
-	pass

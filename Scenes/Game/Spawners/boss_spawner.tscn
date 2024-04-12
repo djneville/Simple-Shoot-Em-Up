@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw1uxcduvt1da"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/BossSpawner.gd" id="1_h1nyv"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/BossSpawnMarker.gd" id="2_g031e"]
+
+[node name="BossSpawner" type="Node2D"]
+script = ExtResource("1_h1nyv")
+
+[node name="Boss" type="Marker2D" parent="."]
+position = Vector2(270, -14949)
+script = ExtResource("2_g031e")

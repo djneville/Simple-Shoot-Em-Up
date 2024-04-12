@@ -40,9 +40,13 @@ var playerinvulnerable = false
 
 @onready var post_hit_invuln = $PostHitInvuln
 
+var reset_level
+
 func _ready():
-	print("Health: ", health)
-	print("Bombs: ", bombs)
+	
+	downgrade()
+	
+	pass
 
 func shoot0():
 	
@@ -53,8 +57,6 @@ func shoot0():
 
 	$ShootSpeed.start()
 	canshoot = false
-
-pass
 
 func shoot1():
 	muzzle_flash.play("Upgrade1Anim")
@@ -68,7 +70,6 @@ func shoot1():
 	
 	$ShootSpeed.start()
 	canshoot = false
-pass
 
 func dropbomb():
 	if bombs > 0:
@@ -77,7 +78,6 @@ func dropbomb():
 		get_tree().current_scene.add_child(centerbomb)
 		canbomb = false
 		bombs -= 1
-		print("Bombs remaining: ",bombs)
 		$BombReload.start()
 
 func _process(_delta):
@@ -126,64 +126,57 @@ func _process(_delta):
 	if health < 1:
 		movement = Vector2.ZERO
 		canshoot = false
+		canbomb = false
 		alive = false
 		if upgradelvl == 0:
 			ship_explode.play("explode0")
 		if upgradelvl == 1:
 			ship_explode.play("explode1")
-	
 
 
 func _on_shoot_speed_timeout():
 	canshoot = true
-	pass
 
 func player_hit(damage):
 	if !playerinvulnerable:
 		if upgradelvl == 1:
 			downgrade()
 		health = health - damage
-		print("health: ", health)
 		#go invulnerable
 		if health > 0:
 			Invulnerable()
-		pass
 	
 func Invulnerable():
 	post_hit_invuln.start()
 	if upgradelvl == 0:
 		InvulnFlash.play("Flash0")
-		upgrade_0_col_shape.set_deferred("disabled", true)
-		u_0_collision_detection.set_deferred("disabled", true)
+
 	if upgradelvl == 1:
 		InvulnFlash.play("Flash1")
-		upgrade_1_col_shape.set_deferred("disabled", true)
-		u_1_collision_detection.set_deferred("disabled", true)
+
 	canshoot = false
+	canbomb = false
 	playerinvulnerable = true
 
 func _on_post_hit_invuln_timeout():
 	canshoot = true
+	canbomb = true
 	if upgradelvl == 0:
 		if plane_sprite_1.visible == false:
 			plane_sprite_1.visible = true
 		u_0_collision_detection.set_deferred("disabled", false)
-		upgrade_0_col_shape.set_deferred("disabled", false)
+
 	if upgradelvl == 1:
 		if plane_sprite_1.visible == false:
 			plane_sprite_1.visible = true
 		u_1_collision_detection.set_deferred("disabled", false)
-		upgrade_1_col_shape.set_deferred("disabled", false)
 	InvulnFlash.stop()
 	playerinvulnerable = false
-	pass # Replace with function body.
-
 
 func _on_collision_detection_body_entered(body):
 	if body.is_in_group("enemy") and !playerinvulnerable:
 		body.enemy_hit(10)
 		player_hit(2)
-	pass # Replace with function body.
 
 func downgrade():
 	#disable 1
@@ -198,14 +191,14 @@ func downgrade():
 	u_0_collision_detection.set_deferred("monitorable",true)
 	u_0_collision_detection.monitoring = true
 	areacollision0.set_deferred("disabled", false)
-	pass
-	
+
 func upgrade():
 	#disable 0
 	upgrade_0.visible = false
 	u_0_collision_detection.set_deferred("monitorable",false)
 	u_0_collision_detection.monitoring = false
 	areacollision0.set_deferred("disabled", true)
+
 	#enable 1
 	upgradelvl = 1
 	speed = 200
@@ -213,9 +206,33 @@ func upgrade():
 	u_1_collision_detection.set_deferred("monitorable", true)
 	u_1_collision_detection.monitoring = true
 	areacollision1.set_deferred("disabled", false)
-	pass
-
 
 func _on_bomb_reload_timeout():
 	canbomb = true
-	pass # Replace with function body.
+
+func heal():
+	if health < 7:
+		health = 7
+	else:
+		Gamestats.score += 300
+	
+func add_bomb():
+	if bombs < 7:
+		bombs += 1
+	else:
+		Gamestats.score += 250
+		
+func give_upgrade():
+	if upgradelvl == 0:
+		upgrade()
+	else:
+		Gamestats.score += 280
+
+func player_death():
+	Gamestats.lives -= 1
+	Gamestats.score = 0
+	if Gamestats.lives <= 0:
+		Gamestats.gamestatus = "gameover"
+	else:
+		Gamestats.gamestatus = "continue"
+	reset_level = true

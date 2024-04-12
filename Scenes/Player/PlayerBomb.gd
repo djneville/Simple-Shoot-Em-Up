@@ -1,10 +1,8 @@
 extends Area2D
 
-var speed = -200
+var speed = -300
 
 var damage = 1
-
-signal bomb_dropped
 
 var hit = false
 
@@ -25,6 +23,6 @@ func _on_despawn_timer_timeout():
 	queue_free()
 
 func _on_explosion_body_entered(body):
-	if body.is_in_group("enemy"):
+	if body.is_in_group("enemy") and !body.bombed:
 		body.enemy_hit(50)
-	pass # Replace with function body.
+		body.bombed = true

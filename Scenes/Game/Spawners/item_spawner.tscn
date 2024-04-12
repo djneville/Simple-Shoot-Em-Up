@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://br5v4palr3fxi"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/ItemSpawner.gd" id="1_810cm"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/ItemSpawnOrderData/healthspawner.gd" id="2_dlix4"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/ItemSpawnOrderData/upgradespawner.gd" id="3_bi4cb"]
+[ext_resource type="Script" path="res://Scenes/Game/Test Level/ItemSpawnOrderData/bombspawner.gd" id="4_4bdw0"]
+
+[node name="ItemSpawner" type="Node2D"]
+script = ExtResource("1_810cm")
+
+[node name="I01" type="Marker2D" parent="."]
+position = Vector2(270, -2583)
+script = ExtResource("2_dlix4")
+
+[node name="I02" type="Marker2D" parent="."]
+position = Vector2(270, -2654)
+script = ExtResource("3_bi4cb")
+
+[node name="I03" type="Marker2D" parent="."]
+position = Vector2(452, -4526)
+script = ExtResource("4_4bdw0")
+
+[node name="I04" type="Marker2D" parent="."]
+position = Vector2(142, -4809)
+script = ExtResource("4_4bdw0")
+
+[node name="I05" type="Marker2D" parent="."]
+position = Vector2(270, -8448)
+script = ExtResource("2_dlix4")
+
+[node name="I06" type="Marker2D" parent="."]
+position = Vector2(505, -9761)
+script = ExtResource("3_bi4cb")
+
+[node name="I07" type="Marker2D" parent="."]
+position = Vector2(281, -12495)
+script = ExtResource("3_bi4cb")
+
+[node name="I08" type="Marker2D" parent="."]
+position = Vector2(394, -13496)
+script = ExtResource("4_4bdw0")

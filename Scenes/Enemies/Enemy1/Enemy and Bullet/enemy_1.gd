@@ -7,6 +7,8 @@ var enemybullet = preload("res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy1_b
 
 @export var canshoot = true
 
+var bombed = false
+
 @onready var path_follow_2d = $".."
 var PathRotation
 var noPathRotation
@@ -28,17 +30,17 @@ func _process(_delta):
 		get_tree().current_scene.add_child(bullet)
 		$ShootSpeed.start()
 		canshoot = false
-	pass
+
 
 
 func _on_shoot_speed_timeout():
 	canshoot = true
-	pass # Replace with function body.
 
 func enemy_hit(damage):
 	health = health - damage
 	if health < 1:
 		canshoot = false
 		$ShipExplode.play("explode")
-	pass
 
+func enemy1_score():
+	Gamestats.score += 120

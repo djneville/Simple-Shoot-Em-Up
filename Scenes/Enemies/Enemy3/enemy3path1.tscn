@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://6eeiii5x26j5"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy3/Enemy3-Path2D.gd" id="1_g8sg2"]
-[ext_resource type="PackedScene" uid="uid://cnxptne1igqjg" path="res://Scenes/Enemies/Enemy3/Enemy and Bullet/enemy_3.tscn" id="1_wetcw"]
+[ext_resource type="PackedScene" uid="uid://cnxptne1igqjg" path="res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.tscn" id="1_wetcw"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Enemy3/Enemy3-PathFollow2D.gd" id="2_ifmax"]
 
 [sub_resource type="Curve2D" id="Curve2D_g1gxh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -30, 0, 0, 0, 0, 0, 990)
+"points": PackedVector2Array(0, 0, 0, 0, 0, -30, -215.65, 1.04379, 215.65, -1.04379, 259, 307, 0, 0, 0, 0, 538, -36)
 }
-point_count = 2
+point_count = 3
 
 [node name="Path2D" type="Path2D"]
 curve = SubResource("Curve2D_g1gxh")
@@ -16,7 +16,7 @@ script = ExtResource("1_g8sg2")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(0, -30)
-rotation = 1.5708
+rotation = 0.915531
 loop = false
 script = ExtResource("2_ifmax")
 

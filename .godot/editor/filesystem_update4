@@ -1,18 +1,5 @@
-res://Scenes/Game/Test Level/Test Level.tscn
 res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd
 res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
-res://Assets/Tilemap/terrain_tileset.tres
-res://Scenes/Enemies/Enemy1/enemy1path5.tscn
-res://Scenes/Enemies/Enemy1/enemy1path1.tscn
-res://Scenes/Game/Test Level/Test Level.gd
-res://Scenes/Enemies/Enemy1/enemy1path6.tscn
-res://Scenes/Game/Test Level/Spawner.gd
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P6(problem).gd
-res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd
-res://Scenes/Enemies/Enemy2/enemy2path1.tscn
-res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.tscn
-res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd
-res://Scenes/Enemies/Enemy1/tenemy1path5.tscn
-res://Scenes/Enemies/Enemy1/enemy1path2.tscn
-res://Scenes/Enemies/Enemy1/enemy1path3.tscn
-res://Scenes/Enemies/Enemy1/enemy1path4.tscn
+res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.gd
+res://Scenes/Enemies/Level 1 Boss/1PathFollow2D.gd
+res://Assets/Font/maintheme.tres

@@ -15,6 +15,8 @@ var shotdown = false
 
 var health = 5
 
+var bombed = false
+
 func _ready():
 	$FirstShot.start()
 	pass
@@ -52,3 +54,6 @@ func enemy_hit(damage):
 func _on_first_shot_timeout():
 	canshoot = true
 	pass # Replace with function body.
+
+func enemy2_score():
+	Gamestats.score += 200

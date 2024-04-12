@@ -13,9 +13,7 @@ var target
 
 func _ready():
 	$missletailflicker.play("tailflicker")
-	target = get_tree().get_nodes_in_group("player")
-	target = target[0]
-	
+	target = get_tree().get_nodes_in_group("player")[0]
 	current_velocity = speed * Vector2.DOWN 
 	pass
 

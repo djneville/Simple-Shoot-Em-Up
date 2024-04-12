@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7yoxxwxaw0n2"]
+
+[ext_resource type="FontFile" uid="uid://bqwmclt6sluhm" path="res://Assets/Font/retro-pixel-arcade.otf" id="1_agbrt"]
+
+[resource]
+default_font = ExtResource("1_agbrt")
+default_font_size = 15

@@ -1,290 +1,299 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1713132347
-export_presets.cfg::TextFile::-1::1712246565::0::1::::<><>::
-gamestats.gd::GDScript::-1::1712241817::0::1::::<>Node<>::
-icon.svg::CompressedTexture2D::6564549658480146558::1710078868::1710078882::1::::<><>::
-::res://Assets/::1711694761
-::res://Assets/Font/::1712246581
-maintheme.tres::Theme::2296480416741673289::1712246581::0::1::::<><>::uid://bqwmclt6sluhm::::res://Assets/Font/retro-pixel-arcade.otf
-retro-pixel-arcade.otf::FontFile::3555591276533085026::1711694761::1711694764::1::::<><>::
-::res://Assets/Ships/::1711689553
-Boss1.png::CompressedTexture2D::1252933772032451906::1711689438::1711689553::1::::<><>::
-ship_0000.png::CompressedTexture2D::8647620154754604494::1710079005::1710135748::1::::<><>::
-ship_0001.png::CompressedTexture2D::7388949284260482551::1710079005::1710135748::1::::<><>::
-ship_0002.png::CompressedTexture2D::6271290581910515341::1710079005::1710135748::1::::<><>::
-ship_0003.png::CompressedTexture2D::6346340210365233676::1710079005::1710135748::1::::<><>::
-ship_0004.png::CompressedTexture2D::6560736725854973406::1710079005::1710135748::1::::<><>::
-ship_0005.png::CompressedTexture2D::5722891382322402721::1710079005::1710135748::1::::<><>::
-ship_0006.png::CompressedTexture2D::4241522682482475117::1710079005::1710135748::1::::<><>::
-ship_0007.png::CompressedTexture2D::8797588748330271172::1710079005::1710135748::1::::<><>::
-ship_0008.png::CompressedTexture2D::6281718617240801241::1710079005::1710135748::1::::<><>::
-ship_0009.png::CompressedTexture2D::3388190761365237652::1710079005::1710135748::1::::<><>::
-ship_0010.png::CompressedTexture2D::3697691774692621912::1710079005::1710135748::1::::<><>::
-ship_0011.png::CompressedTexture2D::4942674219836068296::1710079005::1710135748::1::::<><>::
-ship_0012.png::CompressedTexture2D::854574227004059248::1710079005::1710135748::1::::<><>::
-ship_0013.png::CompressedTexture2D::512571492556936031::1710079005::1710135748::1::::<><>::
-ship_0014.png::CompressedTexture2D::3230362098320740725::1710079005::1710135748::1::::<><>::
-ship_0015.png::CompressedTexture2D::5883194550848806960::1710079005::1710135748::1::::<><>::
-ship_0016.png::CompressedTexture2D::6035538978647024425::1710079005::1710135748::1::::<><>::
-ship_0017.png::CompressedTexture2D::5733068543258511266::1710079005::1710135748::1::::<><>::
-ship_0018.png::CompressedTexture2D::6554176967125767393::1710079005::1710135748::1::::<><>::
-ship_0019.png::CompressedTexture2D::698669941429775047::1710079005::1710135748::1::::<><>::
-ship_0020.png::CompressedTexture2D::9050389285494241249::1710079005::1710135748::1::::<><>::
-ship_0021.png::CompressedTexture2D::2867189714768779224::1710079005::1710135748::1::::<><>::
-ship_0022.png::CompressedTexture2D::7753156162148109754::1710079005::1710135748::1::::<><>::
-ship_0023.png::CompressedTexture2D::3181994252688775329::1710079005::1710135748::1::::<><>::
-::res://Assets/Tilemap/::1712243909
-level_1_tilemap.tscn::PackedScene::2353878601205152535::1710908547::0::1::::<><>::uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres
-ships.png::CompressedTexture2D::2778429263055326225::1710079001::1710135748::1::::<><>::
-ships_packed.png::CompressedTexture2D::1405488835539730445::1710079001::1710135748::1::::<><>::
-terrain_tileset.tres::TileSet::5940096069151011174::1712243909::0::1::::<><>::uid://d4k1eauadb1hs::::res://Assets/Tilemap/tiles_packed.png
-tiles.png::CompressedTexture2D::6600544708290315264::1710079001::1710135748::1::::<><>::
-tiles_packed.png::CompressedTexture2D::9216968110010554656::1710079001::1710135748::1::::<><>::
-::res://Assets/Tiles/::1712141379
-BombBar.png::CompressedTexture2D::8107747443600410418::1711876859::1711876862::1::::<><>::
-bombexplosion.png::CompressedTexture2D::8226246770471742788::1711546822::1711546825::1::::<><>::
-bombshine.png::CompressedTexture2D::6270569061900680292::1711872660::1711872663::1::::<><>::
-Bossbullet.png::CompressedTexture2D::8948499685753930547::1711944220::1711944222::1::::<><>::
-bossexplosion.png::CompressedTexture2D::5465700061576798905::1712141342::1712141379::1::::<><>::
-bosshealthbar.png::CompressedTexture2D::7717778835046423906::1712138126::1712138135::1::::<><>::
-bossmissle.png::CompressedTexture2D::7161563334976536997::1711947505::1711947552::1::::<><>::
-HealthBar.png::CompressedTexture2D::5800136194016103509::1711876782::1711876784::1::::<><>::
-healthbarbackground.png::CompressedTexture2D::8741918443115085098::1712138096::1712138135::1::::<><>::
-healthshine.png::CompressedTexture2D::15827621229739274::1711869376::1711869382::1::::<><>::
-missle.png::CompressedTexture2D::1655805521780759833::1711440729::1711440734::1::::<><>::
-missleexplosion.png::CompressedTexture2D::8672615564960347871::1711441124::1711441130::1::::<><>::
-missletail.png::CompressedTexture2D::2462434066921442626::1711442266::1711442273::1::::<><>::
-spritesheetexplosion.png::CompressedTexture2D::1734711612995543000::1711366580::1711366584::1::::<><>::
-tile_0000.png::CompressedTexture2D::4392347156873595230::1710079001::1710135748::1::::<><>::
-tile_0001.png::CompressedTexture2D::6285833488334891142::1710079002::1710135748::1::::<><>::
-tile_0002.png::CompressedTexture2D::5920652776034252624::1710079002::1710135748::1::::<><>::
-tile_0003.png::CompressedTexture2D::8594619568324437437::1710079002::1710135748::1::::<><>::
-tile_0004.png::CompressedTexture2D::1689324908654560511::1710079002::1710135748::1::::<><>::
-tile_0005.png::CompressedTexture2D::4903936334005303565::1710079002::1710135748::1::::<><>::
-tile_0006.png::CompressedTexture2D::59696224652132586::1710079002::1710135748::1::::<><>::
-tile_0007.png::CompressedTexture2D::5031921552227831939::1710079002::1710135748::1::::<><>::
-tile_0008.png::CompressedTexture2D::5558412235006757994::1710079002::1710135748::1::::<><>::
-tile_0009.png::CompressedTexture2D::7464315665290563839::1710079002::1710135748::1::::<><>::
-tile_0010.png::CompressedTexture2D::2583705079312628071::1710079002::1710135748::1::::<><>::
-tile_0011.png::CompressedTexture2D::8096347902755601472::1710079002::1710135748::1::::<><>::
-tile_0012.png::CompressedTexture2D::7090688772955772953::1710079002::1710135748::1::::<><>::
-tile_0013.png::CompressedTexture2D::1286480960736909766::1710079002::1710135748::1::::<><>::
-tile_0014.png::CompressedTexture2D::288382757498218974::1710079002::1710135748::1::::<><>::
-tile_0015.png::CompressedTexture2D::7081693953910352038::1710079002::1710135748::1::::<><>::
-tile_0016.png::CompressedTexture2D::6126063114365137713::1710079002::1710135748::1::::<><>::
-tile_0017.png::CompressedTexture2D::7000329815804892292::1710079002::1710135748::1::::<><>::
-tile_0018.png::CompressedTexture2D::3616915426114555218::1710079002::1710135748::1::::<><>::
-tile_0019.png::CompressedTexture2D::3965757625579322404::1710079002::1710135748::1::::<><>::
-tile_0020.png::CompressedTexture2D::2028289326849742246::1710079002::1710135748::1::::<><>::
-tile_0021.png::CompressedTexture2D::2226094020048443962::1710079002::1710135748::1::::<><>::
-tile_0022.png::CompressedTexture2D::5432256111284006103::1710079002::1710135748::1::::<><>::
-tile_0023.png::CompressedTexture2D::3240982844528458809::1710079002::1710135748::1::::<><>::
-tile_0024.png::CompressedTexture2D::1238437381091375230::1711868955::1711869040::1::::<><>::
-tile_0025.png::CompressedTexture2D::7105189831478945385::1710079002::1710135748::1::::<><>::
-tile_0026.png::CompressedTexture2D::3960569029806606708::1710079002::1710135748::1::::<><>::
-tile_0027.png::CompressedTexture2D::5474941767769206033::1710079002::1710135748::1::::<><>::
-tile_0028.png::CompressedTexture2D::8182677846446516005::1710079002::1710135748::1::::<><>::
-tile_0029.png::CompressedTexture2D::8825969960094243210::1710079002::1710135748::1::::<><>::
-tile_0030.png::CompressedTexture2D::6285689544638030172::1710079002::1710135748::1::::<><>::
-tile_0031.png::CompressedTexture2D::7237369259165614136::1710079002::1710135748::1::::<><>::
-tile_0032.png::CompressedTexture2D::3490837237494586675::1710079002::1710135748::1::::<><>::
-tile_0033.png::CompressedTexture2D::3566971915732246472::1710079002::1710135748::1::::<><>::
-tile_0034.png::CompressedTexture2D::5905946979592465966::1710079002::1710135748::1::::<><>::
-tile_0035.png::CompressedTexture2D::6794998841070699497::1710079002::1710135748::1::::<><>::
-tile_0036.png::CompressedTexture2D::3657852359082033978::1710079002::1710135748::1::::<><>::
-tile_0037.png::CompressedTexture2D::6457872779824604935::1710079002::1710135748::1::::<><>::
-tile_0038.png::CompressedTexture2D::1532884487400187468::1710079002::1710135748::1::::<><>::
-tile_0039.png::CompressedTexture2D::787013645300124629::1710079002::1710135748::1::::<><>::
-tile_0040.png::CompressedTexture2D::3138132929483716581::1710079002::1710135748::1::::<><>::
-tile_0041.png::CompressedTexture2D::7033119968984680465::1710079002::1710135748::1::::<><>::
-tile_0042.png::CompressedTexture2D::224149033493795403::1710079002::1710135748::1::::<><>::
-tile_0043.png::CompressedTexture2D::6364050995907941538::1710079002::1710135748::1::::<><>::
-tile_0044.png::CompressedTexture2D::7706207771975754460::1710079002::1710135748::1::::<><>::
-tile_0045.png::CompressedTexture2D::1678472660117459208::1710079003::1710135748::1::::<><>::
-tile_0046.png::CompressedTexture2D::2029195234929186058::1710079003::1710135747::1::::<><>::
-tile_0047.png::CompressedTexture2D::4516242879414549444::1710079003::1710135747::1::::<><>::
-tile_0048.png::CompressedTexture2D::8547987139856199728::1710079003::1710135747::1::::<><>::
-tile_0049.png::CompressedTexture2D::671769199916953394::1710079003::1710135747::1::::<><>::
-tile_0050.png::CompressedTexture2D::1786003637331240391::1710079003::1710135747::1::::<><>::
-tile_0051.png::CompressedTexture2D::7986188517453870493::1710079003::1710135747::1::::<><>::
-tile_0052.png::CompressedTexture2D::8252455980326304317::1710079003::1710135747::1::::<><>::
-tile_0053.png::CompressedTexture2D::8622218075423229711::1710079003::1710135747::1::::<><>::
-tile_0054.png::CompressedTexture2D::5781718612621375565::1710079003::1710135747::1::::<><>::
-tile_0055.png::CompressedTexture2D::1685127570333377797::1710079003::1710135747::1::::<><>::
-tile_0056.png::CompressedTexture2D::2014256725033622152::1710079003::1710135747::1::::<><>::
-tile_0057.png::CompressedTexture2D::7467667559171409525::1710079003::1710135747::1::::<><>::
-tile_0058.png::CompressedTexture2D::7359191177728329260::1710079003::1710135747::1::::<><>::
-tile_0059.png::CompressedTexture2D::4428019926033464147::1710079003::1710135747::1::::<><>::
-tile_0060.png::CompressedTexture2D::3101454392418525199::1710079003::1710135747::1::::<><>::
-tile_0061.png::CompressedTexture2D::9144331935598435499::1710079003::1710135747::1::::<><>::
-tile_0062.png::CompressedTexture2D::7936604431954639314::1710079003::1710135747::1::::<><>::
-tile_0063.png::CompressedTexture2D::1272744904045451182::1710079003::1710135747::1::::<><>::
-tile_0064.png::CompressedTexture2D::1882268177567556960::1710079003::1710135747::1::::<><>::
-tile_0065.png::CompressedTexture2D::7168037236567785387::1710079003::1710135747::1::::<><>::
-tile_0066.png::CompressedTexture2D::6311469036151722292::1710079003::1710135747::1::::<><>::
-tile_0067.png::CompressedTexture2D::4064757444697231242::1710079003::1710135747::1::::<><>::
-tile_0068.png::CompressedTexture2D::332621823879909559::1710079003::1710135747::1::::<><>::
-tile_0069.png::CompressedTexture2D::8067126664929062737::1710079003::1710135747::1::::<><>::
-tile_0070.png::CompressedTexture2D::1516362297570262668::1710079003::1710135747::1::::<><>::
-tile_0071.png::CompressedTexture2D::3819648496337858971::1710079003::1710135747::1::::<><>::
-tile_0072.png::CompressedTexture2D::5178678943717026397::1710079003::1710135747::1::::<><>::
-tile_0073.png::CompressedTexture2D::7622562671032072821::1710079003::1710135747::1::::<><>::
-tile_0074.png::CompressedTexture2D::4299899367431661339::1710079003::1710135747::1::::<><>::
-tile_0075.png::CompressedTexture2D::376436432346332881::1710079003::1710135747::1::::<><>::
-tile_0076.png::CompressedTexture2D::1332136253082251841::1710079003::1710135747::1::::<><>::
-tile_0077.png::CompressedTexture2D::6840002764407654210::1710079003::1710135747::1::::<><>::
-tile_0078.png::CompressedTexture2D::1424912393186516541::1710079003::1710135747::1::::<><>::
-tile_0079.png::CompressedTexture2D::6658205119297994467::1710079003::1710135747::1::::<><>::
-tile_0080.png::CompressedTexture2D::5820644592841760982::1710079003::1710135747::1::::<><>::
-tile_0081.png::CompressedTexture2D::1689304539924330163::1710079003::1710135747::1::::<><>::
-tile_0082.png::CompressedTexture2D::2569611154924659291::1710079003::1710135747::1::::<><>::
-tile_0083.png::CompressedTexture2D::7954781728384734181::1710079003::1710135747::1::::<><>::
-tile_0084.png::CompressedTexture2D::8637337016483193563::1710079003::1710135747::1::::<><>::
-tile_0085.png::CompressedTexture2D::432988201300728576::1710079003::1710135747::1::::<><>::
-tile_0086.png::CompressedTexture2D::4107721780063234862::1710079004::1710135747::1::::<><>::
-tile_0087.png::CompressedTexture2D::7602309307298745481::1710079004::1710135748::1::::<><>::
-tile_0088.png::CompressedTexture2D::2397067475654503512::1710079004::1710135748::1::::<><>::
-tile_0089.png::CompressedTexture2D::8845682498992899163::1710079004::1710135748::1::::<><>::
-tile_0090.png::CompressedTexture2D::8799873996995139985::1710079004::1710135748::1::::<><>::
-tile_0091.png::CompressedTexture2D::8102381193993633360::1710079004::1710135748::1::::<><>::
-tile_0092.png::CompressedTexture2D::2400032347502359012::1710079004::1710135748::1::::<><>::
-tile_0093.png::CompressedTexture2D::4360185165156974279::1710079004::1710135748::1::::<><>::
-tile_0094.png::CompressedTexture2D::4508947555885314561::1710079004::1710135748::1::::<><>::
-tile_0095.png::CompressedTexture2D::8445726947908691540::1710079004::1710135748::1::::<><>::
-tile_0096.png::CompressedTexture2D::5390085504907737488::1710079004::1710135748::1::::<><>::
-tile_0097.png::CompressedTexture2D::8415283481272987329::1710079004::1710135748::1::::<><>::
-tile_0098.png::CompressedTexture2D::1293035332011466365::1710079004::1710135748::1::::<><>::
-tile_0099.png::CompressedTexture2D::8162719707679227661::1710079004::1710135748::1::::<><>::
-tile_0100.png::CompressedTexture2D::2184554713807104082::1710079004::1710135748::1::::<><>::
-tile_0101.png::CompressedTexture2D::3241149688485917962::1710079004::1710135748::1::::<><>::
-tile_0102.png::CompressedTexture2D::3628620542826480753::1710079004::1710135747::1::::<><>::
-tile_0103.png::CompressedTexture2D::448792304425360843::1710079004::1710135747::1::::<><>::
-tile_0104.png::CompressedTexture2D::7172690630517825568::1710079004::1710135747::1::::<><>::
-tile_0105.png::CompressedTexture2D::9182313110788550252::1710079004::1710135747::1::::<><>::
-tile_0106.png::CompressedTexture2D::6519276231886250906::1710079004::1710135747::1::::<><>::
-tile_0107.png::CompressedTexture2D::7608295757976703499::1710079004::1710135747::1::::<><>::
-tile_0108.png::CompressedTexture2D::7081222977048723783::1710079004::1710135747::1::::<><>::
-tile_0109.png::CompressedTexture2D::3295762681018735049::1710079004::1710135747::1::::<><>::
-tile_0110.png::CompressedTexture2D::8074970353625244270::1710079004::1710135747::1::::<><>::
-tile_0111.png::CompressedTexture2D::1711574689025842206::1710079004::1710135747::1::::<><>::
-tile_0112.png::CompressedTexture2D::4683513638757477524::1710079004::1710135747::1::::<><>::
-tile_0113.png::CompressedTexture2D::6142757583297415192::1710079004::1710135747::1::::<><>::
-tile_0114.png::CompressedTexture2D::6462944752716125432::1710079004::1710135747::1::::<><>::
-tile_0115.png::CompressedTexture2D::6407815094043608439::1710079004::1710135747::1::::<><>::
-tile_0116.png::CompressedTexture2D::8009782909310691270::1710079004::1710135747::1::::<><>::
-tile_0117.png::CompressedTexture2D::4087167716187416440::1710079004::1710135747::1::::<><>::
-tile_0118.png::CompressedTexture2D::5428418620409891984::1710079004::1710135747::1::::<><>::
-tile_0119.png::CompressedTexture2D::5458448997046879782::1710079004::1710135747::1::::<><>::
-upgradeshine.png::CompressedTexture2D::2202480897702353414::1711875648::1711875575::1::::<><>::
-::res://Scenes/::1711689751
-::res://Scenes/Drops/::1711872249
-::res://Scenes/Drops/Bomb/::1711876864
-BombItem.gd::GDScript::-1::1711875876::0::1::::<>Area2D<>::
-bombitem.tscn::PackedScene::510768118905126969::1711876864::0::1::::<><>::res://Scenes/Drops/Bomb/BombItem.gd<>uid://cvlrmd5lcpo25::::res://Assets/Tiles/bombshine.png
-::res://Scenes/Drops/Health/::1711876864
-HealthItem.gd::GDScript::-1::1711875876::0::1::::<>Area2D<>::
-healthitem.tscn::PackedScene::6388399917127295816::1711876864::0::1::::<><>::res://Scenes/Drops/Health/HealthItem.gd<>uid://hwxcqb6fop3::::res://Assets/Tiles/healthshine.png
-::res://Scenes/Drops/Upgrade/::1711876864
-UpgradeItem.gd::GDScript::-1::1711875876::0::1::::<>Area2D<>::
-upgradeitem.tscn::PackedScene::577187889465414221::1711876864::0::1::::<><>::res://Scenes/Drops/Upgrade/UpgradeItem.gd<>uid://6m5skvc2adri::::res://Assets/Tiles/upgradeshine.png
-::res://Scenes/Enemies/::1711941474
-::res://Scenes/Enemies/Enemy1/::1712246581
-Enemy1-Path2d.gd::GDScript::-1::1711611290::0::1::::<>Path2D<>::
-Enemy1-PathFollow2D.gd::GDScript::-1::1712246581::0::1::::<>PathFollow2D<>::
-enemy1path1.tscn::PackedScene::3500017364076450363::1711600726::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
-enemy1path2.tscn::PackedScene::4291279665269944668::1711600726::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-enemy1path3.tscn::PackedScene::5540483288617192990::1711600726::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-enemy1path4.tscn::PackedScene::1948534529485569841::1711600726::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-enemy1path5.tscn::PackedScene::4324534984999040432::1711611291::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-::res://Scenes/Enemies/Enemy1/Enemy and Bullet/::1712246581
-enemy1_bullet.gd::GDScript::-1::1712243501::0::1::::<>Area2D<>::
-enemy1_bullet.tscn::PackedScene::7126763188981341278::1712148944::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy1_bullet.gd<>uid://del1gn4edml88::::res://Assets/Tiles/tile_0009.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
-enemy_1.gd::GDScript::-1::1712246581::0::1::::<>CharacterBody2D<>::
-enemy_1.tscn::PackedScene::1785571240630415591::1712148761::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd<>uid://dvg8bm3otvxvq::::res://Assets/Ships/ship_0000.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png
-::res://Scenes/Enemies/Enemy2/::1711600726
-Enemy2-Path2D.gd::GDScript::-1::1711435112::0::1::::<>Path2D<>::
-Enemy2-PathFollow2D.gd::GDScript::-1::1711435112::0::1::::<>PathFollow2D<>::
-enemy2path1.tscn::PackedScene::646051804926884403::1711600726::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy2-Path2D.gd<>res://Scenes/Enemies/Enemy2/Enemy2-PathFollow2D.gd<>uid://bn81fpt2inink::::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.tscn
-::res://Scenes/Enemies/Enemy2/Enemy and Missle/::1712158656
-enemy2_missle.gd::GDScript::-1::1712136339::0::1::::<>Area2D<>::
-enemy2_missle.tscn::PackedScene::7016436800185343925::1711599056::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd<>uid://xuc40sc1e8px::::res://Assets/Tiles/missle.png<>uid://bbc26uj3r735g::::res://Assets/Tiles/missletail.png<>uid://dvtcygh0tyxyd::::res://Assets/Tiles/missleexplosion.png
-enemy_2.gd::GDScript::-1::1712158656::0::1::::<>CharacterBody2D<>::
-enemy_2.tscn::PackedScene::3368588506092451052::1712137758::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.gd<>uid://cvl4ifaxu04uj::::res://Assets/Ships/ship_0002.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
-::res://Scenes/Enemies/Enemy3/::1711628032
-Enemy3-Path2D.gd::GDScript::-1::1711545786::0::1::::<>Path2D<>::
-Enemy3-PathFollow2D.gd::GDScript::-1::1711626603::0::1::::<>PathFollow2D<>::
-enemy3path1.tscn::PackedScene::2184369252057680340::1711628032::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy3-Path2D.gd<>uid://cnxptne1igqjg::::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.tscn<>res://Scenes/Enemies/Enemy3/Enemy3-PathFollow2D.gd
-::res://Scenes/Enemies/Enemy3/Enemy and Bomb/::1712246581
-enemy3_bomb.gd::GDScript::-1::1711697619::0::1::::<>Area2D<>::
-enemy3_bomb.tscn::PackedScene::6123201828345852208::1711629619::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy3_bomb.gd<>uid://c8a1uw84k6p0t::::res://Assets/Tiles/tile_0012.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
-enemy_3.gd::GDScript::-1::1712246581::0::1::::<>CharacterBody2D<>::
-enemy_3.tscn::PackedScene::5733722398174723816::1712137523::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.gd<>uid://cwohkcica2ak7::::res://Assets/Ships/ship_0003.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
-::res://Scenes/Enemies/Level 1 Boss/::1712246581
-1PathFollow2D.gd::GDScript::-1::1712246581::0::1::::<>PathFollow2D<>::
-2PathFollow2D.gd::GDScript::-1::1712123282::0::1::::<>PathFollow2D<>::
-boss_1.gd::GDScript::-1::1712149148::0::1::::<>CharacterBody2D<>::
-boss_1.tscn::PackedScene::1455006299884258526::1712148762::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/boss_1.gd<>uid://r36vvoafeji5::::res://Assets/Ships/Boss1.png<>uid://ctjrmnk6els4x::::res://Assets/Tiles/tile_0016.png<>uid://cj4vjtmylwkfh::::res://Assets/Tiles/bossexplosion.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
-boss_1_path.gd::GDScript::-1::1712241954::0::1::::<>Node2D<>::
-boss_1_path.tscn::PackedScene::2122217676232317301::1712243503::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/PathFollow2D.gd<>res://Scenes/Enemies/Level 1 Boss/boss_1_path.gd<>res://Scenes/Enemies/Level 1 Boss/1PathFollow2D.gd<>res://Scenes/Enemies/Level 1 Boss/2PathFollow2D.gd<>uid://uy20g2lse8du::::res://Scenes/Enemies/Level 1 Boss/boss_1.tscn
-boss_bullet.gd::GDScript::-1::1712123920::0::1::::<>Area2D<>::
-boss_bullet.tscn::PackedScene::1863312439333772479::1712133703::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/boss_bullet.gd<>uid://d0qyqnxrruyu2::::res://Assets/Tiles/Bossbullet.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
-boss_missle.gd::GDScript::-1::1712137189::0::1::::<>Area2D<>::
-boss_missle.tscn::PackedScene::1069673815219561568::1712137189::0::1::::<><>::uid://dabd5wqyt8ofl::::res://Assets/Tiles/bossmissle.png<>res://Scenes/Enemies/Level 1 Boss/boss_missle.gd<>uid://dvtcygh0tyxyd::::res://Assets/Tiles/missleexplosion.png
-PathFollow2D.gd::GDScript::-1::1712123282::0::1::::<>PathFollow2D<>::
-::res://Scenes/Game/::1711960258
-::res://Scenes/Game/Spawners/::1712155169
-boss_spawner.tscn::PackedScene::3985504589069171574::1711960283::0::1::::<><>::res://Scenes/Game/Test Level/BossSpawner.gd<>res://Scenes/Game/Test Level/BossSpawnMarker.gd
-item_spawner.tscn::PackedScene::3642889991406649210::1711960269::0::1::::<><>::res://Scenes/Game/Test Level/ItemSpawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/healthspawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/upgradespawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/bombspawner.gd
-spawner.tscn::PackedScene::408767552100662253::1712155169::0::1::::<><>::res://Scenes/Game/Test Level/Spawner.gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P1(down).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E2P1(down).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P2(loopright).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P3(loopleft).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P4(diagright).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E3P1(U).gd
-::res://Scenes/Game/Test Level/::1712245359
-BossSpawner.gd::GDScript::-1::1712139637::0::1::::<>Node2D<>::
-BossSpawnMarker.gd::GDScript::-1::1711960382::0::1::::<>Marker2D<>::
-ItemSpawner.gd::GDScript::-1::1711875690::0::1::::<>Node2D<>::
-ParallaxBackground.gd::GDScript::-1::1711899263::0::1::::<>ParallaxBackground<>::
-Spawner.gd::GDScript::-1::1711874179::0::1::::<>Node2D<>::
-Test Level.gd::GDScript::-1::1712244228::0::1::::<>Node2D<>::
-Test Level.tscn::PackedScene::5219270706800097808::1712245359::0::1::::<><>::uid://b18tr3vm35i1n::::res://Scenes/Player/player.tscn<>res://Scenes/Game/Test Level/Test Level.gd<>uid://bkjpkm5fr8el4::::res://Scenes/GUI/Menus/Pause Menu/unpause_node.tscn<>uid://cuy4t2v7uji4a::::res://Scenes/GUI/Menus/Pause Menu/pause_menu.tscn<>uid://f3alvgryftn6::::res://Scenes/Game/Spawners/spawner.tscn<>res://Scenes/Game/Test Level/ParallaxBackground.gd<>uid://br5v4palr3fxi::::res://Scenes/Game/Spawners/item_spawner.tscn<>uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres<>uid://bw1uxcduvt1da::::res://Scenes/Game/Spawners/boss_spawner.tscn<>uid://cnu4o8o4iydwx::::res://Scenes/GUI/GameplayGUI/boss_health.tscn<>uid://dn8m2xxaxymba::::res://Scenes/GUI/GameplayGUI/Health Bombs Lives Score.tscn
-::res://Scenes/Game/Test Level/Enemy Spawn Order Data/::1711628562
-E1P1(down).gd::GDScript::-1::1711549176::0::1::::<>Marker2D<>::
-E1P2(loopright).gd::GDScript::-1::1711009268::0::1::::<>Marker2D<>::
-E1P3(loopleft).gd::GDScript::-1::1711269896::0::1::::<>Marker2D<>::
-E1P4(diagright).gd::GDScript::-1::1711549630::0::1::::<>Marker2D<>::
-E1P5(diagleft).gd::GDScript::-1::1711599315::0::1::::<>Marker2D<>::
-E2P1(down).gd::GDScript::-1::1711549427::0::1::::<>Marker2D<>::
-E3P1(U).gd::GDScript::-1::1711628562::0::1::::<>Marker2D<>::
-::res://Scenes/Game/Test Level/ItemSpawnOrderData/::1711876004
-bombspawner.gd::GDScript::-1::1711875999::0::1::::<>Marker2D<>::
-healthspawner.gd::GDScript::-1::1711876004::0::1::::<>Marker2D<>::
-upgradespawner.gd::GDScript::-1::1711875876::0::1::::<>Marker2D<>::
-::res://Scenes/GUI/::1711871804
-::res://Scenes/GUI/GameplayGUI/::1712158657
-Bombsbar.gd::GDScript::-1::1711962867::0::1::::<>TextureProgressBar<>::
-boss_health.gd::GDScript::-1::1712139218::0::1::::<>Control<>::
-boss_health.tscn::PackedScene::5728371439893796719::1712147501::0::1::::<><>::uid://dwswecgycv60u::::res://Assets/Tiles/healthbarbackground.png<>uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/GameplayGUI/boss_health.gd<>uid://dh7sxppe26k7s::::res://Assets/Tiles/bosshealthbar.png
-Health Bombs Lives Score.tscn::PackedScene::8140619548205574338::1711897640::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>uid://covvnpo102y3v::::res://Assets/Tiles/HealthBar.png<>res://Scenes/GUI/GameplayGUI/ScoreNumber.gd<>uid://dnrpoeyfehamc::::res://Assets/Tiles/BombBar.png<>res://Scenes/GUI/GameplayGUI/LivesNumber.gd<>res://Scenes/GUI/GameplayGUI/Healthbar.gd<>res://Scenes/GUI/GameplayGUI/Bombsbar.gd
-Healthbar.gd::GDScript::-1::1711962867::0::1::::<>TextureProgressBar<>::
-LivesNumber.gd::GDScript::-1::1712158656::0::1::::<>Label<>::
-ScoreNumber.gd::GDScript::-1::1712158657::0::1::::<>Label<>::
-::res://Scenes/GUI/Menus/::1712245359
-Label.gd::GDScript::-1::1712241817::0::1::::<>Label<>::
-level_select_screen.gd::GDScript::-1::1711696122::0::1::::<>Control<>::
-level_select_screen.tscn::PackedScene::8572461295433056623::1711696122::0::1::::<><>::res://Scenes/GUI/Menus/level_select_screen.gd
-Main Screen.gd::GDScript::-1::1712245358::0::1::::<>Control<>::
-main_screen.tscn::PackedScene::7066503362194082697::1712245359::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/Menus/Main Screen.gd
-::res://Scenes/GUI/Menus/GameOverCompleteScreen/::1712245359
-game_over_complete_screen.gd::GDScript::-1::1712244805::0::1::::<>Control<>::
-game_over_complete_screen.tscn::PackedScene::4827577029085981669::1712245359::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/Menus/GameOverCompleteScreen/Lives.gd<>res://Scenes/GUI/Menus/GameOverCompleteScreen/game_over_complete_screen.gd<>res://Scenes/GUI/Menus/GameOverCompleteScreen/Score.gd
-Lives.gd::GDScript::-1::1712238508::0::1::::<>Label<>::
-Score.gd::GDScript::-1::1712239285::0::1::::<>Label<>::
-::res://Scenes/GUI/Menus/Pause Menu/::1711696122
-Pause Node.gd::GDScript::-1::1711353000::0::1::::<>Node<>::
-pause_menu.gd::GDScript::-1::1711696122::0::1::::<>Control<>::
-pause_menu.tscn::PackedScene::6227959481171075778::1711689751::0::1::::<><>::res://Scenes/GUI/Menus/Pause Menu/pause_menu.gd
-unpause_node.tscn::PackedScene::3107817809566039899::1711689751::0::1::::<><>::res://Scenes/GUI/Menus/Pause Menu/Pause Node.gd
-::res://Scenes/Player/::1712243501
-player.gd::GDScript::-1::1712243382::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::4280640569203390225::1712243501::0::1::::<><>::res://Scenes/Player/player.gd<>uid://ddji6d67k2nh4::::res://Assets/Ships/ship_0001.png<>uid://bojjah5ah8ksq::::res://Assets/Ships/ship_0009.png<>uid://cb4rd54421yrl::::res://Assets/Tiles/tile_0005.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png
-PlayerBomb.gd::GDScript::-1::1712137523::0::1::::<>Area2D<>::
-PlayerBullet.gd::GDScript::-1::1711868503::0::1::::<>Area2D<>::
-player_bomb.tscn::PackedScene::5545797699937973941::1711627968::0::1::::<><>::res://Scenes/Player/PlayerBomb.gd<>uid://brsccllo67eco::::res://Assets/Tiles/tile_0018.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
-player_bullet.tscn::PackedScene::6323010345445250541::1711545715::0::1::::<><>::res://Scenes/Player/PlayerBullet.gd<>uid://b3txk0h4atnm1::::res://Assets/Tiles/tile_0000.png<>uid://cdxrao110o2gl::::res://Assets/Tiles/tile_0007.png
+::res://::1731233487
+gamestats.gd::GDScript::-1::1731113329::0::1::::<>Node<>::
+icon.svg::CompressedTexture2D::6564549658480146558::1731113329::1731113367::1::::<><>::
+::res://addons/::1731224054
+::res://addons/script-tabs/::1731224055
+plugin.cfg::TextFile::-1::1731224055::0::1::::<><>::
+plugin.gd::GDScript::-1::1731224055::0::1::::<>EditorPlugin<>::
+::res://Assets/::1731113329
+::res://Assets/Font/::1731233579
+maintheme.tres::Theme::2296480416741673289::1731233579::0::1::::<><>::uid://bqwmclt6sluhm::::res://Assets/Font/retro-pixel-arcade.otf
+retro-pixel-arcade.otf::FontFile::3555591276533085026::1731113329::1731113367::1::::<><>::
+::res://Assets/Ships/::1731113367
+Boss1.png::CompressedTexture2D::1252933772032451906::1731113329::1731113367::1::::<><>::
+ship_0000.png::CompressedTexture2D::8647620154754604494::1731113329::1731113367::1::::<><>::
+ship_0001.png::CompressedTexture2D::7388949284260482551::1731113329::1731113367::1::::<><>::
+ship_0002.png::CompressedTexture2D::6271290581910515341::1731113329::1731113367::1::::<><>::
+ship_0003.png::CompressedTexture2D::6346340210365233676::1731113329::1731113367::1::::<><>::
+ship_0004.png::CompressedTexture2D::6560736725854973406::1731113329::1731113367::1::::<><>::
+ship_0005.png::CompressedTexture2D::5722891382322402721::1731113329::1731113367::1::::<><>::
+ship_0006.png::CompressedTexture2D::4241522682482475117::1731113329::1731113367::1::::<><>::
+ship_0007.png::CompressedTexture2D::8797588748330271172::1731113329::1731113367::1::::<><>::
+ship_0008.png::CompressedTexture2D::6281718617240801241::1731113329::1731113367::1::::<><>::
+ship_0009.png::CompressedTexture2D::3388190761365237652::1731113329::1731113367::1::::<><>::
+ship_0010.png::CompressedTexture2D::3697691774692621912::1731113329::1731113367::1::::<><>::
+ship_0011.png::CompressedTexture2D::4942674219836068296::1731113329::1731113367::1::::<><>::
+ship_0012.png::CompressedTexture2D::854574227004059248::1731113329::1731113367::1::::<><>::
+ship_0013.png::CompressedTexture2D::512571492556936031::1731113329::1731113367::1::::<><>::
+ship_0014.png::CompressedTexture2D::3230362098320740725::1731113329::1731113367::1::::<><>::
+ship_0015.png::CompressedTexture2D::5883194550848806960::1731113329::1731113367::1::::<><>::
+ship_0016.png::CompressedTexture2D::6035538978647024425::1731113329::1731113367::1::::<><>::
+ship_0017.png::CompressedTexture2D::5733068543258511266::1731113329::1731113367::1::::<><>::
+ship_0018.png::CompressedTexture2D::6554176967125767393::1731113329::1731113367::1::::<><>::
+ship_0019.png::CompressedTexture2D::698669941429775047::1731113329::1731113367::1::::<><>::
+ship_0020.png::CompressedTexture2D::9050389285494241249::1731113329::1731113367::1::::<><>::
+ship_0021.png::CompressedTexture2D::2867189714768779224::1731113329::1731113367::1::::<><>::
+ship_0022.png::CompressedTexture2D::7753156162148109754::1731113329::1731113367::1::::<><>::
+ship_0023.png::CompressedTexture2D::3181994252688775329::1731113329::1731113367::1::::<><>::
+::res://Assets/Tilemap/::1731233579
+level_1_tilemap.tscn::PackedScene::2353878601205152535::1731113329::0::1::::<><>::uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres
+ships.png::CompressedTexture2D::2778429263055326225::1731113329::1731113367::1::::<><>::
+ships_packed.png::CompressedTexture2D::1405488835539730445::1731113329::1731113367::1::::<><>::
+terrain_tileset.tres::TileSet::5940096069151011174::1731233579::0::1::::<><>::uid://d4k1eauadb1hs::::res://Assets/Tilemap/tiles_packed.png
+tiles.png::CompressedTexture2D::6600544708290315264::1731113329::1731113367::1::::<><>::
+tiles_packed.png::CompressedTexture2D::9216968110010554656::1731113329::1731113367::1::::<><>::
+::res://Assets/Tiles/::1731113368
+BombBar.png::CompressedTexture2D::8107747443600410418::1731113329::1731113367::1::::<><>::
+bombexplosion.png::CompressedTexture2D::8226246770471742788::1731113329::1731113367::1::::<><>::
+bombshine.png::CompressedTexture2D::6270569061900680292::1731113329::1731113367::1::::<><>::
+Bossbullet.png::CompressedTexture2D::8948499685753930547::1731113329::1731113367::1::::<><>::
+bossexplosion.png::CompressedTexture2D::5465700061576798905::1731113329::1731113368::1::::<><>::
+bosshealthbar.png::CompressedTexture2D::7717778835046423906::1731113329::1731113367::1::::<><>::
+bossmissle.png::CompressedTexture2D::7161563334976536997::1731113329::1731113367::1::::<><>::
+HealthBar.png::CompressedTexture2D::5800136194016103509::1731113329::1731113367::1::::<><>::
+healthbarbackground.png::CompressedTexture2D::8741918443115085098::1731113329::1731113367::1::::<><>::
+healthshine.png::CompressedTexture2D::15827621229739274::1731113329::1731113367::1::::<><>::
+missle.png::CompressedTexture2D::1655805521780759833::1731113329::1731113367::1::::<><>::
+missleexplosion.png::CompressedTexture2D::8672615564960347871::1731113329::1731113367::1::::<><>::
+missletail.png::CompressedTexture2D::2462434066921442626::1731113329::1731113367::1::::<><>::
+spritesheetexplosion.png::CompressedTexture2D::1734711612995543000::1731113329::1731113367::1::::<><>::
+tile_0000.png::CompressedTexture2D::4392347156873595230::1731113329::1731113367::1::::<><>::
+tile_0001.png::CompressedTexture2D::6285833488334891142::1731113329::1731113367::1::::<><>::
+tile_0002.png::CompressedTexture2D::5920652776034252624::1731113329::1731113367::1::::<><>::
+tile_0003.png::CompressedTexture2D::8594619568324437437::1731113329::1731113367::1::::<><>::
+tile_0004.png::CompressedTexture2D::1689324908654560511::1731113329::1731113367::1::::<><>::
+tile_0005.png::CompressedTexture2D::4903936334005303565::1731113329::1731113367::1::::<><>::
+tile_0006.png::CompressedTexture2D::59696224652132586::1731113329::1731113367::1::::<><>::
+tile_0007.png::CompressedTexture2D::5031921552227831939::1731113329::1731113367::1::::<><>::
+tile_0008.png::CompressedTexture2D::5558412235006757994::1731113329::1731113367::1::::<><>::
+tile_0009.png::CompressedTexture2D::7464315665290563839::1731113329::1731113367::1::::<><>::
+tile_0010.png::CompressedTexture2D::2583705079312628071::1731113329::1731113367::1::::<><>::
+tile_0011.png::CompressedTexture2D::8096347902755601472::1731113329::1731113367::1::::<><>::
+tile_0012.png::CompressedTexture2D::7090688772955772953::1731113329::1731113367::1::::<><>::
+tile_0013.png::CompressedTexture2D::1286480960736909766::1731113329::1731113367::1::::<><>::
+tile_0014.png::CompressedTexture2D::288382757498218974::1731113329::1731113367::1::::<><>::
+tile_0015.png::CompressedTexture2D::7081693953910352038::1731113329::1731113367::1::::<><>::
+tile_0016.png::CompressedTexture2D::6126063114365137713::1731113329::1731113367::1::::<><>::
+tile_0017.png::CompressedTexture2D::7000329815804892292::1731113329::1731113367::1::::<><>::
+tile_0018.png::CompressedTexture2D::3616915426114555218::1731113329::1731113367::1::::<><>::
+tile_0019.png::CompressedTexture2D::3965757625579322404::1731113329::1731113367::1::::<><>::
+tile_0020.png::CompressedTexture2D::2028289326849742246::1731113329::1731113367::1::::<><>::
+tile_0021.png::CompressedTexture2D::2226094020048443962::1731113329::1731113367::1::::<><>::
+tile_0022.png::CompressedTexture2D::5432256111284006103::1731113329::1731113367::1::::<><>::
+tile_0023.png::CompressedTexture2D::3240982844528458809::1731113329::1731113367::1::::<><>::
+tile_0024.png::CompressedTexture2D::1238437381091375230::1731113329::1731113367::1::::<><>::
+tile_0025.png::CompressedTexture2D::7105189831478945385::1731113329::1731113367::1::::<><>::
+tile_0026.png::CompressedTexture2D::3960569029806606708::1731113329::1731113367::1::::<><>::
+tile_0027.png::CompressedTexture2D::5474941767769206033::1731113329::1731113367::1::::<><>::
+tile_0028.png::CompressedTexture2D::8182677846446516005::1731113329::1731113367::1::::<><>::
+tile_0029.png::CompressedTexture2D::8825969960094243210::1731113329::1731113367::1::::<><>::
+tile_0030.png::CompressedTexture2D::6285689544638030172::1731113329::1731113367::1::::<><>::
+tile_0031.png::CompressedTexture2D::7237369259165614136::1731113329::1731113367::1::::<><>::
+tile_0032.png::CompressedTexture2D::3490837237494586675::1731113329::1731113367::1::::<><>::
+tile_0033.png::CompressedTexture2D::3566971915732246472::1731113329::1731113367::1::::<><>::
+tile_0034.png::CompressedTexture2D::5905946979592465966::1731113329::1731113367::1::::<><>::
+tile_0035.png::CompressedTexture2D::6794998841070699497::1731113329::1731113367::1::::<><>::
+tile_0036.png::CompressedTexture2D::3657852359082033978::1731113329::1731113367::1::::<><>::
+tile_0037.png::CompressedTexture2D::6457872779824604935::1731113329::1731113367::1::::<><>::
+tile_0038.png::CompressedTexture2D::1532884487400187468::1731113329::1731113367::1::::<><>::
+tile_0039.png::CompressedTexture2D::787013645300124629::1731113329::1731113367::1::::<><>::
+tile_0040.png::CompressedTexture2D::3138132929483716581::1731113329::1731113367::1::::<><>::
+tile_0041.png::CompressedTexture2D::7033119968984680465::1731113329::1731113367::1::::<><>::
+tile_0042.png::CompressedTexture2D::224149033493795403::1731113329::1731113367::1::::<><>::
+tile_0043.png::CompressedTexture2D::6364050995907941538::1731113329::1731113367::1::::<><>::
+tile_0044.png::CompressedTexture2D::7706207771975754460::1731113329::1731113367::1::::<><>::
+tile_0045.png::CompressedTexture2D::1678472660117459208::1731113329::1731113367::1::::<><>::
+tile_0046.png::CompressedTexture2D::2029195234929186058::1731113329::1731113367::1::::<><>::
+tile_0047.png::CompressedTexture2D::4516242879414549444::1731113329::1731113367::1::::<><>::
+tile_0048.png::CompressedTexture2D::8547987139856199728::1731113329::1731113367::1::::<><>::
+tile_0049.png::CompressedTexture2D::671769199916953394::1731113329::1731113367::1::::<><>::
+tile_0050.png::CompressedTexture2D::1786003637331240391::1731113329::1731113367::1::::<><>::
+tile_0051.png::CompressedTexture2D::7986188517453870493::1731113329::1731113367::1::::<><>::
+tile_0052.png::CompressedTexture2D::8252455980326304317::1731113329::1731113367::1::::<><>::
+tile_0053.png::CompressedTexture2D::8622218075423229711::1731113329::1731113367::1::::<><>::
+tile_0054.png::CompressedTexture2D::5781718612621375565::1731113329::1731113367::1::::<><>::
+tile_0055.png::CompressedTexture2D::1685127570333377797::1731113329::1731113367::1::::<><>::
+tile_0056.png::CompressedTexture2D::2014256725033622152::1731113329::1731113367::1::::<><>::
+tile_0057.png::CompressedTexture2D::7467667559171409525::1731113329::1731113367::1::::<><>::
+tile_0058.png::CompressedTexture2D::7359191177728329260::1731113329::1731113367::1::::<><>::
+tile_0059.png::CompressedTexture2D::4428019926033464147::1731113329::1731113367::1::::<><>::
+tile_0060.png::CompressedTexture2D::3101454392418525199::1731113329::1731113367::1::::<><>::
+tile_0061.png::CompressedTexture2D::9144331935598435499::1731113329::1731113367::1::::<><>::
+tile_0062.png::CompressedTexture2D::7936604431954639314::1731113329::1731113367::1::::<><>::
+tile_0063.png::CompressedTexture2D::1272744904045451182::1731113329::1731113367::1::::<><>::
+tile_0064.png::CompressedTexture2D::1882268177567556960::1731113329::1731113367::1::::<><>::
+tile_0065.png::CompressedTexture2D::7168037236567785387::1731113329::1731113367::1::::<><>::
+tile_0066.png::CompressedTexture2D::6311469036151722292::1731113329::1731113367::1::::<><>::
+tile_0067.png::CompressedTexture2D::4064757444697231242::1731113329::1731113367::1::::<><>::
+tile_0068.png::CompressedTexture2D::332621823879909559::1731113329::1731113367::1::::<><>::
+tile_0069.png::CompressedTexture2D::8067126664929062737::1731113329::1731113367::1::::<><>::
+tile_0070.png::CompressedTexture2D::1516362297570262668::1731113329::1731113367::1::::<><>::
+tile_0071.png::CompressedTexture2D::3819648496337858971::1731113329::1731113367::1::::<><>::
+tile_0072.png::CompressedTexture2D::5178678943717026397::1731113329::1731113367::1::::<><>::
+tile_0073.png::CompressedTexture2D::7622562671032072821::1731113329::1731113367::1::::<><>::
+tile_0074.png::CompressedTexture2D::4299899367431661339::1731113329::1731113367::1::::<><>::
+tile_0075.png::CompressedTexture2D::376436432346332881::1731113329::1731113367::1::::<><>::
+tile_0076.png::CompressedTexture2D::1332136253082251841::1731113329::1731113367::1::::<><>::
+tile_0077.png::CompressedTexture2D::6840002764407654210::1731113329::1731113367::1::::<><>::
+tile_0078.png::CompressedTexture2D::1424912393186516541::1731113329::1731113367::1::::<><>::
+tile_0079.png::CompressedTexture2D::6658205119297994467::1731113329::1731113367::1::::<><>::
+tile_0080.png::CompressedTexture2D::5820644592841760982::1731113329::1731113367::1::::<><>::
+tile_0081.png::CompressedTexture2D::1689304539924330163::1731113329::1731113367::1::::<><>::
+tile_0082.png::CompressedTexture2D::2569611154924659291::1731113329::1731113367::1::::<><>::
+tile_0083.png::CompressedTexture2D::7954781728384734181::1731113329::1731113367::1::::<><>::
+tile_0084.png::CompressedTexture2D::8637337016483193563::1731113329::1731113367::1::::<><>::
+tile_0085.png::CompressedTexture2D::432988201300728576::1731113329::1731113367::1::::<><>::
+tile_0086.png::CompressedTexture2D::4107721780063234862::1731113329::1731113367::1::::<><>::
+tile_0087.png::CompressedTexture2D::7602309307298745481::1731113329::1731113367::1::::<><>::
+tile_0088.png::CompressedTexture2D::2397067475654503512::1731113329::1731113367::1::::<><>::
+tile_0089.png::CompressedTexture2D::8845682498992899163::1731113329::1731113367::1::::<><>::
+tile_0090.png::CompressedTexture2D::8799873996995139985::1731113329::1731113367::1::::<><>::
+tile_0091.png::CompressedTexture2D::8102381193993633360::1731113329::1731113367::1::::<><>::
+tile_0092.png::CompressedTexture2D::2400032347502359012::1731113329::1731113367::1::::<><>::
+tile_0093.png::CompressedTexture2D::4360185165156974279::1731113329::1731113367::1::::<><>::
+tile_0094.png::CompressedTexture2D::4508947555885314561::1731113329::1731113367::1::::<><>::
+tile_0095.png::CompressedTexture2D::8445726947908691540::1731113329::1731113367::1::::<><>::
+tile_0096.png::CompressedTexture2D::5390085504907737488::1731113329::1731113367::1::::<><>::
+tile_0097.png::CompressedTexture2D::8415283481272987329::1731113329::1731113367::1::::<><>::
+tile_0098.png::CompressedTexture2D::1293035332011466365::1731113329::1731113367::1::::<><>::
+tile_0099.png::CompressedTexture2D::8162719707679227661::1731113329::1731113367::1::::<><>::
+tile_0100.png::CompressedTexture2D::2184554713807104082::1731113329::1731113367::1::::<><>::
+tile_0101.png::CompressedTexture2D::3241149688485917962::1731113329::1731113367::1::::<><>::
+tile_0102.png::CompressedTexture2D::3628620542826480753::1731113329::1731113367::1::::<><>::
+tile_0103.png::CompressedTexture2D::448792304425360843::1731113329::1731113367::1::::<><>::
+tile_0104.png::CompressedTexture2D::7172690630517825568::1731113329::1731113367::1::::<><>::
+tile_0105.png::CompressedTexture2D::9182313110788550252::1731113329::1731113367::1::::<><>::
+tile_0106.png::CompressedTexture2D::6519276231886250906::1731113329::1731113367::1::::<><>::
+tile_0107.png::CompressedTexture2D::7608295757976703499::1731113329::1731113367::1::::<><>::
+tile_0108.png::CompressedTexture2D::7081222977048723783::1731113329::1731113367::1::::<><>::
+tile_0109.png::CompressedTexture2D::3295762681018735049::1731113329::1731113367::1::::<><>::
+tile_0110.png::CompressedTexture2D::8074970353625244270::1731113329::1731113367::1::::<><>::
+tile_0111.png::CompressedTexture2D::1711574689025842206::1731113329::1731113367::1::::<><>::
+tile_0112.png::CompressedTexture2D::4683513638757477524::1731113329::1731113367::1::::<><>::
+tile_0113.png::CompressedTexture2D::6142757583297415192::1731113329::1731113367::1::::<><>::
+tile_0114.png::CompressedTexture2D::6462944752716125432::1731113329::1731113367::1::::<><>::
+tile_0115.png::CompressedTexture2D::6407815094043608439::1731113329::1731113367::1::::<><>::
+tile_0116.png::CompressedTexture2D::8009782909310691270::1731113329::1731113367::1::::<><>::
+tile_0117.png::CompressedTexture2D::4087167716187416440::1731113329::1731113367::1::::<><>::
+tile_0118.png::CompressedTexture2D::5428418620409891984::1731113329::1731113367::1::::<><>::
+tile_0119.png::CompressedTexture2D::5458448997046879782::1731113329::1731113367::1::::<><>::
+upgradeshine.png::CompressedTexture2D::2202480897702353414::1731113329::1731113367::1::::<><>::
+::res://Scenes/::1731224725
+::res://Scenes/Drops/::1731113329
+::res://Scenes/Drops/Bomb/::1731113329
+BombItem.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+bombitem.tscn::PackedScene::510768118905126969::1731113329::0::1::::<><>::res://Scenes/Drops/Bomb/BombItem.gd<>uid://cvlrmd5lcpo25::::res://Assets/Tiles/bombshine.png
+::res://Scenes/Drops/Health/::1731113329
+HealthItem.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+healthitem.tscn::PackedScene::6388399917127295816::1731113329::0::1::::<><>::res://Scenes/Drops/Health/HealthItem.gd<>uid://hwxcqb6fop3::::res://Assets/Tiles/healthshine.png
+::res://Scenes/Drops/Upgrade/::1731113329
+UpgradeItem.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+upgradeitem.tscn::PackedScene::577187889465414221::1731113329::0::1::::<><>::res://Scenes/Drops/Upgrade/UpgradeItem.gd<>uid://6m5skvc2adri::::res://Assets/Tiles/upgradeshine.png
+::res://Scenes/Enemies/::1731113329
+::res://Scenes/Enemies/Enemy1/::1731233579
+Enemy1-Path2d.gd::GDScript::-1::1731223208::0::1::::<>Path2D<>::
+Enemy1-PathFollow2D.gd::GDScript::-1::1731233579::0::1::::<>PathFollow2D<>::
+enemy1path1.tscn::PackedScene::3500017364076450363::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
+enemy1path2.tscn::PackedScene::4291279665269944668::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
+enemy1path3.tscn::PackedScene::5540483288617192990::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
+enemy1path4.tscn::PackedScene::1948534529485569841::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
+enemy1path5.tscn::PackedScene::4324534984999040432::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
+::res://Scenes/Enemies/Enemy1/Enemy and Bullet/::1731233954
+enemy1_bullet.gd::GDScript::-1::1731223208::0::1::::<>Area2D<>::
+enemy1_bullet.tscn::PackedScene::7126763188981341278::1731233954::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy1_bullet.gd<>uid://del1gn4edml88::::res://Assets/Tiles/tile_0009.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
+enemy_1.gd::GDScript::-1::1731233579::0::1::::<>CharacterBody2D<>::
+enemy_1.tscn::PackedScene::1785571240630415591::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd<>uid://dvg8bm3otvxvq::::res://Assets/Ships/ship_0000.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png
+::res://Scenes/Enemies/Enemy2/::1731113329
+Enemy2-Path2D.gd::GDScript::-1::1731113329::0::1::::<>Path2D<>::
+Enemy2-PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
+enemy2path1.tscn::PackedScene::646051804926884403::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy2-Path2D.gd<>res://Scenes/Enemies/Enemy2/Enemy2-PathFollow2D.gd<>uid://bn81fpt2inink::::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.tscn
+::res://Scenes/Enemies/Enemy2/Enemy and Missle/::1731113329
+enemy2_missle.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+enemy2_missle.tscn::PackedScene::7016436800185343925::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd<>uid://xuc40sc1e8px::::res://Assets/Tiles/missle.png<>uid://bbc26uj3r735g::::res://Assets/Tiles/missletail.png<>uid://dvtcygh0tyxyd::::res://Assets/Tiles/missleexplosion.png
+enemy_2.gd::GDScript::-1::1731113329::0::1::::<>CharacterBody2D<>::
+enemy_2.tscn::PackedScene::3368588506092451052::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.gd<>uid://cvl4ifaxu04uj::::res://Assets/Ships/ship_0002.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
+::res://Scenes/Enemies/Enemy3/::1731113329
+Enemy3-Path2D.gd::GDScript::-1::1731113329::0::1::::<>Path2D<>::
+Enemy3-PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
+enemy3path1.tscn::PackedScene::2184369252057680340::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy3-Path2D.gd<>uid://cnxptne1igqjg::::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.tscn<>res://Scenes/Enemies/Enemy3/Enemy3-PathFollow2D.gd
+::res://Scenes/Enemies/Enemy3/Enemy and Bomb/::1731233579
+enemy3_bomb.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+enemy3_bomb.tscn::PackedScene::6123201828345852208::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy3_bomb.gd<>uid://c8a1uw84k6p0t::::res://Assets/Tiles/tile_0012.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
+enemy_3.gd::GDScript::-1::1731233579::0::1::::<>CharacterBody2D<>::
+enemy_3.tscn::PackedScene::5733722398174723816::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.gd<>uid://cwohkcica2ak7::::res://Assets/Ships/ship_0003.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
+::res://Scenes/Enemies/Level 1 Boss/::1731233579
+1PathFollow2D.gd::GDScript::-1::1731233579::0::1::::<>PathFollow2D<>::
+2PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
+boss_1.gd::GDScript::-1::1731223208::0::1::::<>CharacterBody2D<>::
+boss_1.tscn::PackedScene::1455006299884258526::1731113329::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/boss_1.gd<>uid://r36vvoafeji5::::res://Assets/Ships/Boss1.png<>uid://ctjrmnk6els4x::::res://Assets/Tiles/tile_0016.png<>uid://cj4vjtmylwkfh::::res://Assets/Tiles/bossexplosion.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
+boss_1_path.gd::GDScript::-1::1731223208::0::1::::<>Node2D<>::
+boss_1_path.tscn::PackedScene::2122217676232317301::1731113329::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/PathFollow2D.gd<>res://Scenes/Enemies/Level 1 Boss/boss_1_path.gd<>res://Scenes/Enemies/Level 1 Boss/1PathFollow2D.gd<>res://Scenes/Enemies/Level 1 Boss/2PathFollow2D.gd<>uid://uy20g2lse8du::::res://Scenes/Enemies/Level 1 Boss/boss_1.tscn
+boss_bullet.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+boss_bullet.tscn::PackedScene::1863312439333772479::1731113329::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/boss_bullet.gd<>uid://d0qyqnxrruyu2::::res://Assets/Tiles/Bossbullet.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
+boss_missle.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
+boss_missle.tscn::PackedScene::1069673815219561568::1731113329::0::1::::<><>::uid://dabd5wqyt8ofl::::res://Assets/Tiles/bossmissle.png<>res://Scenes/Enemies/Level 1 Boss/boss_missle.gd<>uid://dvtcygh0tyxyd::::res://Assets/Tiles/missleexplosion.png
+PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
+::res://Scenes/Game/::1731113329
+::res://Scenes/Game/Spawners/::1731113329
+boss_spawner.tscn::PackedScene::3985504589069171574::1731113329::0::1::::<><>::res://Scenes/Game/Test Level/BossSpawner.gd<>res://Scenes/Game/Test Level/BossSpawnMarker.gd
+item_spawner.tscn::PackedScene::3642889991406649210::1731113329::0::1::::<><>::res://Scenes/Game/Test Level/ItemSpawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/healthspawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/upgradespawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/bombspawner.gd
+spawner.tscn::PackedScene::408767552100662253::1731113329::0::1::::<><>::res://Scenes/Game/Test Level/Spawner.gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P1(down).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E2P1(down).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P2(loopright).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P3(loopleft).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P4(diagright).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E3P1(U).gd
+::res://Scenes/Game/Test Level/::1731233954
+BossSpawner.gd::GDScript::-1::1731113329::0::1::::<>Node2D<>::
+BossSpawnMarker.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+ItemSpawner.gd::GDScript::-1::1731113329::0::1::::<>Node2D<>::
+ParallaxBackground.gd::GDScript::-1::1731113329::0::1::::<>ParallaxBackground<>::
+Spawner.gd::GDScript::-1::1731223209::0::1::::<>Node2D<>::
+Test Level.gd::GDScript::-1::1731223209::0::1::::<>Node2D<>::
+Test Level.tscn::PackedScene::5219270706800097808::1731233954::0::1::::<><>::uid://b18tr3vm35i1n::::res://Scenes/Player/PlayerEntity.tscn<>res://Scenes/Game/Test Level/Test Level.gd<>uid://bkjpkm5fr8el4::::res://Scenes/GUI/Menus/Pause Menu/unpause_node.tscn<>uid://cuy4t2v7uji4a::::res://Scenes/GUI/Menus/Pause Menu/pause_menu.tscn<>uid://f3alvgryftn6::::res://Scenes/Game/Spawners/spawner.tscn<>res://Scenes/Game/Test Level/ParallaxBackground.gd<>uid://br5v4palr3fxi::::res://Scenes/Game/Spawners/item_spawner.tscn<>uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres<>uid://bw1uxcduvt1da::::res://Scenes/Game/Spawners/boss_spawner.tscn<>uid://cnu4o8o4iydwx::::res://Scenes/GUI/GameplayGUI/boss_health.tscn<>uid://dn8m2xxaxymba::::res://Scenes/GUI/GameplayGUI/HUD.tscn
+::res://Scenes/Game/Test Level/Enemy Spawn Order Data/::1731113329
+E1P1(down).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+E1P2(loopright).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+E1P3(loopleft).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+E1P4(diagright).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+E1P5(diagleft).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+E2P1(down).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+E3P1(U).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+::res://Scenes/Game/Test Level/ItemSpawnOrderData/::1731113329
+bombspawner.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+healthspawner.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+upgradespawner.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
+::res://Scenes/GUI/::1731113329
+::res://Scenes/GUI/GameplayGUI/::1731233954
+Bombsbar.gd::GDScript::-1::1731113329::0::1::::<>TextureProgressBar<>::
+boss_health.gd::GDScript::-1::1731113329::0::1::::<>Control<>::
+boss_health.tscn::PackedScene::5728371439893796719::1731113329::0::1::::<><>::uid://dwswecgycv60u::::res://Assets/Tiles/healthbarbackground.png<>uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/GameplayGUI/boss_health.gd<>uid://dh7sxppe26k7s::::res://Assets/Tiles/bosshealthbar.png
+HealthBar.gd::GDScript::-1::1731232682::0::1::::<>TextureProgressBar<>::
+HUD.tscn::PackedScene::8140619548205574338::1731233954::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>uid://covvnpo102y3v::::res://Assets/Tiles/HealthBar.png<>res://Scenes/GUI/GameplayGUI/ScoreNumber.gd<>uid://dnrpoeyfehamc::::res://Assets/Tiles/BombBar.png<>res://Scenes/GUI/GameplayGUI/LivesNumber.gd<>res://Scenes/GUI/GameplayGUI/HealthBar.gd<>res://Scenes/GUI/GameplayGUI/Bombsbar.gd
+LivesNumber.gd::GDScript::-1::1731113329::0::1::::<>Label<>::
+ScoreNumber.gd::GDScript::-1::1731113329::0::1::::<>Label<>::
+::res://Scenes/GUI/Menus/::1731223209
+Label.gd::GDScript::-1::1731223209::0::1::::<>Label<>::
+level_select_screen.gd::GDScript::-1::1731113329::0::1::::<>Control<>::
+level_select_screen.tscn::PackedScene::8572461295433056623::1731113329::0::1::::<><>::res://Scenes/GUI/Menus/level_select_screen.gd
+Main Screen.gd::GDScript::-1::1731223209::0::1::::<>Control<>::
+main_screen.tscn::PackedScene::7066503362194082697::1731122611::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/Menus/Main Screen.gd
+::res://Scenes/GUI/Menus/GameOverCompleteScreen/::1731223209
+game_over_complete_screen.gd::GDScript::-1::1731223209::0::1::::<>Control<>::
+game_over_complete_screen.tscn::PackedScene::4827577029085981669::1731113329::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/Menus/GameOverCompleteScreen/Lives.gd<>res://Scenes/GUI/Menus/GameOverCompleteScreen/game_over_complete_screen.gd<>res://Scenes/GUI/Menus/GameOverCompleteScreen/Score.gd
+Lives.gd::GDScript::-1::1731223209::0::1::::<>Label<>::
+Score.gd::GDScript::-1::1731223209::0::1::::<>Label<>::
+::res://Scenes/GUI/Menus/Pause Menu/::1731113329
+Pause Node.gd::GDScript::-1::1731113329::0::1::::<>Node<>::
+pause_menu.gd::GDScript::-1::1731113329::0::1::::<>Control<>::
+pause_menu.tscn::PackedScene::6227959481171075778::1731113329::0::1::::<><>::res://Scenes/GUI/Menus/Pause Menu/pause_menu.gd
+unpause_node.tscn::PackedScene::3107817809566039899::1731113329::0::1::::<><>::res://Scenes/GUI/Menus/Pause Menu/Pause Node.gd
+::res://Scenes/Health/::1731233954
+Health.tscn::PackedScene::8369826236867472957::1731233954::0::1::::<><>::
+HealthComponent.gd::GDScript::-1::1731230677::0::1::::<>Node<>::
+::res://Scenes/Health/Invulnerability/::1731233954
+Invulnerability.tscn::PackedScene::288787123603218994::1731233954::0::1::::<><>::
+InvulnerabilityComponent.gd::GDScript::-1::1731233845::0::1::::<>Timer<>::
+::res://Scenes/Player/::1731234050
+Player.gd::GDScript::-1::1731234050::0::1::::<>CharacterBody2D<>::
+PlayerBomb.gd::GDScript::-1::1731224501::0::1::::<>Area2D<>::
+PlayerBullet.gd::GDScript::-1::1731224501::0::1::::<>Area2D<>::
+PlayerEntity.tscn::PackedScene::4280640569203390225::1731234050::0::1::::<><>::res://Scenes/Player/Player.gd<>uid://drin2ypsnbwlx::::res://Scenes/Health/Health.tscn<>uid://bojjah5ah8ksq::::res://Assets/Ships/ship_0009.png<>uid://ed5jtxirkura::::res://Scenes/Health/Invulnerability/Invulnerability.tscn<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>res://Scenes/Health/Invulnerability/InvulnerabilityComponent.gd<>uid://cb4rd54421yrl::::res://Assets/Tiles/tile_0005.png<>res://Scenes/Health/HealthComponent.gd<>uid://ddji6d67k2nh4::::res://Assets/Ships/ship_0001.png
+player_bomb.tscn::PackedScene::5545797699937973941::1731225426::0::1::::<><>::res://Scenes/Player/PlayerBomb.gd<>uid://brsccllo67eco::::res://Assets/Tiles/tile_0018.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
+player_bullet.tscn::PackedScene::6323010345445250541::1731224663::0::1::::<><>::res://Scenes/Player/PlayerBullet.gd<>uid://b3txk0h4atnm1::::res://Assets/Tiles/tile_0000.png<>uid://cdxrao110o2gl::::res://Assets/Tiles/tile_0007.png

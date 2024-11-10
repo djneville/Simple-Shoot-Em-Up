@@ -1,10 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://b18tr3vm35i1n"]
+[gd_scene load_steps=28 format=3 uid="uid://b18tr3vm35i1n"]
 
-[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_d2esm"]
-[ext_resource type="Texture2D" uid="uid://ddji6d67k2nh4" path="res://Assets/Ships/ship_0001.png" id="1_xecya"]
-[ext_resource type="Texture2D" uid="uid://bojjah5ah8ksq" path="res://Assets/Ships/ship_0009.png" id="2_3jxhp"]
-[ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="3_brlla"]
-[ext_resource type="Texture2D" uid="uid://yykpgr4whni3" path="res://Assets/Tiles/spritesheetexplosion.png" id="3_p7s3c"]
+[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_l3m23"]
+[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/Health.tscn" id="2_u8n5k"]
+[ext_resource type="Texture2D" uid="uid://bojjah5ah8ksq" path="res://Assets/Ships/ship_0009.png" id="3_1vqwc"]
+[ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Health/Invulnerability/Invulnerability.tscn" id="3_uddwa"]
+[ext_resource type="Texture2D" uid="uid://yykpgr4whni3" path="res://Assets/Tiles/spritesheetexplosion.png" id="4_i5o5f"]
+[ext_resource type="Script" path="res://Scenes/Health/Invulnerability/InvulnerabilityComponent.gd" id="4_jy2y8"]
+[ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="5_35rms"]
+[ext_resource type="Script" path="res://Scenes/Health/HealthComponent.gd" id="5_s1bff"]
+[ext_resource type="Texture2D" uid="uid://ddji6d67k2nh4" path="res://Assets/Ships/ship_0001.png" id="6_dbcj8"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]
 resource_name = "Upgrade0Anim"
@@ -309,19 +313,19 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3y773"]
-atlas = ExtResource("3_p7s3c")
+atlas = ExtResource("4_i5o5f")
 region = Rect2(0, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3rnp"]
-atlas = ExtResource("3_p7s3c")
+atlas = ExtResource("4_i5o5f")
 region = Rect2(36, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_32nm5"]
-atlas = ExtResource("3_p7s3c")
+atlas = ExtResource("4_i5o5f")
 region = Rect2(72, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tb1iy"]
-atlas = ExtResource("3_p7s3c")
+atlas = ExtResource("4_i5o5f")
 region = Rect2(108, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jj01p"]
@@ -356,8 +360,14 @@ size = Vector2(20, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvjg5"]
 size = Vector2(26, 20)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_d2esm")
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_l3m23")
+
+[node name="Invulnerability" parent="." instance=ExtResource("3_uddwa")]
+script = ExtResource("4_jy2y8")
+
+[node name="Health" parent="." instance=ExtResource("2_u8n5k")]
+script = ExtResource("5_s1bff")
 
 [node name="MuzzleFlash" type="AnimationPlayer" parent="."]
 libraries = {
@@ -378,10 +388,6 @@ libraries = {
 wait_time = 0.1
 one_shot = true
 
-[node name="PostHitInvuln" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
-
 [node name="BombReload" type="Timer" parent="."]
 wait_time = 4.0
 
@@ -389,7 +395,7 @@ wait_time = 4.0
 
 [node name="PlaneSprite0" type="Sprite2D" parent="Upgrade0"]
 texture_filter = 1
-texture = ExtResource("2_3jxhp")
+texture = ExtResource("3_1vqwc")
 
 [node name="Explosion0" type="AnimatedSprite2D" parent="Upgrade0/PlaneSprite0"]
 visible = false
@@ -399,6 +405,7 @@ sprite_frames = SubResource("SpriteFrames_jj01p")
 [node name="U0CollisionDetection" type="Area2D" parent="Upgrade0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade0/U0CollisionDetection"]
+visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7yjhs")
 
@@ -411,14 +418,13 @@ texture_filter = 1
 position = Vector2(0, -6)
 rotation = -0.174533
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_brlla")
+texture = ExtResource("5_35rms")
 
 [node name="Upgrade1" type="Node2D" parent="."]
-visible = false
 
 [node name="PlaneSprite1" type="Sprite2D" parent="Upgrade1"]
 texture_filter = 1
-texture = ExtResource("1_xecya")
+texture = ExtResource("6_dbcj8")
 
 [node name="Explosion1" type="AnimatedSprite2D" parent="Upgrade1/PlaneSprite1"]
 visible = false
@@ -430,7 +436,7 @@ texture_filter = 1
 position = Vector2(8, -5)
 rotation = -0.174533
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_brlla")
+texture = ExtResource("5_35rms")
 
 [node name="LeftFlash" type="Sprite2D" parent="Upgrade1"]
 visible = false
@@ -438,7 +444,7 @@ texture_filter = 1
 position = Vector2(-8, -5)
 rotation = -0.174533
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_brlla")
+texture = ExtResource("5_35rms")
 
 [node name="RightGun" type="Marker2D" parent="Upgrade1"]
 position = Vector2(8, -5)
@@ -455,9 +461,9 @@ disabled = true
 [node name="Upgrade0ColShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t1ai3")
+disabled = true
 
 [node name="Upgrade1ColShape" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_wvjg5")
 disabled = true
 
@@ -465,7 +471,6 @@ disabled = true
 position = Vector2(0, -4)
 
 [connection signal="timeout" from="ShootSpeed" to="." method="_on_shoot_speed_timeout"]
-[connection signal="timeout" from="PostHitInvuln" to="." method="_on_post_hit_invuln_timeout"]
 [connection signal="timeout" from="BombReload" to="." method="_on_bomb_reload_timeout"]
 [connection signal="body_entered" from="Upgrade0/U0CollisionDetection" to="." method="_on_collision_detection_body_entered"]
 [connection signal="body_entered" from="Upgrade1/U1CollisionDetection" to="." method="_on_collision_detection_body_entered"]

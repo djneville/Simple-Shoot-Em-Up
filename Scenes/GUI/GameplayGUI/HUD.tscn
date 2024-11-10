@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/ScoreNumber.gd" id="2_v3eyu"]
 [ext_resource type="Texture2D" uid="uid://dnrpoeyfehamc" path="res://Assets/Tiles/BombBar.png" id="3_484xf"]
 [ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/LivesNumber.gd" id="3_nhk45"]
-[ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/Healthbar.gd" id="5_pfjij"]
+[ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/HealthBar.gd" id="5_pfjij"]
 [ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/Bombsbar.gd" id="7_gtl57"]
 
-[node name="HealthBombsLivesScore" type="Control"]
+[node name="Control" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

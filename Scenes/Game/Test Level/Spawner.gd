@@ -33,50 +33,50 @@ var enemy
 var spawned_enemies = []
 
 func _ready():
-	#creates the array of markers that are the children of this node
-	for marker in self.get_children():
-		spawn_marker_array.append(marker)
+    #creates the array of markers that are the children of this node
+    for marker in self.get_children():
+        spawn_marker_array.append(marker)
 
 func _process(delta):
-	
+    
 #for loop that spawns an enemy when the spawn_markers cross the spawnthreshold
 #for each marker in the spawn_marker_array, move the markers down vertically at a speed of move_speed * delta
 #if the marker crosses the spawn threshold, and isn't in the spawned_markers array (i.e. it hasn't been spawned yet),
 #then spawn the enemy at marker.position with the spawn_enemy() function, and add it to the spawned_markers array
-	for marker in spawn_marker_array:
-		marker.position.y += move_speed * delta
-		if marker.position.y > spawnthreshold && !spawned_markers.has(marker):
-			spawn_enemy(marker, marker.position)
-			spawned_markers.append(marker)
-			
+    for marker in spawn_marker_array:
+        marker.position.y += move_speed * delta
+        if marker.position.y > spawnthreshold && !spawned_markers.has(marker):
+            spawn_enemy(marker, marker.position)
+            spawned_markers.append(marker)
+            
 
 #Since the progress ratio still increases regardless of if the enemy on it has been deleted, this 
 #code still works to delete the spawned enemyXpathX when progress_ratio reaches 1
-	for each_enemy in spawned_enemies:
-		if is_instance_valid(each_enemy):
-			var path_follow = each_enemy.get_node("PathFollow2D")
-			if path_follow.progress_ratio == 1:
-				each_enemy.queue_free()
+    for each_enemy in spawned_enemies:
+        if is_instance_valid(each_enemy):
+            var path_follow = each_enemy.get_node("PathFollow2D")
+            if path_follow.progress_ratio == 1:
+                each_enemy.queue_free()
 
 func spawn_enemy(marker, pos):
-	#this function will check which enemy and path to spawn based on the to_spawn variable stored in each marker
-	if marker.to_spawn == "Enemy1Path1":
-		enemy = enemy1path1.instantiate()
-	if marker.to_spawn == "Enemy1Path2":
-		enemy = enemy1path2.instantiate()
-	if marker.to_spawn == "Enemy1Path3":
-		enemy = enemy1path3.instantiate()
-	if marker.to_spawn == "Enemy1Path4":
-		enemy = enemy1path4.instantiate()
-	if marker.to_spawn == "Enemy1Path5":
-		enemy = enemy1path5.instantiate()
-		
-	if marker.to_spawn == "Enemy2Path1":
-		enemy = enemy2path1.instantiate()
-		
-	if marker.to_spawn == "Enemy3Path1":
-		enemy = enemy3path1.instantiate()
+    #this function will check which enemy and path to spawn based on the to_spawn variable stored in each marker
+    if marker.to_spawn == "Enemy1Path1":
+        enemy = enemy1path1.instantiate()
+    if marker.to_spawn == "Enemy1Path2":
+        enemy = enemy1path2.instantiate()
+    if marker.to_spawn == "Enemy1Path3":
+        enemy = enemy1path3.instantiate()
+    if marker.to_spawn == "Enemy1Path4":
+        enemy = enemy1path4.instantiate()
+    if marker.to_spawn == "Enemy1Path5":
+        enemy = enemy1path5.instantiate()
+        
+    if marker.to_spawn == "Enemy2Path1":
+        enemy = enemy2path1.instantiate()
+        
+    if marker.to_spawn == "Enemy3Path1":
+        enemy = enemy3path1.instantiate()
 #it sets the enemy's position at the position of the marker, and then adds it to the scene
-	enemy.position = pos
-	add_child(enemy)
-	spawned_enemies.append(enemy)
+    enemy.position = pos
+    add_child(enemy)
+    spawned_enemies.append(enemy)

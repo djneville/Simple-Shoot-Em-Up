@@ -1,7 +1,1 @@
-res://Scenes/GUI/Menus/main_screen.tscn
-res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd
-res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
-res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.gd
-res://Scenes/Enemies/Level 1 Boss/1PathFollow2D.gd
-res://Assets/Font/maintheme.tres
-res://Scenes/Player/player.tscn
+res://Scenes/Game/Test Level/Spawner.gd

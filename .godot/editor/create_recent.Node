@@ -1,6 +1,7 @@
+Timer
+CharacterBody2D
 ColorRect
 Button
-Timer
 VBoxContainer
 Label
 HBoxContainer
@@ -11,4 +12,3 @@ Panel
 CollisionPolygon2D
 CollisionShape2D
 GPUParticles2D
-AnimatedSprite2D

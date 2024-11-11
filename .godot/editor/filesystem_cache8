@@ -1,15 +1,15 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731233487
+::res://::1731306635
 gamestats.gd::GDScript::-1::1731113329::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::6564549658480146558::1731113329::1731113367::1::::<><>::
-::res://addons/::1731224054
-::res://addons/script-tabs/::1731224055
-plugin.cfg::TextFile::-1::1731224055::0::1::::<><>::
-plugin.gd::GDScript::-1::1731224055::0::1::::<>EditorPlugin<>::
+::res://addons/::1731283486
+::res://addons/script-tabs/::1731283486
+plugin.cfg::TextFile::-1::1731283486::0::1::::<><>::
+plugin.gd::GDScript::-1::1731283486::0::1::::<>EditorPlugin<>::
 ::res://Assets/::1731113329
-::res://Assets/Font/::1731233579
-maintheme.tres::Theme::2296480416741673289::1731233579::0::1::::<><>::uid://bqwmclt6sluhm::::res://Assets/Font/retro-pixel-arcade.otf
-retro-pixel-arcade.otf::FontFile::3555591276533085026::1731113329::1731113367::1::::<><>::
+::res://Assets/Font/::1731293845
+maintheme.tres::Theme::2296480416741673289::1731293845::0::1::::<><>::uid://bqwmclt6sluhm::::res://Assets/Font/retro-pixel-arcade.otf
+retro-pixel-arcade.otf::FontFile::3555591276533085026::1731113329::1731283495::1::::<><>::
 ::res://Assets/Ships/::1731113367
 Boss1.png::CompressedTexture2D::1252933772032451906::1731113329::1731113367::1::::<><>::
 ship_0000.png::CompressedTexture2D::8647620154754604494::1731113329::1731113367::1::::<><>::
@@ -36,11 +36,11 @@ ship_0020.png::CompressedTexture2D::9050389285494241249::1731113329::1731113367:
 ship_0021.png::CompressedTexture2D::2867189714768779224::1731113329::1731113367::1::::<><>::
 ship_0022.png::CompressedTexture2D::7753156162148109754::1731113329::1731113367::1::::<><>::
 ship_0023.png::CompressedTexture2D::3181994252688775329::1731113329::1731113367::1::::<><>::
-::res://Assets/Tilemap/::1731233579
+::res://Assets/Tilemap/::1731294151
 level_1_tilemap.tscn::PackedScene::2353878601205152535::1731113329::0::1::::<><>::uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres
 ships.png::CompressedTexture2D::2778429263055326225::1731113329::1731113367::1::::<><>::
 ships_packed.png::CompressedTexture2D::1405488835539730445::1731113329::1731113367::1::::<><>::
-terrain_tileset.tres::TileSet::5940096069151011174::1731233579::0::1::::<><>::uid://d4k1eauadb1hs::::res://Assets/Tilemap/tiles_packed.png
+terrain_tileset.tres::TileSet::5940096069151011174::1731294151::0::1::::<><>::uid://d4k1eauadb1hs::::res://Assets/Tilemap/tiles_packed.png
 tiles.png::CompressedTexture2D::6600544708290315264::1731113329::1731113367::1::::<><>::
 tiles_packed.png::CompressedTexture2D::9216968110010554656::1731113329::1731113367::1::::<><>::
 ::res://Assets/Tiles/::1731113368
@@ -179,7 +179,7 @@ tile_0117.png::CompressedTexture2D::4087167716187416440::1731113329::1731113367:
 tile_0118.png::CompressedTexture2D::5428418620409891984::1731113329::1731113367::1::::<><>::
 tile_0119.png::CompressedTexture2D::5458448997046879782::1731113329::1731113367::1::::<><>::
 upgradeshine.png::CompressedTexture2D::2202480897702353414::1731113329::1731113367::1::::<><>::
-::res://Scenes/::1731224725
+::res://Scenes/::1731285834
 ::res://Scenes/Drops/::1731113329
 ::res://Scenes/Drops/Bomb/::1731113329
 BombItem.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
@@ -190,44 +190,42 @@ healthitem.tscn::PackedScene::6388399917127295816::1731113329::0::1::::<><>::res
 ::res://Scenes/Drops/Upgrade/::1731113329
 UpgradeItem.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
 upgradeitem.tscn::PackedScene::577187889465414221::1731113329::0::1::::<><>::res://Scenes/Drops/Upgrade/UpgradeItem.gd<>uid://6m5skvc2adri::::res://Assets/Tiles/upgradeshine.png
-::res://Scenes/Enemies/::1731113329
-::res://Scenes/Enemies/Enemy1/::1731233579
-Enemy1-Path2d.gd::GDScript::-1::1731223208::0::1::::<>Path2D<>::
-Enemy1-PathFollow2D.gd::GDScript::-1::1731233579::0::1::::<>PathFollow2D<>::
-enemy1path1.tscn::PackedScene::3500017364076450363::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
-enemy1path2.tscn::PackedScene::4291279665269944668::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-enemy1path3.tscn::PackedScene::5540483288617192990::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-enemy1path4.tscn::PackedScene::1948534529485569841::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-enemy1path5.tscn::PackedScene::4324534984999040432::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.tscn
-::res://Scenes/Enemies/Enemy1/Enemy and Bullet/::1731233954
-enemy1_bullet.gd::GDScript::-1::1731223208::0::1::::<>Area2D<>::
-enemy1_bullet.tscn::PackedScene::7126763188981341278::1731233954::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy1_bullet.gd<>uid://del1gn4edml88::::res://Assets/Tiles/tile_0009.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
-enemy_1.gd::GDScript::-1::1731233579::0::1::::<>CharacterBody2D<>::
-enemy_1.tscn::PackedScene::1785571240630415591::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/enemy_1.gd<>uid://dvg8bm3otvxvq::::res://Assets/Ships/ship_0000.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png
-::res://Scenes/Enemies/Enemy2/::1731113329
+::res://Scenes/Enemies/::1731309936
+::res://Scenes/Enemies/Enemy1/::1731312749
+Enemy1-Path2d.gd::GDScript::-1::1731283486::0::1::::<>Path2D<>::
+Enemy1-PathFollow2D.gd::GDScript::-1::1731307902::0::1::::<>PathFollow2D<>::
+enemy1path1.tscn::PackedScene::3500017364076450363::1731312643::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/EnemyEntity.tscn<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd
+enemy1path2.tscn::PackedScene::4291279665269944668::1731312749::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/EnemyEntity.tscn
+enemy1path3.tscn::PackedScene::5540483288617192990::1731306635::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/EnemyEntity.tscn
+enemy1path4.tscn::PackedScene::1948534529485569841::1731306635::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/EnemyEntity.tscn
+enemy1path5.tscn::PackedScene::4324534984999040432::1731306635::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy1-Path2d.gd<>res://Scenes/Enemies/Enemy1/Enemy1-PathFollow2D.gd<>uid://0o7dkwqtyyxj::::res://Scenes/Enemies/Enemy1/Enemy and Bullet/EnemyEntity.tscn
+::res://Scenes/Enemies/Enemy1/Enemy and Bullet/::1731312642
+EnemyEntity.gd::GDScript::-1::1731312189::0::1::::<>CharacterBody2D<>::
+EnemyEntity.tscn::PackedScene::1785571240630415591::1731312642::0::1::::<><>::res://Scenes/Enemies/Enemy1/Enemy and Bullet/EnemyEntity.gd<>uid://drin2ypsnbwlx::::res://Scenes/Health/Health.tscn<>uid://dcct87i2bniia::::res://Scenes/Projectiles/WeaponComponent.tscn<>uid://dvg8bm3otvxvq::::res://Assets/Ships/ship_0000.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png
+::res://Scenes/Enemies/Enemy2/::1731306271
 Enemy2-Path2D.gd::GDScript::-1::1731113329::0::1::::<>Path2D<>::
-Enemy2-PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
+Enemy2-PathFollow2D.gd::GDScript::-1::1731306271::0::1::::<>PathFollow2D<>::
 enemy2path1.tscn::PackedScene::646051804926884403::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy2-Path2D.gd<>res://Scenes/Enemies/Enemy2/Enemy2-PathFollow2D.gd<>uid://bn81fpt2inink::::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.tscn
-::res://Scenes/Enemies/Enemy2/Enemy and Missle/::1731113329
-enemy2_missle.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
-enemy2_missle.tscn::PackedScene::7016436800185343925::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd<>uid://xuc40sc1e8px::::res://Assets/Tiles/missle.png<>uid://bbc26uj3r735g::::res://Assets/Tiles/missletail.png<>uid://dvtcygh0tyxyd::::res://Assets/Tiles/missleexplosion.png
-enemy_2.gd::GDScript::-1::1731113329::0::1::::<>CharacterBody2D<>::
-enemy_2.tscn::PackedScene::3368588506092451052::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.gd<>uid://cvl4ifaxu04uj::::res://Assets/Ships/ship_0002.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
-::res://Scenes/Enemies/Enemy3/::1731113329
+::res://Scenes/Enemies/Enemy2/Enemy and Missle/::1731309825
+enemy2_missle.gd::GDScript::-1::1731308438::0::1::::<>Area2D<>::
+enemy2_missle.tscn::PackedScene::7016436800185343925::1731309825::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy2_missle.gd<>uid://xuc40sc1e8px::::res://Assets/Tiles/missle.png<>uid://bbc26uj3r735g::::res://Assets/Tiles/missletail.png<>uid://dvtcygh0tyxyd::::res://Assets/Tiles/missleexplosion.png
+enemy_2.gd::GDScript::-1::1731308438::0::1::::<>CharacterBody2D<>::
+enemy_2.tscn::PackedScene::3368588506092451052::1731309164::0::1::::<><>::res://Scenes/Enemies/Enemy2/Enemy and Missle/enemy_2.gd<>uid://cvl4ifaxu04uj::::res://Assets/Ships/ship_0002.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
+::res://Scenes/Enemies/Enemy3/::1731305736
 Enemy3-Path2D.gd::GDScript::-1::1731113329::0::1::::<>Path2D<>::
-Enemy3-PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
+Enemy3-PathFollow2D.gd::GDScript::-1::1731305736::0::1::::<>PathFollow2D<>::
 enemy3path1.tscn::PackedScene::2184369252057680340::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy3-Path2D.gd<>uid://cnxptne1igqjg::::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.tscn<>res://Scenes/Enemies/Enemy3/Enemy3-PathFollow2D.gd
-::res://Scenes/Enemies/Enemy3/Enemy and Bomb/::1731233579
+::res://Scenes/Enemies/Enemy3/Enemy and Bomb/::1731285288
 enemy3_bomb.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
 enemy3_bomb.tscn::PackedScene::6123201828345852208::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy3_bomb.gd<>uid://c8a1uw84k6p0t::::res://Assets/Tiles/tile_0012.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
-enemy_3.gd::GDScript::-1::1731233579::0::1::::<>CharacterBody2D<>::
+enemy_3.gd::GDScript::-1::1731285288::0::1::::<>CharacterBody2D<>::
 enemy_3.tscn::PackedScene::5733722398174723816::1731113329::0::1::::<><>::res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.gd<>uid://cwohkcica2ak7::::res://Assets/Ships/ship_0003.png<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://bc2tiloiq2f80::::res://Assets/Tiles/tile_0010.png
-::res://Scenes/Enemies/Level 1 Boss/::1731233579
-1PathFollow2D.gd::GDScript::-1::1731233579::0::1::::<>PathFollow2D<>::
+::res://Scenes/Enemies/Level 1 Boss/::1731285288
+1PathFollow2D.gd::GDScript::-1::1731285288::0::1::::<>PathFollow2D<>::
 2PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
-boss_1.gd::GDScript::-1::1731223208::0::1::::<>CharacterBody2D<>::
+boss_1.gd::GDScript::-1::1731283486::0::1::::<>CharacterBody2D<>::
 boss_1.tscn::PackedScene::1455006299884258526::1731113329::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/boss_1.gd<>uid://r36vvoafeji5::::res://Assets/Ships/Boss1.png<>uid://ctjrmnk6els4x::::res://Assets/Tiles/tile_0016.png<>uid://cj4vjtmylwkfh::::res://Assets/Tiles/bossexplosion.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
-boss_1_path.gd::GDScript::-1::1731223208::0::1::::<>Node2D<>::
+boss_1_path.gd::GDScript::-1::1731283486::0::1::::<>Node2D<>::
 boss_1_path.tscn::PackedScene::2122217676232317301::1731113329::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/PathFollow2D.gd<>res://Scenes/Enemies/Level 1 Boss/boss_1_path.gd<>res://Scenes/Enemies/Level 1 Boss/1PathFollow2D.gd<>res://Scenes/Enemies/Level 1 Boss/2PathFollow2D.gd<>uid://uy20g2lse8du::::res://Scenes/Enemies/Level 1 Boss/boss_1.tscn
 boss_bullet.gd::GDScript::-1::1731113329::0::1::::<>Area2D<>::
 boss_bullet.tscn::PackedScene::1863312439333772479::1731113329::0::1::::<><>::res://Scenes/Enemies/Level 1 Boss/boss_bullet.gd<>uid://d0qyqnxrruyu2::::res://Assets/Tiles/Bossbullet.png<>uid://clgsicpobpo2u::::res://Assets/Tiles/tile_0008.png
@@ -239,14 +237,14 @@ PathFollow2D.gd::GDScript::-1::1731113329::0::1::::<>PathFollow2D<>::
 boss_spawner.tscn::PackedScene::3985504589069171574::1731113329::0::1::::<><>::res://Scenes/Game/Test Level/BossSpawner.gd<>res://Scenes/Game/Test Level/BossSpawnMarker.gd
 item_spawner.tscn::PackedScene::3642889991406649210::1731113329::0::1::::<><>::res://Scenes/Game/Test Level/ItemSpawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/healthspawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/upgradespawner.gd<>res://Scenes/Game/Test Level/ItemSpawnOrderData/bombspawner.gd
 spawner.tscn::PackedScene::408767552100662253::1731113329::0::1::::<><>::res://Scenes/Game/Test Level/Spawner.gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P1(down).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E2P1(down).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P2(loopright).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P3(loopleft).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P5(diagleft).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E1P4(diagright).gd<>res://Scenes/Game/Test Level/Enemy Spawn Order Data/E3P1(U).gd
-::res://Scenes/Game/Test Level/::1731233954
+::res://Scenes/Game/Test Level/::1731308805
 BossSpawner.gd::GDScript::-1::1731113329::0::1::::<>Node2D<>::
 BossSpawnMarker.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
 ItemSpawner.gd::GDScript::-1::1731113329::0::1::::<>Node2D<>::
 ParallaxBackground.gd::GDScript::-1::1731113329::0::1::::<>ParallaxBackground<>::
-Spawner.gd::GDScript::-1::1731223209::0::1::::<>Node2D<>::
-Test Level.gd::GDScript::-1::1731223209::0::1::::<>Node2D<>::
-Test Level.tscn::PackedScene::5219270706800097808::1731233954::0::1::::<><>::uid://b18tr3vm35i1n::::res://Scenes/Player/PlayerEntity.tscn<>res://Scenes/Game/Test Level/Test Level.gd<>uid://bkjpkm5fr8el4::::res://Scenes/GUI/Menus/Pause Menu/unpause_node.tscn<>uid://cuy4t2v7uji4a::::res://Scenes/GUI/Menus/Pause Menu/pause_menu.tscn<>uid://f3alvgryftn6::::res://Scenes/Game/Spawners/spawner.tscn<>res://Scenes/Game/Test Level/ParallaxBackground.gd<>uid://br5v4palr3fxi::::res://Scenes/Game/Spawners/item_spawner.tscn<>uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres<>uid://bw1uxcduvt1da::::res://Scenes/Game/Spawners/boss_spawner.tscn<>uid://cnu4o8o4iydwx::::res://Scenes/GUI/GameplayGUI/boss_health.tscn<>uid://dn8m2xxaxymba::::res://Scenes/GUI/GameplayGUI/HUD.tscn
+Spawner.gd::GDScript::-1::1731283486::0::1::::<>Node2D<>::
+Test Level.gd::GDScript::-1::1731294157::0::1::::<>Node2D<>::
+Test Level.tscn::PackedScene::5219270706800097808::1731308805::0::1::::<><>::uid://dvu2daxvib3qh::::res://Scenes/Player/PlayerEntity.tscn<>res://Scenes/Game/Test Level/Test Level.gd<>uid://bkjpkm5fr8el4::::res://Scenes/GUI/Menus/Pause Menu/unpause_node.tscn<>uid://cuy4t2v7uji4a::::res://Scenes/GUI/Menus/Pause Menu/pause_menu.tscn<>uid://f3alvgryftn6::::res://Scenes/Game/Spawners/spawner.tscn<>res://Scenes/Game/Test Level/ParallaxBackground.gd<>uid://br5v4palr3fxi::::res://Scenes/Game/Spawners/item_spawner.tscn<>uid://cqvorqv8ja1xa::::res://Assets/Tilemap/terrain_tileset.tres<>uid://bw1uxcduvt1da::::res://Scenes/Game/Spawners/boss_spawner.tscn<>uid://cnu4o8o4iydwx::::res://Scenes/GUI/GameplayGUI/boss_health.tscn<>uid://dds0uhdcqiv72::::res://Scenes/GUI/GameplayGUI/HUD.tscn
 ::res://Scenes/Game/Test Level/Enemy Spawn Order Data/::1731113329
 E1P1(down).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
 E1P2(loopright).gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
@@ -260,40 +258,42 @@ bombspawner.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
 healthspawner.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
 upgradespawner.gd::GDScript::-1::1731113329::0::1::::<>Marker2D<>::
 ::res://Scenes/GUI/::1731113329
-::res://Scenes/GUI/GameplayGUI/::1731233954
-Bombsbar.gd::GDScript::-1::1731113329::0::1::::<>TextureProgressBar<>::
-boss_health.gd::GDScript::-1::1731113329::0::1::::<>Control<>::
-boss_health.tscn::PackedScene::5728371439893796719::1731113329::0::1::::<><>::uid://dwswecgycv60u::::res://Assets/Tiles/healthbarbackground.png<>uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/GameplayGUI/boss_health.gd<>uid://dh7sxppe26k7s::::res://Assets/Tiles/bosshealthbar.png
-HealthBar.gd::GDScript::-1::1731232682::0::1::::<>TextureProgressBar<>::
-HUD.tscn::PackedScene::8140619548205574338::1731233954::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>uid://covvnpo102y3v::::res://Assets/Tiles/HealthBar.png<>res://Scenes/GUI/GameplayGUI/ScoreNumber.gd<>uid://dnrpoeyfehamc::::res://Assets/Tiles/BombBar.png<>res://Scenes/GUI/GameplayGUI/LivesNumber.gd<>res://Scenes/GUI/GameplayGUI/HealthBar.gd<>res://Scenes/GUI/GameplayGUI/Bombsbar.gd
-LivesNumber.gd::GDScript::-1::1731113329::0::1::::<>Label<>::
-ScoreNumber.gd::GDScript::-1::1731113329::0::1::::<>Label<>::
-::res://Scenes/GUI/Menus/::1731223209
-Label.gd::GDScript::-1::1731223209::0::1::::<>Label<>::
+::res://Scenes/GUI/GameplayGUI/::1731311125
+boss_health.gd::GDScript::-1::1731293845::0::1::::<>Control<>::
+boss_health.tscn::PackedScene::5728371439893796719::1731303403::0::1::::<><>::uid://dwswecgycv60u::::res://Assets/Tiles/healthbarbackground.png<>uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/GameplayGUI/boss_health.gd<>uid://dh7sxppe26k7s::::res://Assets/Tiles/bosshealthbar.png
+Healthbar.gd::GDScript::-1::1731305575::0::1::::<>TextureProgressBar<>::
+HUD.tscn::PackedScene::7408541394674192111::1731311125::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>uid://covvnpo102y3v::::res://Assets/Tiles/HealthBar.png<>res://Scenes/GUI/GameplayGUI/ScoreNumber.gd<>res://Scenes/GUI/GameplayGUI/LivesNumber.gd<>res://Scenes/GUI/GameplayGUI/HealthBar.gd
+LivesNumber.gd::GDScript::-1::1731293845::0::1::::<>Label<>::
+ScoreNumber.gd::GDScript::-1::1731293845::0::1::::<>Label<>::
+::res://Scenes/GUI/Menus/::1731283486
+Label.gd::GDScript::-1::1731283486::0::1::::<>Label<>::
 level_select_screen.gd::GDScript::-1::1731113329::0::1::::<>Control<>::
 level_select_screen.tscn::PackedScene::8572461295433056623::1731113329::0::1::::<><>::res://Scenes/GUI/Menus/level_select_screen.gd
-Main Screen.gd::GDScript::-1::1731223209::0::1::::<>Control<>::
+Main Screen.gd::GDScript::-1::1731283486::0::1::::<>Control<>::
 main_screen.tscn::PackedScene::7066503362194082697::1731122611::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/Menus/Main Screen.gd
-::res://Scenes/GUI/Menus/GameOverCompleteScreen/::1731223209
-game_over_complete_screen.gd::GDScript::-1::1731223209::0::1::::<>Control<>::
+::res://Scenes/GUI/Menus/GameOverCompleteScreen/::1731283486
+game_over_complete_screen.gd::GDScript::-1::1731283486::0::1::::<>Control<>::
 game_over_complete_screen.tscn::PackedScene::4827577029085981669::1731113329::0::1::::<><>::uid://7yoxxwxaw0n2::::res://Assets/Font/maintheme.tres<>res://Scenes/GUI/Menus/GameOverCompleteScreen/Lives.gd<>res://Scenes/GUI/Menus/GameOverCompleteScreen/game_over_complete_screen.gd<>res://Scenes/GUI/Menus/GameOverCompleteScreen/Score.gd
-Lives.gd::GDScript::-1::1731223209::0::1::::<>Label<>::
-Score.gd::GDScript::-1::1731223209::0::1::::<>Label<>::
+Lives.gd::GDScript::-1::1731283486::0::1::::<>Label<>::
+Score.gd::GDScript::-1::1731283486::0::1::::<>Label<>::
 ::res://Scenes/GUI/Menus/Pause Menu/::1731113329
 Pause Node.gd::GDScript::-1::1731113329::0::1::::<>Node<>::
 pause_menu.gd::GDScript::-1::1731113329::0::1::::<>Control<>::
 pause_menu.tscn::PackedScene::6227959481171075778::1731113329::0::1::::<><>::res://Scenes/GUI/Menus/Pause Menu/pause_menu.gd
 unpause_node.tscn::PackedScene::3107817809566039899::1731113329::0::1::::<><>::res://Scenes/GUI/Menus/Pause Menu/Pause Node.gd
-::res://Scenes/Health/::1731233954
-Health.tscn::PackedScene::8369826236867472957::1731233954::0::1::::<><>::
-HealthComponent.gd::GDScript::-1::1731230677::0::1::::<>Node<>::
-::res://Scenes/Health/Invulnerability/::1731233954
-Invulnerability.tscn::PackedScene::288787123603218994::1731233954::0::1::::<><>::
-InvulnerabilityComponent.gd::GDScript::-1::1731233845::0::1::::<>Timer<>::
-::res://Scenes/Player/::1731234050
-Player.gd::GDScript::-1::1731234050::0::1::::<>CharacterBody2D<>::
-PlayerBomb.gd::GDScript::-1::1731224501::0::1::::<>Area2D<>::
-PlayerBullet.gd::GDScript::-1::1731224501::0::1::::<>Area2D<>::
-PlayerEntity.tscn::PackedScene::4280640569203390225::1731234050::0::1::::<><>::res://Scenes/Player/Player.gd<>uid://drin2ypsnbwlx::::res://Scenes/Health/Health.tscn<>uid://bojjah5ah8ksq::::res://Assets/Ships/ship_0009.png<>uid://ed5jtxirkura::::res://Scenes/Health/Invulnerability/Invulnerability.tscn<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>res://Scenes/Health/Invulnerability/InvulnerabilityComponent.gd<>uid://cb4rd54421yrl::::res://Assets/Tiles/tile_0005.png<>res://Scenes/Health/HealthComponent.gd<>uid://ddji6d67k2nh4::::res://Assets/Ships/ship_0001.png
-player_bomb.tscn::PackedScene::5545797699937973941::1731225426::0::1::::<><>::res://Scenes/Player/PlayerBomb.gd<>uid://brsccllo67eco::::res://Assets/Tiles/tile_0018.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
-player_bullet.tscn::PackedScene::6323010345445250541::1731224663::0::1::::<><>::res://Scenes/Player/PlayerBullet.gd<>uid://b3txk0h4atnm1::::res://Assets/Tiles/tile_0000.png<>uid://cdxrao110o2gl::::res://Assets/Tiles/tile_0007.png
+::res://Scenes/Health/::1731312749
+Health.tscn::PackedScene::8369826236867472957::1731312749::0::1::::<><>::res://Scenes/Health/HealthComponent.gd
+HealthComponent.gd::GDScript::-1::1731283486::0::1::::<>Node<>::
+::res://Scenes/Health/Invulnerability/::1731312749
+Invulnerability.tscn::PackedScene::288787123603218994::1731312749::0::1::::<><>::res://Scenes/Health/Invulnerability/InvulnerabilityComponent.gd
+InvulnerabilityComponent.gd::GDScript::-1::1731312222::0::1::::<>Timer<>::
+::res://Scenes/Player/::1731312780
+PlayerEntity.gd::GDScript::-1::1731312740::0::1::::<>CharacterBody2D<>::
+PlayerEntity.tscn::PackedScene::8676160075240996351::1731312780::0::1::::<><>::res://Scenes/Player/PlayerEntity.gd<>uid://drin2ypsnbwlx::::res://Scenes/Health/Health.tscn<>uid://bojjah5ah8ksq::::res://Assets/Ships/ship_0009.png<>uid://ed5jtxirkura::::res://Scenes/Health/Invulnerability/Invulnerability.tscn<>uid://yykpgr4whni3::::res://Assets/Tiles/spritesheetexplosion.png<>uid://dcct87i2bniia::::res://Scenes/Projectiles/WeaponComponent.tscn<>uid://ddji6d67k2nh4::::res://Assets/Ships/ship_0001.png
+::res://Scenes/Projectiles/::1731312642
+Bomb.gd::GDScript::-1::1731283486::0::1::::<>Area2D<>::
+Bomb.tscn::PackedScene::5545797699937973941::1731286957::0::1::::<><>::res://Scenes/Projectiles/Bomb.gd<>uid://brsccllo67eco::::res://Assets/Tiles/tile_0018.png<>uid://dpg4c2khrhqr1::::res://Assets/Tiles/bombexplosion.png
+BulletComponent.gd::GDScript::-1::1731311912::0::1::::BulletComponent<>Area2D<>::
+BulletComponent.tscn::PackedScene::6323010345445250541::1731312642::0::1::::<><>::res://Scenes/Projectiles/BulletComponent.gd<>uid://b3txk0h4atnm1::::res://Assets/Tiles/tile_0000.png<>uid://cdxrao110o2gl::::res://Assets/Tiles/tile_0007.png
+WeaponComponent.gd::GDScript::-1::1731311670::0::1::::WeaponComponent<>Node2D<>::
+WeaponComponent.tscn::PackedScene::7304982742259165064::1731312642::0::1::::<><>::res://Scenes/Projectiles/WeaponComponent.gd<>uid://cb4rd54421yrl::::res://Assets/Tiles/tile_0005.png<>uid://cwc6b6ocb6iaf::::res://Scenes/Projectiles/BulletComponent.tscn

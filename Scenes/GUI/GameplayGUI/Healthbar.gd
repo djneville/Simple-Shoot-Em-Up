@@ -5,7 +5,7 @@ func _ready():
     var players = get_tree().get_nodes_in_group("player")
     var player = players[0]
     
-    var health = player.get_node("Health")
+    var health = player.get_node("HealthComponent")
 
     health.health_changed.connect(_on_health_changed)
     # initialized health

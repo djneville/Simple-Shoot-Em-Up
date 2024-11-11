@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var pause_menu = $"Pause Menu"
 
-@onready var Player = $Player
+@onready var Player = $CharacterBody2D
 
 var fadecomplete = false
 

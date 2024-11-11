@@ -1,120 +1,12 @@
-[gd_scene load_steps=28 format=3 uid="uid://b18tr3vm35i1n"]
+[gd_scene load_steps=23 format=3 uid="uid://dvu2daxvib3qh"]
 
-[ext_resource type="Script" path="res://Scenes/Player/Player.gd" id="1_l3m23"]
+[ext_resource type="Script" path="res://Scenes/Player/PlayerEntity.gd" id="1_l3m23"]
 [ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/Health.tscn" id="2_u8n5k"]
 [ext_resource type="Texture2D" uid="uid://bojjah5ah8ksq" path="res://Assets/Ships/ship_0009.png" id="3_1vqwc"]
 [ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Health/Invulnerability/Invulnerability.tscn" id="3_uddwa"]
 [ext_resource type="Texture2D" uid="uid://yykpgr4whni3" path="res://Assets/Tiles/spritesheetexplosion.png" id="4_i5o5f"]
-[ext_resource type="Script" path="res://Scenes/Health/Invulnerability/InvulnerabilityComponent.gd" id="4_jy2y8"]
-[ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="5_35rms"]
-[ext_resource type="Script" path="res://Scenes/Health/HealthComponent.gd" id="5_s1bff"]
+[ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Projectiles/WeaponComponent.tscn" id="6_48557"]
 [ext_resource type="Texture2D" uid="uid://ddji6d67k2nh4" path="res://Assets/Ships/ship_0001.png" id="6_dbcj8"]
-
-[sub_resource type="Animation" id="Animation_fkwep"]
-resource_name = "Upgrade0Anim"
-length = 0.07
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade0/GunFlash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Upgrade0/GunFlash:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.07),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.174533, 0.174533]
-}
-
-[sub_resource type="Animation" id="Animation_a5wmh"]
-resource_name = "Upgrade1Anim"
-length = 0.07
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade1/RightFlash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Upgrade1/LeftFlash:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.07),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Upgrade1/RightFlash:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.07),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.174533, 0.174533]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Upgrade1/LeftFlash:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.07),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.174533, 0.174533]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqlwd"]
-_data = {
-"Upgrade0Anim": SubResource("Animation_fkwep"),
-"Upgrade1Anim": SubResource("Animation_a5wmh")
-}
-
-[sub_resource type="Animation" id="Animation_x4ch1"]
-resource_name = "Flash0"
-length = 0.1
-loop_mode = 1
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade0/PlaneSprite0:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_qdtby"]
 resource_name = "Flash1"
@@ -134,9 +26,27 @@ tracks/0/keys = {
 "values": [true, false, true]
 }
 
+[sub_resource type="Animation" id="Animation_x4ch1"]
+resource_name = "Flash"
+length = 0.1
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upgrade0/PlaneSprite0:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mcqyx"]
 _data = {
-"Flash0": SubResource("Animation_x4ch1"),
+"Flash": SubResource("Animation_x4ch1"),
 "Flash1": SubResource("Animation_qdtby")
 }
 
@@ -363,16 +273,11 @@ size = Vector2(26, 20)
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_l3m23")
 
-[node name="Invulnerability" parent="." instance=ExtResource("3_uddwa")]
-script = ExtResource("4_jy2y8")
+[node name="InvulnerabilityComponent" parent="." instance=ExtResource("3_uddwa")]
 
-[node name="Health" parent="." instance=ExtResource("2_u8n5k")]
-script = ExtResource("5_s1bff")
+[node name="HealthComponent" parent="." instance=ExtResource("2_u8n5k")]
 
-[node name="MuzzleFlash" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qqlwd")
-}
+[node name="WeaponComponent" parent="." instance=ExtResource("6_48557")]
 
 [node name="InvulnerableFlash" type="AnimationPlayer" parent="."]
 libraries = {
@@ -383,10 +288,6 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_bfcmm")
 }
-
-[node name="ShootSpeed" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
 
 [node name="BombReload" type="Timer" parent="."]
 wait_time = 4.0
@@ -402,25 +303,15 @@ visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_jj01p")
 
-[node name="U0CollisionDetection" type="Area2D" parent="Upgrade0"]
+[node name="U0CollisionDetection" type="Area2D" parent="Upgrade0" groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade0/U0CollisionDetection"]
 visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_7yjhs")
 
-[node name="Gun" type="Marker2D" parent="Upgrade0"]
-position = Vector2(0, -6)
-
-[node name="GunFlash" type="Sprite2D" parent="Upgrade0"]
-visible = false
-texture_filter = 1
-position = Vector2(0, -6)
-rotation = -0.174533
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_35rms")
-
 [node name="Upgrade1" type="Node2D" parent="."]
+visible = false
 
 [node name="PlaneSprite1" type="Sprite2D" parent="Upgrade1"]
 texture_filter = 1
@@ -429,28 +320,6 @@ texture = ExtResource("6_dbcj8")
 [node name="Explosion1" type="AnimatedSprite2D" parent="Upgrade1/PlaneSprite1"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_jj01p")
-
-[node name="RightFlash" type="Sprite2D" parent="Upgrade1"]
-visible = false
-texture_filter = 1
-position = Vector2(8, -5)
-rotation = -0.174533
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_35rms")
-
-[node name="LeftFlash" type="Sprite2D" parent="Upgrade1"]
-visible = false
-texture_filter = 1
-position = Vector2(-8, -5)
-rotation = -0.174533
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_35rms")
-
-[node name="RightGun" type="Marker2D" parent="Upgrade1"]
-position = Vector2(8, -5)
-
-[node name="LeftGun" type="Marker2D" parent="Upgrade1"]
-position = Vector2(-8, -5)
 
 [node name="U1CollisionDetection" type="Area2D" parent="Upgrade1"]
 
@@ -467,10 +336,6 @@ disabled = true
 shape = SubResource("RectangleShape2D_wvjg5")
 disabled = true
 
-[node name="bombslot" type="Marker2D" parent="."]
-position = Vector2(0, -4)
-
-[connection signal="timeout" from="ShootSpeed" to="." method="_on_shoot_speed_timeout"]
 [connection signal="timeout" from="BombReload" to="." method="_on_bomb_reload_timeout"]
 [connection signal="body_entered" from="Upgrade0/U0CollisionDetection" to="." method="_on_collision_detection_body_entered"]
 [connection signal="body_entered" from="Upgrade1/U1CollisionDetection" to="." method="_on_collision_detection_body_entered"]

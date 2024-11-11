@@ -1,1 +1,2 @@
-res://Scenes/Game/Test Level/Spawner.gd
+res://Scenes/Player/PlayerEntity.gd
+res://Scenes/GUI/GameplayGUI/LivesNumber.gd

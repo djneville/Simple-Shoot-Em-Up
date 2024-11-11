@@ -1,3 +1,5 @@
+res://Scenes/Projectiles
+res://Scenes/Player
 res://Scenes/Health/Invulnerability
 res://Scenes/Health
 /Users/mac/Simple-Shoot-Em-Up/Scenes/Player
@@ -10,7 +12,6 @@ res://Scenes/Game/Spawners
 res://Scenes/Enemies/Level 1 Boss
 res://Scenes/Drops/Health
 res://Scenes/Enemies/Enemy1
-res://Scenes/Player
 res://Scenes/Enemies/Enemy2/Enemy and Missle
 res://Scenes/Game/Test Level/Enemy Spawn Order Data
 res://Assets/Tilemap

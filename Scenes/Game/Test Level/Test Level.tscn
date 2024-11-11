@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cgmivjwe84r0c"]
 
-[ext_resource type="PackedScene" uid="uid://b18tr3vm35i1n" path="res://Scenes/Player/PlayerEntity.tscn" id="1_7ig8h"]
+[ext_resource type="PackedScene" uid="uid://dvu2daxvib3qh" path="res://Scenes/Player/PlayerEntity.tscn" id="1_7ig8h"]
 [ext_resource type="Script" path="res://Scenes/Game/Test Level/Test Level.gd" id="1_11t3y"]
 [ext_resource type="PackedScene" uid="uid://bkjpkm5fr8el4" path="res://Scenes/GUI/Menus/Pause Menu/unpause_node.tscn" id="4_0ynby"]
 [ext_resource type="PackedScene" uid="uid://cuy4t2v7uji4a" path="res://Scenes/GUI/Menus/Pause Menu/pause_menu.tscn" id="4_75btx"]
@@ -10,7 +10,7 @@
 [ext_resource type="TileSet" uid="uid://cqvorqv8ja1xa" path="res://Assets/Tilemap/terrain_tileset.tres" id="6_y3p22"]
 [ext_resource type="PackedScene" uid="uid://bw1uxcduvt1da" path="res://Scenes/Game/Spawners/boss_spawner.tscn" id="8_vp2je"]
 [ext_resource type="PackedScene" uid="uid://cnu4o8o4iydwx" path="res://Scenes/GUI/GameplayGUI/boss_health.tscn" id="9_jt1wp"]
-[ext_resource type="PackedScene" uid="uid://dn8m2xxaxymba" path="res://Scenes/GUI/GameplayGUI/HUD.tscn" id="15_ivjfw"]
+[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/GUI/GameplayGUI/HUD.tscn" id="15_ivjfw"]
 
 [sub_resource type="Animation" id="Animation_xogmr"]
 resource_name = "fade_from_black"
@@ -90,8 +90,7 @@ _data = {
 process_mode = 1
 script = ExtResource("1_11t3y")
 
-[node name="Player" parent="." instance=ExtResource("1_7ig8h")]
-position = Vector2(263, 798)
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_7ig8h")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("6_g8m4a")
@@ -118,6 +117,7 @@ layer_0/tile_data = PackedInt32Array(3604480, 524288, 3, 3604481, 524288, 3, 360
 [node name="ItemSpawner" parent="." instance=ExtResource("6_xldsd")]
 
 [node name="BossSpawner" parent="." instance=ExtResource("8_vp2je")]
+position = Vector2(244, -358)
 
 [node name="Boss" parent="BossSpawner" index="0"]
 position = Vector2(257, -14861)

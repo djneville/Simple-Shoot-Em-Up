@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://br5v4palr3fxi" path="res://Scenes/Game/Spawners/item_spawner.tscn" id="6_xldsd"]
 [ext_resource type="TileSet" uid="uid://cqvorqv8ja1xa" path="res://Assets/Tilemap/terrain_tileset.tres" id="6_y3p22"]
 [ext_resource type="PackedScene" uid="uid://bw1uxcduvt1da" path="res://Scenes/Game/Spawners/boss_spawner.tscn" id="8_vp2je"]
-[ext_resource type="PackedScene" uid="uid://cnu4o8o4iydwx" path="res://Scenes/GUI/GameplayGUI/boss_health.tscn" id="9_jt1wp"]
-[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/GUI/GameplayGUI/HUD.tscn" id="15_ivjfw"]
+[ext_resource type="PackedScene" uid="uid://cnu4o8o4iydwx" path="res://Scenes/GUI/HUD/boss_health.tscn" id="9_jt1wp"]
+[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/GUI/HUD/HUD.tscn" id="15_ivjfw"]
 
 [sub_resource type="Animation" id="Animation_xogmr"]
 resource_name = "fade_from_black"

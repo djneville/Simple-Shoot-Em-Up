@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dwswecgycv60u" path="res://Assets/Tiles/healthbarbackground.png" id="1_pqc8a"]
 [ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Assets/Font/maintheme.tres" id="1_uchlt"]
-[ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/boss_health.gd" id="2_ncfkf"]
+[ext_resource type="Script" path="res://Scenes/GUI/HUD/boss_health.gd" id="2_ncfkf"]
 [ext_resource type="Texture2D" uid="uid://dh7sxppe26k7s" path="res://Assets/Tiles/bosshealthbar.png" id="4_kj188"]
 
 [node name="BossHealth" type="Control"]

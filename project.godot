@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 Gamestats="*res://gamestats.gd"
 HealthComponent="*res://Scenes/Health/HealthComponent.gd"
-InvulnerabilityComponent="*res://Scenes/Health/Invulnerability/InvulnerabilityComponent.gd"
+InvulnerabilityComponent="*res://Scenes/Invulnerability/InvulnerabilityComponent.gd"
 
 [display]
 

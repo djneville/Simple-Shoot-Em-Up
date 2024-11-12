@@ -1,274 +1,50 @@
-[gd_scene load_steps=23 format=3 uid="uid://dvu2daxvib3qh"]
+[gd_scene load_steps=10 format=3 uid="uid://dvu2daxvib3qh"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerEntity.gd" id="1_l3m23"]
 [ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/Health.tscn" id="2_u8n5k"]
-[ext_resource type="Texture2D" uid="uid://bojjah5ah8ksq" path="res://Assets/Ships/ship_0009.png" id="3_1vqwc"]
-[ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Health/Invulnerability/Invulnerability.tscn" id="3_uddwa"]
-[ext_resource type="Texture2D" uid="uid://yykpgr4whni3" path="res://Assets/Tiles/spritesheetexplosion.png" id="4_i5o5f"]
-[ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Projectiles/WeaponComponent.tscn" id="6_48557"]
-[ext_resource type="Texture2D" uid="uid://ddji6d67k2nh4" path="res://Assets/Ships/ship_0001.png" id="6_dbcj8"]
+[ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Invulnerability/Invulnerability.tscn" id="3_uddwa"]
+[ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://Scenes/Upgrades/UpgradeComponent.tscn" id="5_al1uv"]
+[ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Weapon/WeaponComponent.tscn" id="6_48557"]
 
 [sub_resource type="Animation" id="Animation_x4ch1"]
 resource_name = "Flash"
-length = 0.1
 loop_mode = 1
-step = 0.05
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade0/PlaneSprite0:visible")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, true]
+"values": [true, false, true, false, true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_qdtby"]
-resource_name = "Flash1"
-length = 0.1
-loop_mode = 1
-step = 0.05
+[sub_resource type="Animation" id="Animation_0ucdk"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade1/PlaneSprite1:visible")
+tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, false, true]
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mcqyx"]
 _data = {
 "Flash": SubResource("Animation_x4ch1"),
-"Flash1": SubResource("Animation_qdtby")
+"RESET": SubResource("Animation_0ucdk")
 }
 
-[sub_resource type="Animation" id="Animation_n6nvs"]
-resource_name = "explode0"
-length = 3.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade0/PlaneSprite0/Explosion0:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Upgrade0/PlaneSprite0/Explosion0:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Upgrade0/PlaneSprite0/Explosion0:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Upgrade0/PlaneSprite0:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5, 2.3, 3.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 3.14159, 6.28319, 9.42478, 12.5664]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Upgrade0ColShape:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(3.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(3.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"player_death"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_uhf38"]
-resource_name = "explode1"
-length = 3.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Upgrade1/PlaneSprite1/Explosion1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Upgrade1/PlaneSprite1/Explosion1:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5, 2.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Upgrade1/PlaneSprite1:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.5, 2.3, 3.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 3.14159, 6.28319, 9.42478, 12.5664]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Upgrade1/PlaneSprite1/Explosion1:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Upgrade1ColShape:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(3.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfcmm"]
-_data = {
-"explode0": SubResource("Animation_n6nvs"),
-"explode1": SubResource("Animation_uhf38")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3y773"]
-atlas = ExtResource("4_i5o5f")
-region = Rect2(0, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3rnp"]
-atlas = ExtResource("4_i5o5f")
-region = Rect2(36, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_32nm5"]
-atlas = ExtResource("4_i5o5f")
-region = Rect2(72, 0, 36, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tb1iy"]
-atlas = ExtResource("4_i5o5f")
-region = Rect2(108, 0, 36, 36)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jj01p"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3y773")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t3rnp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_32nm5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tb1iy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yjhs"]
-size = Vector2(24, 17)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lh6qo"]
-size = Vector2(30, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1ai3"]
-size = Vector2(20, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvjg5"]
-size = Vector2(26, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7err"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_l3m23")
@@ -279,63 +55,13 @@ script = ExtResource("1_l3m23")
 
 [node name="WeaponComponent" parent="." instance=ExtResource("6_48557")]
 
+[node name="UpgradeComponent" parent="." instance=ExtResource("5_al1uv")]
+
 [node name="InvulnerableFlash" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_mcqyx")
 }
+speed_scale = 1.543
 
-[node name="ShipExplode" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bfcmm")
-}
-
-[node name="BombReload" type="Timer" parent="."]
-wait_time = 4.0
-
-[node name="Upgrade0" type="Node2D" parent="."]
-
-[node name="PlaneSprite0" type="Sprite2D" parent="Upgrade0"]
-texture_filter = 1
-texture = ExtResource("3_1vqwc")
-
-[node name="Explosion0" type="AnimatedSprite2D" parent="Upgrade0/PlaneSprite0"]
-visible = false
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_jj01p")
-
-[node name="U0CollisionDetection" type="Area2D" parent="Upgrade0" groups=["player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade0/U0CollisionDetection"]
-visible = false
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_7yjhs")
-
-[node name="Upgrade1" type="Node2D" parent="."]
-visible = false
-
-[node name="PlaneSprite1" type="Sprite2D" parent="Upgrade1"]
-texture_filter = 1
-texture = ExtResource("6_dbcj8")
-
-[node name="Explosion1" type="AnimatedSprite2D" parent="Upgrade1/PlaneSprite1"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_jj01p")
-
-[node name="U1CollisionDetection" type="Area2D" parent="Upgrade1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade1/U1CollisionDetection"]
-shape = SubResource("RectangleShape2D_lh6qo")
-disabled = true
-
-[node name="Upgrade0ColShape" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_t1ai3")
-disabled = true
-
-[node name="Upgrade1ColShape" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_wvjg5")
-disabled = true
-
-[connection signal="timeout" from="BombReload" to="." method="_on_bomb_reload_timeout"]
-[connection signal="body_entered" from="Upgrade0/U0CollisionDetection" to="." method="_on_collision_detection_body_entered"]
-[connection signal="body_entered" from="Upgrade1/U1CollisionDetection" to="." method="_on_collision_detection_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s7err")

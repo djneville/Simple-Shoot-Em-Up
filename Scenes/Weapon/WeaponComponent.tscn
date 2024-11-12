@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcct87i2bniia"]
 
-[ext_resource type="Script" path="res://Scenes/Projectiles/WeaponComponent.gd" id="1_2vbg5"]
+[ext_resource type="Script" path="res://Scenes/Weapon/WeaponComponent.gd" id="1_2vbg5"]
 [ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="2_u7o8s"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]

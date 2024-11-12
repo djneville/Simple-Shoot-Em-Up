@@ -1,13 +1,12 @@
+res://Assets/Ships
 res://Assets/Tiles
 res://Scenes/Projectiles
 res://Scenes/Player
-res://Scenes/Health/Invulnerability
 res://Scenes/Health
 /Users/mac/Simple-Shoot-Em-Up/Scenes/Player
 res://Scenes/GUI/Menus
 res://Scenes/GUI/Menus/GameOverCompleteScreen
 res://Assets/Font
-res://Scenes/GUI/GameplayGUI
 res://Scenes/Game/Spawners
 res://Scenes/Enemies/Level 1 Boss
 res://Scenes/Drops/Health

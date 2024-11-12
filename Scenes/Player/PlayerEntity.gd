@@ -1,154 +1,121 @@
 extends CharacterBody2D
 
-var speed = 150
-var upgradelvl = 0
-
-#Upgrade 0
-@onready var plane_sprite_0 = $Upgrade0/PlaneSprite0
-@onready var upgrade_0 = $Upgrade0
-@onready var areacollision0 = $Upgrade0/U0CollisionDetection/CollisionShape2D
-@onready var upgrade_0_col_shape = $Upgrade0ColShape
-@onready var u_0_collision_detection = $Upgrade0/U0CollisionDetection
-
-#Upgrade 1
-
-@onready var plane_sprite_1 = $Upgrade1/PlaneSprite1
-@onready var upgrade_1 = $Upgrade1
-@onready var u_1_collision_detection = $Upgrade1/U1CollisionDetection
-@onready var areacollision1 = $Upgrade1/U1CollisionDetection/CollisionShape2D
-@onready var upgrade_1_col_shape = $Upgrade1ColShape
-
 @export var reset_level := false
 
 @onready var health = $HealthComponent
 @onready var invulnerability = $InvulnerabilityComponent
-#TODO: the flash animation should be contained in the invulnerability node
-@onready var InvulnFlash = $InvulnerableFlash
-
 @onready var weapon = $WeaponComponent
+@onready var upgrade_component = $UpgradeComponent
 
 func _ready():
+    print("[PlayerEntity] _ready() called")
     position = Vector2(200, 400)
     #TODO: see the HealthBar.gd for where the health_changed signal gets handled
     health.entity_died.connect(_death)
     weapon.shoot_timer.one_shot = true # To avoid just shooting once???
-    invulnerability.invulnerability_started.connect(_on_invulnerability_started)
-    invulnerability.invulnerability_ended.connect(_on_invulnerability_ended)
-
-    downgrade()
+    #invulnerability.invulnerability_started.connect(_on_invulnerability_started)
+    #invulnerability.invulnerability_ended.connect(_on_invulnerability_ended)
+    print("[PlayerEntity] Initialization complete")
 
 func _death():
-    if upgradelvl == 0:
-        $ShipExplode.play("explode0")
-    if upgradelvl == 1:
-        $ShipExplode.play("explode1")
+    print("[PlayerEntity] _death() called")
+    upgrade_component.active_explosion_animation.play()
     Gamestats.lives -= 1
     Gamestats.score = 0
+    print("[PlayerEntity] Lives left:", Gamestats.lives)
     if Gamestats.lives <= 0:
         Gamestats.gamestatus = "gameover"
+        print("[PlayerEntity] Game over")
     else:
         Gamestats.gamestatus = "continue"
+        print("[PlayerEntity] Continue game")
     reset_level = true
 
 func _on_invulnerability_started():
-    if upgradelvl == 0:
-        InvulnFlash.play("Flash0")
-    elif upgradelvl == 1:
-        InvulnFlash.play("Flash1")
+    print("[PlayerEntity] _on_invulnerability_started() called")
+    #TODO: the flash animation should be contained in the invulnerability node
+    $InvulnerableFlash.play("Flash")
 
 func _on_invulnerability_ended():
-    InvulnFlash.stop()
+    print("[PlayerEntity] _on_invulnerability_ended() called")
+    $InvulnerableFlash.stop()
     self.visible = true
 
 func heal(amount: int = 1):
+    print("[PlayerEntity] heal() called with amount:", amount)
     if health.current_health == health.max_health:
         Gamestats.score += 300
+        print("[PlayerEntity] Health is full. Added bonus score. New score:", Gamestats.score)
     else:
         health.heal(amount) #TODO: technically now this cant be entered at max health so check the logic here and fix
+        print("[PlayerEntity] Healed. Current health:", health.current_health)
 
 func take_damage(damage):
+    print("[PlayerEntity] take_damage() called with damage:", damage)
     if not invulnerability.is_invulnerable:
-        if upgradelvl == 1:
-            downgrade()
         invulnerability.start_invulnerability()
         health.take_damage(damage)
+        print("[PlayerEntity] Took damage. Current health:", health.current_health)
+        upgrade_component.downgrade()
+        print("[PlayerEntity] upgrade_component.downgrade() is commented out")
+    else:
+        print("[PlayerEntity] Invulnerable. Damage not applied")
 
 func _on_collision_detection_body_entered(body):
+    print("[PlayerEntity] _on_collision_detection_body_entered() called with body:", body)
     if body.is_in_group("enemy"): #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
+        print("[PlayerEntity] Collision with enemy")
         body.take_damage(10)
+        print("[PlayerEntity] Dealt 10 damage to enemy")
         take_damage(2)
+    else:
+        print("[PlayerEntity] Collision with non-enemy body")
 
 func _process(_delta):
+    #TODO: I have wasted like 1.5 hours on this bug, and i have no idea why its happening.
+    # at some point (it seems the moment that the EnemyEntity either appears or shoots
+    # bullets the PlayerEntity's UpgradeComponent just goes invisible
+    assert(upgrade_component.visible)　
     var input_dir = Input.get_vector("left", "right", "up", "down")
     # TODO: delta here is often too low as the time for frame draw 
-    self.velocity = input_dir * speed # * delta
+    self.velocity = input_dir * upgrade_component.speed # * delta
     # print("fps: ", 1 / delta)
     move_and_slide()
-    
     if Input.is_action_pressed("shoot"):
         weapon.fire_bullet(self.global_position, Vector2.UP, self)
-        
     if Input.is_action_pressed("bomb"):
         weapon.drop_bomb(self.global_position, self)
         
-    if Input.is_action_pressed("upgrade"):
-        upgrade()
-    if Input.is_action_pressed("downgrade"):
-        downgrade()
- 
-        
-    clamp_viewport() #TODO: do this somehwere else like in the main scene when thats made
+    if Input.is_action_just_pressed("upgrade"):
+        print("[PlayerEntity] Upgrade key pressed")
+        upgrade_component.upgrade()
+    if Input.is_action_just_pressed("downgrade"):
+        print("[PlayerEntity] Downgrade key pressed")
+        upgrade_component.downgrade()
+    #clamp_viewport() #TODO: do this somehwere else like in the main scene when thats made
 
-
-func downgrade():
-    #disable 1
-    upgrade_1.visible = false
-    u_1_collision_detection.set_deferred("monitorable", false)
-    u_1_collision_detection.monitoring = false
-    areacollision1.set_deferred("disabled", true)
-    #enable 0
-    upgradelvl = 0
-    speed = 150
-    upgrade_0.visible = true
-    u_0_collision_detection.set_deferred("monitorable",true)
-    u_0_collision_detection.monitoring = true
-    areacollision0.set_deferred("disabled", false)
-
-func upgrade():
-    #disable 0
-    upgrade_0.visible = false
-    u_0_collision_detection.set_deferred("monitorable",false)
-    u_0_collision_detection.monitoring = false
-    areacollision0.set_deferred("disabled", true)
-
-    #enable 1
-    upgradelvl = 1
-    speed = 200
-    upgrade_1.visible = true
-    u_1_collision_detection.set_deferred("monitorable", true)
-    u_1_collision_detection.monitoring = true
-    areacollision1.set_deferred("disabled", false)
-
+#TODO: figure out where to put this collision logic, probably just in the ItemEntity, NOT HERE!
 func add_bomb():
+    print("[PlayerEntity] add_bomb() called")
     pass 
-    #TODO: figure out where to put this collision logic, probably just in the Item Component, NOT HERE!
     #if bombs < 7:
         #bombs += 1
     #else:
         #Gamestats.score += 250
-        
+
+#TODO: same as the add_bomb thing i think its an item, should be in the item entity
 func give_upgrade():
-    if upgradelvl == 0:
-        upgrade()
-    else:
-        Gamestats.score += 280
+    print("[PlayerEntity] give_upgrade() called")
+    pass
+    #if upgradelvl == 0:
+        #upgrade_component.upgrade()
+    #else:
+        #Gamestats.score += 280
 
 #TODO: this should not be in the player entity, but somewhere closer to the Main Scene (once the main scene gets created
 func clamp_viewport():
-    if upgradelvl == 0:
-        global_position.x = clamp(global_position.x,plane_sprite_0.texture.get_width()/2,get_viewport_rect().size.x - plane_sprite_0.texture.get_width()/2)
-        global_position.y = clamp(global_position.y,plane_sprite_0.texture.get_height()/2,get_viewport_rect().size.y - plane_sprite_0.texture.get_height()/2)
-    if upgradelvl == 1:
-        global_position.x = clamp(global_position.x,plane_sprite_1.texture.get_width()/2,get_viewport_rect().size.x - plane_sprite_1.texture.get_width()/2)
-        global_position.y = clamp(global_position.y,plane_sprite_1.texture.get_height()/2,get_viewport_rect().size.y - plane_sprite_1.texture.get_height()/2)
-    
+    print("[PlayerEntity] clamp_viewport() called")
+    var plane_sprite = upgrade_component.active_plane_sprite
+    global_position.x = clamp(global_position.x, plane_sprite.texture.get_width() / 2, get_viewport_rect().size.x - plane_sprite.texture.get_width() / 2)
+    global_position.y = clamp(global_position.y, plane_sprite.texture.get_height() / 2, get_viewport_rect().size.y - plane_sprite.texture.get_height() / 2)
+    print("[PlayerEntity] Position clamped to viewport")

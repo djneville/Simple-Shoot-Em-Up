@@ -26,6 +26,7 @@ signal bomb_inventory_change(new_bomb_inventory)
 
 
 func _ready():
+    print("[WeaponComponent] _ready() called")
     shoot_timer.wait_time = fire_rate
     shoot_timer.one_shot = true
     shoot_timer.timeout.connect(_on_timeout)
@@ -35,6 +36,7 @@ func _ready():
     #TODO: for now there is no reason to have a timeout for the bomb other than just its default queue_free(no animations?)
 
 func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
+    print("[WeaponComponent] fire_bullet() called")
     if shoot_timer.time_left == 0:
         var new_bullet = bullet_scene.instantiate()
         get_tree().current_scene.add_child(new_bullet)  # Add to main scene to prevent inheriting transforms
@@ -42,13 +44,18 @@ func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
         new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)  # Initialize bullet properties
         shoot_timer.start()
         $MuzzleFlash.play("MuzzleFlashAnimation") 
+        print("[WeaponComponent] Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
         # TODO: this is ugly but works only because the animation is
         # long enough to not happen more than once between the fire_rate occuring
-        print("WeaponComponent: Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
+        #print("WeaponComponent: Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
+    else:
+        print("[WeaponComponent] Cannot fire bullet, shoot_timer time_left:", shoot_timer.time_left)
 
 func drop_bomb(start_position: Vector2, shooter: Node):
+    print("[WeaponComponent] drop_bomb() called")
     #TODO: this is bad place, figure out somehwere else
     if bomb_inventory == 0:
+        print("[WeaponComponent] No bombs left to drop")
         return
     #TODO: I dont like this, there should be a better way to use the timer.
     if bomb_timer.time_left == 0:
@@ -60,10 +67,14 @@ func drop_bomb(start_position: Vector2, shooter: Node):
         bomb_timer.start()
         bomb_inventory -= 1
         bomb_inventory_change.emit(bomb_inventory)
+        print("[WeaponComponent] Bomb dropped at", start_position, "shooter:", shooter.name)
         # TODO: this is ugly but works only because the animation is
         # long enough to not happen more than once between the fire_rate occuring
-        print("WeaponComponent: Bomb dropped at", start_position, "shooter:", shooter.name)
+        #print("WeaponComponent: Bomb dropped at", start_position, "shooter:", shooter.name)
+    else:
+        print("[WeaponComponent] Cannot drop bomb, bomb_timer time_left:", bomb_timer.time_left)
 
 #TODO: confused on why this is needed here but can change this when projectile's abstraction is created
 func _on_timeout():
+    print("[WeaponComponent] _on_timeout() called")
     $MuzzleFlash.stop()

@@ -16,6 +16,7 @@ var noPathRotation
 @export var fire_rate = 0.50 # Interval in seconds for shooting
 
 func _ready():
+    print("[EnemyEntity] _ready() called")
     health.entity_died.connect(_death)
 
     weapon.shoot_timer.wait_time = fire_rate #TODO simple overwrite of the wait_time property of the weapon timer
@@ -23,6 +24,7 @@ func _ready():
     path_follow_2d.progress_ratio_1.connect(_on_path_looped)
 
 func _death():
+    print("[EnemyEntity] _death() called")
     $ShipExplode.play("explode")
     # TODO: when do we free it?
     # queue_free()
@@ -30,19 +32,20 @@ func _death():
 #TODO: there might be a better way to directly be able to just call health's 
 # take_damage without inheretince
 func take_damage(damage):
+    print("[EnemyEntity] take_damage() called with damage:", damage)
     health.take_damage(damage)
 
 func _process(_delta):
     PathRotation = path_follow_2d.rotation
 
     # Attempt to fire bullets as often as possible
-    var bullet_direction = Vector2.UP # TODO: WHAT IN THE FUCK WHY IS THE DIRCETION VECTOR REVERSED
+    var bullet_direction = Vector2.DOWN # TODO: WHAT IN THE FUCK WHY IS THE DIRCETION VECTOR REVERSED
     # TODO:the next part doesnt work because i dont know how paths work AT ALL
     #if PathRotation != 0:
     #    bullet_direction = -Vector2(cos(PathRotation - PI / 2), sin(PathRotation - PI / 2))
     weapon.fire_bullet(self.global_position, bullet_direction, self)
 
-
 func _on_path_looped(progress_ratio):
+    print("[EnemyEntity] _on_path_looped() called with progress_ratio:", progress_ratio)
     print("Path looped! Progress ratio:", progress_ratio)
     queue_free()

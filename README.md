@@ -1,145 +1,179 @@
 Going insane with the UpgradeComponent dissapearing the moment that the enemies enter the world (idk if its Bullet Collision bug or something else)
-**Possible Cause:**
 
-When bullets are instantiated, they might be colliding with the player's collision shape immediately upon creation. This collision can trigger unintended side effects, such as affecting the `UpgradeComponent`'s visibility or state, even if no damage is logged.
 
-Here's why this might happen:
+ASOHDFFFFFFFFFFFFFFFFFFFFFFFFFJASODJSFSGJKDFSFJPDSGAS+OAGSDFgジョンpsd＋gkガfldナ＋fmldsgンdカflmsgdfン；
+Based on the logs you've provided and the code, the issue seems to be that the `UpgradeComponent` becomes invisible when enemy bullets start to appear, and your assertion `assert(upgrade_component.visible)` fails because `upgrade_component.visible` is `false`. Since no damage is logged as being taken by the player, it's likely that the bullets are affecting the player's `UpgradeComponent` directly through unintended collisions, without triggering the damage logic.
 
-- **Collision Layers and Masks:** If the bullets and the player share collision layers and masks, bullets can collide with the player upon spawning.
-- **Owner Reference Mismatch:** The bullet's `ownerr` variable may not correctly identify the player as its owner due to node hierarchy differences.
-- **Immediate Overlap:** Bullets spawned at the player's position might overlap with the player's collision shape, causing an immediate collision.
+**Root Cause:**
 
-**How to Diagnose the Issue:**
+- **Unintended Collisions with Player's Child Nodes:** Enemy bullets are colliding with the player's child nodes (specifically, nodes under the `UpgradeComponent`), such as `active_plane_sprite`. These collisions may not trigger the player's `take_damage()` function because they collide with nodes that do not have this function.
 
-1. **Check Collision Layers and Masks:**
+- **Collision Layers and Masks Misconfiguration:** The collision layers and masks for the bullets and the player's child nodes are set in such a way that bullets can collide with the player's visual components. This collision might cause the sprite to disappear or become invisible.
 
-   - Ensure that the player's collision shape and the bullets are on different collision layers.
-   - Set the bullets' collision mask so they do not detect collisions with the player.
+- **Sprite Nodes Without Collision Handling:** When a bullet collides with a sprite node (like `Sprite2D`), which doesn't have a collision response implemented, it may cause unexpected behavior such as the node becoming invisible.
 
-2. **Log Collision Events:**
+**Evidence from Logs:**
 
-   - Add print statements in the bullet's `_on_body_entered` function to see which bodies it collides with.
-   - Verify whether the bullets are colliding with the player upon creation.
+- **No Damage Logged:** The player's `take_damage()` function is not called, indicating that the collision is not with the player's `CharacterBody2D` node.
 
-3. **Verify Owner Matching:**
+- **Bullet Collisions with Owner Only:** The only collision logged in your provided logs is:
 
-   - Confirm that the `ownerr` variable in the `BulletComponent` correctly references the player.
-   - Check if the `body` in `_on_body_entered` matches `ownerr` when the bullet collides with the player.
-
-**Proposed Solution:**
-
-**1. Adjust Collision Layers and Masks**
-
-- **For Bullets:**
-
-  - **Collision Layer:** Assign bullets to a specific layer (e.g., layer 2).
-  - **Collision Mask:** Set the collision mask to collide only with enemies (e.g., mask 3).
-
-- **For Player:**
-
-  - **Collision Layer:** Keep the player on its own layer (e.g., layer 1).
-  - **Collision Mask:** Ensure the player does not collide with bullets from its own weapon.
-
-**Example Settings:**
-
-```gdscript
-# In BulletComponent.gd
-func _ready():
-    collision_layer = 2
-    collision_mask = 4  # Assuming enemies are on layer 3
-
-# In PlayerEntity.gd
-func _ready():
-    collision_layer = 1
-    collision_mask = 4  # Assuming enemies are on layer 3
-```
-
-**2. Modify Bullet Collision Handling**
-
-Update the bullet's `_on_body_entered` function to check for group membership or other identifiers instead of direct node comparison:
-
-```gdscript
-func _on_body_entered(body):
-    if body == ownerr:
-        return  # Ignore collision with the shooter
-    if body.is_in_group("player"):
-        return  # Ignore collision with the player group
-    $BulletExplosion.play("BulletExplosion")
-    body.take_damage(damage)
-```
-
-**3. Offset Bullet Spawn Position**
-
-Slightly offset the bullet's spawn position so it doesn't start within the player's collision shape:
-
-```gdscript
-func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
-    if shoot_timer.time_left == 0:
-        var new_bullet = bullet_scene.instantiate()
-        get_tree().current_scene.add_child(new_bullet)
-        # Offset the bullet's position by a small amount in the shooting direction
-        var spawn_offset = direction.normalized() * 10  # Adjust the offset as needed
-        new_bullet.global_position = start_position + spawn_offset
-        new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)
-        shoot_timer.start()
-        $MuzzleFlash.play("MuzzleFlashAnimation")
-```
-
-**4. Confirm Owner Reference**
-
-Ensure that the `ownerr` variable in the `BulletComponent` correctly references the player:
-
-- **In `WeaponComponent.gd`:**
-
-  ```gdscript
-  func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
-      # Pass the correct shooter reference
-      new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)
+  ```
+  [BulletComponent] _on_body_entered() called with body:Enemy1
+  [BulletComponent] Collision with owner, ignoring
   ```
 
-- **In `BulletComponent.gd`:**
+  This suggests that bullets are only detecting collisions with their owner but not with the player. However, the player's `UpgradeComponent` becomes invisible, which indicates that collisions are happening with the player's child nodes.
 
-  ```gdscript
-  func initialize(new_direction: Vector2, new_speed: float, new_damage: int, shooter: Node):
-      direction = new_direction.normalized()
-      speed = new_speed
-      damage = new_damage
-      ownerr = shooter
-  ```
+**Solution:**
 
-**5. Use Groups for Collision Checks**
+1. **Adjust Collision Layers and Masks:**
 
-Add the player to a "player" group and modify the bullet's collision handling:
+   - **Player's Visual Nodes:**
 
-- **Add Player to Group:**
+     - **Collision Layer:** Assign the player's visual nodes (e.g., `active_plane_sprite`) to a collision layer that does not interact with enemy bullets. Alternatively, remove collision shapes from purely visual nodes if they are not needed.
 
-  ```gdscript
-  # In PlayerEntity.gd
-  func _ready():
-      add_to_group("player")
-  ```
+     - **Collision Mask:** Ensure that the visual nodes do not detect collisions with bullets.
 
-- **Modify Bullet Collision Handling:**
+   - **Enemy Bullets:**
 
-  ```gdscript
-  func _on_body_entered(body):
-      if body.is_in_group("player"):
-          return  # Ignore collision with the player group
-      $BulletExplosion.play("BulletExplosion")
-      body.take_damage(damage)
-  ```
+     - **Collision Layer:** Assign enemy bullets to a specific layer (e.g., layer 2).
 
-**6. Verify Collision Shapes**
+     - **Collision Mask:** Set the bullets' collision mask to collide only with the player's main collision layer (e.g., layer 1), not with the layers of the player's child nodes.
 
-Ensure that the collision shapes for the player and bullets are correctly set up and not overlapping unintentionally.
+   **Example Settings:**
 
-**Why Logs Might Not Show Damage:**
+   - **PlayerEntity (main node):**
 
-- **Silent Failures:** If the player's `take_damage` function is not logging or if invulnerability frames prevent damage without logging it.
-- **Collision Detection Issues:** Collisions may affect the `UpgradeComponent` without explicitly triggering damage logs.
+     ```gdscript
+     # In PlayerEntity.gd
+     func _ready():
+         collision_layer = 1
+         collision_mask = 2  # Collides with enemy bullets on layer 2
+     ```
+
+   - **Player's Child Nodes (e.g., `active_plane_sprite`):**
+
+     ```gdscript
+     # In UpgradeComponent.gd, during node setup
+     active_plane_sprite.collision_layer = 0  # Disable collision
+     active_plane_sprite.collision_mask = 0
+     ```
+
+   - **Enemy Bullets:**
+
+     ```gdscript
+     # In BulletComponent.gd
+     func _ready():
+         collision_layer = 2
+         collision_mask = 1  # Collides with player on layer 1
+     ```
+
+2. **Remove Unnecessary Collision Shapes:**
+
+   - If the player's visual nodes (sprites) do not need to detect collisions, remove their collision shapes entirely.
+
+3. **Use Groups for Collision Filtering:**
+
+   - **Add Enemies and Player to Groups:**
+
+     ```gdscript
+     # In EnemyEntity.gd
+     func _ready():
+         add_to_group("enemies")
+     
+     # In PlayerEntity.gd
+     func _ready():
+         add_to_group("player")
+     ```
+
+   - **Modify Bullet Collision Handling:**
+
+     ```gdscript
+     # In BulletComponent.gd
+     func _on_body_entered(body):
+         if ownerr.is_in_group("enemies") and body.is_in_group("enemies"):
+             print("[BulletComponent] Enemy bullet collided with another enemy, ignoring")
+             return
+         if ownerr.is_in_group("enemies") and body.is_in_group("player"):
+             print("[BulletComponent] Enemy bullet hit the player")
+             $BulletExplosion.play("BulletExplosion")
+             body.take_damage(damage)
+         # Handle other cases similarly
+     ```
+
+4. **Offset Bullet Spawn Position:**
+
+   - Ensure that bullets do not spawn inside the player or its child nodes.
+
+     ```gdscript
+     # In EnemyEntity.gd
+     func _process(_delta):
+         # ...
+         var bullet_spawn_position = self.global_position + bullet_direction * 10  # Offset by 10 pixels
+         weapon.fire_bullet(bullet_spawn_position, bullet_direction, self)
+     ```
+
+5. **Disable Collision on Visual Nodes:**
+
+   - For visual nodes like `active_plane_sprite`, disable collision by unchecking the "Enable" property in their `CollisionShape2D` nodes.
+
+6. **Verify Visibility Settings:**
+
+   - Ensure that the `active_plane_sprite` and other visual nodes have their `visible` property set to `true`.
+
+   - Check if any code is unintentionally setting `visible` to `false`.
+
+7. **Add Logging for Visibility Changes:**
+
+   - **In `UpgradeComponent.gd`:**
+
+     ```gdscript
+     func set_visibility(visible):
+         print("[UpgradeComponent] set_visibility() called with visible:", visible)
+         self.visible = visible
+         if active_plane_sprite != null:
+             active_plane_sprite.visible = visible
+     ```
+
+   - Replace direct assignments of `visible` with calls to `set_visibility()`.
+
+**Why the Assertion Fails:**
+
+- The assertion `assert(upgrade_component.visible)` fails because `upgrade_component.visible` becomes `false`. This happens because the enemy bullets collide with the player's visual components, causing them to become invisible or removed from the scene due to unintended collision responses.
+
+**Testing the Solution:**
+
+- **Step 1:** Adjust the collision layers and masks as described.
+
+- **Step 2:** Run the game and observe the logs. Ensure that:
+
+  - Bullets no longer collide with the player's child nodes.
+
+  - The `UpgradeComponent` remains visible.
+
+  - The assertion `assert(upgrade_component.visible)` passes.
+
+- **Step 3:** Check if the player's `take_damage()` function is called when enemy bullets hit the player.
+
+**Additional Considerations:**
+
+- **Collision Shape Types:** Ensure that you are using the appropriate collision shapes (`CollisionShape2D`) and areas (`Area2D`) for detecting collisions.
+
+- **Physics Layers vs. Collision Layers:** Be mindful of the difference between physics layers and collision layers in Godot.
+
+- **Debugging Tools:** Use Godot's built-in debugging tools to visualize collision shapes and layers during runtime.
 
 **Summary:**
 
-The invisibility of the `UpgradeComponent` when bullets appear is likely due to unintended collisions between the bullets and the player upon bullet creation. Adjusting collision layers and masks, verifying owner references, and modifying collision handling logic should resolve the issue.
+- The `UpgradeComponent` becomes invisible because enemy bullets are unintentionally colliding with the player's visual nodes, causing them to become invisible or be removed.
 
-Feel free to ask if you need further clarification or assistance implementing these changes.
+- Adjusting collision layers and masks prevents bullets from interacting with the player's child nodes.
+
+- By ensuring that bullets only collide with the player's main collision shape, you prevent unintended side effects on the `UpgradeComponent`.
+
+**Final Note:**
+
+After making these changes, if the issue persists, consider adding additional logging around any code that modifies the `visible` property of the `UpgradeComponent` or its child nodes. This can help identify any other parts of the code that might be affecting visibility.
+
+Feel free to reach out if you need further assistance or clarification on any of these steps.

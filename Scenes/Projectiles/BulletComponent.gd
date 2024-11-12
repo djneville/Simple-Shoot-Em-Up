@@ -14,7 +14,6 @@ func initialize(new_direction: Vector2, new_speed: float, new_damage: int, shoot
     direction = new_direction.normalized()
     speed = new_speed
     damage = new_damage
-    velocity = direction * speed
     ownerr = shooter
     print("Bullet initialized with direction:", direction, "Velocity:", velocity)
 
@@ -28,7 +27,6 @@ func _ready():
     add_child(lifetime_timer)
     lifetime_timer.start()
     print("Bullet direction:", direction, "Velocity:", velocity)
-
     #TODO: THIS IS IMPLICITELY ALREADY LINKED!!!!
     # body_entered.connect(_on_body_entered)
 
@@ -39,13 +37,10 @@ func _physics_process(delta):
 func _on_body_entered(body):
     if body == ownerr:
         return  # Ignore collision with the shooter
-
-    if body.has_method("take_damage"):
-        body.take_damage(damage)
-    
-    # Play explosion animation if it exists
     $BulletExplosion.play("BulletExplosion")
-    queue_free()
+    body.take_damage(damage)
+    #TODO: No need to FREE here because I guess it just disappears from the animation and then lifetime timeout????? seems bad
 
+#TODO: This is perhaps just a default _on_timeout that can get overwritten in the WeaponComponent?
 func _on_timeout():
     queue_free()

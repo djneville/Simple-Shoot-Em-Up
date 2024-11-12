@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dds0uhdcqiv72"]
+[gd_scene load_steps=8 format=3 uid="uid://dds0uhdcqiv72"]
 
 [ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Assets/Font/maintheme.tres" id="1_4sdwr"]
 [ext_resource type="Texture2D" uid="uid://covvnpo102y3v" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
 [ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/ScoreNumber.gd" id="2_v3eyu"]
 [ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/LivesNumber.gd" id="3_nhk45"]
 [ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/HealthBar.gd" id="5_pfjij"]
+[ext_resource type="Texture2D" uid="uid://dnrpoeyfehamc" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
+[ext_resource type="Script" path="res://Scenes/GUI/GameplayGUI/BombBar.gd" id="6_j0fah"]
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -82,3 +84,23 @@ max_value = 7.0
 value = 7.0
 texture_progress = ExtResource("2_lp1jt")
 script = ExtResource("5_pfjij")
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 412.0
+offset_top = -20.0
+offset_right = 535.0
+offset_bottom = -3.0
+grow_vertical = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Bombs" type="TextureProgressBar" parent="MarginContainer4"]
+layout_mode = 2
+max_value = 7.0
+value = 7.0
+texture_progress = ExtResource("6_hb3fk")
+script = ExtResource("6_j0fah")

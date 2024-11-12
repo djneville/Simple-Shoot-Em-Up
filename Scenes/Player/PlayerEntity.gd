@@ -18,9 +18,6 @@ var upgradelvl = 0
 @onready var areacollision1 = $Upgrade1/U1CollisionDetection/CollisionShape2D
 @onready var upgrade_1_col_shape = $Upgrade1ColShape
 
-#anims and timer
-@onready var ship_explode = $ShipExplode
-
 @export var reset_level := false
 
 @onready var health = $HealthComponent
@@ -42,9 +39,9 @@ func _ready():
 
 func _death():
     if upgradelvl == 0:
-        ship_explode.play("explode0")
+        $ShipExplode.play("explode0")
     if upgradelvl == 1:
-        ship_explode.play("explode1")
+        $ShipExplode.play("explode1")
     Gamestats.lives -= 1
     Gamestats.score = 0
     if Gamestats.lives <= 0:
@@ -76,27 +73,32 @@ func take_damage(damage):
         invulnerability.start_invulnerability()
         health.take_damage(damage)
 
-
 func _on_collision_detection_body_entered(body):
     if body.is_in_group("enemy"): #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
         body.take_damage(10)
         take_damage(2)
 
 func _process(_delta):
-    if Input.is_action_pressed("upgrade"):
-        upgrade()
-    if Input.is_action_pressed("downgrade"):
-        downgrade()
     var input_dir = Input.get_vector("left", "right", "up", "down")
     # TODO: delta here is often too low as the time for frame draw 
     self.velocity = input_dir * speed # * delta
     # print("fps: ", 1 / delta)
     move_and_slide()
     
-    clamp_viewport()
-    
     if Input.is_action_pressed("shoot"):
         weapon.fire_bullet(self.global_position, Vector2.UP, self)
+        
+    if Input.is_action_pressed("bomb"):
+        weapon.drop_bomb(self.global_position, self)
+        
+    if Input.is_action_pressed("upgrade"):
+        upgrade()
+    if Input.is_action_pressed("downgrade"):
+        downgrade()
+ 
+        
+    clamp_viewport() #TODO: do this somehwere else like in the main scene when thats made
+
 
 func downgrade():
     #disable 1
@@ -127,11 +129,9 @@ func upgrade():
     u_1_collision_detection.monitoring = true
     areacollision1.set_deferred("disabled", false)
 
-func _on_bomb_reload_timeout():
-    pass #TODO this will be covered in the bomb/weapon component just like the bullet
-    
 func add_bomb():
-    pass #TODO: same as the bullet stuff
+    pass 
+    #TODO: figure out where to put this collision logic, probably just in the Item Component, NOT HERE!
     #if bombs < 7:
         #bombs += 1
     #else:

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcct87i2bniia"]
+[gd_scene load_steps=5 format=3 uid="uid://dcct87i2bniia"]
 
 [ext_resource type="Script" path="res://Scenes/Projectiles/WeaponComponent.gd" id="1_2vbg5"]
 [ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="2_u7o8s"]
-[ext_resource type="PackedScene" uid="uid://cwc6b6ocb6iaf" path="res://Scenes/Projectiles/BulletComponent.tscn" id="3_h8jra"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]
 resource_name = "MuzzleFlashAnimation"
@@ -42,7 +41,9 @@ _data = {
 [node name="Weapon" type="Node2D"]
 script = ExtResource("1_2vbg5")
 
-[node name="FireTimer" type="Timer" parent="."]
+[node name="BulletTimer" type="Timer" parent="."]
+
+[node name="BombTimer" type="Timer" parent="."]
 
 [node name="MuzzleFlash" type="AnimationPlayer" parent="."]
 libraries = {
@@ -56,5 +57,3 @@ position = Vector2(-3.42727e-07, -11)
 rotation = -0.174533
 scale = Vector2(0.991951, 1.01936)
 texture = ExtResource("2_u7o8s")
-
-[node name="Bullet" parent="." instance=ExtResource("3_h8jra")]

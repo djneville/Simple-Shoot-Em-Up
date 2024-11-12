@@ -1,6 +1,12 @@
 extends CharacterBody2D
 
-@onready var path_follow_2d = $".." #TODO NOOOOOOOOOOO EWWWWWWW
+#TODO: I think i understand how this works, but i dont like it...
+# what seems to be happening, is that anywhere this EnemyEntity is attached
+# to in a Node tree it will be able to look UPwards in the tree in the parents for the PathFollow2D that it needs
+# Yes, it allows for unique paths,but i dont like the inheretence wackyness
+# There MUST be a better way to declare the existance of multiple enemy path types
+# without having to attach the EnemyEntity to the Path, but rather the Path to the EnemyEntity
+@onready var path_follow_2d = $".." #TODO NOOOOOOOOOOO
 var PathRotation
 var noPathRotation
 
@@ -18,7 +24,8 @@ func _ready():
 
 func _death():
     $ShipExplode.play("explode")
-    queue_free()
+    # TODO: when do we free it?
+    # queue_free()
 
 #TODO: there might be a better way to directly be able to just call health's 
 # take_damage without inheretince

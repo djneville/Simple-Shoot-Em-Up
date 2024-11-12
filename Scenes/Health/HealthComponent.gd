@@ -1,7 +1,7 @@
 extends Node
 
 @export var max_health := 7
-var health := max_health
+@export var health := max_health
 
 signal health_changed(health)
 signal entity_died()

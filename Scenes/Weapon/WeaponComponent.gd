@@ -39,9 +39,9 @@ func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
     print("[WeaponComponent] fire_bullet() called")
     if shoot_timer.time_left == 0:
         var new_bullet = bullet_scene.instantiate()
+        new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)  # Initialize bullet properties
         get_tree().current_scene.add_child(new_bullet)  # Add to main scene to prevent inheriting transforms
         new_bullet.global_position = start_position
-        new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)  # Initialize bullet properties
         shoot_timer.start()
         $MuzzleFlash.play("MuzzleFlashAnimation") 
         print("[WeaponComponent] Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)

@@ -1,3 +1,4 @@
+AnimationPlayer
 CollisionShape2D
 Node2D
 Area2D
@@ -10,5 +11,4 @@ Button
 VBoxContainer
 Label
 HBoxContainer
-AnimationPlayer
 CenterContainer

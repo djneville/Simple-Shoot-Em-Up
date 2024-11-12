@@ -13,8 +13,8 @@ func _ready():
     #TODO: see the HealthBar.gd for where the health_changed signal gets handled
     health.entity_died.connect(_death)
     weapon.shoot_timer.one_shot = true # To avoid just shooting once???
-    #invulnerability.invulnerability_started.connect(_on_invulnerability_started)
-    #invulnerability.invulnerability_ended.connect(_on_invulnerability_ended)
+    invulnerability.invulnerability_started.connect(_on_invulnerability_started)
+    invulnerability.invulnerability_ended.connect(_on_invulnerability_ended)
     print("[PlayerEntity] Initialization complete")
 
 func _death():
@@ -43,19 +43,19 @@ func _on_invulnerability_ended():
 
 func heal(amount: int = 1):
     print("[PlayerEntity] heal() called with amount:", amount)
-    if health.current_health == health.max_health:
+    if health.health == health.max_health:
         Gamestats.score += 300
         print("[PlayerEntity] Health is full. Added bonus score. New score:", Gamestats.score)
     else:
         health.heal(amount) #TODO: technically now this cant be entered at max health so check the logic here and fix
-        print("[PlayerEntity] Healed. Current health:", health.current_health)
+        print("[PlayerEntity] Healed. Current health:", health.health)
 
 func take_damage(damage):
     print("[PlayerEntity] take_damage() called with damage:", damage)
     if not invulnerability.is_invulnerable:
         invulnerability.start_invulnerability()
         health.take_damage(damage)
-        print("[PlayerEntity] Took damage. Current health:", health.current_health)
+        print("[PlayerEntity] Took damage. Current health:", health.health)
         upgrade_component.downgrade()
         print("[PlayerEntity] upgrade_component.downgrade() is commented out")
     else:
@@ -75,7 +75,7 @@ func _process(_delta):
     #TODO: I have wasted like 1.5 hours on this bug, and i have no idea why its happening.
     # at some point (it seems the moment that the EnemyEntity either appears or shoots
     # bullets the PlayerEntity's UpgradeComponent just goes invisible
-    assert(upgrade_component.visible)　
+    #assert(upgrade_component.visible)
     var input_dir = Input.get_vector("left", "right", "up", "down")
     # TODO: delta here is often too low as the time for frame draw 
     self.velocity = input_dir * upgrade_component.speed # * delta
@@ -92,7 +92,7 @@ func _process(_delta):
     if Input.is_action_just_pressed("downgrade"):
         print("[PlayerEntity] Downgrade key pressed")
         upgrade_component.downgrade()
-    #clamp_viewport() #TODO: do this somehwere else like in the main scene when thats made
+    clamp_viewport() #TODO: do this somehwere else like in the main scene when thats made
 
 #TODO: figure out where to put this collision logic, probably just in the ItemEntity, NOT HERE!
 func add_bomb():

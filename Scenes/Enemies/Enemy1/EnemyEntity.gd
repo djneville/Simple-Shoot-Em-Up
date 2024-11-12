@@ -20,7 +20,6 @@ func _ready():
     health.entity_died.connect(_death)
 
     weapon.shoot_timer.wait_time = fire_rate #TODO simple overwrite of the wait_time property of the weapon timer
-    weapon.bullet_speed = -400
     path_follow_2d.progress_ratio_1.connect(_on_path_looped)
 
 func _death():
@@ -39,7 +38,7 @@ func _process(_delta):
     PathRotation = path_follow_2d.rotation
 
     # Attempt to fire bullets as often as possible
-    var bullet_direction = Vector2.DOWN # TODO: WHAT IN THE FUCK WHY IS THE DIRCETION VECTOR REVERSED
+    var bullet_direction = Vector2.DOWN #TODO: WHAT IN THE FUCK WHY IS THE DIRCETION VECTOR REVERSED
     # TODO:the next part doesnt work because i dont know how paths work AT ALL
     #if PathRotation != 0:
     #    bullet_direction = -Vector2(cos(PathRotation - PI / 2), sin(PathRotation - PI / 2))

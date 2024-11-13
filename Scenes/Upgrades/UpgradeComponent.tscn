@@ -85,6 +85,7 @@ _data = {
 
 [node name="UpgradeComponent" type="Node2D"]
 script = ExtResource("1_3sjmf")
+speed = null
 
 [node name="Upgrade0" type="Node2D" parent="."]
 
@@ -115,6 +116,7 @@ disabled = true
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_lj2sw")
+frame = 1
 
 [node name="ShipExplode" type="AnimationPlayer" parent="."]
 libraries = {

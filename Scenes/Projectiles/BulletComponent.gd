@@ -28,8 +28,7 @@ func _ready():
     lifetime_timer.timeout.connect(_on_timeout)
     add_child(lifetime_timer)
     lifetime_timer.start()
-    print("[BulletComponent] Bullet direction:", direction, "Velocity:", velocity)
-    #print("Bullet direction:", direction, "Velocity:", velocity)
+    #print("[BulletComponent] Bullet direction:", direction, "Velocity:", velocity)
     #TODO: THIS IS IMPLICITELY ALREADY LINKED!!!!
     # body_entered.connect(_on_body_entered)
 

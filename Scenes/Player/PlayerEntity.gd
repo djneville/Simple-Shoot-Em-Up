@@ -15,6 +15,9 @@ func _ready():
     weapon.shoot_timer.one_shot = true # To avoid just shooting once???
     invulnerability.invulnerability_started.connect(_on_invulnerability_started)
     invulnerability.invulnerability_ended.connect(_on_invulnerability_ended)
+    var collision_shape = CollisionShape2D.new()
+    collision_shape.shape = upgrade_component.active_collision_shape.shape
+    self.add_child(collision_shape)
     print("[PlayerEntity] Initialization complete")
 
 func _death():
@@ -61,7 +64,7 @@ func take_damage(damage):
     else:
         print("[PlayerEntity] Invulnerable. Damage not applied")
 
-func _on_collision_detection_body_entered(body):
+func _handle_collide(body):
     print("[PlayerEntity] _on_collision_detection_body_entered() called with body:", body)
     if body.is_in_group("enemy"): #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
         print("[PlayerEntity] Collision with enemy")
@@ -72,15 +75,16 @@ func _on_collision_detection_body_entered(body):
         print("[PlayerEntity] Collision with non-enemy body")
 
 func _process(_delta):
-    #TODO: I have wasted like 1.5 hours on this bug, and i have no idea why its happening.
-    # at some point (it seems the moment that the EnemyEntity either appears or shoots
-    # bullets the PlayerEntity's UpgradeComponent just goes invisible
-    #assert(upgrade_component.visible)
     var input_dir = Input.get_vector("left", "right", "up", "down")
     # TODO: delta here is often too low as the time for frame draw 
     self.velocity = input_dir * upgrade_component.speed # * delta
     # print("fps: ", 1 / delta)
     move_and_slide()
+    for i in self.get_slide_collision_count():
+        var collision = self.get_slide_collision(i)
+        _handle_collide(collision.get_collider())
+        print("PLLLLLAYERRRRRRR collided with ", collision.get_collider().name)
+    
     if Input.is_action_pressed("shoot"):
         weapon.fire_bullet(self.global_position, Vector2.UP, self)
     if Input.is_action_pressed("bomb"):
@@ -114,8 +118,6 @@ func give_upgrade():
 
 #TODO: this should not be in the player entity, but somewhere closer to the Main Scene (once the main scene gets created
 func clamp_viewport():
-    print("[PlayerEntity] clamp_viewport() called")
     var plane_sprite = upgrade_component.active_plane_sprite
     global_position.x = clamp(global_position.x, plane_sprite.texture.get_width() / 2, get_viewport_rect().size.x - plane_sprite.texture.get_width() / 2)
     global_position.y = clamp(global_position.y, plane_sprite.texture.get_height() / 2, get_viewport_rect().size.y - plane_sprite.texture.get_height() / 2)
-    print("[PlayerEntity] Position clamped to viewport")

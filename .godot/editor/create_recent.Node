@@ -1,7 +1,7 @@
-AnimationPlayer
 CollisionShape2D
-Node2D
 Area2D
+AnimationPlayer
+Node2D
 Timer
 CharacterBody2D
 Node

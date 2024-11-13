@@ -36,7 +36,6 @@ func _ready():
     #TODO: for now there is no reason to have a timeout for the bomb other than just its default queue_free(no animations?)
 
 func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
-    print("[WeaponComponent] fire_bullet() called")
     if shoot_timer.time_left == 0:
         var new_bullet = bullet_scene.instantiate()
         new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)  # Initialize bullet properties
@@ -48,8 +47,6 @@ func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
         # TODO: this is ugly but works only because the animation is
         # long enough to not happen more than once between the fire_rate occuring
         #print("WeaponComponent: Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
-    else:
-        print("[WeaponComponent] Cannot fire bullet, shoot_timer time_left:", shoot_timer.time_left)
 
 func drop_bomb(start_position: Vector2, shooter: Node):
     print("[WeaponComponent] drop_bomb() called")
@@ -70,11 +67,9 @@ func drop_bomb(start_position: Vector2, shooter: Node):
         print("[WeaponComponent] Bomb dropped at", start_position, "shooter:", shooter.name)
         # TODO: this is ugly but works only because the animation is
         # long enough to not happen more than once between the fire_rate occuring
-        #print("WeaponComponent: Bomb dropped at", start_position, "shooter:", shooter.name)
-    else:
-        print("[WeaponComponent] Cannot drop bomb, bomb_timer time_left:", bomb_timer.time_left)
+
 
 #TODO: confused on why this is needed here but can change this when projectile's abstraction is created
 func _on_timeout():
-    print("[WeaponComponent] _on_timeout() called")
+    #print("[WeaponComponent] _on_timeout() called")
     $MuzzleFlash.stop()

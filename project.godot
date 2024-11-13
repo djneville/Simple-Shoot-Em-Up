@@ -18,8 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Gamestats="*res://gamestats.gd"
-HealthComponent="*res://Scenes/Health/HealthComponent.gd"
-InvulnerabilityComponent="*res://Scenes/Invulnerability/InvulnerabilityComponent.gd"
 
 [display]
 

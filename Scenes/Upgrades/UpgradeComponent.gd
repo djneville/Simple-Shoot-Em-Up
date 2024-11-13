@@ -68,6 +68,7 @@ func _ready():
 
     active_collision_shape = get_node(base_upgrade.collision_shape_path) as CollisionShape2D
     
+    # TODO: this doesnt actually work, you need to figure out a better way to do the Upgrade Logic either Singleton system or more Modular
     active_explosion_animation = $ShipExplode
     active_explosion_animation.current_animation = base_upgrade.explosion_animation
 
@@ -89,27 +90,30 @@ func downgrade():
     else:
         upgrade_index -= 1
         print("[UpgradeComponent] Downgrading to index:", upgrade_index)
-        apply_upgrade(UPGRADES[upgrade_index])a
+        apply_upgrade(UPGRADES[upgrade_index])
     print("DOWNGRADED!!!")
 
 # Function to apply the upgrade based on the current index
 func apply_upgrade(upgrade: Upgrade):
     print("[UpgradeComponent] apply_upgrade() called with upgrade index:", upgrade_index)
     print("Freeing old Nodes")
-    active_plane_sprite.queue_free()
+    #active_plane_sprite.queue_free()
     #TODO: oh my god next two lines are awful, im so sorry lol
     #active_collision_shape.queue_free()
-    #self.get_parent().find_child("CollisionShape2D").queue_free()
+    self.get_parent().find_child("CollisionShape2D").queue_free()
     
     speed = upgrade.speed
     print("[UpgradeComponent] Speed updated to:", speed)
     
     active_plane_sprite = get_node(upgrade.plane_sprite_path) as Sprite2D
-    upgrade_node.add_child(active_plane_sprite)
     print("[UpgradeComponent] New active_plane_sprite added to upgrade_node")
 
     active_collision_shape = get_node(upgrade.collision_shape_path) as CollisionShape2D
+    var collision_shape = CollisionShape2D.new()
+    collision_shape.shape = active_collision_shape.shape
+    self.get_parent().add_child(collision_shape) #TODO: I really dont like this shit
     
+    # TODO: this doesnt actually work, you need to figure out a better way to do the Upgrade Logic either Singleton system or more Modular
     active_explosion_animation = $ShipExplode
     active_explosion_animation.current_animation = upgrade.explosion_animation
     print("[UpgradeComponent] Explosion animation updated to:", upgrade.explosion_animation)

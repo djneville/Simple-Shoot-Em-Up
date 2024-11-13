@@ -45,11 +45,6 @@ script = ExtResource("1_2vbg5")
 
 [node name="BombTimer" type="Timer" parent="."]
 
-[node name="MuzzleFlash" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_qqlwd")
-}
-
 [node name="MuzzleFlashSprite" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
@@ -57,3 +52,8 @@ position = Vector2(-3.42727e-07, -11)
 rotation = -0.174533
 scale = Vector2(0.991951, 1.01936)
 texture = ExtResource("2_u7o8s")
+
+[node name="MuzzleFlash" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qqlwd")
+}

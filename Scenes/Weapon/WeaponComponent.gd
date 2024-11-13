@@ -29,7 +29,9 @@ func _ready():
     print("[WeaponComponent] _ready() called")
     shoot_timer.wait_time = fire_rate
     shoot_timer.one_shot = true
-    shoot_timer.timeout.connect(_on_timeout)
+    # TODO: this is ugly but works only because the animation is
+    # long enough to not happen more than once between the fire_rate occuring
+    shoot_timer.timeout.connect($MuzzleFlash.stop)
     
     bomb_timer.wait_time = fire_rate
     bomb_timer.one_shot = true # this is misleading, it means that the timer goes forever, not once?
@@ -44,9 +46,6 @@ func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
         shoot_timer.start()
         $MuzzleFlash.play("MuzzleFlashAnimation") 
         print("[WeaponComponent] Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
-        # TODO: this is ugly but works only because the animation is
-        # long enough to not happen more than once between the fire_rate occuring
-        #print("WeaponComponent: Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
 
 func drop_bomb(start_position: Vector2, shooter: Node):
     print("[WeaponComponent] drop_bomb() called")
@@ -65,11 +64,3 @@ func drop_bomb(start_position: Vector2, shooter: Node):
         bomb_inventory -= 1
         bomb_inventory_change.emit(bomb_inventory)
         print("[WeaponComponent] Bomb dropped at", start_position, "shooter:", shooter.name)
-        # TODO: this is ugly but works only because the animation is
-        # long enough to not happen more than once between the fire_rate occuring
-
-
-#TODO: confused on why this is needed here but can change this when projectile's abstraction is created
-func _on_timeout():
-    #print("[WeaponComponent] _on_timeout() called")
-    $MuzzleFlash.stop()

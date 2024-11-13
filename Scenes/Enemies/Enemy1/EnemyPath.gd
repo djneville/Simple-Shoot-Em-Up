@@ -2,9 +2,9 @@ extends PathFollow2D
 
 var speed = 140
 
-signal progress_ratio_1
+signal path_finished
 
 func _process(delta):
     progress += speed * delta
-    if progress_ratio == 1:
-        progress_ratio_1.emit(progress_ratio)
+    if self.progress_ratio == 1:
+        path_finished.emit()

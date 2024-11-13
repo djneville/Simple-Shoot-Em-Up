@@ -13,8 +13,6 @@ func _ready():
     #TODO: see the HealthBar.gd for where the health_changed signal gets handled
     health.entity_died.connect(_death)
     weapon.shoot_timer.one_shot = true # To avoid just shooting once???
-    invulnerability.invulnerability_started.connect(_on_invulnerability_started)
-    invulnerability.invulnerability_ended.connect(_on_invulnerability_ended)
     var collision_shape = CollisionShape2D.new()
     collision_shape.shape = upgrade_component.active_collision_shape.shape
     self.add_child(collision_shape)
@@ -33,16 +31,6 @@ func _death():
         Gamestats.gamestatus = "continue"
         print("[PlayerEntity] Continue game")
     reset_level = true
-
-func _on_invulnerability_started():
-    print("[PlayerEntity] _on_invulnerability_started() called")
-    #TODO: the flash animation should be contained in the invulnerability node
-    $InvulnerableFlash.play("Flash")
-
-func _on_invulnerability_ended():
-    print("[PlayerEntity] _on_invulnerability_ended() called")
-    $InvulnerableFlash.stop()
-    self.visible = true
 
 func heal(amount: int = 1):
     print("[PlayerEntity] heal() called with amount:", amount)
@@ -82,9 +70,9 @@ func _process(_delta):
     move_and_slide()
     for i in self.get_slide_collision_count():
         var collision = self.get_slide_collision(i)
+        print("[PlayerEntity] collided with ", collision.get_collider().name)
         _handle_collide(collision.get_collider())
-        print("PLLLLLAYERRRRRRR collided with ", collision.get_collider().name)
-    
+        
     if Input.is_action_pressed("shoot"):
         weapon.fire_bullet(self.global_position, Vector2.UP, self)
     if Input.is_action_pressed("bomb"):

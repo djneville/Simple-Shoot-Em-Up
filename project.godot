@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SimpleShootEmUp"
-run/main_scene="res://Scenes/GUI/Menus/main_screen.tscn"
+run/main_scene="res://Scenes/Menus/main_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -31,7 +31,7 @@ enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Scenes/Enemies/Enemy1/": "blue",
+"res://Scenes/Enemies/Enemy/": "blue",
 "res://Scenes/Enemies/Enemy2/": "green",
 "res://Scenes/Enemies/Enemy3/": "yellow",
 "res://Scenes/Enemies/Level 1 Boss/": "gray",

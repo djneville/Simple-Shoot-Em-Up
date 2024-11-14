@@ -16,3 +16,5 @@ script = ExtResource("1_l3m23")
 [node name="WeaponComponent" parent="." instance=ExtResource("6_48557")]
 
 [node name="UpgradeComponent" parent="." instance=ExtResource("5_al1uv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

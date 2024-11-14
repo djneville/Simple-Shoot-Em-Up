@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkjpkm5fr8el4"]
+
+[ext_resource type="Script" path="res://Scenes/Menus/Pause Menu/Pause Node.gd" id="1_rj5wj"]
+
+[node name="Unpause Node" type="Node"]
+process_mode = 2
+script = ExtResource("1_rj5wj")

@@ -138,6 +138,7 @@ _data = {
 script = ExtResource("1_vadg6")
 
 [node name="missle" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 rotation = 1.5708
 texture = ExtResource("2_g07lj")
@@ -148,10 +149,8 @@ texture_filter = 1
 position = Vector2(2.38419e-07, 2.33333)
 scale = Vector2(1, 0.833333)
 sprite_frames = SubResource("SpriteFrames_ap5b2")
-frame = 1
 
 [node name="missleexplosion" type="AnimatedSprite2D" parent="."]
-visible = false
 texture_filter = 1
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_u5cve")

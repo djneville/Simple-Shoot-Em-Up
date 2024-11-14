@@ -1,18 +1,1 @@
-res://Scenes/Invulnerability/InvulnerabilityComponent.tscn
-res://Scenes/Weapon/WeaponComponent.gd
-res://Scenes/Enemies/Enemy1/EnemyEntity.gd
-res://Scenes/Enemies/Enemy3/Enemy and Bomb/enemy_3.gd
-res://Assets/Tilemap/terrain_tileset.tres
-res://Scenes/Enemies/Level 1 Boss/1PathFollow2D.gd
-res://Assets/Font/maintheme.tres
-res://Scenes/Weapon/WeaponComponent.tscn
-res://Scenes/Projectiles/MissileComponent.tscn
-res://Scenes/Projectiles/BulletComponent.tscn
-res://Scenes/Enemies/Enemy1/EnemyEntity.tscn
-res://Scenes/Player/PlayerEntity.tscn
-res://Scenes/Game/Test Level/Test Level.tscn
-res://Scenes/Enemies/Enemy1/enemy1path1.tscn
-res://Scenes/Projectiles/BombComponent.tscn
-res://Scenes/Health/Health.tscn
-res://Scenes/Upgrades/UpgradeComponent.tscn
-res://Scenes/Upgrades/UpgradeComponent.gd
+res://Scenes/Projectiles/BombComponent.gd

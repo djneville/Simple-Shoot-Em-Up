@@ -19,7 +19,7 @@ func _ready():
     var lifetime_timer = Timer.new()
     lifetime_timer.wait_time = lifetime
     lifetime_timer.one_shot = true
-    lifetime_timer.timeout.connect(_on_timeout)
+    lifetime_timer.timeout.connect(explode)
     add_child(lifetime_timer)
     lifetime_timer.start()
     body_entered.connect(_on_body_entered)
@@ -50,8 +50,6 @@ func _on_explosion_body_entered(body):
     if body.is_in_group("enemy"):
         body.take_damage(damage)
 
-func _on_timeout():
-    explode()
     
 #TODO: this is ridiculous, unexlpained way to have "NO ARGS" to a signal handler...
 func _on_animation_finished(anim_name):

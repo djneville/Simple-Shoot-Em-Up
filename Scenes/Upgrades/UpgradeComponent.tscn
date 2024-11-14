@@ -95,7 +95,7 @@ texture = ExtResource("2_ni3ws")
 [node name="Area2D" type="Area2D" parent="Upgrade0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade0/Area2D"]
-position = Vector2(0, 0.5)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_wlec4")
 disabled = true
 

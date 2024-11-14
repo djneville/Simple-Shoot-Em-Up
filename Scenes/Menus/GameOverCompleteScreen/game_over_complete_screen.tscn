@@ -1,0 +1,187 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca1rqusfkrwu4"]
+
+[ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Assets/Font/maintheme.tres" id="1_o1w40"]
+[ext_resource type="Script" path="res://Scenes/Menus/GameOverCompleteScreen/Lives.gd" id="2_47go1"]
+[ext_resource type="Script" path="res://Scenes/Menus/GameOverCompleteScreen/game_over_complete_screen.gd" id="2_xdmij"]
+[ext_resource type="Script" path="res://Scenes/Menus/GameOverCompleteScreen/Score.gd" id="3_nmgtn"]
+
+[sub_resource type="Animation" id="Animation_r5web"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fadeoutcomplete"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_a5g7f"]
+resource_name = "fade_from_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yh0xh"]
+_data = {
+"fade_from_black": SubResource("Animation_a5g7f"),
+"fade_to_black": SubResource("Animation_r5web")
+}
+
+[node name="GameOverCompleteScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o1w40")
+script = ExtResource("2_xdmij")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LivesBox" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Labels" type="HBoxContainer" parent="CenterContainer/LivesBox"]
+layout_mode = 2
+
+[node name="Lives Remaining" type="Label" parent="CenterContainer/LivesBox/Labels"]
+layout_mode = 2
+text = "Lives Remaining: "
+
+[node name="Lives" type="Label" parent="CenterContainer/LivesBox/Labels"]
+layout_mode = 2
+script = ExtResource("2_47go1")
+
+[node name="Try again?" type="Button" parent="CenterContainer/LivesBox"]
+layout_mode = 2
+text = "Try Again?"
+
+[node name="Quit" type="Button" parent="CenterContainer/LivesBox"]
+layout_mode = 2
+text = "Quit"
+
+[node name="GameOverBox" type="VBoxContainer" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Game Over" type="Label" parent="CenterContainer/GameOverBox"]
+layout_mode = 2
+text = "Game Over
+
+
+
+
+
+
+
+
+yeah I know there's no point
+to having lives and game overs
+
+I just wanted to see if I could 
+program it lol"
+
+[node name="LevelCompleteBox" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Level Complete" type="Label" parent="CenterContainer/LevelCompleteBox"]
+layout_mode = 2
+text = "Level Complete!"
+
+[node name="ScoreBox" type="HBoxContainer" parent="CenterContainer/LevelCompleteBox"]
+layout_mode = 2
+
+[node name="FinalScore" type="Label" parent="CenterContainer/LevelCompleteBox/ScoreBox"]
+layout_mode = 2
+text = "Final Score: "
+
+[node name="Score" type="Label" parent="CenterContainer/LevelCompleteBox/ScoreBox"]
+layout_mode = 2
+script = ExtResource("3_nmgtn")
+
+[node name="Return to title" type="Button" parent="CenterContainer/LevelCompleteBox"]
+layout_mode = 2
+text = "Return to title"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yh0xh")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="pressed" from="CenterContainer/LivesBox/Try again?" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="CenterContainer/LivesBox/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/LevelCompleteBox/Return to title" to="." method="_on_return_to_title_pressed"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]

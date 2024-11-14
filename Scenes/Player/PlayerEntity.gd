@@ -1,13 +1,17 @@
 extends CharacterBody2D
+class_name PlayerEntity
 
 @export var reset_level := false
 
-@onready var health = $HealthComponent
+var health: HealthComponent
 @onready var invulnerability = $InvulnerabilityComponent
 @onready var weapon = $WeaponComponent
 @onready var upgrade_component = $UpgradeComponent
+#var collision_shape = $CollisionShape2Ds
+
 
 func _ready():
+    health = $HealthComponent
     print("[PlayerEntity] _ready() called")
     position = Vector2(200, 400)
     #TODO: see the HealthBar.gd for where the health_changed signal gets handled

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name PlayerEntity
 
-@export var reset_level := false
+signal restart_level()
 
 var health: HealthComponent
 @onready var invulnerability = $InvulnerabilityComponent
@@ -29,12 +29,13 @@ func _death():
     Gamestats.score = 0
     print("[PlayerEntity] Lives left:", Gamestats.lives)
     if Gamestats.lives <= 0:
+        
         Gamestats.gamestatus = "gameover"
         print("[PlayerEntity] Game over")
     else:
         Gamestats.gamestatus = "continue"
         print("[PlayerEntity] Continue game")
-    reset_level = true
+    restart_level.emit()
 
 func heal(amount: int = 1):
     print("[PlayerEntity] heal() called with amount:", amount)

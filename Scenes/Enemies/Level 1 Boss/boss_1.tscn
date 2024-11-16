@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://uy20g2lse8du"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Level 1 Boss/boss_1.gd" id="1_8pqf5"]
-[ext_resource type="Texture2D" uid="uid://r36vvoafeji5" path="res://Assets/Ships/Boss1.png" id="1_snu3a"]
-[ext_resource type="Texture2D" uid="uid://ctjrmnk6els4x" path="res://Assets/Tiles/tile_0016.png" id="3_mcj5j"]
-[ext_resource type="Texture2D" uid="uid://cj4vjtmylwkfh" path="res://Assets/Tiles/bossexplosion.png" id="4_13i5v"]
-[ext_resource type="Texture2D" uid="uid://clgsicpobpo2u" path="res://Assets/Tiles/tile_0008.png" id="4_v7kvh"]
+[ext_resource type="Texture2D" uid="uid://b2rj7x67th8d6" path="res://Assets/Ships/Boss1.png" id="1_snu3a"]
+[ext_resource type="Texture2D" uid="uid://bv0eh8wpixn0r" path="res://Assets/Tiles/tile_0016.png" id="3_mcj5j"]
+[ext_resource type="Texture2D" uid="uid://bjn5eu2tx13yg" path="res://Assets/Tiles/bossexplosion.png" id="4_13i5v"]
+[ext_resource type="Texture2D" uid="uid://bwucu5jfeqk2s" path="res://Assets/Tiles/tile_0008.png" id="4_v7kvh"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ednf"]
 particle_flag_disable_z = true

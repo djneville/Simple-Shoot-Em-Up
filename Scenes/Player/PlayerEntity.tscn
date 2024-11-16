@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvu2daxvib3qh"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerEntity.gd" id="1_l3m23"]
-[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/Health.tscn" id="2_u8n5k"]
+[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/HealthComponent.tscn" id="2_u8n5k"]
 [ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Invulnerability/InvulnerabilityComponent.tscn" id="3_uddwa"]
 [ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://Scenes/Upgrades/UpgradeComponent.tscn" id="5_al1uv"]
 [ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Weapon/WeaponComponent.tscn" id="6_48557"]

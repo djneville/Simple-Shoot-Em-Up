@@ -15,3 +15,7 @@ data_*/
 .idea/
 .DS_Store
 
+rust/target/**
+rust/.idea/
+
+rust/Cargo.lock

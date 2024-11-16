@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var pause_menu = $"Pause Menu"
 
-@onready var Player = $CharacterBody2D
+@onready var Player1 = $CharacterBody2D
 
 var fadecomplete = false
 
@@ -11,7 +11,7 @@ func _ready():
     fade_from_black()
 
 func _process(_delta):
-    if Player.reset_level or Gamestats.gamestatus == "levelcomplete":
+    if Player1.reset_level or Gamestats.gamestatus == "levelcomplete":
         $ScreenAnims.play("fade_to_black")
         if fadecomplete == true:
             print("fadecomplete")

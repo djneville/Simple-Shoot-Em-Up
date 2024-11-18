@@ -2,20 +2,19 @@ extends Area2D
 class_name BombComponent
 
 @export var speed: float = 200.0
-@export var damage: int = 50
-@export var explosion_radius: float = 100.0
+@export var direction: Vector2 = Vector2.DOWN #TODO: UGH FIX THIS SO THAT ENEMIES ALWAYS SHOOT DOWN AND PLAYER UP
+@export var velocity: Vector2
 @export var lifetime: float = 3.0
+@export var damage: int = 7
 
-var ownerr: Node
+@export var ownerr: Node #TODO: fix this with actual owner reference and ancestory?????
 
+@export var explosion_radius: float = 100.0
 @onready var explosion_area = $ExplosionArea
-
-func initialize(shooter: Node):
-    ownerr = shooter
-    # TODO:improve how these initialize functions work, with defaults and stuff
 
 
 func _ready():
+    self.velocity = self.direction * self.speed
     var lifetime_timer = Timer.new()
     lifetime_timer.wait_time = lifetime
     lifetime_timer.one_shot = true
@@ -28,8 +27,7 @@ func _ready():
 
 
 func _physics_process(delta):
-    var velocity = Vector2.DOWN * speed
-    position += velocity * delta
+    position += self.velocity * delta
 
 func _on_body_entered(body):
     if body == ownerr:
@@ -38,21 +36,17 @@ func _on_body_entered(body):
         explode()
 
 func explode():
-    print("BOMB EXPLODED at:", self.global_position)
+    self.velocity = Vector2.ZERO
     $BombSprite.visible = false 
-    self.speed = 0
     $BombExplosionAnimation.play("BombExplosion")
     explosion_area.body_entered.connect(_on_explosion_body_entered)
 
 func _on_explosion_body_entered(body):
     if body == ownerr:
         return
-    if body.is_in_group("enemy"):
-        body.take_damage(damage)
+    body.take_damage(damage)
 
     
-#TODO: this is ridiculous, unexlpained way to have "NO ARGS" to a signal handler...
 func _on_animation_finished(anim_name):
-    if anim_name == "BombExplosion": # LMAO
-        print("ENTERED!!!") # NOOOOOO EWWWWWW IT WORKED....
+    if anim_name == "BombExplosion": 
         self.queue_free()

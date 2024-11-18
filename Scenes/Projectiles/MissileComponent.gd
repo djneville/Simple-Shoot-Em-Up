@@ -1,65 +1,50 @@
 extends Area2D
 class_name MissileComponent
 
-@export var speed: float = 200.0
-@export var damage: int = 50
-@export var explosion_radius: float = 100.0
-@export var lifetime: float = 3.0
 
-var velocity: Vector2 = Vector2.DOWN
-var ownerr: Node
+@export var speed: float = 400.0
+@export var direction: Vector2 = Vector2.DOWN #TODO: UGH FIX THIS SO THAT ENEMIES ALWAYS SHOOT DOWN AND PLAYER UP
+@export var velocity: Vector2 #TODO THIS IS JUST HERE FOR REDUNDANCY!!!
+@export var drag_factor = 0.04
+@export var lifetime: float = 10.0
+@export var damage: int = 1
 
-@onready var explosion_area = $ExplosionArea
-
-func initialize(shooter: Node):
-    ownerr = shooter
-    # TODO:improve how these initialize functions work, with defaults and stuff
-
+@export var ownerr: Node #TODO: fix this with actual owner reference and ancestory?????
+@export var target: Node
 
 func _ready():
-    velocity = Vector2.DOWN * speed
+    #TODO: this implies that only the enemy can use this, fix it maybe later
+    self.target = get_tree().get_nodes_in_group("player")[0]
+    
+    self.velocity = self.direction * self.speed
     var lifetime_timer = Timer.new()
     lifetime_timer.wait_time = lifetime
     lifetime_timer.one_shot = true
-    lifetime_timer.timeout.connect(_on_timeout)
+    lifetime_timer.timeout.connect(missile_explode)
     add_child(lifetime_timer)
     lifetime_timer.start()
-    # TODO: again this is implicit in the Area2D node
-    #body_entered.connect(_on_body_entered)
-    #TODO: this is gross, you ahve to iterate through possible the signal handler arguments..
-    $BombExplosionAnimation.animation_finished.connect(_on_animation_timeout)
-
+    body_entered.connect(_on_body_entered)
+    $MissileExplosionAnimation.animation_finished.connect(_on_animation_timeout)
 
 func _physics_process(delta):
-    position += velocity * delta
-   # if position.y >= get_viewport_rect().size.y:
-       #queue_free()
+    #TODO: figure out how to rotate the $MissileSprite as its direction changes
+    var direction_towards_target = global_position.direction_to(self.target.global_position)
+    var desired_velocity = direction_towards_target * self.speed
+    var dragged_velocity = (desired_velocity - self.velocity) * drag_factor
+    self.velocity += dragged_velocity
+    position += self.velocity * delta
 
 func _on_body_entered(body):
     if body == ownerr:
         return
-    if body.is_in_group("enemy"):
-        explode()
+    missile_explode()
+    body.take_damage(damage)
 
-func explode():
-    print("BOMB EXPLODED at:", self.global_position)
-    velocity = Vector2.ZERO
-    $BombExplosionAnimation.play("BombExplosion")
-    explosion_area.body_entered.connect(_on_explosion_body_entered)
-    #TODO: figure out how to better queue_free() things
-    $BombSprite.visible = false # BAD BAD BAD silly, but better than the animation UI setup??? IDK
+func missile_explode():
+    self.velocity = Vector2.ZERO
+    $MissileSprite.visible = false
+    $MissileExplosionAnimation.play("BombExplosion")
 
-func _on_explosion_body_entered(body):
-    if body == ownerr:
-        return
-    if body.is_in_group("enemy"):
-        body.take_damage(damage)
-
-func _on_timeout():
-    explode()
-    
-#TODO: this is ridiculous, unexlpained way to have "NO ARGS" to a signal handler...
 func _on_animation_timeout(anim_name):
-    if anim_name == "BombExplosion": # LMAO
-        print("ENTERED!!!") # NOOOOOO EWWWWWW IT WORKED....
+    if anim_name == "MissileExplosion":
         self.queue_free()

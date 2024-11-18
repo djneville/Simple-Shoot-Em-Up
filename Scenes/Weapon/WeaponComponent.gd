@@ -1,66 +1,77 @@
 extends Node2D
 class_name WeaponComponent
 
-#TODO: Dwight: WE CAN ABSTRACT THIS WHOLE THING EVEN FURTHER TO JUST ONE METHOD OF "release projectile",
-# and then not have to have separate methods for the bullet and bomb projectiles. and instead all the logic for
-# different Projectile behavior can be done in versions of a Projectile Node
-#TODO: 
-enum ProjectileType { BULLET, BOMB }
-#TODO: what in the fuck how can you load the scene not as the BulletComponent Class (the root node?!)
-@export var bullet_scene: PackedScene = preload("res://Scenes/Projectiles/BulletComponent.tscn")
-@export var bomb_scene: PackedScene = preload("res://Scenes/Projectiles/BombComponent.tscn")
+enum ProjectileType { BULLET, BOMB, MISSILE }
 
-#TODO: at somepoint just use the default bullet properties
-#TODO: make these customizable also
-@export var bullet_speed: float = 400.0
-@export var bullet_damage: int = 1
-@export var fire_rate: float = 0.25 # Seconds between shots
+@export var active_projectile_type: ProjectileType
+
+@export var bullet_fire_rate: float = 0.25 # Seconds between shots
+@export var missile_launch_rate: float = 6.0 # Seconds between shots
+@export var bomb_drop_rate: float = 1.5 # Seconds between shots
 
 @export var bomb_inventory: int = 5
+
+@onready var bullet_timer: Timer 
+@onready var bomb_timer: Timer
+@onready var missile_timer:Timer 
+
+@onready var bullet_scene: PackedScene = preload("res://Scenes/Projectiles/BulletComponent.tscn")
+@onready var bomb_scene: PackedScene = preload("res://Scenes/Projectiles/BombComponent.tscn")
+@onready var missile_scene: PackedScene = preload("res://Scenes/Projectiles/MissileComponent.tscn")
+
 signal bomb_inventory_change(new_bomb_inventory)
 
-#TODO: WHEN SHOULD WE PROGRAMMATICALLY ADD NODES OR NOT!!!??????
-# When trying to initialize these in the _ready as just Timer.new() things go wrong for some reason
-@onready var shoot_timer = $BulletTimer 
-@onready var bomb_timer = $BombTimer
-
-
 func _ready():
-    print("[WeaponComponent] _ready() called")
-    shoot_timer.wait_time = fire_rate
-    shoot_timer.one_shot = true
-    # TODO: this is ugly but works only because the animation is
-    # long enough to not happen more than once between the fire_rate occuring
-    shoot_timer.timeout.connect($MuzzleFlash.stop)
+    bullet_timer = Timer.new()
+    bullet_timer.wait_time = bullet_fire_rate
+    bullet_timer.one_shot = true
+    add_child(bullet_timer)
     
-    bomb_timer.wait_time = fire_rate
-    bomb_timer.one_shot = true # this is misleading, it means that the timer goes forever, not once?
-    #TODO: for now there is no reason to have a timeout for the bomb other than just its default queue_free(no animations?)
+    bomb_timer = Timer.new()
+    bomb_timer.wait_time = bomb_drop_rate
+    bomb_timer.one_shot = true
+    add_child(bomb_timer)
+    
+    missile_timer = Timer.new()
+    missile_timer.wait_time = missile_launch_rate
+    missile_timer.one_shot = true
+    add_child(missile_timer)
 
-func fire_bullet(start_position: Vector2, direction: Vector2, shooter: Node):
-    if shoot_timer.time_left == 0:
+func release_projectile(shooter: Node, start_position: Vector2, direction: Vector2):
+    match self.active_projectile_type:
+        ProjectileType.BULLET: fire_bullet(shooter, start_position, direction)
+        ProjectileType.BOMB: drop_bomb(shooter, start_position, direction)
+        ProjectileType.MISSILE: launch_missile(shooter, start_position, direction)
+
+func fire_bullet(shooter: Node, start_position: Vector2, direction: Vector2):
+    if bullet_timer.time_left == 0: #TODO: I really don tlike this timer
+        $MuzzleFlash.play("MuzzleFlashAnimation")
         var new_bullet = bullet_scene.instantiate()
-        new_bullet.initialize(direction, bullet_speed, bullet_damage, shooter)  # Initialize bullet properties
-        get_tree().current_scene.add_child(new_bullet)  # Add to main scene to prevent inheriting transforms
-        new_bullet.global_position = start_position
-        shoot_timer.start()
-        $MuzzleFlash.play("MuzzleFlashAnimation") 
-        print("[WeaponComponent] Bullet fired at", start_position, "direction", direction, "shooter:", shooter.name)
+        new_bullet.ownerr = shooter
+        new_bullet.direction = direction
+        # THIS NEXT LINE NEEDS TO HAPPEN I GUESS BECAUSE THE CURRENT SCENE DOESNT KNOW WHERE TO PUT IT!!!!!
+        new_bullet.position = start_position 
+        get_tree().current_scene.add_child(new_bullet)# Add to main scene to prevent inheriting transforms of parent
+        bullet_timer.start() 
 
-func drop_bomb(start_position: Vector2, shooter: Node):
-    print("[WeaponComponent] drop_bomb() called")
-    #TODO: this is bad place, figure out somehwere else
+func drop_bomb(shooter: Node, start_position: Vector2, direction: Vector2):
     if bomb_inventory == 0:
-        print("[WeaponComponent] No bombs left to drop")
         return
-    #TODO: I dont like this, there should be a better way to use the timer.
     if bomb_timer.time_left == 0:
         var bomb = bomb_scene.instantiate()
-        get_tree().current_scene.add_child(bomb)  # Add to main scene to prevent inheriting transforms
-        bomb.global_position = start_position
-        #TODO: look at init functions!! fix the defaults and stuff 
-        bomb.initialize(shooter)  # Initialize bullet properties
-        bomb_timer.start()
+        bomb.ownerr = shooter
+        bomb.direction = direction
+        bomb.position = start_position
+        get_tree().current_scene.add_child(bomb)
         bomb_inventory -= 1
         bomb_inventory_change.emit(bomb_inventory)
-        print("[WeaponComponent] Bomb dropped at", start_position, "shooter:", shooter.name)
+        bomb_timer.start()
+
+func launch_missile(shooter: Node, start_position: Vector2, direction: Vector2):
+    if missile_timer.time_left == 0:
+        var missile = missile_scene.instantiate()
+        missile.ownerr = shooter
+        missile.direction = direction
+        missile.position = start_position
+        get_tree().current_scene.add_child(missile)
+        missile_timer.start()

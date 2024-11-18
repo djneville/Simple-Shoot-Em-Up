@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://br5v4palr3fxi"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/ItemSpawnOrderData/ItemSpawner.gd" id="1_op2ka"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/ItemSpawnOrderData/HealthItemSpawner.gd" id="2_ljnn2"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/ItemSpawnOrderData/UpgradeItemSpawner.gd" id="3_5y81s"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/ItemSpawnOrderData/BombItemSpawner.gd" id="4_a6o6v"]
+[ext_resource type="Script" path="res://Scenes/Spawners/ItemSpawner.gd" id="1_op2ka"]
+[ext_resource type="Script" path="res://Scenes/Spawners/HealthItemSpawner.gd" id="2_ljnn2"]
+[ext_resource type="Script" path="res://Scenes/Spawners/UpgradeItemSpawner.gd" id="3_5y81s"]
+[ext_resource type="Script" path="res://Scenes/Spawners/BombItemSpawner.gd" id="4_a6o6v"]
 
 [node name="ItemSpawner" type="Node2D"]
 script = ExtResource("1_op2ka")

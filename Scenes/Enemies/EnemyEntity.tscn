@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://0o7dkwqtyyxj"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyEntity.gd" id="1_ws0e1"]
+[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/HealthComponent.tscn" id="2_co7y2"]
+[ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Weapon/WeaponComponent.tscn" id="3_076ob"]
+[ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://Scenes/Upgrades/UpgradeComponent.tscn" id="5_xclha"]
+
+[node name="EnemyEntity" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_ws0e1")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_co7y2")]
+
+[node name="WeaponComponent" parent="." instance=ExtResource("3_076ob")]
+position = Vector2(0, 19)
+
+[node name="UpgradeComponent" parent="." instance=ExtResource("5_xclha")]

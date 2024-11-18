@@ -12,6 +12,7 @@ func _ready():
 
 func restart():
     $ScreenAnims.play("fade_to_black")
+    #TODO: this seems very not good because it doesnt init the scene?
     get_tree().change_scene_to_file("res://Scenes/Menus/GameOverCompleteScreen/game_over_complete_screen.tscn")
 
 func pause():

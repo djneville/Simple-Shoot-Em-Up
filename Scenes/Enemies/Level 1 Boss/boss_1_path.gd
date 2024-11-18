@@ -74,4 +74,4 @@ func take_damage(damage):
 
 func _on_game_complete_timer_timeout():
     #TODO: look at making a signal from the boss death to trigger in the Main.tscn scene
-    Gamestats.gamestatus = "levelcomplete"
+    Gamestats.level_complete.emit()

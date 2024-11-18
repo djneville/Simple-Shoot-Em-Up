@@ -4,5 +4,8 @@ var lives = 3
 
 var score = 0
 
-#TODO: this needs to be a signal i think can be emitted from a ton of different nodes???
-var gamestatus
+signal game_over()
+
+signal level_complete()
+
+signal continue_game()

@@ -31,9 +31,6 @@ enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://Scenes/Enemies/Enemy/": "blue",
-"res://Scenes/Enemies/Enemy2/": "green",
-"res://Scenes/Enemies/Enemy3/": "yellow",
 "res://Scenes/Enemies/Level 1 Boss/": "gray",
 "res://Scenes/Player/": "red"
 }

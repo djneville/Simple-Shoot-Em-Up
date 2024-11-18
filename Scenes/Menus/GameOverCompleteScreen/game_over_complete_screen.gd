@@ -4,57 +4,43 @@ extends Control
 @onready var game_over_box = $CenterContainer/GameOverBox
 @onready var level_complete_box = $CenterContainer/LevelCompleteBox
 
-var fadeout_complete = false
-
-var retry = false
-
-var quitting = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
     $AnimationPlayer.play("fade_from_black")
-    if Gamestats.gamestatus == "continue":
-        lives_box.visible = true
-        game_over_box.visible = false
-        level_complete_box.visible = false
-    if Gamestats.gamestatus == "gameover":
-        $GameOverTimer.start()
-        lives_box.visible = false
-        game_over_box.visible = true
-        level_complete_box.visible = false
-    if Gamestats.gamestatus == "levelcomplete":
-        lives_box.visible = false
-        game_over_box.visible = false
-        level_complete_box.visible = true
+    #TODO: These will not get connected to until this screen is set up??
+    Gamestats.game_over.connect(_game_over)
+    Gamestats.level_complete.connect(_level_complete)
+    Gamestats.continue_game.connect(_continue)
+ 
+func _continue():
+    lives_box.visible = true
+    game_over_box.visible = false
+    level_complete_box.visible = false
+
+func _level_complete():
+    lives_box.visible = false
+    game_over_box.visible = false
+    level_complete_box.visible = true
+
+func _game_over():
+    $GameOverTimer.start()
+    lives_box.visible = false
+    game_over_box.visible = true
+    level_complete_box.visible = false
 
 func _on_try_again_pressed():
-    Gamestats.gamestatus = null
     $AnimationPlayer.play("fade_to_black")
-    retry = true
-
-
-func fadeoutcomplete():
-    fadeout_complete = true
+    get_tree().change_scene_to_file("res://Scenes/Main/Main.tscn")
 
 func _on_quit_pressed():
-    Gamestats.gamestatus = null
-    $AnimationPlayer.play("fade_to_black")
-    quitting = true
-
-
+    _return_to_main_screen()
 
 func _on_game_over_timer_timeout():
-    Gamestats.gamestatus = null
-    $AnimationPlayer.play("fade_to_black")
-    quitting = true
+    _return_to_main_screen()
 
 func _on_return_to_title_pressed():
-    Gamestats.gamestatus = null
+    _return_to_main_screen()
+   
+func _return_to_main_screen():
     $AnimationPlayer.play("fade_to_black")
-    quitting = true
-    
-func _process(_delta):
-    if fadeout_complete: 
-        if retry:
-            get_tree().change_scene_to_file("res://Scenes/Main/Main.tscn")
-        if quitting:
-            get_tree().change_scene_to_file("res://Scenes/Menus/main_screen.tscn")
+    get_tree().change_scene_to_file("res://Scenes/Menus/MainScreen.tscn")

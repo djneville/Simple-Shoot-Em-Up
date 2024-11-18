@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://f3alvgryftn6"]
 
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/EnemySpawner.gd" id="1_omr55"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E1P1(down).gd" id="2_8hrvs"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E2P1(down).gd" id="3_a3x5w"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E1P2(loopright).gd" id="4_wfqee"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E1P3(loopleft).gd" id="5_dbw3h"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E1P5(diagleft).gd" id="6_bbuyv"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E1P4(diagright).gd" id="7_uicjt"]
-[ext_resource type="Script" path="res://Scenes/Main/Spawners/Enemy Spawn Order Data/E3P1(U).gd" id="8_lsqp6"]
+[ext_resource type="Script" path="res://Scenes/Spawners/EnemySpawner.gd" id="1_omr55"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/Straight.gd" id="2_8hrvs"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/StraightEnemy2.gd" id="3_a3x5w"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/LoopRight.gd" id="4_wfqee"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/LoopLeft.gd" id="5_dbw3h"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/DiagonalLeft.gd" id="6_bbuyv"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/DiagonalRight.gd" id="7_uicjt"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/UShape.gd" id="8_lsqp6"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_omr55")

@@ -1,12 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcct87i2bniia"]
 
 [ext_resource type="Script" path="res://Scenes/Weapon/WeaponComponent.gd" id="1_2vbg5"]
-[ext_resource type="Texture2D" uid="uid://cb4rd54421yrl" path="res://Assets/Tiles/tile_0005.png" id="2_u7o8s"]
+[ext_resource type="Texture2D" uid="uid://dikoseipgwvo0" path="res://Assets/Tiles/tile_0005.png" id="2_u7o8s"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]
 resource_name = "MuzzleFlashAnimation"
 length = 0.7
-loop_mode = 2
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -40,10 +39,6 @@ _data = {
 
 [node name="Weapon" type="Node2D"]
 script = ExtResource("1_2vbg5")
-
-[node name="BulletTimer" type="Timer" parent="."]
-
-[node name="BombTimer" type="Timer" parent="."]
 
 [node name="MuzzleFlashSprite" type="Sprite2D" parent="."]
 visible = false

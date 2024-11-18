@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ck637ksfd6jm1"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy/EnemyPath.gd" id="1_s6k3q"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/EnemyPath.gd" id="1_elun7"]
 
 [sub_resource type="Curve2D" id="Curve2D_g1gxh"]
 _data = {
@@ -16,4 +16,4 @@ curve = SubResource("Curve2D_g1gxh")
 position = Vector2(13, -54)
 rotation = 1.5708
 loop = false
-script = ExtResource("1_s6k3q")
+script = ExtResource("1_elun7")

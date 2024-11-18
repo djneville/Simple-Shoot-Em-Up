@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://205cxlwff73b"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy/EnemyPath.gd" id="1_8pnks"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Paths/EnemyPath.gd" id="1_8pnks"]
 
 [sub_resource type="Curve2D" id="Curve2D_g1gxh"]
 _data = {

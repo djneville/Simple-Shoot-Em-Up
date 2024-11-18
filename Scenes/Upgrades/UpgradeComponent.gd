@@ -1,4 +1,3 @@
-# res://Scripts/UpgradeComponent.gd
 extends Node2D
 class_name UpgradeComponent
 

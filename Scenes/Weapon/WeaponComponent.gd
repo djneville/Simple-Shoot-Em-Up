@@ -1,77 +1,143 @@
 extends Node2D
 class_name WeaponComponent
 
-enum ProjectileType { BULLET, BOMB, MISSILE }
-
-@export var active_projectile_type: ProjectileType
-
-@export var bullet_fire_rate: float = 0.25 # Seconds between shots
-@export var missile_launch_rate: float = 6.0 # Seconds between shots
-@export var bomb_drop_rate: float = 1.5 # Seconds between shots
-
+# Export Variables
+@export var active_projectile_type: ProjectileTypes.Type
+@export var bullet_fire_rate: float = 0.25  # Seconds between shots
+@export var missile_launch_rate: float = 6.0  # Seconds between shots
+@export var bomb_drop_rate: float = 1.5  # Seconds between shots
 @export var bomb_inventory: int = 5
 
-@onready var bullet_timer: Timer 
-@onready var bomb_timer: Timer
-@onready var missile_timer:Timer 
+# Timers
+@onready var bullet_timer: Timer = Timer.new()
+@onready var bomb_timer: Timer = Timer.new()
+@onready var missile_timer: Timer = Timer.new()
 
+# Scenes
 @onready var bullet_scene: PackedScene = preload("res://Scenes/Projectiles/BulletComponent.tscn")
 @onready var bomb_scene: PackedScene = preload("res://Scenes/Projectiles/BombComponent.tscn")
 @onready var missile_scene: PackedScene = preload("res://Scenes/Projectiles/MissileComponent.tscn")
 
-signal bomb_inventory_change(new_bomb_inventory)
+# Components
+@onready var muzzle_flash: AnimationPlayer = $MuzzleFlash
 
-func _ready():
-    bullet_timer = Timer.new()
-    bullet_timer.wait_time = bullet_fire_rate
-    bullet_timer.one_shot = true
-    add_child(bullet_timer)
-    
-    bomb_timer = Timer.new()
-    bomb_timer.wait_time = bomb_drop_rate
-    bomb_timer.one_shot = true
-    add_child(bomb_timer)
-    
-    missile_timer = Timer.new()
-    missile_timer.wait_time = missile_launch_rate
-    missile_timer.one_shot = true
-    add_child(missile_timer)
+# Signals
+signal bomb_inventory_change(new_bomb_inventory: int)
 
-func release_projectile(shooter: Node, start_position: Vector2, direction: Vector2):
+# Constants
+const TIMER_CONFIG = {
+    "bullet": {"one_shot": true},
+    "bomb": {"one_shot": true},
+    "missile": {"one_shot": true}
+}
+
+func _init() -> void:
+    # Initialize non-node dependent properties
+    self.set_process(false)
+
+func _ready() -> void:
+    self._initialize_timers()
+    self.set_process(true)
+
+func _initialize_timers() -> void:
+    # Initialize bullet timer
+    self._configure_timer(
+        self.bullet_timer,
+        self.bullet_fire_rate,
+        TIMER_CONFIG.bullet.one_shot
+    )
+    
+    # Initialize bomb timer
+    self._configure_timer(
+        self.bomb_timer,
+        self.bomb_drop_rate,
+        TIMER_CONFIG.bomb.one_shot
+    )
+    
+    # Initialize missile timer
+    self._configure_timer(
+        self.missile_timer,
+        self.missile_launch_rate,
+        TIMER_CONFIG.missile.one_shot
+    )
+
+func _configure_timer(timer: Timer, wait_time: float, one_shot: bool) -> void:
+    timer.wait_time = wait_time
+    timer.one_shot = one_shot
+    self.add_child(timer)
+
+func release_projectile(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
     match self.active_projectile_type:
-        ProjectileType.BULLET: fire_bullet(shooter, start_position, direction)
-        ProjectileType.BOMB: drop_bomb(shooter, start_position, direction)
-        ProjectileType.MISSILE: launch_missile(shooter, start_position, direction)
+        ProjectileTypes.Type.BULLET:
+            self.fire_bullet(shooter, start_position, direction)
+        ProjectileTypes.Type.BOMB:
+            self.drop_bomb(shooter, start_position, direction)
+        ProjectileTypes.Type.MISSILE:
+            self.launch_missile(shooter, start_position, direction)
 
-func fire_bullet(shooter: Node, start_position: Vector2, direction: Vector2):
-    if bullet_timer.time_left == 0: #TODO: I really don tlike this timer
-        $MuzzleFlash.play("MuzzleFlashAnimation")
-        var new_bullet = bullet_scene.instantiate()
-        new_bullet.ownerr = shooter
-        new_bullet.direction = direction
-        # THIS NEXT LINE NEEDS TO HAPPEN I GUESS BECAUSE THE CURRENT SCENE DOESNT KNOW WHERE TO PUT IT!!!!!
-        new_bullet.position = start_position 
-        get_tree().current_scene.add_child(new_bullet)# Add to main scene to prevent inheriting transforms of parent
-        bullet_timer.start() 
+func fire_bullet(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
+    if self.bullet_timer.time_left == 0: #TODO: I really don tlike this timer
+        self.muzzle_flash.play("MuzzleFlashAnimation")
+        var new_bullet: BulletComponent = self._instantiate_projectile(
+            self.bullet_scene,
+            shooter,
+            start_position,
+            direction
+        )
+        self._add_projectile_to_scene(new_bullet)
+        self.bullet_timer.start()
 
-func drop_bomb(shooter: Node, start_position: Vector2, direction: Vector2):
-    if bomb_inventory == 0:
+func drop_bomb(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
+    if self.bomb_inventory == 0:
         return
-    if bomb_timer.time_left == 0:
-        var bomb = bomb_scene.instantiate()
-        bomb.ownerr = shooter
-        bomb.direction = direction
-        bomb.position = start_position
-        get_tree().current_scene.add_child(bomb)
-        bomb_inventory -= 1
-        bomb_inventory_change.emit(bomb_inventory)
-        bomb_timer.start()
+        
+    if self.bomb_timer.time_left == 0:
+        var bomb: BombComponent = self._instantiate_projectile(
+            self.bomb_scene,
+            shooter,
+            start_position,
+            direction
+        )
+        self._add_projectile_to_scene(bomb)
+        self._update_bomb_inventory()
+        self.bomb_timer.start()
 
-func launch_missile(shooter: Node, start_position: Vector2, direction: Vector2):
-    if missile_timer.time_left == 0:
-        var missile = missile_scene.instantiate()
-        missile.ownerr = shooter
-        missile.direction = direction
-        missile.position = start_position
-        get_tree().current_scene.add_child(missile)
-        missile_timer.start()
+func launch_missile(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
+    if self.missile_timer.time_left == 0:
+        var missile: MissileComponent = self._instantiate_projectile(
+            self.missile_scene,
+            shooter,
+            start_position,
+            direction
+        )
+        self._add_projectile_to_scene(missile)
+        self.missile_timer.start()
+
+func _instantiate_projectile(
+    scene: PackedScene,
+    shooter: Node,
+    start_position: Vector2,
+    direction: Vector2
+) -> Node:
+    var projectile: Node = scene.instantiate()
+    projectile.ownerr = shooter  #TODO: fix this garbage with a proper Projectile type
+    projectile.direction = direction
+    # THIS NEXT LINE NEEDS TO HAPPEN I GUESS BECAUSE THE CURRENT SCENE DOESNT KNOW WHERE TO PUT IT!!!!!
+    projectile.position = start_position
+    return projectile
+
+func _add_projectile_to_scene(projectile: Node) -> void:
+    # Add to main scene to prevent inheriting transforms of parent
+    self.get_tree().current_scene.add_child(projectile)
+
+func _update_bomb_inventory() -> void:
+    self.bomb_inventory -= 1
+    self.bomb_inventory_change.emit(self.bomb_inventory)
+
+# Getters/Setters
+func get_bomb_inventory() -> int:
+    return self.bomb_inventory
+
+func set_bomb_inventory(value: int) -> void:
+    self.bomb_inventory = value
+    self.bomb_inventory_change.emit(self.bomb_inventory)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://drsay6p2bovok"]
 
-[ext_resource type="Texture2D" uid="uid://conka3awqixme" path="res://Assets/Tiles/missle.png" id="1_oi0p2"]
+[ext_resource type="Texture2D" uid="uid://ditoglhe7qtih" path="res://Assets/Tiles/missle.png" id="1_oi0p2"]
 [ext_resource type="Script" path="res://Scenes/Projectiles/MissileComponent.gd" id="1_speg4"]
-[ext_resource type="Texture2D" uid="uid://dol4c0p2w6g5e" path="res://Assets/Tiles/missletail.png" id="2_5li8h"]
-[ext_resource type="Texture2D" uid="uid://b1clo7y5i7bdr" path="res://Assets/Tiles/missleexplosion.png" id="3_h0a8o"]
+[ext_resource type="Texture2D" uid="uid://bm6nu24q5kslo" path="res://Assets/Tiles/missletail.png" id="2_5li8h"]
+[ext_resource type="Texture2D" uid="uid://c4frev4njtcwm" path="res://Assets/Tiles/missleexplosion.png" id="3_h0a8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6efi"]
 atlas = ExtResource("2_5li8h")
@@ -136,7 +136,6 @@ texture = ExtResource("1_oi0p2")
 offset = Vector2(0, -3)
 
 [node name="ExhaustSprites" type="AnimatedSprite2D" parent="MissileSprite"]
-visible = false
 texture_filter = 1
 position = Vector2(2.38421e-07, 2.33333)
 scale = Vector2(1, 0.833333)

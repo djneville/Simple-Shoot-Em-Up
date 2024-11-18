@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://dds0uhdcqiv72"]
 
 [ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Assets/Font/maintheme.tres" id="1_4sdwr"]
-[ext_resource type="Texture2D" uid="uid://covvnpo102y3v" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
+[ext_resource type="Texture2D" uid="uid://7q6jroi60w38" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
 [ext_resource type="Script" path="res://Scenes/HUD/ScoreNumber.gd" id="2_v3eyu"]
 [ext_resource type="Script" path="res://Scenes/HUD/LivesNumber.gd" id="3_nhk45"]
 [ext_resource type="Script" path="res://Scenes/HUD/HealthBar.gd" id="5_pfjij"]
-[ext_resource type="Texture2D" uid="uid://dnrpoeyfehamc" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
+[ext_resource type="Texture2D" uid="uid://bddhnx1lvwqdh" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
 [ext_resource type="Script" path="res://Scenes/HUD/BombBar.gd" id="6_j0fah"]
 
 [node name="Control" type="Control"]

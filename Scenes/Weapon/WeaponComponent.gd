@@ -2,7 +2,6 @@ extends Node2D
 class_name WeaponComponent
 
 # Export Variables
-@export var active_projectile_type: ProjectileTypes.Type
 @export var bullet_fire_rate: float = 0.25  # Seconds between shots
 @export var missile_launch_rate: float = 6.0  # Seconds between shots
 @export var bomb_drop_rate: float = 1.5  # Seconds between shots
@@ -66,13 +65,13 @@ func _configure_timer(timer: Timer, wait_time: float, one_shot: bool) -> void:
     timer.one_shot = one_shot
     self.add_child(timer)
 
-func release_projectile(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
-    match self.active_projectile_type:
-        ProjectileTypes.Type.BULLET:
+func release_projectile(shooter: Node, start_position: Vector2, type: Projectile.TYPE, direction: Vector2) -> void:
+    match type:
+        Projectile.TYPE.BULLET:
             self.fire_bullet(shooter, start_position, direction)
-        ProjectileTypes.Type.BOMB:
+        Projectile.TYPE.BOMB:
             self.drop_bomb(shooter, start_position, direction)
-        ProjectileTypes.Type.MISSILE:
+        Projectile.TYPE.MISSILE:
             self.launch_missile(shooter, start_position, direction)
 
 func fire_bullet(shooter: Node, start_position: Vector2, direction: Vector2) -> void:

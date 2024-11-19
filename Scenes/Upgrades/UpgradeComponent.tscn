@@ -1,24 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://5cgphjedj2u2"]
+[gd_scene load_steps=11 format=3 uid="uid://5cgphjedj2u2"]
 
 [ext_resource type="Script" path="res://Scenes/Upgrades/UpgradeComponent.gd" id="1_3sjmf"]
-[ext_resource type="Texture2D" uid="uid://d0isg8pvlrv4i" path="res://Assets/Ships/ship_0001.png" id="2_67jip"]
-[ext_resource type="Texture2D" uid="uid://c4sn2pevqntxu" path="res://Assets/Ships/ship_0009.png" id="2_ni3ws"]
 [ext_resource type="Texture2D" uid="uid://dwkv0gfupmeb6" path="res://Assets/Tiles/spritesheetexplosion.png" id="3_5j8uv"]
-[ext_resource type="Texture2D" uid="uid://deplwq2akoap" path="res://Assets/Ships/ship_0000.png" id="4_qf1ld"]
-[ext_resource type="Texture2D" uid="uid://47qnsm48nfoj" path="res://Assets/Ships/ship_0002.png" id="6_0f027"]
-[ext_resource type="Texture2D" uid="uid://ded7tk1rnuke8" path="res://Assets/Ships/ship_0003.png" id="7_wd6jj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlec4"]
-size = Vector2(22, 15)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn3p6"]
-size = Vector2(30, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xc6x"]
-size = Vector2(30, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksi0w"]
-size = Vector2(38.5, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3y773"]
 atlas = ExtResource("3_5j8uv")
@@ -77,8 +60,8 @@ tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.266667, 1.86667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.0333333, 0.8708),
+"transitions": PackedFloat32Array(1, 0.406126),
 "update": 0,
 "values": [0.0, 6.28319]
 }
@@ -118,73 +101,6 @@ _data = {
 
 [node name="UpgradeComponent" type="Node2D"]
 script = ExtResource("1_3sjmf")
-
-[node name="Upgrade0" type="Node2D" parent="."]
-
-[node name="PlaneSprite" type="Sprite2D" parent="Upgrade0"]
-texture_filter = 1
-texture = ExtResource("2_ni3ws")
-
-[node name="Area2D" type="Area2D" parent="Upgrade0"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade0/Area2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_wlec4")
-disabled = true
-
-[node name="Upgrade1" type="Node2D" parent="."]
-visible = false
-
-[node name="PlaneSprite" type="Sprite2D" parent="Upgrade1"]
-texture_filter = 1
-texture = ExtResource("2_67jip")
-
-[node name="Area2D" type="Area2D" parent="Upgrade1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Upgrade1/Area2D"]
-shape = SubResource("RectangleShape2D_tn3p6")
-disabled = true
-
-[node name="EnemyUpgrade0" type="Node2D" parent="."]
-visible = false
-
-[node name="PlaneSprite" type="Sprite2D" parent="EnemyUpgrade0"]
-texture_filter = 1
-rotation = -1.5708
-texture = ExtResource("4_qf1ld")
-
-[node name="Area2D" type="Area2D" parent="EnemyUpgrade0"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyUpgrade0/Area2D"]
-shape = SubResource("RectangleShape2D_1xc6x")
-
-[node name="EnemyUpgrade1" type="Node2D" parent="."]
-visible = false
-
-[node name="PlaneSprite" type="Sprite2D" parent="EnemyUpgrade1"]
-texture_filter = 1
-rotation = -1.5708
-texture = ExtResource("6_0f027")
-
-[node name="Area2D" type="Area2D" parent="EnemyUpgrade1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyUpgrade1/Area2D"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_ksi0w")
-
-[node name="EnemyUpgrade2" type="Node2D" parent="."]
-visible = false
-
-[node name="PlaneSprite" type="Sprite2D" parent="EnemyUpgrade2"]
-texture_filter = 1
-rotation = -1.5708
-texture = ExtResource("7_wd6jj")
-
-[node name="Area2D" type="Area2D" parent="EnemyUpgrade2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyUpgrade2/Area2D"]
-position = Vector2(0.75, 3)
-shape = SubResource("RectangleShape2D_ksi0w")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false

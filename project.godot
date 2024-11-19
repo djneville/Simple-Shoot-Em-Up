@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Gamestats="*res://gamestats.gd"
-ProjectileTypes="*res://Scenes/Projectiles/ProjectileTypes.gd"
+Gamestats="*res://Scenes/Singletons/GameStats.gd"
+UpgradeManager="*res://Scenes/Singletons/UpgradeManager.gd"
 
 [display]
 

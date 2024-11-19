@@ -75,7 +75,7 @@ func _on_body_entered(body: Node) -> void:
 func missile_explode() -> void:
     self.velocity = Vector2.ZERO
     self.missile_sprite.visible = false
-    self.missile_explosion_animation.play("BombExplosion")
+    self.missile_explosion_animation.play("MissileExplosion")
 
 func _on_animation_timeout(anim_name: String) -> void:
     if anim_name == "MissileExplosion":

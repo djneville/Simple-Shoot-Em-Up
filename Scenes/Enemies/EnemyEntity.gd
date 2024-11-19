@@ -21,17 +21,9 @@ signal give_points(points: int) #TODO: figure out how to maybe make this have ef
 # Properties
 var points: int = BASE_POINTS
 
-func _init() -> void:
-    # Initialize any non-node properties here
-    self.set_physics_process(false)
-    self.set_process(false)
-
 func _ready() -> void:
     self._initialize()
     self._setup_signals()
-    self._configure_weapon()
-    self.set_physics_process(true)
-    self.set_process(true)
 
 func _setup_signals() -> void:
     self.upgrade_component.active_explosion_animation.animation_finished.connect(_on_animation_finished)
@@ -52,20 +44,9 @@ func _initialize() -> void:
     # Configure speed
     self.path_speed = self.upgrade_component.active_speed #TODO: this seems sloppy, not sure where to best control speed yet
 
-func _configure_weapon() -> void:
-    match self.enemy_level:
-        0:
-            self.weapon.active_projectile_type = ProjectileTypes.Type.BULLET
-        2:
-            self.weapon.active_projectile_type = ProjectileTypes.Type.BULLET
-        3:
-            self.weapon.active_projectile_type = ProjectileTypes.Type.MISSILE
-        4:
-            self.weapon.active_projectile_type = ProjectileTypes.Type.BOMB
-
 func _process(delta: float) -> void:
     #TODO: figure out how to rotate the Enemy????? (maybe just the weapon? as the rotation changes on the path
-    self.weapon.release_projectile(self, self.global_position, PROJECTILE_DIRECTION)
+    self.weapon.release_projectile(self, self.global_position, upgrade_component.active_projectile_type, PROJECTILE_DIRECTION)
 
 func _death() -> void:
     self.health.entity_died.disconnect(_death) # TODO: is this the only way to prevent the signal from occuring more than once??? seems wack

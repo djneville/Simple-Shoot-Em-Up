@@ -7,8 +7,6 @@
 
 [node name="EnemyEntity" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_ws0e1")
-enemy_level = null
-path_speed = null
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_co7y2")]
 
@@ -16,3 +14,5 @@ path_speed = null
 position = Vector2(0, 19)
 
 [node name="UpgradeComponent" parent="." instance=ExtResource("5_xclha")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

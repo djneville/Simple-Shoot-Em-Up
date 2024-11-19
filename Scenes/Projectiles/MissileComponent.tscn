@@ -62,7 +62,7 @@ tracks/0/path = NodePath("MissileExplosionSprites:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-8.13333, -2.06667, -0.899998),
+"times": PackedFloat32Array(-8.13333, -0.133333, 0.233333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 0]

@@ -3,7 +3,7 @@ class_name WeaponComponent
 
 # Export Variables
 @export var bullet_fire_rate: float = 0.25  # Seconds between shots
-@export var missile_launch_rate: float = 6.0  # Seconds between shots
+@export var missile_launch_rate: float = 7.0  # Seconds between shots
 @export var bomb_drop_rate: float = 1.5  # Seconds between shots
 @export var bomb_inventory: int = 5
 

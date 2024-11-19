@@ -85,7 +85,7 @@ func take_damage(damage: int) -> void:
         self.upgrade_component.downgrade()
 
 func heal(amount: int = 1) -> void:
-    var current_health: int = self.health.health
+    var current_health: int = self.health.get_current_health()
     var max_health: int = self.health.max_health
     
     if current_health == max_health:

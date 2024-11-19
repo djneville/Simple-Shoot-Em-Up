@@ -5,6 +5,8 @@ class_name EnemyEntity
 @onready var health: HealthComponent = $HealthComponent
 @onready var weapon: WeaponComponent = $WeaponComponent
 @onready var upgrade_component: UpgradeComponent = $UpgradeComponent
+@onready var visibility: VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler2D
+
 
 # Export variables
 # THIS enemy_level GETS SET IN THE SPAWNER!!!!!!!!!!! AHHHHHHHHHHHHHHHH
@@ -28,6 +30,7 @@ func _ready() -> void:
 func _setup_signals() -> void:
     self.upgrade_component.active_explosion_animation.animation_finished.connect(_on_animation_finished)
     self.health.entity_died.connect(_death)
+    self.visibility.screen_exited.connect(queue_free)
 
 func _initialize() -> void:
     # Configure upgrade component

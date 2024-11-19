@@ -58,7 +58,7 @@ func _on_body_entered(body: Node) -> void:
         self.explode()
 
 func explode() -> void:
-    self.velocity = Vector2.ZERO
+    self.speed = 0
     self.bomb_sprite.visible = false
     self.bomb_explosion_animation.play("BombExplosion")
     self.explosion_area.body_entered.connect(_on_explosion_body_entered)

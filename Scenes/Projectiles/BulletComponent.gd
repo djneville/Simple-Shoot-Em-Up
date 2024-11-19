@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node) -> void:
     if body == self.ownerr:
         return
-    self.velocity = Vector2.ZERO
+    self.speed = 0
     self.bullet_explosion_sprite.visible = true
     self.bullet_sprite.visible = false
     body.take_damage(self.damage)

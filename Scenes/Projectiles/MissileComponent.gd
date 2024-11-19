@@ -6,8 +6,8 @@ class_name MissileComponent
 @export var speed: float = 400.0
 @export var direction: Vector2 = Vector2.DOWN  # TODO: UGH FIX THIS SO THAT ENEMIES ALWAYS SHOOT DOWN AND PLAYER UP
 @export var velocity: Vector2 = Vector2.ZERO  # TODO THIS IS JUST HERE FOR REDUNDANCY!!!
-@export var drag_factor: float = 0.04
-@export var lifetime: float = 10.0
+@export var drag_factor: float = 0.03
+@export var lifetime: float = 6.0
 @export var damage: int = 1
 
 @export var ownerr: Node  # TODO: fix this with actual owner reference and ancestry?????
@@ -18,6 +18,7 @@ class_name MissileComponent
 
 # Nodes
 @onready var missile_sprite: Sprite2D = $MissileSprite
+@onready var missile_explosion_sprites: AnimatedSprite2D = $MissileExplosionSprites
 @onready var missile_explosion_animation: AnimationPlayer = $MissileExplosionAnimation
 
 # Signals
@@ -73,8 +74,9 @@ func _on_body_entered(body: Node) -> void:
     body.take_damage(self.damage)
 
 func missile_explode() -> void:
-    self.velocity = Vector2.ZERO
+    self.speed = 0
     self.missile_sprite.visible = false
+    self.missile_explosion_sprites.visible = true
     self.missile_explosion_animation.play("MissileExplosion")
 
 func _on_animation_timeout(anim_name: String) -> void:

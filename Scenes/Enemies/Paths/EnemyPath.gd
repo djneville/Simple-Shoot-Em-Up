@@ -6,8 +6,9 @@ extends PathFollow2D
 
 signal path_finished
 
+
 func _process(delta: float) -> void:
-    self.progress += self.path_speed * delta
-    if self.progress_ratio == 1:
-        path_finished.emit()
-        queue_free()
+	self.progress += self.path_speed * delta
+	if self.progress_ratio == 1:
+		path_finished.emit()
+		queue_free()

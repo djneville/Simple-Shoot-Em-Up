@@ -1,8 +1,9 @@
 extends Label
 
-@onready var playerlives = GameStatsManager.lives
+@onready var playerlives: int = GameStatsManager.lives
 
-func _process(_delta):
-    if playerlives:
-        playerlives = GameStatsManager.lives
-        text = str(playerlives)
+
+func _process(_delta: float) -> void:
+	if playerlives:
+		playerlives = GameStatsManager.lives
+		text = str(playerlives)

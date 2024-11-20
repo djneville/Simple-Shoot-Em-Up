@@ -13,19 +13,20 @@ var splash = false
 @onready var MissleAnims = $MissleAnims
 @onready var target = get_tree().get_nodes_in_group("player")[0]
 
+
 func _ready():
-	current_velocity = speed * Vector2.DOWN 
+	current_velocity = speed * Vector2.DOWN
 	pass
 
 
 func _process(delta):
-	if !splash:	
+	if !splash:
 		if !target:
 			direction = Vector2.DOWN.normalized()
-			rotation = PI/2
+			rotation = PI / 2
 		if target:
 			direction = global_position.direction_to(target.global_position)
-		
+
 		desired_velocity = direction * speed
 		var change = (desired_velocity - current_velocity) * drag_factor
 		current_velocity += change
@@ -45,4 +46,4 @@ func _on_body_entered(body):
 func _on_despawntimer_timeout():
 	splash = true
 	MissleAnims.play("explode")
-	pass # Replace with function body.
+	pass  # Replace with function body.

@@ -17,96 +17,113 @@ const SCORE_UPGRADE_BONUS: int = 280
 
 
 func _init() -> void:
-    # Initialize any non-node properties here
-    # Note: Can't access nodes in _init as they're not ready yet
-    self.set_physics_process(false)
-    self.set_process(false)
+	# Initialize any non-node properties here
+	# Note: Can't access nodes in _init as they're not ready yet
+	self.set_physics_process(false)
+	self.set_process(false)
+
 
 func _ready() -> void:
-    self._initialize()
-    self._setup_signals()
-    self.set_physics_process(true)
-    self.set_process(true)
+	self._initialize()
+	self._setup_signals()
+	self.set_physics_process(true)
+	self.set_process(true)
+
 
 func _setup_signals() -> void:
-    # Connect all signals
-    self.health.entity_died.connect(_death)
-    self.upgrade_component.active_explosion_animation.animation_finished.connect(_on_animation_finished)
+	# Connect all signals
+	self.health.entity_died.connect(_death)
+	self.upgrade_component.active_explosion_animation.animation_finished.connect(
+		_on_animation_finished
+	)
+
 
 func _initialize() -> void:
-    # Initialize node-dependent properties
-    self.position = INITIAL_POSITION
-    
-    var collision_shape: CollisionShape2D = self.upgrade_component.active_collision_shape
-    self.add_child(collision_shape)
+	# Initialize node-dependent properties
+	self.position = INITIAL_POSITION
 
-func _process(delta: float) -> void:
-    self._handle_movement()
-    self._handle_actions()
+	var collision_shape: CollisionShape2D = self.upgrade_component.active_collision_shape
+	self.add_child(collision_shape)
+
+
+func _process(_delta: float) -> void:
+	self._handle_movement()
+	self._handle_actions()
+
 
 func _handle_movement() -> void:
-    var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
-    var speed: float = self.upgrade_component.active_speed
-    self.velocity = input_vector * speed
-    
-    self.move_and_slide() #velocity is handled in here
-    
-    var collision_count: int = self.get_slide_collision_count()
-    for i in range(collision_count):
-        var collision: KinematicCollision2D = self.get_slide_collision(i)
-        var collider: Node2D = collision.get_collider()
-        self._handle_collide(collider)
+	var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
+	var speed: float = self.upgrade_component.active_speed
+	self.velocity = input_vector * speed
+
+	self.move_and_slide()  #velocity is handled in here
+
+	var collision_count: int = self.get_slide_collision_count()
+	for i: int in range(collision_count):
+		var collision: KinematicCollision2D = self.get_slide_collision(i)
+		var collider: Node2D = collision.get_collider()
+		self._handle_collide(collider)
+
 
 func _handle_actions() -> void:
-    if Input.is_action_pressed("shoot"):
-        var bullet_direction: Vector2 = Vector2.UP
-        self.weapon.release_projectile(self, self.global_position, upgrade_component.active_projectile_type, bullet_direction)
-    
-    if Input.is_action_pressed("bomb"):
-        var bomb_direction: Vector2 = Vector2.DOWN
-        self.weapon.drop_bomb(self, self.global_position, bomb_direction)
-    
-    if Input.is_action_just_pressed("upgrade"):
-        self.upgrade_component.upgrade()
-    
-    if Input.is_action_just_pressed("downgrade"):
-        self.upgrade_component.downgrade()
+	if Input.is_action_pressed("shoot"):
+		var bullet_direction: Vector2 = Vector2.UP
+		self.weapon.release_projectile(
+			self, self.global_position, upgrade_component.active_projectile_type, bullet_direction
+		)
+
+	if Input.is_action_pressed("bomb"):
+		var bomb_direction: Vector2 = Vector2.DOWN
+		self.weapon.drop_bomb(self, self.global_position, bomb_direction)
+
+	if Input.is_action_just_pressed("upgrade"):
+		self.upgrade_component.upgrade()
+
+	if Input.is_action_just_pressed("downgrade"):
+		self.upgrade_component.downgrade()
+
 
 func _death() -> void:
-    self.health.entity_died.disconnect(_death) # TODO: is this the only way to prevent the signal from occuring more than once??? seems wack
-    self.upgrade_component.active_explosion_sprite.visible = true
-    self.upgrade_component.active_explosion_animation.play("Explosion")
+	self.health.entity_died.disconnect(_death)  # TODO: is this the only way to prevent the signal from occuring more than once??? seems wack
+	self.upgrade_component.active_explosion_sprite.visible = true
+	self.upgrade_component.active_explosion_animation.play("Explosion")
+
 
 func take_damage(damage: int) -> void:
-    if not self.invulnerability.is_invulnerable:
-        self.invulnerability.start_invulnerability()
-        self.health.take_damage(damage)
-        self.upgrade_component.downgrade()
+	if not self.invulnerability.is_invulnerable:
+		self.invulnerability.start_invulnerability()
+		self.health.take_damage(damage)
+		self.upgrade_component.downgrade()
+
 
 func heal(amount: int = 1) -> void:
-    if  self.health.get_current_health() == self.health.get_max_health():
-        SignalBus.score_bonus.emit(SCORE_HEALTH_BONUS)
-    else:
-        self.health.heal(amount) 
+	if self.health.get_current_health() == self.health.get_max_health():
+		SignalBus.score_bonus.emit(SCORE_HEALTH_BONUS)
+	else:
+		self.health.heal(amount)
+
 
 func _handle_collide(body: Node2D) -> void:
-    if body.is_in_group("enemy"): #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
-        body.take_damage(COLLISION_DAMAGE)
-        self.take_damage(PLAYER_DAMAGE)
+	if body.is_in_group("enemy"):  #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
+		body.take_damage(COLLISION_DAMAGE)
+		self.take_damage(PLAYER_DAMAGE)
+
 
 func _on_animation_finished(anim_name: String) -> void:
-    if anim_name == "Explosion":
-        SignalBus.life_lost.emit() #TODO handle this with gameover elsewhere
+	if anim_name == "Explosion":
+		SignalBus.life_lost.emit()  #TODO handle this with gameover elsewhere
+
 
 #TODO: figure out where to put this collision logic, probably just in the ItemEntity, NOT HERE!
 func add_bomb_to_inventory() -> void:
-    if weapon.get_bomb_inventory() == weapon.get_max_bomb_inventory():
-        SignalBus.score_bonus.emit(SCORE_BOMB_BONUS)
-    else:
-        weapon.set_bomb_inventory(weapon.get_bomb_inventory() + 1)
+	if weapon.get_bomb_inventory() == weapon.get_max_bomb_inventory():
+		SignalBus.score_bonus.emit(SCORE_BOMB_BONUS)
+	else:
+		weapon.set_bomb_inventory(weapon.get_bomb_inventory() + 1)
+
 
 func upgrade() -> void:
-    if upgrade_component.get_current_upgrade_index() != 0:
-        SignalBus.score_bonus.emit(SCORE_UPGRADE_BONUS)
-    else:
-        upgrade_component.upgrade()
+	if upgrade_component.get_current_upgrade_index() != 0:
+		SignalBus.score_bonus.emit(SCORE_UPGRADE_BONUS)
+	else:
+		upgrade_component.upgrade()

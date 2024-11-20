@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwc6b6ocb6iaf"]
 
 [ext_resource type="Script" path="res://Scenes/Weapon/Projectiles/BulletComponent.gd" id="1_2ofpg"]
-[ext_resource type="Texture2D" uid="uid://c4a5v5kiy5dea" path="res://Assets/Tiles/tile_0000.png" id="2_lqmxt"]
-[ext_resource type="Texture2D" uid="uid://bh4buembtix7x" path="res://Assets/Tiles/tile_0007.png" id="3_l8lky"]
+[ext_resource type="Texture2D" uid="uid://bg2oogd1tevft" path="res://Assets/Tiles/tile_0000.png" id="2_lqmxt"]
+[ext_resource type="Texture2D" uid="uid://5v8gmpgwr3lj" path="res://Assets/Tiles/tile_0007.png" id="3_l8lky"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anxx7"]
 radius = 3.0

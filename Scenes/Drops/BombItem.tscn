@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://hjojnnp5v2mn"]
 
 [ext_resource type="Script" path="res://Scenes/Drops/BombItem.gd" id="1_hqa35"]
-[ext_resource type="Texture2D" uid="uid://cftv45hbjj1sv" path="res://Assets/Tiles/bombshine.png" id="2_npypt"]
+[ext_resource type="Texture2D" uid="uid://wytghdwgus1i" path="res://Assets/Tiles/bombshine.png" id="2_npypt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v07x"]
 size = Vector2(22, 18)

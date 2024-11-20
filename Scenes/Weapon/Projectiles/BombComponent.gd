@@ -21,60 +21,69 @@ class_name BombComponent
 @onready var bomb_sprite: Sprite2D = $BombSprite
 @onready var bomb_explosion_animation: AnimationPlayer = $BombExplosionAnimation
 
-# Signals
-signal exploded()
 
 func _init() -> void:
-    # Initialize non-node dependent properties
-    self.set_process(false)
+	# Initialize non-node dependent properties
+	self.set_process(false)
+
 
 func _ready() -> void:
-    self._initialize_velocity()
-    self._initialize_timers()
-    self._connect_signals()
-    self.set_process(true)
+	self._initialize_velocity()
+	self._initialize_timers()
+	self._connect_signals()
+	self.set_process(true)
+
 
 func _initialize_velocity() -> void:
-    self.velocity = self.direction.normalized() * self.speed
+	self.velocity = self.direction.normalized() * self.speed
+
 
 func _initialize_timers() -> void:
-    self.lifetime_timer.wait_time = self.lifetime
-    self.lifetime_timer.one_shot = true
-    self.lifetime_timer.timeout.connect(self.explode)
-    self.add_child(self.lifetime_timer)
-    self.lifetime_timer.start()
+	self.lifetime_timer.wait_time = self.lifetime
+	self.lifetime_timer.one_shot = true
+	self.lifetime_timer.timeout.connect(self.explode)
+	self.add_child(self.lifetime_timer)
+	self.lifetime_timer.start()
+
 
 func _connect_signals() -> void:
-    self.body_entered.connect(_on_body_entered)
-    self.bomb_explosion_animation.animation_finished.connect(_on_animation_finished)
+	self.body_entered.connect(_on_body_entered)
+	self.bomb_explosion_animation.animation_finished.connect(_on_animation_finished)
+
 
 func _physics_process(delta: float) -> void:
-    self.position += self.velocity * delta
+	self.position += self.velocity * delta
+
 
 func _on_body_entered(body: Node) -> void:
-    if body == self.ownerr:
-        return
-    if body.is_in_group("enemy"):
-        self.explode()
+	if body == self.ownerr:
+		return
+	if body.is_in_group("enemy"):
+		self.explode()
+
 
 func explode() -> void:
-    self.speed = 0
-    self.bomb_sprite.visible = false
-    self.bomb_explosion_animation.play("BombExplosion")
-    self.explosion_area.body_entered.connect(_on_explosion_body_entered)
+	self.speed = 0
+	self.bomb_sprite.visible = false
+	self.bomb_explosion_animation.play("BombExplosion")
+	self.explosion_area.body_entered.connect(_on_explosion_body_entered)
+
 
 func _on_explosion_body_entered(body: Node) -> void:
-    if body == self.ownerr:
-        return
-    body.take_damage(self.damage)
+	if body == self.ownerr:
+		return
+	body.take_damage(self.damage)
+
 
 func _on_animation_finished(anim_name: String) -> void:
-    if anim_name == "BombExplosion":
-        self.queue_free()
+	if anim_name == "BombExplosion":
+		self.queue_free()
+
 
 # Getters/Setters
 func get_ownerr() -> Node:
-    return self.ownerr
+	return self.ownerr
+
 
 func set_ownerr(new_owner: Node) -> void:
-    self.ownerr = new_owner
+	self.ownerr = new_owner

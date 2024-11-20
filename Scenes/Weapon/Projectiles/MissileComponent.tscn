@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://drsay6p2bovok"]
 
-[ext_resource type="Texture2D" uid="uid://ditoglhe7qtih" path="res://Assets/Tiles/missle.png" id="1_oi0p2"]
+[ext_resource type="Texture2D" uid="uid://dqdfsv62b4xme" path="res://Assets/Tiles/missle.png" id="1_oi0p2"]
 [ext_resource type="Script" path="res://Scenes/Weapon/Projectiles/MissileComponent.gd" id="1_speg4"]
-[ext_resource type="Texture2D" uid="uid://bm6nu24q5kslo" path="res://Assets/Tiles/missletail.png" id="2_5li8h"]
-[ext_resource type="Texture2D" uid="uid://c4frev4njtcwm" path="res://Assets/Tiles/missleexplosion.png" id="3_h0a8o"]
+[ext_resource type="Texture2D" uid="uid://cdr361j3ipp7q" path="res://Assets/Tiles/missletail.png" id="2_5li8h"]
+[ext_resource type="Texture2D" uid="uid://dxt8xryjd6bee" path="res://Assets/Tiles/missleexplosion.png" id="3_h0a8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6efi"]
 atlas = ExtResource("2_5li8h")

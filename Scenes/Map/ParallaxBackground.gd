@@ -1,6 +1,7 @@
 extends ParallaxBackground
 
-@export var worldspeed = 100
+@export var worldspeed: int = 100
 
-func _process(delta):
-    scroll_base_offset.y += worldspeed * delta
+
+func _process(delta: float) -> void:
+	scroll_base_offset.y += worldspeed * delta

@@ -1,14 +1,15 @@
 extends PathFollow2D
 
-var speed = 45
+var speed: int = 45
 
-var complete = false
+var complete: bool = false
 
-var activated = false
+var activated: bool = false
 
-func _process(delta):
-    if activated:
-        progress += speed * delta
-        if progress_ratio >= 1:
-            complete = true
-    pass
+
+func _process(delta: float) -> void:
+	if activated:
+		progress += speed * delta
+		if progress_ratio >= 1:
+			complete = true
+	pass

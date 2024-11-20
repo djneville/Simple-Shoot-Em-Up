@@ -1,5 +1,6 @@
 extends Label
 
-func _process(delta):
-    self.set_text(str(GameStatsManager.score))
-    pass
+
+func _process(delta: float) -> void:
+	self.set_text(str(GameStatsManager.score))
+	pass

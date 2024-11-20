@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://ihug2pds26q0"]
 
 [ext_resource type="Script" path="res://Scenes/Drops/UpgradeItem.gd" id="1_2j4c5"]
-[ext_resource type="Texture2D" uid="uid://dwpvd8h5pqnsj" path="res://Assets/Tiles/upgradeshine.png" id="2_jimgj"]
+[ext_resource type="Texture2D" uid="uid://opxxc4lyooqk" path="res://Assets/Tiles/upgradeshine.png" id="2_jimgj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v07x"]
 size = Vector2(22, 18)

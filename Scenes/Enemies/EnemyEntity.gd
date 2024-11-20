@@ -24,64 +24,64 @@ var points: int = BASE_POINTS
 
 
 func _ready() -> void:
-	self._initialize()
-	self._setup_signals()
+    self._initialize()
+    self._setup_signals()
 
 
 func _setup_signals() -> void:
-	self.upgrade_component.active_explosion_animation.animation_finished.connect(
-		_on_animation_finished
-	)
-	self.health.entity_died.connect(_death)
+    self.upgrade_component.active_explosion_animation.animation_finished.connect(
+        _on_animation_finished
+    )
+    self.health.entity_died.connect(_death)
 
-	self.visibility.screen_exited.connect(queue_free)
+    self.visibility.screen_exited.connect(queue_free)
 
 
 func _initialize() -> void:
-	self.health.current_health = 1
-	# Configure upgrade component
-	self.upgrade_component.current_upgrade_index = enemy_level  # THIS GETS SET IN THE SPAWNER!!!!!!!!!!! AHHHHHHHHHHHHHHHH
-	#TODO: this requirement of .update() to be called proves that @onready calls the _ready() of
-	# the upgrade_component before this classes _ready() func is called!!!!!!!!
-	#TODO: update() relies on the`upgrade_component.current_upgrade_index` being set first and thats STUPID AND MISLEADING
-	self.upgrade_component._update_upgrade()
+    self.health.current_health = 1
+    # Configure upgrade component
+    self.upgrade_component.current_upgrade_index = enemy_level  # THIS GETS SET IN THE SPAWNER!!!!!!!!!!! AHHHHHHHHHHHHHHHH
+    #TODO: this requirement of .update() to be called proves that @onready calls the _ready() of
+    # the upgrade_component before this classes _ready() func is called!!!!!!!!
+    #TODO: update() relies on the`upgrade_component.current_upgrade_index` being set first and thats STUPID AND MISLEADING
+    self.upgrade_component._update_upgrade()
 
-	# Set up collision
-	var collision_shape: CollisionShape2D = self.upgrade_component.active_collision_shape
-	self.add_child(collision_shape)
+    # Set up collision
+    var collision_shape: CollisionShape2D = self.upgrade_component.active_collision_shape
+    self.add_child(collision_shape)
 
-	# Configure speed
-	self.path_speed = self.upgrade_component.active_speed  #TODO: this seems sloppy, not sure where to best control speed yet
+    # Configure speed
+    self.path_speed = self.upgrade_component.active_speed  #TODO: this seems sloppy, not sure where to best control speed yet
 
 
 func _process(_delta: float) -> void:
-	#TODO: figure out how to rotate the Enemy????? (maybe just the weapon? as the rotation changes on the path
-	self.weapon.release_projectile(
-		self, self.global_position, upgrade_component.active_projectile_type, PROJECTILE_DIRECTION
-	)
+    #TODO: figure out how to rotate the Enemy????? (maybe just the weapon? as the rotation changes on the path
+    self.weapon.release_projectile(
+        self, self.global_position, upgrade_component.active_projectile_type, PROJECTILE_DIRECTION
+    )
 
 
 func _death() -> void:
-	self.health.entity_died.disconnect(_death)  # TODO: is this the only way to prevent the signal from occuring more than once??? seems wack
-	self.upgrade_component.active_explosion_sprite.visible = true
-	self.upgrade_component.active_explosion_animation.play("Explosion")
+    self.health.entity_died.disconnect(_death)  # TODO: is this the only way to prevent the signal from occuring more than once??? seems wack
+    self.upgrade_component.active_explosion_sprite.visible = true
+    self.upgrade_component.active_explosion_animation.play("Explosion")
 
 
 func take_damage(damage: int) -> void:
-	self.health.take_damage(damage)
+    self.health.take_damage(damage)
 
 
 func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "Explosion":
-		GameStatsManager.score += self.points
-		self.give_points.emit(self.points)
-		self.queue_free()
+    if anim_name == "Explosion":
+        GameStatsManager.score += self.points
+        self.give_points.emit(self.points)
+        self.queue_free()
 
 
 # Getters/Setters
 func get_points() -> int:
-	return self.points
+    return self.points
 
 
 func set_points(value: int) -> void:
-	self.points = value
+    self.points = value

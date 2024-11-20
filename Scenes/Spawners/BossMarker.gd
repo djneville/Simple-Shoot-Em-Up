@@ -6,13 +6,13 @@ extends Marker2D
 
 
 func ready() -> void:
-	visibility.screen_entered.connect(_spawn_boss)
+    visibility.screen_entered.connect(_spawn_boss)
 
 
 func _spawn_boss() -> void:
-	var boss_fight = boss_path.instantiate()
-	boss_fight.position = Vector2(270, 0)
-	add_child(boss_fight)
-	boss_fight.uihealth.connect(boss_health.update_health)
-	boss_health.instantiate()
-	#TODO: figure out how to add the boss health to the hud here
+    var boss_fight = boss_path.instantiate()
+    boss_fight.position = Vector2(270, 0)
+    add_child(boss_fight)
+    boss_fight.uihealth.connect(boss_health.update_health)
+    boss_health.instantiate()
+    #TODO: figure out how to add the boss health to the hud here

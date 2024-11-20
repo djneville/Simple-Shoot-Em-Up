@@ -6,4 +6,4 @@ extends Marker2D
 
 
 func _ready() -> void:
-	self.path = path_resource.instantiate()
+    self.path = path_resource.instantiate()

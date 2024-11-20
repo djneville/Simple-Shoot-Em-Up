@@ -4,4 +4,4 @@ extends Control
 
 
 func update_health(value: int) -> void:
-	progress_bar.value = value
+    progress_bar.value = value

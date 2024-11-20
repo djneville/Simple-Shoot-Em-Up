@@ -6,24 +6,24 @@ class_name MainMenu
 
 
 func _ready() -> void:
-	GameStatsManager.lives = 3
-	GameStatsManager.score = 0
-	$MarginContainer/CenterContainer/VBoxContainer/StartGame.pressed.connect(
-		_on_start_game_button_pressed
-	)
-	$MarginContainer/CenterContainer/VBoxContainer/LevelSelect.pressed.connect(
-		_on_level_select_button_pressed
-	)
-	$MarginContainer/CenterContainer/VBoxContainer/QuitGame.pressed.connect(_on_quit_game_pressed)
+    GameStatsManager.lives = 3
+    GameStatsManager.score = 0
+    $MarginContainer/CenterContainer/VBoxContainer/StartGame.pressed.connect(
+        _on_start_game_button_pressed
+    )
+    $MarginContainer/CenterContainer/VBoxContainer/LevelSelect.pressed.connect(
+        _on_level_select_button_pressed
+    )
+    $MarginContainer/CenterContainer/VBoxContainer/QuitGame.pressed.connect(_on_quit_game_pressed)
 
 
 func _on_start_game_button_pressed() -> void:
-	SceneManager.change_scene(SceneManager.MAIN_GAME_LOOP)
+    SceneManager.change_scene(SceneManager.MAIN_GAME_LOOP)
 
 
 func _on_level_select_button_pressed() -> void:
-	SceneManager.change_scene(SceneManager.LEVEL_SELECT)
+    SceneManager.change_scene(SceneManager.LEVEL_SELECT)
 
 
 func _on_quit_game_pressed() -> void:
-	get_tree().quit()
+    get_tree().quit()

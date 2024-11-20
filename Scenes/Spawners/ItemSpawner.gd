@@ -8,18 +8,18 @@ extends Node2D
 
 
 func _ready() -> void:
-	for marker: Marker2D in get_children():
-		var notifier: VisibleOnScreenNotifier2D = VisibleOnScreenNotifier2D.new()
-		notifier.screen_entered.connect(spawn_item.bind(marker))
-		#notifier.screen_exited.connect(queue_free)
-		marker.add_child(notifier)
+    for marker: Marker2D in get_children():
+        var notifier: VisibleOnScreenNotifier2D = VisibleOnScreenNotifier2D.new()
+        notifier.screen_entered.connect(spawn_item.bind(marker))
+        #notifier.screen_exited.connect(queue_free)
+        marker.add_child(notifier)
 
 
 func spawn_item(marker: Marker2D) -> void:
-	match marker.item_type:
-		Item.TYPE.HEALTH:
-			marker.add_child(health_item_scene.instantiate())
-		Item.TYPE.BOMB:
-			marker.add_child(bomb_item_scene.instantiate())
-		Item.TYPE.UPGRADE:
-			marker.add_child(upgrade_item_scene.instantiate())
+    match marker.item_type:
+        Item.TYPE.HEALTH:
+            marker.add_child(health_item_scene.instantiate())
+        Item.TYPE.BOMB:
+            marker.add_child(bomb_item_scene.instantiate())
+        Item.TYPE.UPGRADE:
+            marker.add_child(upgrade_item_scene.instantiate())

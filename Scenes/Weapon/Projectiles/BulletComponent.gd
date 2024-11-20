@@ -20,54 +20,54 @@ class_name BulletComponent
 
 
 func _init() -> void:
-	# Initialize non-node dependent properties
-	self.set_process(false)
+    # Initialize non-node dependent properties
+    self.set_process(false)
 
 
 func _ready() -> void:
-	self._initialize_velocity()
-	self._initialize_timers()
-	self._connect_signals()
-	self.set_process(true)
+    self._initialize_velocity()
+    self._initialize_timers()
+    self._connect_signals()
+    self.set_process(true)
 
 
 # Initialize Velocity Based on Direction and Speed
 func _initialize_velocity() -> void:
-	self.velocity = self.direction.normalized() * self.speed
+    self.velocity = self.direction.normalized() * self.speed
 
 
 # Initialize and Configure Timers
 func _initialize_timers() -> void:
-	self.lifetime_timer.wait_time = self.lifetime
-	self.lifetime_timer.one_shot = true
-	self.lifetime_timer.timeout.connect(self.queue_free)
-	self.add_child(self.lifetime_timer)
-	self.lifetime_timer.start()
+    self.lifetime_timer.wait_time = self.lifetime
+    self.lifetime_timer.one_shot = true
+    self.lifetime_timer.timeout.connect(self.queue_free)
+    self.add_child(self.lifetime_timer)
+    self.lifetime_timer.start()
 
 
 # Connect Signals to Their Handlers
 func _connect_signals() -> void:
-	self.body_entered.connect(_on_body_entered)
+    self.body_entered.connect(_on_body_entered)
 
 
 func _physics_process(delta: float) -> void:
-	self.position += self.velocity * delta
+    self.position += self.velocity * delta
 
 
 func _on_body_entered(body: Node) -> void:
-	if body == self.ownerr:  #TODO: FIX THESE OWNERR BULLSHIT
-		return
-	self.speed = 0
-	self.bullet_explosion_sprite.visible = true
-	self.bullet_sprite.visible = false
-	body.take_damage(self.damage)
-	self.queue_free()
+    if body == self.ownerr:  #TODO: FIX THESE OWNERR BULLSHIT
+        return
+    self.speed = 0
+    self.bullet_explosion_sprite.visible = true
+    self.bullet_sprite.visible = false
+    body.take_damage(self.damage)
+    self.queue_free()
 
 
 # Getters/Setters
 func get_ownerr() -> Node:
-	return self.ownerr
+    return self.ownerr
 
 
 func set_ownerr(new_owner: Node) -> void:
-	self.ownerr = new_owner
+    self.ownerr = new_owner

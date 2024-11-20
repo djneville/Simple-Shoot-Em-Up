@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://1suqpdc322yl"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/Level 1 Boss/boss_bullet.gd" id="1_f0ot3"]
-[ext_resource type="Texture2D" uid="uid://d0qyqnxrruyu2" path="res://Assets/Tiles/Bossbullet.png" id="1_l8iyj"]
-[ext_resource type="Texture2D" uid="uid://clgsicpobpo2u" path="res://Assets/Tiles/tile_0008.png" id="3_02dp1"]
+[ext_resource type="Texture2D" uid="uid://i66ic0nv47dx" path="res://Assets/Tiles/Bossbullet.png" id="1_l8iyj"]
+[ext_resource type="Texture2D" uid="uid://cancdqcbgv6gf" path="res://Assets/Tiles/tile_0008.png" id="3_02dp1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1p23"]
 radius = 8.0
@@ -59,6 +59,7 @@ texture_filter = 1
 script = ExtResource("1_f0ot3")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_l8iyj")
 

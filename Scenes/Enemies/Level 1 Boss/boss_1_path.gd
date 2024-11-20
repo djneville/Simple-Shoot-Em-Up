@@ -64,7 +64,7 @@ func _process(_delta):
         boss.canmissle = false
         boss.state = 4
         boss.BossAnims.play("death")
-        Gamestats.score += 7500
+        GameStatsManager.score += 7500
         $GameCompleteTimer.start()
         dying = true
 
@@ -74,4 +74,4 @@ func take_damage(damage):
 
 func _on_game_complete_timer_timeout():
     #TODO: look at making a signal from the boss death to trigger in the Main.tscn scene
-    Gamestats.level_complete.emit()
+    GameStatsManager.level_complete.emit()

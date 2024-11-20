@@ -30,9 +30,11 @@ func _ready() -> void:
 func _setup_signals() -> void:
     self.upgrade_component.active_explosion_animation.animation_finished.connect(_on_animation_finished)
     self.health.entity_died.connect(_death)
+    
     self.visibility.screen_exited.connect(queue_free)
 
 func _initialize() -> void:
+    self.health.current_health = 1
     # Configure upgrade component
     self.upgrade_component.current_upgrade_index = enemy_level # THIS GETS SET IN THE SPAWNER!!!!!!!!!!! AHHHHHHHHHHHHHHHH
     #TODO: this requirement of .update() to be called proves that @onready calls the _ready() of 
@@ -61,7 +63,7 @@ func take_damage(damage: int) -> void:
 
 func _on_animation_finished(anim_name: String) -> void:
     if anim_name == "Explosion":
-        Gamestats.score += self.points
+        GameStatsManager.score += self.points
         self.give_points.emit(self.points)
         self.queue_free()
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dds0uhdcqiv72"]
 
-[ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Assets/Font/maintheme.tres" id="1_4sdwr"]
+[ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Resources/Fonts/maintheme.tres" id="1_4sdwr"]
 [ext_resource type="Texture2D" uid="uid://7q6jroi60w38" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
 [ext_resource type="Script" path="res://Scenes/HUD/ScoreNumber.gd" id="2_v3eyu"]
 [ext_resource type="Script" path="res://Scenes/HUD/LivesNumber.gd" id="3_nhk45"]
@@ -18,88 +18,62 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4sdwr")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-offset_right = 100.0
-offset_bottom = 23.0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-
-[node name="HBoxContainer1" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer1" type="HBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 103.0
+offset_bottom = 27.0
 
-[node name="Score" type="Label" parent="MarginContainer/HBoxContainer1"]
+[node name="Score" type="Label" parent="HBoxContainer1"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Score:"
 
-[node name="ScoreNumber" type="Label" parent="MarginContainer/HBoxContainer1"]
+[node name="ScoreNumber" type="Label" parent="HBoxContainer1"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 script = ExtResource("2_v3eyu")
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -94.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 400.0
+offset_top = 4.0
+offset_right = 532.0
+offset_bottom = 27.0
 
-[node name="Lives" type="Label" parent="MarginContainer2/HBoxContainer2"]
+[node name="Lives" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 text = "Lives:
 "
 
-[node name="LivesNumber" type="Label" parent="MarginContainer2/HBoxContainer2"]
+[node name="LivesNumber" type="Label" parent="HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 script = ExtResource("3_nhk45")
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -9.0
-offset_right = 91.0
-grow_vertical = 0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="Health" type="TextureProgressBar" parent="MarginContainer3"]
+[node name="Health" type="TextureProgressBar" parent="."]
 layout_mode = 2
+offset_left = 4.0
+offset_top = 943.0
+offset_right = 123.0
+offset_bottom = 956.0
 max_value = 7.0
 value = 7.0
 texture_progress = ExtResource("2_lp1jt")
 script = ExtResource("5_pfjij")
 
-[node name="MarginContainer4" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 412.0
-offset_top = -20.0
-offset_right = 535.0
-offset_bottom = -3.0
-grow_vertical = 0
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_bottom = 4
-
-[node name="Bombs" type="TextureProgressBar" parent="MarginContainer4"]
+[node name="Bombs" type="TextureProgressBar" parent="."]
 layout_mode = 2
+offset_left = 416.0
+offset_top = 940.0
+offset_right = 535.0
+offset_bottom = 953.0
 max_value = 7.0
 value = 7.0
 texture_progress = ExtResource("6_hb3fk")

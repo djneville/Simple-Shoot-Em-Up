@@ -5,7 +5,8 @@ class_name WeaponComponent
 @export var bullet_fire_rate: float = 0.25  # Seconds between shots
 @export var missile_launch_rate: float = 7.0  # Seconds between shots
 @export var bomb_drop_rate: float = 1.5  # Seconds between shots
-@export var bomb_inventory: int = 5
+@export var max_bomb_inventory: int = 5
+@export var bomb_inventory: int = max_bomb_inventory
 
 # Timers
 @onready var bullet_timer: Timer = Timer.new()
@@ -13,9 +14,9 @@ class_name WeaponComponent
 @onready var missile_timer: Timer = Timer.new()
 
 # Scenes
-@onready var bullet_scene: PackedScene = preload("res://Scenes/Projectiles/BulletComponent.tscn")
-@onready var bomb_scene: PackedScene = preload("res://Scenes/Projectiles/BombComponent.tscn")
-@onready var missile_scene: PackedScene = preload("res://Scenes/Projectiles/MissileComponent.tscn")
+@onready var bullet_scene: PackedScene = preload("res://Scenes/Weapon/Projectiles/BulletComponent.tscn")
+@onready var bomb_scene: PackedScene = preload("res://Scenes/Weapon/Projectiles/BombComponent.tscn")
+@onready var missile_scene: PackedScene = preload("res://Scenes/Weapon/Projectiles/MissileComponent.tscn")
 
 # Components
 @onready var muzzle_flash: AnimationPlayer = $MuzzleFlash
@@ -68,23 +69,32 @@ func _configure_timer(timer: Timer, wait_time: float, one_shot: bool) -> void:
 func release_projectile(shooter: Node, start_position: Vector2, type: Projectile.TYPE, direction: Vector2) -> void:
     match type:
         Projectile.TYPE.BULLET:
-            self.fire_bullet(shooter, start_position, direction)
+            if self.bullet_timer.time_left == 0: #TODO: I really don tlike this timer
+                self.fire_bullet(shooter, start_position, direction)
+                self.bullet_timer.start()
+        Projectile.TYPE.DOUBLE_BULLET:
+            if self.bullet_timer.time_left == 0:
+                var left_barrel_position: Vector2 = start_position
+                left_barrel_position.x -= 10
+                var right_barrel_position: Vector2 = start_position
+                right_barrel_position.x += 10
+                self.fire_bullet(shooter, left_barrel_position, direction)
+                self.fire_bullet(shooter, right_barrel_position, direction)
+                self.bullet_timer.start()
         Projectile.TYPE.BOMB:
             self.drop_bomb(shooter, start_position, direction)
         Projectile.TYPE.MISSILE:
             self.launch_missile(shooter, start_position, direction)
 
 func fire_bullet(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
-    if self.bullet_timer.time_left == 0: #TODO: I really don tlike this timer
-        self.muzzle_flash.play("MuzzleFlashAnimation")
-        var new_bullet: BulletComponent = self._instantiate_projectile(
-            self.bullet_scene,
-            shooter,
-            start_position,
-            direction
-        )
-        self._add_projectile_to_scene(new_bullet)
-        self.bullet_timer.start()
+    self.muzzle_flash.play("MuzzleFlashAnimation")
+    var new_bullet: BulletComponent = self._instantiate_projectile(
+        self.bullet_scene,
+        shooter,
+        start_position,
+        direction
+    )
+    self._add_projectile_to_scene(new_bullet)
 
 func drop_bomb(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
     if self.bomb_inventory == 0:
@@ -140,3 +150,6 @@ func get_bomb_inventory() -> int:
 func set_bomb_inventory(value: int) -> void:
     self.bomb_inventory = value
     self.bomb_inventory_change.emit(self.bomb_inventory)
+    
+func get_max_bomb_inventory() -> int:
+    return self.max_bomb_inventory

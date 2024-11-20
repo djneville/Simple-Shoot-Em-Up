@@ -1,7 +1,7 @@
 extends Label
 
-@onready var playerscore = Gamestats.score
+@onready var playerscore = GameStatsManager.score
 
 func _process(_delta):
-    playerscore = Gamestats.score
+    playerscore = GameStatsManager.score
     text = str(playerscore)

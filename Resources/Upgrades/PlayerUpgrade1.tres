@@ -14,5 +14,5 @@ order = 1
 plane_sprite_texture = ExtResource("1_d13gx")
 collision_shape = SubResource("RectangleShape2D_tn3p6")
 speed = 200.0
-projectile_type = 0
+projectile_type = 1
 explosion_animation_sprites = SubResource("SpriteFrames_vhedo")

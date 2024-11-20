@@ -11,14 +11,17 @@ config_version=5
 [application]
 
 config/name="SimpleShootEmUp"
-run/main_scene="res://Scenes/Menus/MainScreen.tscn"
+run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Gamestats="*res://Scenes/Singletons/GameStats.gd"
-UpgradeManager="*res://Scenes/Singletons/UpgradeManager.gd"
+GameStatsManager="*res://Scenes/Managers/GameStatsManager.gd"
+UpgradeManager="*res://Scenes/Managers/UpgradeManager.gd"
+SceneTransitions="*res://Scenes/Managers/SceneTransitions.gd"
+SceneManager="*res://Scenes/Managers/SceneManager.gd"
+SignalBus="*res://Scenes/Managers/SignalBus.gd"
 
 [display]
 
@@ -35,6 +38,10 @@ folder_colors={
 "res://Scenes/Enemies/Level 1 Boss/": "gray",
 "res://Scenes/Player/": "red"
 }
+
+[gui]
+
+theme/custom="res://Resources/Fonts/maintheme.tres"
 
 [input]
 

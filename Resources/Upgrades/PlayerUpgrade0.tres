@@ -10,6 +10,7 @@ size = Vector2(22, 15)
 
 [resource]
 script = ExtResource("3_5mu1u")
+order = 0
 plane_sprite_texture = ExtResource("1_yxcpp")
 collision_shape = SubResource("RectangleShape2D_wlec4")
 speed = 150.0

@@ -12,9 +12,9 @@ const INITIAL_POSITION: Vector2 = Vector2(200, 400)
 const COLLISION_DAMAGE: int = 10
 const PLAYER_DAMAGE: int = 2
 const SCORE_HEALTH_BONUS: int = 300
+const SCORE_BOMB_BONUS: int = 250
+const SCORE_UPGRADE_BONUS: int = 280
 
-# Signals
-signal restart_level
 
 func _init() -> void:
     # Initialize any non-node properties here
@@ -43,7 +43,6 @@ func _initialize() -> void:
 func _process(delta: float) -> void:
     self._handle_movement()
     self._handle_actions()
-    self._clamp_viewport() #TODO: do this somehwere else like in the main scene when thats made
 
 func _handle_movement() -> void:
     var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
@@ -61,7 +60,7 @@ func _handle_movement() -> void:
 func _handle_actions() -> void:
     if Input.is_action_pressed("shoot"):
         var bullet_direction: Vector2 = Vector2.UP
-        self.weapon.fire_bullet(self, self.global_position, bullet_direction)
+        self.weapon.release_projectile(self, self.global_position, upgrade_component.active_projectile_type, bullet_direction)
     
     if Input.is_action_pressed("bomb"):
         var bomb_direction: Vector2 = Vector2.DOWN
@@ -85,13 +84,10 @@ func take_damage(damage: int) -> void:
         self.upgrade_component.downgrade()
 
 func heal(amount: int = 1) -> void:
-    var current_health: int = self.health.get_current_health()
-    var max_health: int = self.health.max_health
-    
-    if current_health == max_health:
-        Gamestats.score += SCORE_HEALTH_BONUS
+    if  self.health.get_current_health() == self.health.get_max_health():
+        SignalBus.score_bonus.emit(SCORE_HEALTH_BONUS)
     else:
-        self.health.heal(amount) #TODO: technically now this cant be entered at max health so check the logic here and fix
+        self.health.heal(amount) 
 
 func _handle_collide(body: Node2D) -> void:
     if body.is_in_group("enemy"): #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
@@ -100,44 +96,17 @@ func _handle_collide(body: Node2D) -> void:
 
 func _on_animation_finished(anim_name: String) -> void:
     if anim_name == "Explosion":
-        Gamestats.lives -= 1
-        Gamestats.score = 0
-        
-        if Gamestats.lives <= 0:
-            Gamestats.game_over.emit()        
-        self.restart_level.emit()
+        SignalBus.life_lost.emit() #TODO handle this with gameover elsewhere
 
 #TODO: figure out where to put this collision logic, probably just in the ItemEntity, NOT HERE!
-func add_bomb() -> void:
-    pass 
-    #if bombs < 7:
-        #bombs += 1
-    #else:
-        #Gamestats.score += 250
+func add_bomb_to_inventory() -> void:
+    if weapon.get_bomb_inventory() == weapon.get_max_bomb_inventory():
+        SignalBus.score_bonus.emit(SCORE_BOMB_BONUS)
+    else:
+        weapon.set_bomb_inventory(weapon.get_bomb_inventory() + 1)
 
-#TODO: same as the add_bomb thing i think its an item, should be in the item entity
-func give_upgrade() -> void:
-    pass
-    #if upgradelvl == 0:
-        #upgrade_component.upgrade()
-    #else:
-        #Gamestats.score += 280
-
-#TODO: this should not be in the player entity, but somewhere closer to the Main Scene (once the main scene gets created
-func _clamp_viewport() -> void:
-    var plane_sprite: Sprite2D = self.upgrade_component.active_plane_sprite
-    var texture_width: float = plane_sprite.texture.get_width()
-    var texture_height: float = plane_sprite.texture.get_height()
-    var viewport_size: Vector2 = get_viewport_rect().size
-    
-    self.global_position.x = clamp(
-        self.global_position.x,
-        texture_width / 2,
-        viewport_size.x - texture_width / 2
-    )
-    
-    self.global_position.y = clamp(
-        self.global_position.y,
-        texture_height / 2,
-        viewport_size.y - texture_height / 2
-    )
+func upgrade() -> void:
+    if upgrade_component.get_current_upgrade_index() != 0:
+        SignalBus.score_bonus.emit(SCORE_UPGRADE_BONUS)
+    else:
+        upgrade_component.upgrade()

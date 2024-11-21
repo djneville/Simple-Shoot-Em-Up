@@ -38,9 +38,9 @@ func _setup_signals() -> void:
 
 
 func _initialize() -> void:
-    self.health.current_health = 1
+    self.health.set_current_health(1)
     # Configure upgrade component
-    self.upgrade_component.current_upgrade_index = enemy_level  # THIS GETS SET IN THE SPAWNER!!!!!!!!!!! AHHHHHHHHHHHHHHHH
+    self.upgrade_component.current_upgrade_index = self.enemy_level  # THIS GETS SET IN THE SPAWNER!!!!!!!!!!! AHHHHHHHHHHHHHHHH
     #TODO: this requirement of .update() to be called proves that @onready calls the _ready() of
     # the upgrade_component before this classes _ready() func is called!!!!!!!!
     #TODO: update() relies on the`upgrade_component.current_upgrade_index` being set first and thats STUPID AND MISLEADING
@@ -57,7 +57,7 @@ func _initialize() -> void:
 func _process(_delta: float) -> void:
     #TODO: figure out how to rotate the Enemy????? (maybe just the weapon? as the rotation changes on the path
     self.weapon.release_projectile(
-        self, self.global_position, upgrade_component.active_projectile_type, PROJECTILE_DIRECTION
+        self, self.global_position, upgrade_component.active_projectiles[0], PROJECTILE_DIRECTION
     )
 
 

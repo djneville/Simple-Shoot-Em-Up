@@ -4,5 +4,5 @@ extends Label
 
 
 func _process(_delta: float) -> void:
-    playerscore = GameStatsManager.score
-    text = str(playerscore)
+	playerscore = GameStatsManager.score
+	text = str(playerscore)

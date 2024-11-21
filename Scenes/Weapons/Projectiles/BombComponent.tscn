@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://claoqiocun5rt"]
+
+[ext_resource type="Script" path="res://Scenes/Weapons/Projectiles/BombComponent.gd" id="1_g6f82"]
+[ext_resource type="Texture2D" uid="uid://ggf8qcx5ll2u" path="res://Assets/Tiles/tile_0018.png" id="2_1d0vb"]
+[ext_resource type="Texture2D" uid="uid://bidojx4w053dy" path="res://Assets/Tiles/bombexplosion.png" id="3_yybf8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anxx7"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="Animation" id="Animation_6byfw"]
+resource_name = "BombExplosion"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ExplosionArea/CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(60, 60)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BombExplosionSprite:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BombExplosionSprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.240156, 0.240156), Vector2(14.75, 14.75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0c76"]
+_data = {
+"BombExplosion": SubResource("Animation_6byfw")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cle34"]
+radius = 6.0
+
+[node name="Bomb" type="Area2D"]
+script = ExtResource("1_g6f82")
+
+[node name="BombSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_1d0vb")
+
+[node name="BombExplosionSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.240156, 0.240156)
+texture = ExtResource("3_yybf8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_anxx7")
+
+[node name="BombExplosionAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h0c76")
+}
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_cle34")

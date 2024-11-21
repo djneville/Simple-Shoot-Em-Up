@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw1uxcduvt1da"]
-
-[ext_resource type="Script" path="res://Scenes/Spawners/BossMarker.gd" id="1_h1nyv"]
-
-[node name="BossMarker" type="Marker2D"]
-position = Vector2(270, -14949)
-script = ExtResource("1_h1nyv")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" load_steps=5 format=3 uid="uid://cnfqtd6ihfb2f"]
 
-[ext_resource type="Texture2D" uid="uid://c4sn2pevqntxu" path="res://Assets/Ships/ship_0009.png" id="1_yxcpp"]
+[ext_resource type="Texture2D" uid="uid://b4e60k32g2cvx" path="res://Assets/Ships/ship_0009.png" id="1_yxcpp"]
 [ext_resource type="Script" path="res://Scenes/Upgrades/UpgradeData.gd" id="3_5mu1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlec4"]
@@ -14,5 +14,5 @@ order = 0
 plane_sprite_texture = ExtResource("1_yxcpp")
 collision_shape = SubResource("RectangleShape2D_wlec4")
 speed = 150.0
-projectile_type = 0
+projectiles = Array[int]([0])
 explosion_animation_sprites = SubResource("SpriteFrames_afa18")

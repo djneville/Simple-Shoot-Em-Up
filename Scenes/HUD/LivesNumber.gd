@@ -4,6 +4,6 @@ extends Label
 
 
 func _process(_delta: float) -> void:
-    if playerlives:
-        playerlives = GameStatsManager.lives
-        text = str(playerlives)
+	if playerlives:
+		playerlives = GameStatsManager.lives
+		text = str(playerlives)

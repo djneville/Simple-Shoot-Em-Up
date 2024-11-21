@@ -1,4 +1,5 @@
 extends PathFollow2D
+class_name EnemyPath
 
 #TODO These `export properties are only accessible once this Node has been added to the Scene.
 # so you first add_child this, and then you can set the path_speed

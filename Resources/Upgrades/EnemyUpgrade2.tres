@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeData" load_steps=4 format=3 uid="uid://p2g7rhooh7wh"]
 
-[ext_resource type="Texture2D" uid="uid://ded7tk1rnuke8" path="res://Assets/Ships/ship_0003.png" id="1_d5act"]
+[ext_resource type="Texture2D" uid="uid://dagdchdaxwo1s" path="res://Assets/Ships/ship_0003.png" id="1_d5act"]
 [ext_resource type="Script" path="res://Scenes/Upgrades/UpgradeData.gd" id="2_12x70"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ab6xt"]
@@ -10,5 +10,5 @@ script = ExtResource("2_12x70")
 order = 4
 plane_sprite_texture = ExtResource("1_d5act")
 speed = 80.0
-projectile_type = 2
+projectiles = Array[int]([2])
 explosion_animation_sprites = SubResource("SpriteFrames_ab6xt")

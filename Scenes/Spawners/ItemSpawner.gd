@@ -2,9 +2,9 @@ extends Node2D
 #TODO: compare this to the enemy spawner as an example,
 #where THIS "spawner" doesnt actually spawn ANYTHING, it just always has items on the map
 
-@onready var health_item_scene: PackedScene = preload("res://Scenes/Drops/HealthItem.tscn")
-@onready var bomb_item_scene: PackedScene = preload("res://Scenes/Drops/BombItem.tscn")
-@onready var upgrade_item_scene: PackedScene = preload("res://Scenes/Drops/UpgradeItem.tscn")
+@onready var health_item_scene: PackedScene = preload("res://Scenes/Items/HealthItem.tscn")
+@onready var bomb_item_scene: PackedScene = preload("res://Scenes/Items/BombItem.tscn")
+@onready var upgrade_item_scene: PackedScene = preload("res://Scenes/Items/UpgradeItem.tscn")
 
 
 func _ready() -> void:
@@ -17,9 +17,9 @@ func _ready() -> void:
 
 func spawn_item(marker: Marker2D) -> void:
     match marker.item_type:
-        Item.TYPE.HEALTH:
+        ItemType.TYPE.HEALTH:
             marker.add_child(health_item_scene.instantiate())
-        Item.TYPE.BOMB:
+        ItemType.TYPE.BOMB:
             marker.add_child(bomb_item_scene.instantiate())
-        Item.TYPE.UPGRADE:
+        ItemType.TYPE.UPGRADE:
             marker.add_child(upgrade_item_scene.instantiate())

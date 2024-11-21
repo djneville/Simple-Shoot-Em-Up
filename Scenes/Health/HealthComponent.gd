@@ -11,6 +11,8 @@ class_name HealthComponent
 # Signals
 signal health_changed(new_health: int)
 signal entity_died
+signal health_one_third
+signal health_two_third
 
 # Constants
 const MIN_HEALTH: int = 0
@@ -30,9 +32,13 @@ func _ready() -> void:
 func take_damage(damage: int) -> void:
     var new_health: int = self.current_health - damage
     self._update_health(new_health)
-
     if self.current_health <= MIN_HEALTH:
         self._handle_death()
+    elif self.get_health_percentage() <= 33:
+        self.health_one_third.emit()
+        #TODO: how to get this only to emit once?? and never again (control statement avoids it but still...
+    elif self.get_health_percentage() <= 66:
+        self.health_two_third.emit()
 
 
 func heal(amount: int) -> void:
@@ -51,6 +57,10 @@ func _handle_death() -> void:
 # Getters/Setters
 func get_current_health() -> int:
     return self.current_health
+
+
+func set_current_health(health: int) -> void:
+    self.current_health = health
 
 
 func get_max_health() -> int:

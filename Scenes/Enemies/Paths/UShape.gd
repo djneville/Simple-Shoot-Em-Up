@@ -1,6 +1,6 @@
 extends Marker2D
 
-@export var enemy_type: Enemy.TYPE = Enemy.TYPE.BOMBER
+@export var enemy_type: EnemyType.TYPE = EnemyType.TYPE.BOMBER
 @export var path: Path2D = null
 @onready var path_resource: PackedScene = preload("res://Scenes/Enemies/Paths/Ushape.tscn")
 

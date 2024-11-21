@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://br5v4palr3fxi"]
 
 [ext_resource type="Script" path="res://Scenes/Spawners/ItemSpawner.gd" id="1_op2ka"]
-[ext_resource type="Script" path="res://Scenes/Drops/HealthMarker.gd" id="2_ky8nw"]
-[ext_resource type="Script" path="res://Scenes/Drops/UpgradeMarker.gd" id="3_clbrk"]
-[ext_resource type="Script" path="res://Scenes/Drops/BombMarker.gd" id="4_kgo2j"]
+[ext_resource type="Script" path="res://Scenes/Items/HealthMarker.gd" id="2_ky8nw"]
+[ext_resource type="Script" path="res://Scenes/Items/UpgradeMarker.gd" id="3_clbrk"]
+[ext_resource type="Script" path="res://Scenes/Items/BombMarker.gd" id="4_kgo2j"]
 
 [node name="ItemSpawner" type="Node2D"]
 script = ExtResource("1_op2ka")

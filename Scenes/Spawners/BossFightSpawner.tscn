@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6i3y3jv1dlxh"]
+
+[ext_resource type="Script" path="res://Scenes/Spawners/EnemySpawner.gd" id="1_e81ku"]
+[ext_resource type="Script" path="res://Scenes/BossFights/Paths/TestBossPath.gd" id="2_75j0o"]
+
+[node name="BossFightSpawner" type="Node2D"]
+script = ExtResource("1_e81ku")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(248, 122)
+script = ExtResource("2_75j0o")

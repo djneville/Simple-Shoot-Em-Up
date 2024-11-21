@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dds0uhdcqiv72"]
+[gd_scene load_steps=11 format=3 uid="uid://dds0uhdcqiv72"]
 
 [ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Resources/Fonts/maintheme.tres" id="1_4sdwr"]
 [ext_resource type="Texture2D" uid="uid://bbpmwx6q8lxlp" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
 [ext_resource type="Script" path="res://Scenes/HUD/ScoreNumber.gd" id="2_v3eyu"]
 [ext_resource type="Script" path="res://Scenes/HUD/LivesNumber.gd" id="3_nhk45"]
-[ext_resource type="Script" path="res://Scenes/HUD/HealthBar.gd" id="5_pfjij"]
+[ext_resource type="Script" path="res://Scenes/HUD/PlayerHealthBar.gd" id="5_pfjij"]
 [ext_resource type="Texture2D" uid="uid://gi2rbvr0bfe0" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
-[ext_resource type="Script" path="res://Scenes/HUD/BombBar.gd" id="6_j0fah"]
+[ext_resource type="Script" path="res://Scenes/HUD/PlayerBombBar.gd" id="6_j0fah"]
+[ext_resource type="Texture2D" uid="uid://dvlgg504bwqh4" path="res://Assets/Tiles/healthbarbackground.png" id="8_4v5io"]
+[ext_resource type="Texture2D" uid="uid://c7l7sdoabg885" path="res://Assets/Tiles/bosshealthbar.png" id="9_c3vxw"]
+[ext_resource type="Script" path="res://Scenes/HUD/BossHealthBar.gd" id="10_dj4wt"]
 
 [node name="Control" type="Control"]
 texture_filter = 1
@@ -57,7 +60,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 script = ExtResource("3_nhk45")
 
-[node name="Health" type="TextureProgressBar" parent="."]
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
 layout_mode = 2
 offset_left = 4.0
 offset_top = 943.0
@@ -68,7 +71,7 @@ value = 7.0
 texture_progress = ExtResource("2_lp1jt")
 script = ExtResource("5_pfjij")
 
-[node name="Bombs" type="TextureProgressBar" parent="."]
+[node name="PlayerBombBar" type="TextureProgressBar" parent="."]
 layout_mode = 2
 offset_left = 416.0
 offset_top = 940.0
@@ -78,3 +81,35 @@ max_value = 7.0
 value = 7.0
 texture_progress = ExtResource("6_hb3fk")
 script = ExtResource("6_j0fah")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -400.0
+offset_bottom = 400.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BossName" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "AIR  DESTROYER"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+max_value = 400.0
+value = 400.0
+fill_mode = 3
+texture_under = ExtResource("8_4v5io")
+texture_progress = ExtResource("9_c3vxw")
+script = ExtResource("10_dj4wt")

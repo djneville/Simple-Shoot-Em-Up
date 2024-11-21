@@ -47,13 +47,6 @@ naming/script_name_casing=1
 
 enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg", "res://addons/script-tabs/plugin.cfg")
 
-[file_customization]
-
-folder_colors={
-"res://Scenes/Enemies/Level 1 Boss/": "gray",
-"res://Scenes/Player/": "red"
-}
-
 [gui]
 
 theme/custom="res://Resources/Fonts/maintheme.tres"

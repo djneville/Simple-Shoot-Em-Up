@@ -12,7 +12,8 @@ const MIN_UPGRADE_INDEX: int = 0
 @export var active_explosion_animation: AnimationPlayer = null
 @export var active_explosion_sprite: AnimatedSprite2D = null
 @export var active_speed: float = 0.0
-@export var active_projectile_type: Projectile.TYPE = Projectile.TYPE.BULLET
+
+@export var active_projectiles: Array[ProjectileType.TYPE] = [ProjectileType.TYPE.BULLET]
 
 # Signals
 var points: int = 0  #TODO: does nothing
@@ -44,7 +45,7 @@ func _update_upgrade() -> void:
     self.active_collision_shape = CollisionShape2D.new()
     self.active_collision_shape.set_shape(upgrade_data.collision_shape)
     self.active_speed = upgrade_data.speed
-    self.active_projectile_type = upgrade_data.projectile_type
+    self.active_projectiles = upgrade_data.projectiles
     self.active_explosion_sprite = self.explosion_sprite
     self.active_explosion_animation = self.ship_explode_animation
     add_child(self.active_plane_sprite)  #add the newest active sprite

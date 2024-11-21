@@ -2,6 +2,9 @@ extends Node2D
 class_name EnemySpawner
 
 @onready var enemy_base_scene: PackedScene = preload("res://Scenes/Enemies/EnemyEntity.tscn")
+@onready var boss_base_scene: PackedScene = preload("res://Scenes/BossFights/BossEntity.tscn")
+
+signal boss_spawned(boss_entity: BossEntity)
 
 
 func _ready() -> void:
@@ -12,19 +15,25 @@ func _ready() -> void:
 
 
 func spawn_enemy(marker: Marker2D) -> void:
-    var enemy: EnemyEntity = enemy_base_scene.instantiate()
+    var enemy: EnemyEntity
     var path: Path2D = marker.path
-    var path_follow: PathFollow2D = path.find_child("PathFollow2D")
+    var path_follow: EnemyPath = path.find_child("PathFollow2D")
     #TODO: this is really ugly because AFTER THIS the enemy.enemy_level NEEDS to
     # update its upgrade_components.current_upgrade_index property...
     match marker.enemy_type:
-        Enemy.TYPE.STANDARD:
+        EnemyType.TYPE.STANDARD:
+            enemy = enemy_base_scene.instantiate()
             enemy.enemy_level = 2
-        Enemy.TYPE.MISSILEER:
+        EnemyType.TYPE.MISSILEER:
+            enemy = enemy_base_scene.instantiate()
             enemy.enemy_level = 3
-        Enemy.TYPE.BOMBER:
+        EnemyType.TYPE.BOMBER:
+            enemy = enemy_base_scene.instantiate()
             enemy.enemy_level = 4
-
+        #TODO: SHOULD WE BE ABLE TO SPAWN ENEMIES IN A BOSS SCENE????!!! PROBABLY!!!!
+        EnemyType.TYPE.BOSS:
+            enemy = boss_base_scene.instantiate()
+            enemy.enemy_level = 5
     path_follow.add_child(enemy)
     marker.add_child(path)
     #TODO: cant access path_speed until its added to the scene tree

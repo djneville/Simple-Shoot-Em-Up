@@ -61,7 +61,7 @@ func _handle_movement() -> void:
     var collision_count: int = self.get_slide_collision_count()
     for i: int in range(collision_count):
         var collision: KinematicCollision2D = self.get_slide_collision(i)
-        var collider: Node2D = collision.get_collider()
+        var collider: EnemyEntity = collision.get_collider()
         self._handle_collide(collider)
 
 
@@ -69,7 +69,7 @@ func _handle_actions() -> void:
     if Input.is_action_pressed("shoot"):
         var bullet_direction: Vector2 = Vector2.UP
         self.weapon.release_projectile(
-            self, self.global_position, upgrade_component.active_projectile_type, bullet_direction
+            self, self.global_position, upgrade_component.active_projectiles[0], bullet_direction
         )
 
     if Input.is_action_pressed("bomb"):
@@ -103,8 +103,8 @@ func heal(amount: int = 1) -> void:
         self.health.heal(amount)
 
 
-func _handle_collide(body: Node2D) -> void:
-    if body.is_in_group("enemy"):  #TODO: make this more clear that its not related to BULLETS (IDK IF GROUPS IS THE BEST WAY
+func _handle_collide(body: EnemyEntity) -> void:
+    if body.is_in_group("enemy"):  #TODO: GROUPS IS NOT A GOOD IDEA, TOO HACKY (boss and enemy are different sometimes
         body.take_damage(COLLISION_DAMAGE)
         self.take_damage(PLAYER_DAMAGE)
 

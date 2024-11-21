@@ -4,6 +4,8 @@ const MAIN_MENU: String = "res://Scenes/Menus/MainMenu.tscn"
 
 const MAIN_GAME_LOOP: String = "res://Scenes/Main.tscn"
 
+const BOSS_FIGHT: String = "res://Scenes/BossFights/BossFight.tscn"
+
 const LEVEL_SELECT: String = "res://Scenes/Menus/LevelSelectScreen.tscn"
 
 const PAUSE: String = "res://Scenes/Menus/PauseScreen.tscn"

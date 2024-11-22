@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcct87i2bniia"]
+[gd_scene load_steps=5 format=3 uid="uid://dqrj2r3njbxek"]
 
-[ext_resource type="Script" path="res://Scenes/Weapons/WeaponComponent.gd" id="1_2vbg5"]
-[ext_resource type="Texture2D" uid="uid://k46hirhfocdo" path="res://Assets/Tiles/tile_0005.png" id="2_u7o8s"]
+[ext_resource type="Script" path="res://Scenes/Weapons/MissileLauncher.gd" id="1_ns5w8"]
+[ext_resource type="Texture2D" uid="uid://dv7d7ejcvs12b" path="res://Assets/Tiles/tile_0005.png" id="2_6vur8"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]
 resource_name = "MuzzleFlashAnimation"
@@ -37,8 +37,8 @@ _data = {
 "MuzzleFlashAnimation": SubResource("Animation_fkwep")
 }
 
-[node name="WeaponComponent" type="Node2D"]
-script = ExtResource("1_2vbg5")
+[node name="MissileLauncher" type="Node"]
+script = ExtResource("1_ns5w8")
 
 [node name="MuzzleFlashSprite" type="Sprite2D" parent="."]
 visible = false
@@ -46,7 +46,7 @@ texture_filter = 1
 position = Vector2(-3.42727e-07, -11)
 rotation = -0.174533
 scale = Vector2(0.991951, 1.01936)
-texture = ExtResource("2_u7o8s")
+texture = ExtResource("2_6vur8")
 
 [node name="MuzzleFlash" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvu2daxvib3qh"]
+[gd_scene load_steps=5 format=3 uid="uid://dvu2daxvib3qh"]
 
 [ext_resource type="Script" path="res://Scenes/Player/PlayerEntity.gd" id="1_l3m23"]
 [ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/HealthComponent.tscn" id="2_u8n5k"]
 [ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Invulnerability/InvulnerabilityComponent.tscn" id="3_uddwa"]
 [ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://Scenes/Upgrades/UpgradeComponent.tscn" id="5_al1uv"]
-[ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Weapons/WeaponComponent.tscn" id="6_48557"]
-[ext_resource type="PackedScene" uid="uid://d8k0swnostdd" path="res://Scenes/Weapons/Gun.tscn" id="6_c8q8n"]
-[ext_resource type="PackedScene" uid="uid://cgsywoxwyxjwe" path="res://Scenes/Weapons/Canon.tscn" id="7_kdlqe"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_l3m23")
@@ -15,10 +12,4 @@ script = ExtResource("1_l3m23")
 
 [node name="InvulnerabilityComponent" parent="." instance=ExtResource("3_uddwa")]
 
-[node name="WeaponComponent" parent="." instance=ExtResource("6_48557")]
-
 [node name="UpgradeComponent" parent="." instance=ExtResource("5_al1uv")]
-
-[node name="Gun" parent="." instance=ExtResource("6_c8q8n")]
-
-[node name="Canon" parent="." instance=ExtResource("7_kdlqe")]

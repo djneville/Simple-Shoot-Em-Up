@@ -11,21 +11,21 @@ var projectile_attributes: Dictionary = {
     ProjectileType.TYPE.BULLET: {
         "damage": 1,
         "speed": 400.0,
-        "lifetime": 10.0
+        "lifetime": 2.0
     },
     ProjectileType.TYPE.BOMB: {
-        "damage": 5,
+        "damage": 2,
         "speed": 200.0,
         "lifetime": 1.3
     },
     ProjectileType.TYPE.MISSILE: {
-        "damage": 3,
-        "speed": 300.0,
-        "lifetime": 10.0
+        "damage": 1,
+        "speed": 500.0,
+        "lifetime": 6.0
     }
 }
 
-func create_projectile(type: ProjectileType.TYPE, projectile_owner: Node, position: Vector2, direction: Vector2) -> Projectile:
+func create_projectile(type: ProjectileType.TYPE, projectile_owner: Node, _position: Vector2, direction: Vector2) -> Projectile:
     if projectile_scenes.has(type):
         var scene = projectile_scenes[type]
         var projectile: Projectile = scene.instantiate()
@@ -35,7 +35,7 @@ func create_projectile(type: ProjectileType.TYPE, projectile_owner: Node, positi
         projectile.set_lifetime(attrs["lifetime"])
         projectile.set_direction(direction.normalized())
         projectile.set_projectile_owner(projectile_owner)
-        projectile.position = position
+        projectile.global_position = _position
         return projectile
     else:
         push_error("Unknown projectile type: %s" % type)

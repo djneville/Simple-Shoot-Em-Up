@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-@export var worldspeed: int = 1600
+@export var worldspeed: int = 150
 
 
 func _ready() -> void:

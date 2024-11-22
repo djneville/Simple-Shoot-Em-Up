@@ -13,11 +13,15 @@ const MIN_UPGRADE_INDEX: int = 0
 @export var active_explosion_sprite: AnimatedSprite2D = null
 @export var active_speed: float = 0.0
 
-@export var active_projectiles: Array[ProjectileType.TYPE] = [ProjectileType.TYPE.BULLET]
+@export var active_weapons: Array[Weapon] = []
+@export var active_weapon_types: Array[WeaponType.TYPE] = [] #initialize for weapons array
+
+var weapon_factory: WeaponFactory = WeaponFactory.new()
 
 # Signals
 var points: int = 0  #TODO: does nothing
 signal give_points(points: int)  #TODO: figure out how to maybe make this have effect on the Upgrade logic of the PlayerEntity
+signal weapons_updated # this is actually pretty cool
 
 @onready var ship_explode_animation: AnimationPlayer = $ShipExplode
 @onready var explosion_sprite: AnimatedSprite2D = $Explosion
@@ -37,18 +41,47 @@ func _setup_signals() -> void:
 
 
 func _update_upgrade() -> void:
+    if self.active_weapons.size() > 0:
+        _free_weapons()
     if self.active_plane_sprite:
         self.active_plane_sprite.queue_free()  #Free the current sprite
     var upgrade_data: UpgradeData = UpgradeManager.upgrades[self.current_upgrade_index]
+
     self.active_plane_sprite = Sprite2D.new()
     self.active_plane_sprite.set_texture(upgrade_data.plane_sprite_texture)
+    add_child(self.active_plane_sprite)
+
     self.active_collision_shape = CollisionShape2D.new()
     self.active_collision_shape.set_shape(upgrade_data.collision_shape)
+
     self.active_speed = upgrade_data.speed
-    self.active_projectiles = upgrade_data.projectiles
+
     self.active_explosion_sprite = self.explosion_sprite
     self.active_explosion_animation = self.ship_explode_animation
-    add_child(self.active_plane_sprite)  #add the newest active sprite
+
+    self.active_weapon_types = upgrade_data.weapons
+    _add_weapons()
+    self.weapons_updated.emit()
+
+
+#TODO: this is too gnarly. keeping track of WEapon type array and the active weapons is WAY TO CLUMSY
+func _free_weapons():
+    for weapon: Weapon in self.active_weapons:
+        #TODO: queue_free can only remove the node once the current sceen frame is finished
+        # there is a race condition when refering to the node in the PlayerEntities _handle_input
+        # when the active weapons FINDS the Weapon node, but then the node gets removed before weapon.fire() is called
+        #so it breaks.
+        #solution:
+        remove_child(weapon)
+        #weapon.queue_free() #THIS KILLS THE NODE FROM THE WEAPONFACTORY AHHAHAHAHHA AAHHHHHHHHHH
+    self.active_weapons = []
+    self.active_weapon_types = []
+
+func _add_weapons():
+    for type: WeaponType.TYPE in self.active_weapon_types:
+        var weapon: Weapon = weapon_factory.weapons[type]
+        self.active_weapons.append(weapon)
+        add_child(weapon)
 
 
 func upgrade() -> void:

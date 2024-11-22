@@ -30,12 +30,15 @@ func _process(delta: float) -> void:
 
 
 func fire_bullets(_delta: float) -> void:
-    weapon.release_projectile(self, global_position, ProjectileType.TYPE.BULLET, Vector2.DOWN)
+    var gun: Gun = upgrade_component.get_node("Gun")
+    if gun:
+        gun.fire(self, position, Vector2.DOWN)
 
 
 func fire_missiles(_delta: float) -> void:
-    weapon.release_projectile(self, global_position, ProjectileType.TYPE.MISSILE, Vector2.DOWN)
-
+    var missile_launcher: MissileLauncher = upgrade_component.get_node("MissileLauncher")
+    if missile_launcher:
+        missile_launcher.fire(self, position, Vector2.DOWN)
 
 # EnemyEntity Override functions
 func take_damage(damage: int):

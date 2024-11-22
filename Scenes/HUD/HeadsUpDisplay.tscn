@@ -2,14 +2,14 @@
 
 [ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Resources/Fonts/maintheme.tres" id="1_4sdwr"]
 [ext_resource type="Script" path="res://Scenes/HUD/HeadsUpDisplay.gd" id="2_fwpm0"]
-[ext_resource type="Texture2D" uid="uid://cckienxxp6lue" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
+[ext_resource type="Texture2D" uid="uid://by4gitxqdpey3" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
 [ext_resource type="Script" path="res://Scenes/HUD/ScoreNumber.gd" id="2_v3eyu"]
 [ext_resource type="Script" path="res://Scenes/HUD/LivesNumber.gd" id="3_nhk45"]
 [ext_resource type="Script" path="res://Scenes/HUD/PlayerHealthBar.gd" id="5_pfjij"]
-[ext_resource type="Texture2D" uid="uid://c4hn7rg50m4u3" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
+[ext_resource type="Texture2D" uid="uid://ctkyit7dg1ny4" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
 [ext_resource type="Script" path="res://Scenes/HUD/PlayerBombBar.gd" id="6_j0fah"]
-[ext_resource type="Texture2D" uid="uid://cibsr5c6vuffo" path="res://Assets/Tiles/healthbarbackground.png" id="8_4v5io"]
-[ext_resource type="Texture2D" uid="uid://bdu4jetc53osm" path="res://Assets/Tiles/bosshealthbar.png" id="9_c3vxw"]
+[ext_resource type="Texture2D" uid="uid://ba48e4i824wr6" path="res://Assets/Tiles/healthbarbackground.png" id="8_4v5io"]
+[ext_resource type="Texture2D" uid="uid://bslnw7xvijlcg" path="res://Assets/Tiles/bosshealthbar.png" id="9_c3vxw"]
 
 [node name="Control" type="Control"]
 texture_filter = 1

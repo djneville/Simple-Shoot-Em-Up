@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dvu2daxvib3qh" path="res://Scenes/Player/PlayerEntity.tscn" id="1_7ig8h"]
 [ext_resource type="Script" path="res://Scenes/Main.gd" id="1_11t3y"]
 [ext_resource type="PackedScene" uid="uid://f3alvgryftn6" path="res://Scenes/Spawners/EnemySpawner.tscn" id="5_npio0"]
-[ext_resource type="Script" path="res://Scenes/Maps/MainParallax.gd" id="6_g8m4a"]
+[ext_resource type="Script" path="res://Scenes/Maps/MainBackground.gd" id="6_g8m4a"]
 [ext_resource type="PackedScene" uid="uid://br5v4palr3fxi" path="res://Scenes/Spawners/ItemSpawner.tscn" id="6_xldsd"]
 [ext_resource type="TileSet" uid="uid://cqvorqv8ja1xa" path="res://Resources/TileSets/terrain_tileset.tres" id="6_y3p22"]
-[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/HUD/HUD.tscn" id="15_ivjfw"]
+[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/HUD/HeadsUpDisplay.tscn" id="15_ivjfw"]
 
 [node name="Main" type="Node2D"]
 process_mode = 1
@@ -23,6 +23,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_7ig8h")]
+position = Vector2(266, 724)
 
 [node name="TestLevel" type="Node2D" parent="."]
 
@@ -40,7 +41,6 @@ layer_0/tile_data = PackedInt32Array(3604480, 524288, 3, 3604481, 524288, 3, 360
 [node name="ItemSpawner" parent="TestLevel/MainBackground/MainParallax" instance=ExtResource("6_xldsd")]
 
 [node name="EnemySpawner" parent="TestLevel/MainBackground/MainParallax" instance=ExtResource("5_npio0")]
-visible = false
 
 [node name="EndOfMapMarker" type="Marker2D" parent="TestLevel/MainBackground/MainParallax"]
 position = Vector2(250, -14962)

@@ -8,11 +8,10 @@ _data = {
 }
 point_count = 2
 
-[node name="EnemyPath4" type="Path2D"]
+[node name="DiagonalRight" type="Path2D"]
 curve = SubResource("Curve2D_g1gxh")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
+[node name="EnemyPath" type="PathFollow2D" parent="."]
 position = Vector2(0, -19)
 rotation = 1.30633
-loop = false
 script = ExtResource("1_8pnks")

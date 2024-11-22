@@ -4,11 +4,7 @@ class_name PlayerEntity
 # Components
 @onready var health: HealthComponent = $HealthComponent
 @onready var invulnerability: InvulnerabilityComponent = $InvulnerabilityComponent
-@onready var weapon: WeaponComponent = $WeaponComponent
 @onready var upgrade_component: UpgradeComponent = $UpgradeComponent
-
-@onready var gun: Weapon = $Gun
-@onready var canon: Weapon = $Canon
 
 
 # Constants
@@ -44,7 +40,6 @@ func _setup_signals() -> void:
 
 func _initialize() -> void:
     # Initialize node-dependent properties
-    self.position = INITIAL_POSITION
 
     var collision_shape: CollisionShape2D = self.upgrade_component.active_collision_shape
     self.add_child(collision_shape)
@@ -70,10 +65,13 @@ func _handle_movement() -> void:
 
 
 func _handle_actions() -> void:
-    if Input.is_action_pressed("shoot"):
-        gun.fire(self, global_position, Vector2.UP)
-    if Input.is_action_pressed("bomb"):
-        canon.fire(self, global_position, Vector2.DOWN)
+    if upgrade_component.get_node("Gun") and Input.is_action_pressed("shoot"):
+        var gun: Gun = upgrade_component.get_node("Gun")
+        gun.fire(self, position, Vector2.UP)
+
+    if upgrade_component.get_node("Canon") and Input.is_action_pressed("bomb"):
+        var canon: Canon = upgrade_component.get_node("Canon")
+        canon.fire(self, position, Vector2.DOWN)
 
     if Input.is_action_just_pressed("upgrade"):
         self.upgrade_component.upgrade()
@@ -91,8 +89,8 @@ func _death() -> void:
 func take_damage(damage: int) -> void:
     if not self.invulnerability.is_invulnerable:
         self.invulnerability.start_invulnerability()
-        #self.health.take_damage(damage)
-        #self.upgrade_component.downgrade()
+        self.health.take_damage(damage)
+        self.upgrade_component.downgrade()
 
 
 func heal(amount: int = 1) -> void:
@@ -115,10 +113,12 @@ func _on_animation_finished(anim_name: String) -> void:
 
 #TODO: figure out where to put this collision logic, probably just in the ItemEntity, NOT HERE!
 func add_bomb_to_inventory() -> void:
-    if weapon.get_bomb_inventory() == weapon.get_max_bomb_inventory():
-        SignalBus.score_bonus.emit(SCORE_BOMB_BONUS)
-    else:
-        weapon.set_bomb_inventory(weapon.get_bomb_inventory() + 1)
+    if upgrade_component.active_weapon_types.has(WeaponType.TYPE.CANON):
+        var canon: Canon = upgrade_component.get_node("Canon")
+        if canon.get_bomb_inventory() < canon.get_max_bomb_inventory():
+            canon.set_bomb_inventory(canon.get_bomb_inventory() + 1)
+            return
+    SignalBus.score_bonus.emit(SCORE_BOMB_BONUS)
 
 
 func upgrade() -> void:

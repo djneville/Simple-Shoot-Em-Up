@@ -1,11 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6i3y3jv1dlxh"]
+[gd_scene load_steps=3 format=3 uid="uid://ccy8mwj8ojrlt"]
 
 [ext_resource type="Script" path="res://Scenes/Spawners/EnemySpawner.gd" id="1_e81ku"]
-[ext_resource type="Script" path="res://Scenes/BossFights/Paths/TestBossPath.gd" id="2_75j0o"]
+
+[sub_resource type="GDScript" id="GDScript_jlrv2"]
+script/source = "extends Marker2D
+
+#TODO: THJIS IS ONLY FOR THE ENEMYSPAWNER IMPLEMENTATION IF WE WANT TO TRY THAT LATER
+@export var enemy_type: EnemyType.TYPE = EnemyType.TYPE.BOSS
+@export var path_resource: PackedScene = preload(\"res://Scenes/BossFights/Paths/TestBossPath.tscn\")
+var path: Path2D
+
+
+func _ready() -> void:
+	path = path_resource.instantiate()
+"
 
 [node name="BossFightSpawner" type="Node2D"]
 script = ExtResource("1_e81ku")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(248, 122)
-script = ExtResource("2_75j0o")
+script = SubResource("GDScript_jlrv2")

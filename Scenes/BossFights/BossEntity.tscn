@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkib2x2vepss2"]
+[gd_scene load_steps=5 format=3 uid="uid://dkib2x2vepss2"]
 
 [ext_resource type="Script" path="res://Scenes/BossFights/BossEntity.gd" id="1_b47t7"]
 [ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://Scenes/Health/HealthComponent.tscn" id="2_38bk5"]
 [ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://Scenes/Invulnerability/InvulnerabilityComponent.tscn" id="3_snv1g"]
-[ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Weapons/WeaponComponent.tscn" id="4_n8hf0"]
 [ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://Scenes/Upgrades/UpgradeComponent.tscn" id="5_0vi6i"]
 
 [node name="BossEntity" type="CharacterBody2D" groups=["boss", "enemy"]]
@@ -12,8 +11,6 @@ script = ExtResource("1_b47t7")
 [node name="HealthComponent" parent="." instance=ExtResource("2_38bk5")]
 
 [node name="InvulnerabilityComponent" parent="." instance=ExtResource("3_snv1g")]
-
-[node name="WeaponComponent" parent="." instance=ExtResource("4_n8hf0")]
 
 [node name="UpgradeComponent" parent="." instance=ExtResource("5_0vi6i")]
 

@@ -22,10 +22,10 @@ func _initialize_timer() -> void:
 func can_fire() -> bool:
     return _timer.time_left == 0
 
-func fire(shooter: Node, position: Vector2, direction: Vector2):
+func fire(shooter: Node, _position: Vector2, direction: Vector2):
     if can_fire():
         var projectile: Projectile = ProjectileFactory.create_projectile(
-            projectile_type, shooter, position, direction
+            projectile_type, shooter, _position, direction
         )
         _add_projectile_to_scene(projectile)
         _timer.start()
@@ -33,10 +33,12 @@ func fire(shooter: Node, position: Vector2, direction: Vector2):
 func _add_projectile_to_scene(projectile: Projectile) -> void:
     self.get_tree().current_scene.add_child(projectile)
 
-func get_fire_rate() -> int:
+#TODO: OH MY THIS CAN COMPLETELY WRECK THE TYPE SOME HOW EWWWWW
+# you can validly return an int and it will cast the float to and int
+func get_fire_rate() -> float:
     return fire_rate
 
-func set_fire_rate(value) -> void:
+func set_fire_rate(value: float ) -> void:
     fire_rate = value
 
 func get_projectile_type() -> ProjectileType.TYPE:

@@ -8,12 +8,11 @@ _data = {
 }
 point_count = 5
 
-[node name="EnemyPath3" type="Path2D"]
+[node name="LoopLeft" type="Path2D"]
 position = Vector2(-13, 42)
 curve = SubResource("Curve2D_g1gxh")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
+[node name="EnemyPath" type="PathFollow2D" parent="."]
 position = Vector2(13, -54)
 rotation = 1.5708
-loop = false
 script = ExtResource("1_elun7")

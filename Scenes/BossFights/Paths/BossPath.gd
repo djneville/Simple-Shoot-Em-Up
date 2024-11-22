@@ -5,6 +5,6 @@ class_name BossPath
 
 
 func _process(delta: float) -> void:
-	self.progress += self.path_speed * delta
-	if self.progress_ratio == 1:
-		self.path_finished.emit()
+    self.progress += self.path_speed * delta
+    if self.progress_ratio == 1:
+        self.path_finished.emit()

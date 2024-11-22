@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cduuu7baunbmd"]
+[gd_scene load_steps=3 format=3 uid="uid://bqign5xup5y6s"]
 
 [ext_resource type="Script" path="res://Scenes/BossFights/Paths/BossPath.gd" id="1_owmwk"]
 

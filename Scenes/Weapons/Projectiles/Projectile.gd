@@ -50,7 +50,7 @@ func _on_lifetime_timeout() -> void:
     queue_free()
 
 func _on_impact() -> void:
-    queue_free()  # Default behavior is to disappear on impact
+    queue_free()
 
 # Getters and Setters
 

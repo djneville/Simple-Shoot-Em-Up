@@ -15,23 +15,25 @@ func _ready() -> void:
 func spawn_enemy(marker: Marker2D) -> void:
     var enemy: EnemyEntity
     var path: Path2D = marker.path
-    var path_follow: EnemyPath = path.find_child("PathFollow2D")
+    var path_follow: EnemyPath = path.find_child("EnemyPath")
     #TODO: this is really ugly because AFTER THIS the enemy.enemy_level NEEDS to
     # update its upgrade_components.current_upgrade_index property...
-    match marker.enemy_type:
-        EnemyType.TYPE.STANDARD:
-            enemy = enemy_base_scene.instantiate()
-            enemy.enemy_level = 2
-        EnemyType.TYPE.MISSILEER:
-            enemy = enemy_base_scene.instantiate()
-            enemy.enemy_level = 3
-        EnemyType.TYPE.BOMBER:
-            enemy = enemy_base_scene.instantiate()
-            enemy.enemy_level = 4
-        #TODO: SHOULD WE BE ABLE TO SPAWN ENEMIES IN A BOSS SCENE????!!! PROBABLY!!!!
-        EnemyType.TYPE.BOSS:
-            enemy = boss_base_scene.instantiate()
-            enemy.enemy_level = 5
+    enemy = enemy_base_scene.instantiate()
+    enemy.enemy_level = marker.enemy_type # marker.enemy_type is an Enum Number
+    #match marker.enemy_type:
+        #EnemyType.TYPE.STANDARD:
+            #enemy = enemy_base_scene.instantiate()
+            #enemy.enemy_level = 2
+        #EnemyType.TYPE.MISSILEER:
+            #enemy = enemy_base_scene.instantiate()
+            #enemy.enemy_level = 3
+        #EnemyType.TYPE.BOMBER:
+            #enemy = enemy_base_scene.instantiate()
+            #enemy.enemy_level = 4
+        ##TODO: SHOULD WE BE ABLE TO SPAWN ENEMIES IN A BOSS SCENE????!!! PROBABLY!!!!
+        #EnemyType.TYPE.BOSS:
+            #enemy = boss_base_scene.instantiate()
+            #enemy.enemy_level = 5
     path_follow.add_child(enemy)
     marker.add_child(path)
     #TODO: cant access path_speed until its added to the scene tree

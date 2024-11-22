@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dvu2daxvib3qh" path="res://Scenes/Player/PlayerEntity.tscn" id="1_puqje"]
 [ext_resource type="TileSet" uid="uid://cqvorqv8ja1xa" path="res://Resources/TileSets/terrain_tileset.tres" id="2_jolax"]
 [ext_resource type="Script" path="res://Scenes/Maps/BossFightBackground.gd" id="4_q4k6v"]
-[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/HUD/HUD.tscn" id="5_ofmw2"]
+[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/HUD/HeadsUpDisplay.tscn" id="5_ofmw2"]
 
 [node name="BossFight" type="Node2D"]
 script = ExtResource("1_dhmsf")
@@ -12,6 +12,7 @@ script = ExtResource("1_dhmsf")
 [node name="HUD" parent="." instance=ExtResource("5_ofmw2")]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_puqje")]
+position = Vector2(255, 866)
 
 [node name="BossFightBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("4_q4k6v")

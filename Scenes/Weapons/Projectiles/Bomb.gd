@@ -1,5 +1,5 @@
 extends Projectile
-class_name BulletComponent
+class_name Bomb
 
 @onready var bullet_sprite: Sprite2D = $BulletSprite
 @onready var bullet_explosion_sprite: Sprite2D = $BulletExplosionSprite

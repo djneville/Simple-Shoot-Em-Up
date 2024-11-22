@@ -7,6 +7,10 @@ class_name PlayerEntity
 @onready var weapon: WeaponComponent = $WeaponComponent
 @onready var upgrade_component: UpgradeComponent = $UpgradeComponent
 
+@onready var gun: Weapon = $Gun
+@onready var canon: Weapon = $Canon
+
+
 # Constants
 const INITIAL_POSITION: Vector2 = Vector2(200, 400)
 const COLLISION_DAMAGE: int = 10
@@ -67,14 +71,9 @@ func _handle_movement() -> void:
 
 func _handle_actions() -> void:
     if Input.is_action_pressed("shoot"):
-        var bullet_direction: Vector2 = Vector2.UP
-        self.weapon.release_projectile(
-            self, self.global_position, upgrade_component.active_projectiles[0], bullet_direction
-        )
-
+        gun.fire(self, global_position, Vector2.UP)
     if Input.is_action_pressed("bomb"):
-        var bomb_direction: Vector2 = Vector2.DOWN
-        self.weapon.drop_bomb(self, self.global_position, bomb_direction)
+        canon.fire(self, global_position, Vector2.DOWN)
 
     if Input.is_action_just_pressed("upgrade"):
         self.upgrade_component.upgrade()

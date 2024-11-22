@@ -40,6 +40,7 @@ layer_0/tile_data = PackedInt32Array(3604480, 524288, 3, 3604481, 524288, 3, 360
 [node name="ItemSpawner" parent="TestLevel/MainBackground/MainParallax" instance=ExtResource("6_xldsd")]
 
 [node name="EnemySpawner" parent="TestLevel/MainBackground/MainParallax" instance=ExtResource("5_npio0")]
+visible = false
 
 [node name="EndOfMapMarker" type="Marker2D" parent="TestLevel/MainBackground/MainParallax"]
 position = Vector2(250, -14962)

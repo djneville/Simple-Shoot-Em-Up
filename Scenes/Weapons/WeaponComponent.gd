@@ -14,11 +14,9 @@ class_name WeaponComponent
 @onready var missile_timer: Timer = Timer.new()
 
 # Scenes
-@onready
-var bullet_scene: PackedScene = preload("res://Scenes/Weapons/Projectiles/BulletComponent.tscn")
+@onready var bullet_scene: PackedScene = preload("res://Scenes/Weapons/Projectiles/BulletComponent.tscn")
 @onready var bomb_scene: PackedScene = preload("res://Scenes/Weapons/Projectiles/BombComponent.tscn")
-@onready
-var missile_scene: PackedScene = preload("res://Scenes/Weapons/Projectiles/MissileComponent.tscn")
+@onready var missile_scene: PackedScene = preload("res://Scenes/Weapons/Projectiles/MissileComponent.tscn")
 
 # Components
 @onready var muzzle_flash: AnimationPlayer = $MuzzleFlash

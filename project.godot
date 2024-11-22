@@ -17,11 +17,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameStatsManager="*res://Scenes/Managers/GameStatsManager.gd"
-UpgradeManager="*res://Scenes/Managers/UpgradeManager.gd"
-SceneTransitions="*res://Scenes/Managers/SceneTransitions.gd"
-SceneManager="*res://Scenes/Managers/SceneManager.gd"
-SignalBus="*res://Scenes/Managers/SignalBus.gd"
+GameStatsManager="*res://Scenes/Autoloads/GameStatsManager.gd"
+UpgradeManager="*res://Scenes/Autoloads/UpgradeManager.gd"
+SceneTransitions="*res://Scenes/Autoloads/SceneTransitions.gd"
+SceneManager="*res://Scenes/Autoloads/SceneManager.gd"
+SignalBus="*res://Scenes/Autoloads/SignalBus.gd"
+ProjectileFactory="*res://Scenes/Autoloads/ProjectileFactory.gd"
 
 [debug]
 

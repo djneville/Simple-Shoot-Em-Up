@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dcct87i2bniia" path="res://Scenes/Weapons/WeaponComponent.tscn" id="4_n8hf0"]
 [ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://Scenes/Upgrades/UpgradeComponent.tscn" id="5_0vi6i"]
 
-[node name="BossEntity" type="CharacterBody2D" groups=["enemy"]]
+[node name="BossEntity" type="CharacterBody2D" groups=["boss", "enemy"]]
 script = ExtResource("1_b47t7")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_38bk5")]

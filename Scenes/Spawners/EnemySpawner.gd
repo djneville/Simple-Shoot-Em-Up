@@ -4,8 +4,6 @@ class_name EnemySpawner
 @onready var enemy_base_scene: PackedScene = preload("res://Scenes/Enemies/EnemyEntity.tscn")
 @onready var boss_base_scene: PackedScene = preload("res://Scenes/BossFights/BossEntity.tscn")
 
-signal boss_spawned(boss_entity: BossEntity)
-
 
 func _ready() -> void:
     for marker: Marker2D in get_children():

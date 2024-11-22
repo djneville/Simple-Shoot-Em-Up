@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://1suqpdc322yl"]
 
-[ext_resource type="Script" path="res://Scenes/BossFights/TestLevelBoss/boss_bullet.gd" id="1_f0ot3"]
-[ext_resource type="Texture2D" uid="uid://cdoq4ex3uxdk0" path="res://Assets/Tiles/Bossbullet.png" id="1_l8iyj"]
-[ext_resource type="Texture2D" uid="uid://kv5h1bj1pf1r" path="res://Assets/Tiles/tile_0008.png" id="3_02dp1"]
+[ext_resource type="Script" path="res://Scenes/Weapons/Projectiles/boss_bullet.gd" id="1_f0ot3"]
+[ext_resource type="Texture2D" uid="uid://dnpsfmuaw8mh" path="res://Assets/Tiles/Bossbullet.png" id="1_l8iyj"]
+[ext_resource type="Texture2D" uid="uid://bys1jjxp78qix" path="res://Assets/Tiles/tile_0008.png" id="3_02dp1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m1p23"]
 radius = 8.0

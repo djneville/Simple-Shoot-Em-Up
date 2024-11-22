@@ -160,7 +160,6 @@ func fire_bullet(shooter: Node, start_position: Vector2, direction: Vector2) -> 
 func drop_bomb(shooter: Node, start_position: Vector2, direction: Vector2) -> void:
     if self.bomb_inventory == 0:
         return
-
     if self.bomb_timer.time_left == 0:
         var bomb: BombComponent = self._instantiate_projectile(
             self.bomb_scene, shooter, start_position, direction

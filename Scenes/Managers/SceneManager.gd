@@ -12,9 +12,13 @@ const PAUSE: String = "res://Scenes/Menus/PauseScreen.tscn"
 
 const GAME_OVER: String = "res://Scenes/Menus/GameOverScreen.tscn"
 
+const LEVEL_COMPLETE: String = "res://Scenes/Menus/LevelCompleteScreen.tscn"
+
+#TODO: fix the pause screen to not be able to show up during other menus being open
 var pause_screen_scene: PackedScene = preload(PAUSE)
 var pause_screen_instance: PauseScreen
 
+#TODO: optional (saves the progress of the game loop)
 var game_over_screen_paused: PackedScene = preload(GAME_OVER)
 var game_over_screen_paused_instance: GameOverScreen
 
@@ -25,6 +29,7 @@ func _ready() -> void:
     #TODO: this can also allow for a gameover screen to only serve as a pause screen
     # so player doesnt have to start from the beginning again
     SignalBus.game_over.connect(change_scene.bind(GAME_OVER))
+    SignalBus.level_complete.connect(change_scene.bind(LEVEL_COMPLETE))
 
 
 func _input(_event: InputEvent) -> void:

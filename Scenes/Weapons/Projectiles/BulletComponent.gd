@@ -9,7 +9,7 @@ class_name BulletComponent
 @export var lifetime: float = 10.0
 @export var damage: int = 1
 
-@export var ownerr: Node  # TODO: fix this with actual owner reference and ancestry?????
+@export var ownerr: CharacterBody2D  # TODO: fix this with actual owner reference and ancestry?????
 
 # Timers
 @onready var lifetime_timer: Timer = Timer.new()
@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
     self.position += self.velocity * delta
 
 
-func _on_body_entered(body: Node) -> void:
+func _on_body_entered(body: CharacterBody2D) -> void:
     if body == self.ownerr:  #TODO: FIX THESE OWNERR BULLSHIT
         return
     self.speed = 0

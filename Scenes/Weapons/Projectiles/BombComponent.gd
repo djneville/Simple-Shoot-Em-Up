@@ -63,6 +63,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 func explode() -> void:
+    self.lifetime_timer.timeout.connect(self.explode) #TODO: having to constantly do this to avoid all the redundancy/race conditions?
     self.speed = 0
     self.bomb_sprite.visible = false
     self.bomb_explosion_animation.play("BombExplosion")

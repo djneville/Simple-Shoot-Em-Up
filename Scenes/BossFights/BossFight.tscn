@@ -1,22 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwvvyg1s2gnx6"]
+[gd_scene load_steps=6 format=3 uid="uid://cwvvyg1s2gnx6"]
 
 [ext_resource type="Script" path="res://Scenes/BossFights/BossFight.gd" id="1_dhmsf"]
 [ext_resource type="PackedScene" uid="uid://dvu2daxvib3qh" path="res://Scenes/Player/PlayerEntity.tscn" id="1_puqje"]
-[ext_resource type="Script" path="res://Scenes/Maps/ParallaxBackground.gd" id="1_wffhx"]
 [ext_resource type="TileSet" uid="uid://cqvorqv8ja1xa" path="res://Resources/TileSets/terrain_tileset.tres" id="2_jolax"]
+[ext_resource type="Script" path="res://Scenes/Maps/BossFightBackground.gd" id="4_q4k6v"]
+[ext_resource type="PackedScene" uid="uid://dds0uhdcqiv72" path="res://Scenes/HUD/HUD.tscn" id="5_ofmw2"]
 
 [node name="BossFight" type="Node2D"]
 script = ExtResource("1_dhmsf")
 
+[node name="HUD" parent="." instance=ExtResource("5_ofmw2")]
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_puqje")]
 
-[node name="Background" type="ParallaxBackground" parent="."]
-script = ExtResource("1_wffhx")
+[node name="BossFightBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("4_q4k6v")
 
-[node name="BossFightParallax" type="ParallaxLayer" parent="Background"]
+[node name="BossFightParallax" type="ParallaxLayer" parent="BossFightBackground"]
 motion_mirroring = Vector2(0, 960)
 
-[node name="BossFightTileMap" type="TileMap" parent="Background/BossFightParallax"]
+[node name="BossFightTileMap" type="TileMap" parent="BossFightBackground/BossFightParallax"]
 position = Vector2(0, 15957)
 tile_set = ExtResource("2_jolax")
 format = 2

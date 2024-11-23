@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d8k0swnostdd"]
 
 [ext_resource type="Script" path="res://godot/Components/Weapons/Gun.gd" id="1_g4fnl"]
-[ext_resource type="Texture2D" uid="uid://chbg64vqv10tg" path="res://Assets/Tiles/tile_0005.png" id="2_b64r7"]
+[ext_resource type="Texture2D" uid="uid://owru1qpoxilx" path="res://Assets/Tiles/tile_0005.png" id="2_b64r7"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]
 resource_name = "MuzzleFlashAnimation"
@@ -41,11 +41,8 @@ _data = {
 script = ExtResource("1_g4fnl")
 
 [node name="MuzzleFlashSprite" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
-position = Vector2(-3.42727e-07, -11)
-rotation = 0.174533
-scale = Vector2(0.991951, 1.01936)
+rotation = -0.174533
 texture = ExtResource("2_b64r7")
 
 [node name="MuzzleFlash" type="AnimationPlayer" parent="."]

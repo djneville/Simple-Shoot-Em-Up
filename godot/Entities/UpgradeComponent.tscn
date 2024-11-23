@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://5cgphjedj2u2"]
 
 [ext_resource type="Script" path="res://godot/Entities/UpgradeComponent.gd" id="1_rhki2"]
-[ext_resource type="Texture2D" uid="uid://da5ch7mjbxw4" path="res://Assets/Tiles/spritesheetexplosion.png" id="2_4pstp"]
+[ext_resource type="Texture2D" uid="uid://c02x5ayojp4f6" path="res://Assets/Tiles/spritesheetexplosion.png" id="2_4pstp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3y773"]
 atlas = ExtResource("2_4pstp")

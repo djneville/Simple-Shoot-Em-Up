@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wdcfbc3ue0nu"]
 
 [ext_resource type="Script" path="res://godot/Components/Weapons/Turret.gd" id="1_nnygl"]
-[ext_resource type="Texture2D" uid="uid://chbg64vqv10tg" path="res://Assets/Tiles/tile_0005.png" id="2_nxul2"]
+[ext_resource type="Texture2D" uid="uid://owru1qpoxilx" path="res://Assets/Tiles/tile_0005.png" id="2_nxul2"]
 
 [sub_resource type="Animation" id="Animation_fkwep"]
 resource_name = "MuzzleFlashAnimation"

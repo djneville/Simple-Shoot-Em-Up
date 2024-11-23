@@ -25,7 +25,7 @@ func create_projectile(
 ) -> Projectile:
     if projectile_scenes.has(type):
         var scene = projectile_scenes[type]
-        var projectile: Projectile = scene.instantiate() as Projectile
+        var projectile = scene.instantiate()
         var attrs = projectile_attributes[type]
         projectile.set_damage(attrs["damage"])
         projectile.set_speed(attrs["speed"])

@@ -1,10 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwc6b6ocb6iaf"]
+[gd_scene load_steps=7 format=3 uid="uid://cssjto41un28v"]
 
-[ext_resource type="Script" path="res://godot/Components/Projectiles/Bullet.gd" id="1_dukq4"]
-[ext_resource type="Texture2D" uid="uid://b5jstpb7jyrni" path="res://Assets/Tiles/tile_0000.png" id="2_ng6dq"]
-[ext_resource type="Texture2D" uid="uid://c4bj0m2ybkiu3" path="res://Assets/Tiles/tile_0007.png" id="3_sqd8c"]
+[ext_resource type="Script" path="res://godot/Components/Projectiles/Bullet.gd" id="1_si0g1"]
+[ext_resource type="Texture2D" uid="uid://bxpdr6ur3kol1" path="res://Assets/Tiles/Bossbullet.png" id="2_l3wgv"]
+[ext_resource type="Texture2D" uid="uid://b6g7daicn8har" path="res://Assets/Tiles/tile_0008.png" id="3_4ts4n"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anxx7"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qu5il"]
 radius = 3.0
 height = 14.0
 
@@ -41,22 +41,22 @@ _data = {
 "Explode": SubResource("Animation_nogkv")
 }
 
-[node name="Bullet" type="Area2D"]
-script = ExtResource("1_dukq4")
+[node name="BossBullet1" type="Area2D"]
+script = ExtResource("1_si0g1")
 
 [node name="BulletSprite" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("2_ng6dq")
-
-[node name="Explosion" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
+texture = ExtResource("2_l3wgv")
+
+[node name="Explosion" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1.66893e-06, 2.98023e-07)
-texture = ExtResource("3_sqd8c")
+texture = ExtResource("3_4ts4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.08059, 1.25585)
-shape = SubResource("CapsuleShape2D_anxx7")
+scale = Vector2(1.74369, 0.857218)
+shape = SubResource("CapsuleShape2D_qu5il")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

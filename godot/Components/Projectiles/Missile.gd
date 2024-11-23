@@ -1,12 +1,16 @@
 extends Projectile
 class_name Missile
 
-@export var drag_factor: float = 0.03
+@export var drag_factor: float = 0.04
 
 @export var target: CharacterBody2D
 
+const TURN_THRESHOLD = deg_to_rad(60)  # 60 degrees
+var previous_rotation = 0.0  # Track rotation from the last check
+
 func _ready() -> void:
     self._initialize_target()
+    previous_rotation = self.rotation
     super._ready()
 
 
@@ -18,19 +22,20 @@ func _initialize_target() -> void:
 
 
 func _physics_process(delta: float) -> void:
+    $ExhaustFlicker.play("ExhaustFlicker")
     add_drag_to_missile()
     super._physics_process(delta)
 
 
 func add_drag_to_missile():
-    # TODO: figure out how to rotate the $MissileSprite as its direction changes
     var direction_towards_target: Vector2 = self.global_position.direction_to(
         self.target.global_position
     )
+    #TODO: update missile direction to face player or something
+    rotation = direction_towards_target.angle() + PI/2
     var desired_velocity: Vector2 = direction_towards_target.normalized() * self.speed
     var dragged_velocity: Vector2 = (desired_velocity - self.velocity) * self.drag_factor
     self.velocity += dragged_velocity
-
 
 func _on_impact() -> void:
     self.missile_explode()

@@ -1,17 +1,18 @@
-[gd_scene load_steps=22 format=3 uid="uid://drsay6p2bovok"]
+[gd_scene load_steps=19 format=3 uid="uid://drsay6p2bovok"]
 
 [ext_resource type="Script" path="res://godot/Components/Projectiles/Missile.gd" id="1_swaow"]
-[ext_resource type="Texture2D" uid="uid://ouwpx7r0jmf5" path="res://Assets/Tiles/missle.png" id="2_2worw"]
-[ext_resource type="Texture2D" uid="uid://cqum8clw6ntmi" path="res://Assets/Tiles/missletail.png" id="3_4nc7d"]
-[ext_resource type="Texture2D" uid="uid://dvetekcr64ecc" path="res://Assets/Tiles/missleexplosion.png" id="4_tfjtb"]
-[ext_resource type="Texture2D" uid="uid://d0tfkl74jlgkb" path="res://Assets/Tiles/bossmissle.png" id="5_rvppm"]
+[ext_resource type="Texture2D" uid="uid://dnxje0uiij3p" path="res://Assets/Tiles/missle.png" id="2_2worw"]
+[ext_resource type="Texture2D" uid="uid://0bhw63g1r1xp" path="res://Assets/Tiles/missleexplosion.png" id="4_tfjtb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mdncn"]
+load_path = "res://.godot/imported/missletail.png-b3035993a149af80796c385c9f7b9d94.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6efi"]
-atlas = ExtResource("3_4nc7d")
+atlas = SubResource("CompressedTexture2D_mdncn")
 region = Rect2(0, 0, 8, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kimv2"]
-atlas = ExtResource("3_4nc7d")
+atlas = SubResource("CompressedTexture2D_mdncn")
 region = Rect2(8, 0, 8, 4)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_knvxe"]
@@ -22,67 +23,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kimv2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bs7k4"]
-
-[sub_resource type="Animation" id="Animation_wr55f"]
-resource_name = "ExhaustFlicker"
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MissileSprite/ExhaustSprites:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.08, 0.16, 0.25, 0.34, 0.44, 0.56, 0.68),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 0, 0, 0, 0, 0, 0, 0]
-}
-
-[sub_resource type="Animation" id="Animation_xfpsc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MissileSprite/ExhaustSprites:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcfkp"]
-_data = {
-"ExhaustFlicker": SubResource("Animation_wr55f"),
-"RESET": SubResource("Animation_xfpsc")
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57yvn"]
-atlas = ExtResource("5_rvppm")
-region = Rect2(0, 0, 12, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2l8f"]
-atlas = ExtResource("5_rvppm")
-region = Rect2(0, 8, 12, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_nldwx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_57yvn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e2l8f")
 }],
 "loop": true,
 "name": &"default",
@@ -117,34 +57,49 @@ length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MissileSprites:visible")
+tracks/0/path = NodePath("Explosion:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Explosion:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 1, 0, 1, 0, 1]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Explosion:visible")
+tracks/2/path = NodePath("MissileSprite:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_8g0vl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissileSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -156,50 +111,90 @@ resource_name = "flicker"
 length = 0.1
 loop_mode = 1
 step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MissileSprites:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vvqgs"]
 _data = {
 "Explode": SubResource("Animation_o3iij"),
+"RESET": SubResource("Animation_8g0vl"),
 "flicker": SubResource("Animation_j0r1t")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bs7k4"]
+radius = 8.75468
+height = 23.8969
+
+[sub_resource type="Animation" id="Animation_nyigr"]
+resource_name = "ExhaustFlicker"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissileSprite/ExhaustSprites:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissileSprite/ExhaustSprites:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_owg06"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MissileSprite/ExhaustSprites:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MissileSprite/ExhaustSprites:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_se5am"]
+_data = {
+"ExhaustFlicker": SubResource("Animation_nyigr"),
+"RESET": SubResource("Animation_owg06")
 }
 
 [node name="Missile" type="Area2D"]
 script = ExtResource("1_swaow")
 
 [node name="MissileSprite" type="Sprite2D" parent="."]
-visible = false
-texture_filter = 1
 texture = ExtResource("2_2worw")
 
 [node name="ExhaustSprites" type="AnimatedSprite2D" parent="MissileSprite"]
-visible = false
 texture_filter = 1
 position = Vector2(2.84217e-14, 6)
 sprite_frames = SubResource("SpriteFrames_knvxe")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CapsuleShape2D_bs7k4")
-
-[node name="ExhaustFlickerAnimation" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_pcfkp")
-}
-
-[node name="MissileSprites" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_nldwx")
 
 [node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -209,4 +204,12 @@ sprite_frames = SubResource("SpriteFrames_jbo6b")
 libraries = {
 "": SubResource("AnimationLibrary_vvqgs")
 }
-autoplay = "flicker"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(-0.383792, 0.361925)
+shape = SubResource("CapsuleShape2D_bs7k4")
+
+[node name="ExhaustFlicker" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_se5am")
+}

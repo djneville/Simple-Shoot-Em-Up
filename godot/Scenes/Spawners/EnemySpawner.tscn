@@ -25,7 +25,7 @@ position = Vector2(340, -652)
 script = ExtResource("2_8hrvs")
 
 [node name="E04" type="Marker2D" parent="."]
-position = Vector2(270, -1069)
+position = Vector2(144, -237)
 script = ExtResource("3_a3x5w")
 
 [node name="E05" type="Marker2D" parent="."]

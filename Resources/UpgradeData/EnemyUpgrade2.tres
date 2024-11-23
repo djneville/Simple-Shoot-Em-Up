@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=5 format=3 uid="uid://p2g7rhooh7wh"]
+
+[ext_resource type="Texture2D" uid="uid://qxewo117rnnv" path="res://Assets/Ships/ship_0003.png" id="1_d5act"]
+[ext_resource type="Script" path="res://godot/Entities/UpgradeData.gd" id="2_12x70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oij6v"]
+size = Vector2(30, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ab6xt"]
+
+[resource]
+script = ExtResource("2_12x70")
+order = 4
+plane_sprite_texture = ExtResource("1_d5act")
+collision_shape = SubResource("RectangleShape2D_oij6v")
+speed = 80.0
+weapons = Array[int]([1])
+explosion_animation_sprites = SubResource("SpriteFrames_ab6xt")

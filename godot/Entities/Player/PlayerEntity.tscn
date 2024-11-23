@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvu2daxvib3qh"]
+
+[ext_resource type="Script" path="res://godot/Entities/Player/PlayerEntity.gd" id="1_l3m23"]
+[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://godot/Components/Health/HealthComponent.tscn" id="2_u8n5k"]
+[ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://godot/Components/Invulnerability/InvulnerabilityComponent.tscn" id="3_uddwa"]
+[ext_resource type="PackedScene" uid="uid://5cgphjedj2u2" path="res://godot/Entities/UpgradeComponent.tscn" id="5_al1uv"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_l3m23")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_u8n5k")]
+
+[node name="InvulnerabilityComponent" parent="." instance=ExtResource("3_uddwa")]
+
+[node name="UpgradeComponent" parent="." instance=ExtResource("5_al1uv")]

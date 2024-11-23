@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkib2x2vepss2"]
+
+[ext_resource type="Script" path="res://godot/Entities/Bosses/BossEntity.gd" id="1_b47t7"]
+[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://godot/Components/Health/HealthComponent.tscn" id="2_38bk5"]
+[ext_resource type="PackedScene" uid="uid://ed5jtxirkura" path="res://godot/Components/Invulnerability/InvulnerabilityComponent.tscn" id="3_snv1g"]
+
+[node name="BossEntity" type="CharacterBody2D" groups=["boss", "enemy"]]
+script = ExtResource("1_b47t7")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_38bk5")]
+
+[node name="InvulnerabilityComponent" parent="." instance=ExtResource("3_snv1g")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

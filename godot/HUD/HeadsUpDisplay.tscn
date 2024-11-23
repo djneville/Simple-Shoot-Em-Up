@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://dds0uhdcqiv72"]
+
+[ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Resources/Fonts/maintheme.tres" id="1_4sdwr"]
+[ext_resource type="Script" path="res://godot/HUD/HeadsUpDisplay.gd" id="2_fwpm0"]
+[ext_resource type="Texture2D" uid="uid://bmak6utd04otl" path="res://Assets/Tiles/HealthBar.png" id="2_lp1jt"]
+[ext_resource type="Texture2D" uid="uid://jsi3c07734lp" path="res://Assets/Tiles/BombBar.png" id="6_hb3fk"]
+[ext_resource type="Texture2D" uid="uid://snbpxegoalai" path="res://Assets/Tiles/healthbarbackground.png" id="8_4v5io"]
+[ext_resource type="Texture2D" uid="uid://cg2yyipw1vdvn" path="res://Assets/Tiles/bosshealthbar.png" id="9_c3vxw"]
+
+[node name="Control" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4sdwr")
+script = ExtResource("2_fwpm0")
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 103.0
+offset_bottom = 27.0
+
+[node name="Score" type="Label" parent="HBoxContainer1"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Score:"
+
+[node name="ScoreNumber" type="Label" parent="HBoxContainer1"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 4.0
+offset_right = 532.0
+offset_bottom = 27.0
+
+[node name="Lives" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Lives:
+"
+
+[node name="LivesNumber" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_left = 4.0
+offset_top = 943.0
+offset_right = 123.0
+offset_bottom = 956.0
+max_value = 7.0
+value = 7.0
+texture_progress = ExtResource("2_lp1jt")
+
+[node name="PlayerBombBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_left = 416.0
+offset_top = 940.0
+offset_right = 535.0
+offset_bottom = 953.0
+max_value = 7.0
+value = 7.0
+texture_progress = ExtResource("6_hb3fk")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 496.0
+offset_top = 68.0
+offset_right = 536.0
+offset_bottom = 868.0
+
+[node name="BossName" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "AIR  DESTROYER"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="BossHealthBar" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("8_4v5io")
+texture_progress = ExtResource("9_c3vxw")

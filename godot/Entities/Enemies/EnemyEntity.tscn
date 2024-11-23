@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0o7dkwqtyyxj"]
+
+[ext_resource type="Script" path="res://godot/Entities/Enemies/EnemyEntity.gd" id="1_ws0e1"]
+[ext_resource type="PackedScene" uid="uid://drin2ypsnbwlx" path="res://godot/Components/Health/HealthComponent.tscn" id="2_co7y2"]
+
+[node name="EnemyEntity" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_ws0e1")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_co7y2")]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

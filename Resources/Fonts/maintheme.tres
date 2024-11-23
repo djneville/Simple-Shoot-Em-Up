@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://7yoxxwxaw0n2"]
 
-[ext_resource type="FontFile" uid="uid://dyq3hm0266br" path="res://Assets/retro-pixel-arcade.otf" id="1_hqbyj"]
+[ext_resource type="FontFile" uid="uid://boktup14w76ek" path="res://Assets/retro-pixel-arcade.otf" id="1_4nlgg"]
 
 [resource]
-default_font = ExtResource("1_hqbyj")
+default_font = ExtResource("1_4nlgg")
 default_font_size = 15

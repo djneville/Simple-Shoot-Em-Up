@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://6eeiii5x26j5"]
+
+[ext_resource type="Script" path="res://godot/Scenes/EnemyPaths/EnemyPath.gd" id="1_kfsp7"]
+
+[sub_resource type="Curve2D" id="Curve2D_g1gxh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -30, -215.65, 1.04379, 215.65, -1.04379, 259, 307, 0, 0, 0, 0, 538, -36)
+}
+point_count = 3
+
+[node name="UShape" type="Path2D"]
+curve = SubResource("Curve2D_g1gxh")
+
+[node name="EnemyPath" type="PathFollow2D" parent="."]
+position = Vector2(0, -30)
+rotation = 0.915531
+script = ExtResource("1_kfsp7")

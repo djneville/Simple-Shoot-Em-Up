@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwc6b6ocb6iaf"]
+
+[ext_resource type="Script" path="res://godot/Components/Projectiles/Bullet.gd" id="1_dukq4"]
+[ext_resource type="Texture2D" uid="uid://b6pgjlkfphmt6" path="res://Assets/Tiles/tile_0000.png" id="2_ng6dq"]
+[ext_resource type="Texture2D" uid="uid://dmg2a8chgu764" path="res://Assets/Tiles/tile_0007.png" id="3_sqd8c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anxx7"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="Animation" id="Animation_nogkv"]
+resource_name = "Explode"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletSprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Explosion:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhbt1"]
+_data = {
+"Explode": SubResource("Animation_nogkv")
+}
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_dukq4")
+
+[node name="BulletSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ng6dq")
+
+[node name="Explosion" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-1.66893e-06, 2.98023e-07)
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("3_sqd8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_anxx7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yhbt1")
+}

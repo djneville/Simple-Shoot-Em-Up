@@ -11,18 +11,20 @@ config_version=5
 [application]
 
 config/name="SimpleShootEmUp"
-run/main_scene="res://Scenes/Menus/MainMenu.tscn"
+run/main_scene="res://godot/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameStatsManager="*res://Scenes/Autoloads/GameStatsManager.gd"
-UpgradeManager="*res://Scenes/Autoloads/UpgradeManager.gd"
-SceneTransitions="*res://Scenes/Autoloads/SceneTransitions.gd"
-SceneManager="*res://Scenes/Autoloads/SceneManager.gd"
-SignalBus="*res://Scenes/Autoloads/SignalBus.gd"
-ProjectileFactory="*res://Scenes/Autoloads/ProjectileFactory.gd"
+GameStatsManager="*res://godot/Autoloads/GameStatsManager.gd"
+UpgradeManager="*res://godot/Autoloads/UpgradeManager.gd"
+SceneTransitions="*res://godot/Autoloads/SceneTransitions.gd"
+SceneManager="*res://godot/Autoloads/SceneManager.gd"
+SignalBus="*res://godot/Autoloads/SignalBus.gd"
+ProjectileFactory="*res://godot/Autoloads/ProjectileFactory.gd"
+PathManager="*res://godot/Autoloads/PathManager.gd"
+ItemManager="*res://godot/Autoloads/ItemManager.gd"
 
 [debug]
 
@@ -46,7 +48,7 @@ naming/script_name_casing=1
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg", "res://addons/script-tabs/plugin.cfg")
+enabled=PackedStringArray("res://addons/script-tabs/plugin.cfg")
 
 [gui]
 

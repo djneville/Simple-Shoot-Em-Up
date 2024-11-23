@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca1rqusfkrwu4"]
+[gd_scene load_steps=3 format=3 uid="uid://ca1rqusfkrwu4"]
 
 [ext_resource type="Theme" uid="uid://7yoxxwxaw0n2" path="res://Resources/Fonts/maintheme.tres" id="1_i0qhx"]
 [ext_resource type="Script" path="res://Scenes/Menus/GameOverScreen.gd" id="2_k0jmf"]
-[ext_resource type="Script" path="res://Scenes/Menus/Lives.gd" id="3_y35tg"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -34,7 +33,6 @@ text = "Lives Remaining: "
 
 [node name="Lives" type="Label" parent="CenterContainer/VBoxContainer/Labels"]
 layout_mode = 2
-script = ExtResource("3_y35tg")
 
 [node name="TryAgainButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,5 +65,3 @@ program it lol"
 [node name="GameOverTimer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
-
-[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]

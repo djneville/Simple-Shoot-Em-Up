@@ -71,12 +71,14 @@ func _on_quit_game() -> void:
 
 func _on_gameover_pause_progress() -> void:
     pass
-    #get_tree().paused = true
-    #if not game_over_screen_paused_instance:
-    #game_over_screen_paused_instance = pause_screen_scene.instantiate()
-    #game_over_screen_paused_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-    #get_tree().get_root().add_child(pause_screen_instance)
-    #pause_screen_instance.show()
+
+
+#get_tree().paused = true
+#if not game_over_screen_paused_instance:
+#game_over_screen_paused_instance = pause_screen_scene.instantiate()
+#game_over_screen_paused_instance.process_mode = Node.PROCESS_MODE_ALWAYS
+#get_tree().get_root().add_child(pause_screen_instance)
+#pause_screen_instance.show()
 
 
 # TODO: Figure out how to universalize the fade animation singleton doesn't seem to work

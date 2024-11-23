@@ -3,7 +3,6 @@ class_name BossEntity
 
 const BOSS_POINTS: int = 7500
 
-
 @export var current_phase: BossPhase.PHASE = BossPhase.PHASE.ENTRY
 @onready var invulnerability: InvulnerabilityComponent = $InvulnerabilityComponent
 
@@ -40,6 +39,7 @@ func fire_missiles(_delta: float) -> void:
     if missile_launcher:
         missile_launcher.fire(self, position, Vector2.DOWN)
 
+
 # EnemyEntity Override functions
 func take_damage(damage: int):
     if current_phase != BossPhase.PHASE.ENTRY:
@@ -49,6 +49,7 @@ func take_damage(damage: int):
 func _on_animation_finished(anim_name: String) -> void:
     if anim_name == "Explosion":
         GameStatsManager.score += self.points
+        SignalBus.score_updated.emit()
         self.give_points.emit(self.points)
         SignalBus.level_complete.emit()
-        #TODO: WHEN TO GREE THIS!?? (SET PROCESS TO FALSE???!
+#TODO: WHEN TO GREE THIS!?? (SET PROCESS TO FALSE???!

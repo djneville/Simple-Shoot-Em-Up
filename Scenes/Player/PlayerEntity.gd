@@ -6,7 +6,6 @@ class_name PlayerEntity
 @onready var invulnerability: InvulnerabilityComponent = $InvulnerabilityComponent
 @onready var upgrade_component: UpgradeComponent = $UpgradeComponent
 
-
 # Constants
 const INITIAL_POSITION: Vector2 = Vector2(200, 400)
 const COLLISION_DAMAGE: int = 10
@@ -39,8 +38,6 @@ func _setup_signals() -> void:
 
 
 func _initialize() -> void:
-    # Initialize node-dependent properties
-
     var collision_shape: CollisionShape2D = self.upgrade_component.active_collision_shape
     self.add_child(collision_shape)
 
@@ -68,14 +65,11 @@ func _handle_actions() -> void:
     if upgrade_component.get_node("Gun") and Input.is_action_pressed("shoot"):
         var gun: Gun = upgrade_component.get_node("Gun")
         gun.fire(self, position, Vector2.UP)
-
     if upgrade_component.get_node("Canon") and Input.is_action_pressed("bomb"):
         var canon: Canon = upgrade_component.get_node("Canon")
         canon.fire(self, position, Vector2.DOWN)
-
     if Input.is_action_just_pressed("upgrade"):
         self.upgrade_component.upgrade()
-
     if Input.is_action_just_pressed("downgrade"):
         self.upgrade_component.downgrade()
 

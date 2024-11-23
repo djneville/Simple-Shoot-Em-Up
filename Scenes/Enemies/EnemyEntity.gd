@@ -36,8 +36,10 @@ func _setup_signals() -> void:
         _on_animation_finished
     )
     self.health.entity_died.connect(_death)
-    #TODO: EWWWWW NOOOOOOOOO figure out how to get the boss to not fuck up here...
-    #self.visibility.screen_exited.connect(queue_free)
+
+
+#TODO: EWWWWW NOOOOOOOOO figure out how to get the boss to not fuck up here...
+#self.visibility.screen_exited.connect(queue_free)
 
 
 func _initialize() -> void:
@@ -76,7 +78,9 @@ func take_damage(damage: int) -> void:
 #TODO: OVERWRITABLE??
 func _on_animation_finished(anim_name: String) -> void:
     if anim_name == "Explosion":
+        #TODO: figure out a better way to handle all this score signalling and autoload vars
         GameStatsManager.score += self.points
+        SignalBus.score_updated.emit()
         self.give_points.emit(self.points)
         self.queue_free()
 

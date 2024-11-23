@@ -4,7 +4,9 @@ extends ParallaxBackground
 
 
 func _ready() -> void:
-    $MainParallax/EndOfMapMarker/VisibleOnScreenEnabler2D.screen_entered.connect(transition_to_boss_fight)
+    $MainParallax/EndOfMapMarker/VisibleOnScreenEnabler2D.screen_entered.connect(
+        transition_to_boss_fight
+    )
 
 
 func _process(delta: float) -> void:
@@ -13,4 +15,4 @@ func _process(delta: float) -> void:
 
 func transition_to_boss_fight():
     SceneManager.change_scene(SceneManager.BOSS_FIGHT)
-    ##TODO: then kill this test level??
+##TODO: then kill this test level??

@@ -1,6 +1,5 @@
 extends Projectile
-class_name BombComponent
-
+class_name Bomb
 
 @export var explosion_radius: float = 100.0
 
@@ -12,8 +11,10 @@ class_name BombComponent
 func _on_lifetime_timeout() -> void:
     self.explode()
 
+
 func _on_impact() -> void:
     self.explode()
+
 
 func explode() -> void:
     self.bomb_sprite.visible = false

@@ -34,9 +34,11 @@ func take_damage(damage: int) -> void:
     self._update_health(new_health)
     if self.current_health <= MIN_HEALTH:
         self._handle_death()
+
+    #TODO: how to get this only to emit once?? and never again (control statement avoids it but still...
     elif self.get_health_percentage() <= 33:
         self.health_one_third.emit()
-        #TODO: how to get this only to emit once?? and never again (control statement avoids it but still...
+    #TODO: how to get this only to emit once?? and never again (control statement avoids it but still...
     elif self.get_health_percentage() <= 66:
         self.health_two_third.emit()
 

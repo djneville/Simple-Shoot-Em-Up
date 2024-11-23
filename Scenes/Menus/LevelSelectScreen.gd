@@ -14,8 +14,10 @@ func _on_test_level_pressed() -> void:
 
 func _on_level_1_pressed() -> void:
     pass
-    # Change to Level 1 scene (replace with the actual path to your Level 1 scene)
-    #SceneManager.change_scene("res://Scenes/Levels/Level.tscn")
+
+
+# Change to Level 1 scene (replace with the actual path to your Level 1 scene)
+#SceneManager.change_scene("res://Scenes/Levels/Level.tscn")
 
 
 func _on_back_pressed() -> void:

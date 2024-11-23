@@ -16,5 +16,6 @@ func _on_score_bonus(amount: int) -> void:
 
 func _on_life_lost() -> void:
     lives -= 1
+    SignalBus.lives_updated.emit()
     score = 0
     SceneManager.change_scene(SceneManager.GAME_OVER)

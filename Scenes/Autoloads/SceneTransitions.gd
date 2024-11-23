@@ -7,13 +7,17 @@ signal fade_out_finished
 func fade_in() -> void:
     fade_in_finished.emit()
     pass
-    #$AnimationPlayer.play("fade_in")
+
+
+#$AnimationPlayer.play("fade_in")
 
 
 func fade_out() -> void:
     fade_out_finished.emit()
     pass
-    #$AnimationPlayer.play("fade_out")
+
+
+#$AnimationPlayer.play("fade_out")
 
 
 func _on_animation_finished(anim_name: String) -> void:

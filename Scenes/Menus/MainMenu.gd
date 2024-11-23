@@ -8,6 +8,7 @@ class_name MainMenu
 func _ready() -> void:
     GameStatsManager.lives = 3
     GameStatsManager.score = 0
+    SignalBus.score_updated.emit()
     $MarginContainer/CenterContainer/VBoxContainer/StartGame.pressed.connect(
         _on_start_game_button_pressed
     )

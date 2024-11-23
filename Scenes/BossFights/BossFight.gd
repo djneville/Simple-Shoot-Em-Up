@@ -38,8 +38,10 @@ func _ready() -> void:
     entry_path.path_finished.connect(_on_entry_path_completed)
     boss_entity.health.health_two_third.connect(start_phase_two)
     boss_entity.health.health_one_third.connect(start_dying_phase)
-    #TODO: figure out how to do death from the entity to this scenen
-    #boss_entity.health.entity_died.connect(_on_boss_death)
+
+
+#TODO: figure out how to do death from the entity to this scenen
+#boss_entity.health.entity_died.connect(_on_boss_death)
 
 
 func _process(_delta: float) -> void:
@@ -49,9 +51,13 @@ func _process(_delta: float) -> void:
     # TO THE PATHFOLLOW NODES ANYMORE!!!!!
     if is_instance_valid(boss_entity):
         boss_entity.global_position = active_path.global_position  # HOLY HOLY HECK
+
+    #TODO: boss entity getting freed should send a signal i think... I dont like this check here^^
     else:
         SignalBus.level_complete.emit()
-    #TODO: boss entity getting freed should send a signal i think... I dont like this check here^^
+
+
+#TODO: boss entity getting freed should send a signal i think... I dont like this check here^^
 
 
 func add_path_to_scene(path_scene: PackedScene, speed: float) -> BossPath:
@@ -67,7 +73,7 @@ func _on_entry_path_completed() -> void:
     entry_path.queue_free()
     active_path = phase_one_path
     boss_entity.current_phase = BossPhase.PHASE.PHASE_ONE
-     #TODO: this could just pass the boss entity? or its health??? KEY TO GETTING RID OF GROUPS!?!
+    #TODO: this could just pass the boss entity? or its health??? KEY TO GETTING RID OF GROUPS!?!
     SignalBus.boss_entered.emit()
 
 

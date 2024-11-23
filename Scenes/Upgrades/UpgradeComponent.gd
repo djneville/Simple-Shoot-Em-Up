@@ -14,14 +14,14 @@ const MIN_UPGRADE_INDEX: int = 0
 @export var active_speed: float = 0.0
 
 @export var active_weapons: Array[Weapon] = []
-@export var active_weapon_types: Array[WeaponType.TYPE] = [] #initialize for weapons array
+@export var active_weapon_types: Array[WeaponType.TYPE] = []  #initialize for weapons array
 
 var weapon_factory: WeaponFactory = WeaponFactory.new()
 
 # Signals
 var points: int = 0  #TODO: does nothing
 signal give_points(points: int)  #TODO: figure out how to maybe make this have effect on the Upgrade logic of the PlayerEntity
-signal weapons_updated # this is actually pretty cool
+signal weapons_updated  # this is actually pretty cool
 
 @onready var ship_explode_animation: AnimationPlayer = $ShipExplode
 @onready var explosion_sprite: AnimatedSprite2D = $Explosion
@@ -73,9 +73,10 @@ func _free_weapons():
         #so it breaks.
         #solution:
         remove_child(weapon)
-        #weapon.queue_free() #THIS KILLS THE NODE FROM THE WEAPONFACTORY AHHAHAHAHHA AAHHHHHHHHHH
+    #weapon.queue_free() #THIS KILLS THE NODE FROM THE WEAPONFACTORY AHHAHAHAHHA AAHHHHHHHHHH
     self.active_weapons = []
     self.active_weapon_types = []
+
 
 func _add_weapons():
     for type: WeaponType.TYPE in self.active_weapon_types:

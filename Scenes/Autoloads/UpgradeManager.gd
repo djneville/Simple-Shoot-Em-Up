@@ -19,9 +19,7 @@ func load_upgrades() -> void:
             var upgrade_resource: UpgradeData = ResourceLoader.load(resource_path)
             upgrades.append(upgrade_resource)
             print("UpgradeManager: Loaded upgrade from " + resource_path)
-
         file_name = dir.get_next()
-
     dir.list_dir_end()
     upgrades.sort_custom(func(x: UpgradeData, y: UpgradeData) -> bool: return x.order < y.order)
     print("UpgradeManager: Total upgrades loaded = " + str(upgrades.size()))

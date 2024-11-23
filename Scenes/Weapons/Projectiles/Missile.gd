@@ -1,8 +1,7 @@
 extends Projectile
-class_name MissileComponent
+class_name Missile
 
 @export var drag_factor: float = 0.03
-
 
 @export var target: CharacterBody2D
 
@@ -14,6 +13,7 @@ class_name MissileComponent
 func _ready() -> void:
     self._initialize_target()
     super._ready()
+
 
 func _initialize_target() -> void:
     # TODO: this implies that only the enemy can use this, fix it maybe later
@@ -35,6 +35,7 @@ func add_drag_to_missile():
     var desired_velocity: Vector2 = direction_towards_target.normalized() * self.speed
     var dragged_velocity: Vector2 = (desired_velocity - self.velocity) * self.drag_factor
     self.velocity += dragged_velocity
+
 
 func _on_impact() -> void:
     self.missile_explode()

@@ -9,7 +9,9 @@ const MISSILE_LAUNCHER_SCENE: String = "res://Scenes/Weapons/MissileLauncher.tsc
 
 var gun: Gun = preload(WeaponFactory.GUN_SCENE).instantiate() as Gun
 var canon: Canon = preload(WeaponFactory.CANON_SCENE).instantiate() as Canon
-var missile_launcher: MissileLauncher = preload(WeaponFactory.MISSILE_LAUNCHER_SCENE).instantiate() as MissileLauncher
+var missile_launcher: MissileLauncher = (
+    preload(WeaponFactory.MISSILE_LAUNCHER_SCENE).instantiate() as MissileLauncher
+)
 
 var weapons: Dictionary = {
     WeaponType.TYPE.GUN: gun,

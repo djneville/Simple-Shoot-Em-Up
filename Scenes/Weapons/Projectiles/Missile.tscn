@@ -1,16 +1,16 @@
 [gd_scene load_steps=18 format=3 uid="uid://drsay6p2bovok"]
 
-[ext_resource type="Texture2D" uid="uid://b35cuyngt34f" path="res://Assets/Tiles/missle.png" id="1_oi0p2"]
-[ext_resource type="Script" path="res://Scenes/Weapons/Projectiles/MissileComponent.gd" id="1_speg4"]
-[ext_resource type="Texture2D" uid="uid://dmtite5xgo6fx" path="res://Assets/Tiles/missletail.png" id="2_5li8h"]
-[ext_resource type="Texture2D" uid="uid://bdj8jfd3khebh" path="res://Assets/Tiles/missleexplosion.png" id="3_h0a8o"]
+[ext_resource type="Script" path="res://Scenes/Weapons/Projectiles/Missile.gd" id="1_swaow"]
+[ext_resource type="Texture2D" uid="uid://b35cuyngt34f" path="res://Assets/Tiles/missle.png" id="2_2worw"]
+[ext_resource type="Texture2D" uid="uid://dmtite5xgo6fx" path="res://Assets/Tiles/missletail.png" id="3_4nc7d"]
+[ext_resource type="Texture2D" uid="uid://bdj8jfd3khebh" path="res://Assets/Tiles/missleexplosion.png" id="4_tfjtb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6efi"]
-atlas = ExtResource("2_5li8h")
+atlas = ExtResource("3_4nc7d")
 region = Rect2(0, 0, 8, 4)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kimv2"]
-atlas = ExtResource("2_5li8h")
+atlas = ExtResource("3_4nc7d")
 region = Rect2(8, 0, 8, 4)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_knvxe"]
@@ -28,11 +28,11 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xc2dy"]
-atlas = ExtResource("3_h0a8o")
+atlas = ExtResource("4_tfjtb")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2v5px"]
-atlas = ExtResource("3_h0a8o")
+atlas = ExtResource("4_tfjtb")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lxkl2"]
@@ -126,13 +126,13 @@ _data = {
 "RESET": SubResource("Animation_xfpsc")
 }
 
-[node name="MissileComponent" type="Area2D"]
-script = ExtResource("1_speg4")
+[node name="Missile" type="Area2D"]
+script = ExtResource("1_swaow")
 
 [node name="MissileSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 rotation = 1.5708
-texture = ExtResource("1_oi0p2")
+texture = ExtResource("2_2worw")
 offset = Vector2(0, -3)
 
 [node name="ExhaustSprites" type="AnimatedSprite2D" parent="MissileSprite"]

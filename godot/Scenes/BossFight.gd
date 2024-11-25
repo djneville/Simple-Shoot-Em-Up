@@ -31,9 +31,11 @@ func _ready() -> void:
     phase_one_path = add_path_to_scene(phase_one_scene, 90.0)
     phase_two_path = add_path_to_scene(phase_two_scene, 50.0)
 
-    add_child(boss_entity)  #TODO: HOLY HECK CHECK OUT _PROCESS FUNC
 
     self.active_path = entry_path
+
+    add_child(boss_entity)  #TODO: HOLY HECK CHECK OUT _PROCESS FUNC
+
 
     #ONLY entry path uses path_complete sign
     entry_path.path_finished.connect(_on_entry_path_completed)

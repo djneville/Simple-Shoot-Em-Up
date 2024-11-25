@@ -5,6 +5,7 @@ class_name EnemyEntity
 @onready var health: HealthComponent = $HealthComponent
 @onready var visibility: VisibleOnScreenEnabler2D = $VisibleOnScreenEnabler2D
 var upgrade_component: UpgradeComponent = null
+
 var intra: PackedScene = preload("res://godot/Entities/UpgradeComponent.tscn")
 
 # Export variables

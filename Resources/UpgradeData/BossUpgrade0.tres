@@ -14,5 +14,5 @@ order = 5
 plane_sprite_texture = ExtResource("1_7nht4")
 collision_shape = SubResource("RectangleShape2D_7wl5g")
 speed = 70.0
-weapons = Array[int]([3, 4])
+weapons = Array[int]([3, 4, 1])
 explosion_animation_sprites = SubResource("SpriteFrames_g0nyw")

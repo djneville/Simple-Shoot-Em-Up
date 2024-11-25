@@ -22,6 +22,8 @@ var pause_screen_instance: PauseScreen
 var game_over_screen_paused: PackedScene = preload(GAME_OVER)
 var game_over_screen_paused_instance: GameOverScreen
 
+# Added variables for fade transition
+var color_rect: ColorRect
 
 func _ready() -> void:
     set_process_input(true)
@@ -31,6 +33,11 @@ func _ready() -> void:
     SignalBus.game_over.connect(change_scene.bind(GAME_OVER))
     SignalBus.level_complete.connect(change_scene.bind(LEVEL_COMPLETE))
 
+    # Initialize ColorRect
+    color_rect = ColorRect.new()
+    color_rect.size = get_viewport().size
+    color_rect.color = Color(0, 0, 0, 0)  # Black, fully transparent
+    add_child(color_rect)
 
 func _input(_event: InputEvent) -> void:
     if Input.is_action_just_pressed("pause"):
@@ -38,7 +45,10 @@ func _input(_event: InputEvent) -> void:
             unpause()
         else:
             pause()
-
+    if Input.is_action_just_pressed("fade_in"):
+        fade_in()
+    if Input.is_action_just_pressed("fade_out"):
+        fade_out()
 
 func pause() -> void:
     get_tree().paused = true
@@ -52,26 +62,21 @@ func pause() -> void:
         get_tree().get_root().add_child(pause_screen_instance)
     pause_screen_instance.show()
 
-
 func unpause() -> void:
     get_tree().paused = false
     if pause_screen_instance:
         pause_screen_instance.hide()
 
-
 func _on_quit_to_menu() -> void:
     unpause()
     self.change_scene(MAIN_MENU)
-
 
 func _on_quit_game() -> void:
     unpause()
     get_tree().quit()
 
-
 func _on_gameover_pause_progress() -> void:
     pass
-
 
 #get_tree().paused = true
 #if not game_over_screen_paused_instance:
@@ -80,7 +85,19 @@ func _on_gameover_pause_progress() -> void:
 #get_tree().get_root().add_child(pause_screen_instance)
 #pause_screen_instance.show()
 
-
-# TODO: Figure out how to universalize the fade animation singleton doesn't seem to work
 func change_scene(scene_path: String) -> void:
+    fade_out()
     get_tree().change_scene_to_file(scene_path)
+    fade_in()
+
+func fade_out(duration: float = 1.5) -> void:
+    var tween = create_tween()
+    print("FADE IN!!!")
+    tween.tween_property(color_rect, "modulate:a", 1.0, duration)
+    await tween.finished
+
+func fade_in(duration: float = 1.5) -> void:
+    var tween = create_tween()
+    print("FADE OUT!!!")
+    tween.tween_property(color_rect, "modulate:a", 0.0, duration)
+    await tween.finished

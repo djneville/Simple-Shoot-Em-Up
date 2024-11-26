@@ -41,6 +41,25 @@ func _ready() -> void:
     add_child(color_rect)
     await fade_in()
 
+
+func change_scene(scene_path: String) -> void:
+    await fade_out()
+    get_tree().change_scene_to_file(scene_path)
+    #TODO: this has some weird behavior where the fade_in is too fast for certain scenes
+    await fade_in()
+
+
+func fade_out(duration: float = 0.2) -> Signal:
+    var tween = create_tween()
+    tween.tween_property(color_rect, "modulate:a", 1.0, duration)
+    return tween.finished
+
+func fade_in(duration: float = 0.2) -> Signal:
+    var tween = create_tween()
+    tween.tween_property(color_rect, "modulate:a", 0.0, duration)
+    return tween.finished
+
+
 func _input(_event: InputEvent) -> void:
     if Input.is_action_just_pressed("pause"):
         if get_tree().paused:
@@ -79,27 +98,3 @@ func _on_quit_game() -> void:
 
 func _on_gameover_pause_progress() -> void:
     pass
-
-#get_tree().paused = true
-#if not game_over_screen_paused_instance:
-#game_over_screen_paused_instance = pause_screen_scene.instantiate()
-#game_over_screen_paused_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-#get_tree().get_root().add_child(pause_screen_instance)
-#pause_screen_instance.show()
-
-func change_scene(scene_path: String) -> void:
-    await fade_out()
-    get_tree().change_scene_to_file(scene_path)
-    #TODO: this has some weird behavior where the fade_in is too fast for certain scenes
-    await fade_in()
-
-
-func fade_out(duration: float = 0.2) -> Signal:
-    var tween = create_tween()
-    tween.tween_property(color_rect, "modulate:a", 1.0, duration)
-    return tween.finished
-
-func fade_in(duration: float = 0.2) -> Signal:
-    var tween = create_tween()
-    tween.tween_property(color_rect, "modulate:a", 0.0, duration)
-    return tween.finished

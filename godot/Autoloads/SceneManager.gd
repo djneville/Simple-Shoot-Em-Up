@@ -36,8 +36,10 @@ func _ready() -> void:
     # Initialize ColorRect
     color_rect = ColorRect.new()
     color_rect.size = get_viewport().size
-    color_rect.color = Color(0, 0, 0, 0)  # Black, fully transparent
+    color_rect.color = Color.BLACK  # Black, fully transparent
+    color_rect.z_index = 100  # Ensure it's above everything else
     add_child(color_rect)
+    await fade_in()
 
 func _input(_event: InputEvent) -> void:
     if Input.is_action_just_pressed("pause"):
@@ -86,18 +88,18 @@ func _on_gameover_pause_progress() -> void:
 #pause_screen_instance.show()
 
 func change_scene(scene_path: String) -> void:
-    fade_out()
+    await fade_out()
     get_tree().change_scene_to_file(scene_path)
-    fade_in()
+    #TODO: this has some weird behavior where the fade_in is too fast for certain scenes
+    await fade_in()
 
-func fade_out(duration: float = 1.5) -> void:
+
+func fade_out(duration: float = 0.2) -> Signal:
     var tween = create_tween()
-    print("FADE IN!!!")
     tween.tween_property(color_rect, "modulate:a", 1.0, duration)
-    await tween.finished
+    return tween.finished
 
-func fade_in(duration: float = 1.5) -> void:
+func fade_in(duration: float = 0.2) -> Signal:
     var tween = create_tween()
-    print("FADE OUT!!!")
     tween.tween_property(color_rect, "modulate:a", 0.0, duration)
-    await tween.finished
+    return tween.finished

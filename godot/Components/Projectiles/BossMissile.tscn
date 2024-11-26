@@ -4,6 +4,3 @@
 
 [node name="BossMissile" instance=ExtResource("1_7wsyr")]
 scale = Vector2(2, 2)
-
-[node name="Explosion" parent="." index="1"]
-visible = true

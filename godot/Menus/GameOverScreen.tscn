@@ -21,6 +21,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GameOverBox" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Game Over" type="Label" parent="CenterContainer/GameOverBox"]
+layout_mode = 2
+text = "Game Over
+
+
+
+
+
+
+
+
+yeah I know there's no point
+to having lives and game overs
+
+I just wanted to see if I could 
+program it lol"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
@@ -41,26 +61,6 @@ text = "Try Again?"
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
-
-[node name="GameOverBox" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
-
-[node name="Game Over" type="Label" parent="CenterContainer/GameOverBox"]
-layout_mode = 2
-text = "Game Over
-
-
-
-
-
-
-
-
-yeah I know there's no point
-to having lives and game overs
-
-I just wanted to see if I could 
-program it lol"
 
 [node name="GameOverTimer" type="Timer" parent="."]
 wait_time = 10.0

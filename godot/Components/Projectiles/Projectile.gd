@@ -56,6 +56,8 @@ func _on_body_entered(body: Node) -> void:
     self.set_physics_process(false)
     body.take_damage(damage)
     _on_impact()
+    body_entered.disconnect(_on_body_entered)
+
 
 
 func _on_lifetime_timeout() -> void:

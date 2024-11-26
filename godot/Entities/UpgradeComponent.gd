@@ -104,7 +104,6 @@ func downgrade() -> void:
 func _on_animation_finished(anim_name: String) -> void:
     if anim_name == "Explosion":
         self.give_points.emit(self.points)
-        self.queue_free()
 
 
 func get_current_upgrade_index() -> int:

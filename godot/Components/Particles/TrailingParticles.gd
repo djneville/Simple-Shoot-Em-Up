@@ -1,14 +1,15 @@
 extends CPUParticles2D
 class_name TrailingParticles
 
+const SINGLE_FRAME_AVOIDANCE_BUFFER: float = 1 / 30
+
 func _ready() -> void:
     _initialize_particle_material()
     emitting = true
     one_shot = false
 
 func _initialize_particle_material() -> void:
-    #self.fixed_fps = 60
-    self.lifetime = 1.0
+    self.lifetime = 1.0  + SINGLE_FRAME_AVOIDANCE_BUFFER
     self.amount = 10
     self.spread = 0.0
     self.initial_velocity_max = 1.0

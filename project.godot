@@ -38,9 +38,10 @@ gdscript/warnings/return_value_discarded=1
 
 [display]
 
-window/size/viewport_width=540
-window/size/viewport_height=960
-window/size/resizable=false
+window/size/viewport_width=256
+window/size/viewport_height=384
+window/dpi/allow_hidpi=false
+window/handheld/orientation=1
 
 [editor]
 
@@ -116,3 +117,4 @@ fade_out={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+2d/snap/snap_2d_vertices_to_pixel=true

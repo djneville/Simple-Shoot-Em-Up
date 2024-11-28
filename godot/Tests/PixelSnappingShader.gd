@@ -21,5 +21,6 @@ func setup_shader() -> void:
 func update_rotation(input_vector: Vector2) -> void:
     if input_vector.length() > 0:
         rotation = input_vector.angle()
+        + PI/2
         var shader_material = self.material as ShaderMaterial
         shader_material.set_shader_parameter("rotation", rotation)

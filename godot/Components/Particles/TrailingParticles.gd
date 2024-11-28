@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _initialize_particle_material() -> void:
     self.lifetime = 1.0  + SINGLE_FRAME_AVOIDANCE_BUFFER
-    self.amount = 10
+    self.amount = 100
     self.spread = 0.0
     self.initial_velocity_max = 1.0
     self.initial_velocity_min = 1.0
@@ -25,3 +25,15 @@ func _initialize_particle_material() -> void:
     color_ramp.set_interpolation_mode(Gradient.GRADIENT_INTERPOLATE_LINEAR)
 
     self.material = CanvasItemMaterial.new()
+    _emission_shape_settings()
+
+
+func _emission_shape_settings():
+    self.emission_shape = CPUParticles2D.EMISSION_SHAPE_POINTS
+    self.emission_points = [
+        Vector2(-2, 0),  # Left-most point
+        Vector2(-1, 0),  # Left-middle point
+        Vector2(-0, 0),   # Right-middle point
+        Vector2(1, 0),    # Right-most point
+        Vector2(2, 0)
+    ]

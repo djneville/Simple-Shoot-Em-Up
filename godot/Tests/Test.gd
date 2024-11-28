@@ -13,12 +13,13 @@ func _ready() -> void:
 func center_viewport() -> void:
     camera = Camera2D.new()
     camera.position = Vector2.ZERO
-    camera.zoom = Vector2(6.0, 6.0)
+    camera.zoom = Vector2(1.0, 1.0)
     add_child(camera)
 
 func _process(delta: float) -> void:
     var input_vector: Vector2 = Input.get_vector("left", "right", "up", "down")
     for child in get_children():
-        if child != camera and child is PixelSnappingOnRotation:
+        if child != camera:
             child.position += input_vector.normalized() * MOVE_SPEED * delta
-            child.update_rotation(input_vector)
+            if child is PixelSnappingOnRotation:
+                child.update_rotation(input_vector)

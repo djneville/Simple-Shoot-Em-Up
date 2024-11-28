@@ -9,8 +9,11 @@
 script = ExtResource("1_k00w0")
 
 [node name="PixelSnappingOnRotation" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
 texture = ExtResource("2_4ai2g")
 script = ExtResource("3_38pjj")
 
-[node name="TrailingParticles" parent="PixelSnappingOnRotation" instance=ExtResource("2_rmw64")]
-visible = false
+[node name="TrailingParticles" parent="." instance=ExtResource("2_rmw64")]
+emission_shape = 4
+emission_points = PackedVector2Array()
+emission_colors = PackedColorArray()

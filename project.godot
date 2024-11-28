@@ -13,6 +13,7 @@ config_version=5
 config/name="SimpleShootEmUp"
 run/main_scene="res://godot/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+run/max_fps=30
 config/icon="res://icon.svg"
 
 [autoload]
@@ -37,9 +38,10 @@ gdscript/warnings/return_value_discarded=1
 
 [display]
 
-window/size/viewport_width=540
-window/size/viewport_height=960
-window/size/resizable=false
+window/size/viewport_width=256
+window/size/viewport_height=384
+window/dpi/allow_hidpi=false
+window/handheld/orientation=1
 
 [editor]
 

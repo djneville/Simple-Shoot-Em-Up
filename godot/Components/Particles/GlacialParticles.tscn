@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://gojtcht0h7py"]
+
+[ext_resource type="Script" path="res://godot/Components/Particles/GlacialParticles.gd" id="1_nwo2x"]
+
+[node name="GlacialParticles" type="CPUParticles2D"]
+script = ExtResource("1_nwo2x")

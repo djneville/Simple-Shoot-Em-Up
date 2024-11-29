@@ -1,6 +1,3 @@
-// Pixel Snapping on Rotation Shader
-// Rotates the sprite's texture in discrete steps and snaps UV coordinates to pixel centers.
-
 shader_type canvas_item;
 
 // Number of discrete rotation steps (e.g., 8 for 45-degree increments)

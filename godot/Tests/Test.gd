@@ -7,6 +7,9 @@ var camera: Camera2D
 var width = 540
 var height = 960
 
+var width1 = 256
+var height1 = 384
+
 func _ready() -> void:
     center_viewport()
 

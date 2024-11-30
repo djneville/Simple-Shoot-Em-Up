@@ -1,13 +1,11 @@
 shader_type canvas_item;
 
-uniform vec2 grid_size = vec2(4.0, 4.0);
+uniform float grid_size = 8.0;
 
 void vertex() {
-    vec2 snapped_pos = vec2(
-        round(VERTEX.x / grid_size.x) * grid_size.x,
-        round(VERTEX.y / grid_size.y) * grid_size.y
-    );
+    vec4 world_pos = MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0);
 
-    // Visualize snapping process by shifting the particle based on grid alignment
-    VERTEX = snapped_pos;
+    world_pos.xy = floor(world_pos.xy / grid_size) * grid_size;
+
+    VERTEX = (inverse(MODEL_MATRIX) * world_pos).xy;
 }

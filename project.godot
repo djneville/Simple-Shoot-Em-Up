@@ -40,8 +40,8 @@ gdscript/warnings/return_value_discarded=1
 
 window/size/viewport_width=256
 window/size/viewport_height=384
+window/size/initial_position_type=0
 window/dpi/allow_hidpi=false
-window/handheld/orientation=1
 
 [editor]
 

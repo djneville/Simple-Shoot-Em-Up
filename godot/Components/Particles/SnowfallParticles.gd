@@ -1,28 +1,32 @@
 extends CPUParticles2D
 class_name SnowfallParticles
 
-const TILE_SIZE: float = 4.0
-const SNOW_SCALE_START: float = 32.0  # Start size in pixels
-const SNOW_SCALE_END: float = 2.0     # End size in pixels
+const SINGLE_FRAME_AVOIDANCE_BUFFER: float = 1 / 60
+const TILE_SIZE: float = 2.0
+const SNOW_SCALE_START: float = 3.0
+const SNOW_SCALE_END: float = 1.0
 
 func _ready() -> void:
+    position = get_viewport().size / 2.0
     _initialize_particle_material()
     emitting = true
     one_shot = false
 
 func _initialize_particle_material() -> void:
-    self.lifetime = 2.0
-    self.amount = 130.0
-    self.spread = 90.0
-    self.direction = Vector2(0, 1)
-    self.initial_velocity_min = 5.0
-    self.initial_velocity_max = 20.0
-    self.gravity = Vector2(0.0, 1)
-    self.scale_amount_min = 1.0  # Keep base scale as unit size
+    self.lifetime = 2.0 + SINGLE_FRAME_AVOIDANCE_BUFFER
+    self.amount = 200.0
+    self.spread = 360.0
+    self.direction = Vector2(0, 0)
+    self.initial_velocity_min = 0.0
+    self.initial_velocity_max = 10.0
+    self.gravity = Vector2(0.0, 0.0)
+    self.scale_amount_min = 1.0
     self.scale_amount_max = 1.0
 
-    #self.emission_shape = CPUParticles2D.EMISSION_SHAPE_SPHERE_SURFACE
-    #self.emission_sphere_radius = get_viewport().size / 2.0 # EXTENTS IS A kind of radius for a rectangle, not the actual WxH, half of that
+    #TODO: figure out what is a better convention this set param on the enums, or using the properties
+    set_param_min(CPUParticles2D.PARAM_RADIAL_ACCEL, -1.0)  # gravitational to self.position
+    set_param_max(CPUParticles2D.PARAM_RADIAL_ACCEL, -9.8)
+
 
     self.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
     self.emission_rect_extents = get_viewport().size / 2.0 # EXTENTS IS A kind of radius for a rectangle, not the actual WxH, half of that

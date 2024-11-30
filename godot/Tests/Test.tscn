@@ -24,9 +24,9 @@ emission_points = PackedVector2Array()
 emission_colors = PackedColorArray()
 
 [node name="GlacialParticles" parent="." instance=ExtResource("5_1yku5")]
-visible = false
 
 [node name="SnappingRectangle" parent="." instance=ExtResource("6_0sdll")]
 visible = false
 
 [node name="SnowfallParticles" parent="." instance=ExtResource("7_5ki8c")]
+visible = false

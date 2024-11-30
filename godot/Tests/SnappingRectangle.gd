@@ -10,7 +10,7 @@ func _ready() -> void:
     color_rect.color = rect_color
     color_rect.position = Vector2.ZERO
     add_child(color_rect)
-    var shader = preload("res://Resources/Shaders/tile_resolution_particle_snapping.gdshader")
+    var shader = preload("res://Resources/Shaders/virtual_grid_snapping.gdshader")
     var shader_material = ShaderMaterial.new()
     shader_material.shader = shader
     color_rect.material = shader_material

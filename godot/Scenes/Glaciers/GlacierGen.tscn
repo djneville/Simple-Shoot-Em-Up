@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://p62a4n5u73j4"]
+
+[ext_resource type="Script" path="res://godot/Scenes/Glaciers/GlacierGen.gd" id="1_022o0"]
+
+[node name="GlacierGen" type="Node2D"]
+script = ExtResource("1_022o0")

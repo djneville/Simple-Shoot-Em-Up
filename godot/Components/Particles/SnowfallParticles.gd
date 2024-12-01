@@ -7,7 +7,7 @@ const SNOW_SCALE_START: float = 3.0
 const SNOW_SCALE_END: float = 1.0
 
 func _ready() -> void:
-    position = get_viewport().size / 2.0
+    #position = get_viewport().size / 2.0
     _initialize_particle_material()
     emitting = true
     one_shot = false

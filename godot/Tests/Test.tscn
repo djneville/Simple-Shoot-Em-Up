@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://gojtcht0h7py" path="res://godot/Components/Particles/GlacialParticles.tscn" id="5_1yku5"]
 [ext_resource type="PackedScene" uid="uid://cbde1ifgtivx" path="res://godot/Tests/SnappingRectangle.tscn" id="6_0sdll"]
 [ext_resource type="PackedScene" uid="uid://df7d3yxentwdh" path="res://godot/Components/Particles/SnowfallParticles.tscn" id="7_5ki8c"]
-[ext_resource type="PackedScene" uid="uid://bro5y5yjrypf0" path="res://godot/Scenes/Glaciers/Glacier.tscn" id="8_qujoh"]
+[ext_resource type="PackedScene" uid="uid://f1ko4ucy2j58" path="res://godot/Scenes/Glaciers/GlacierTest.tscn" id="8_jpfyv"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_k00w0")
@@ -33,5 +33,4 @@ visible = false
 [node name="SnowfallParticles" parent="." instance=ExtResource("7_5ki8c")]
 visible = false
 
-[node name="Glacier" parent="." instance=ExtResource("8_qujoh")]
-position = Vector2(36.1005, 35.5773)
+[node name="GlacierTest" parent="." instance=ExtResource("8_jpfyv")]

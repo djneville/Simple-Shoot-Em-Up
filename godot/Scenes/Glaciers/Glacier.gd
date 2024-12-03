@@ -115,8 +115,8 @@ func _on_iceberg_created(position: Vector2) -> void:
 
 func create_iceberg_node(position: Vector2) -> void:
     var iceberg_scene: PackedScene = preload("res://godot/Scenes/Glaciers/Iceberg.tscn")
-    var iceberg_instance: Node2D = iceberg_scene.instance() as Node2D
-    iceberg_instance.position = glacier_surface.map_to_world(Vector2i(position))
+    var iceberg_instance: Node2D = iceberg_scene.instantiate() as Node2D
+    iceberg_instance.position = glacier_surface.to_global(Vector2i(position))
     add_child(iceberg_instance)
     iceberg_instance.add_to_group(ICEBERG_GROUP)
     emit_signal("iceberg_formed", position)

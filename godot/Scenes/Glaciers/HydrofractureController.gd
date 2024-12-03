@@ -22,7 +22,7 @@ func propagate_fracture(position: Vector2, current_depth: int = 0) -> void:
     mass_distribution.set_state(position, GlacierCellState.STATE.FRACTURED)
     fracture_propagated.emit(position)
 
-    var surrounding_cells = mass_distribution.tilemap.get_surrounding_cells(Vector2i(position))
+    var surrounding_cells: Array[Vector2i] = mass_distribution.tilemap.get_surrounding_cells(Vector2i(position))
     for cell in surrounding_cells:
         if randf() < probability and mass_distribution.get_state(cell) == GlacierCellState.STATE.INTACT:
             propagate_fracture(cell, current_depth + 1)

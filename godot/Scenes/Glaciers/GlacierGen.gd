@@ -22,10 +22,13 @@ func initialize_glacier_surface() -> void:
 func fill_with_intact_tiles() -> void:
     for x: int in range(16):
         for y: int in range(8):
-            self.glacier_surface.set_cell(Vector2i(x, y), GlacierCellState.STATE.INTACT)
+            self.glacier_surface.set_cell(Vector2i(x, y), -1, Vector2i(GlacierCellState.STATE.INTACT,0))
     glacier_surface.update_internals()
 
 
+
+#TODO: this is not creating a usable tileset/atlas. I should only be making a single Atlas that has multiple of those images in it
+# DO NOT MAKE A WHOLE AT LAS FOR EACH TILE. THATS BROKEN AND UNUSABLE
 func create_and_save_glacier_tile_set() -> TileSet:
     var glacier_tileset: TileSet = TileSet.new()
     for tile_index: GlacierCellState.STATE in GlacierCellState.STATE.values():

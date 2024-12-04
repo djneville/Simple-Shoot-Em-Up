@@ -1,35 +1,29 @@
 extends Node
 class_name GlacierMassDistribution
 
-class Tile:
-    var state: int = GlacierCellState.STATE.INTACT
-
 var mass_distribution: Array = []
-var tilemap: TileMapLayer
 
-func initialize_mass_distribution(width: int, height: int, tilemap: TileMapLayer) -> void:
-    self.tilemap = tilemap
+func initialize_mass_distribution(width: int, height: int, glacier_map: TileMapLayer) -> void:
     mass_distribution.resize(height)
     for y in range(height):
         mass_distribution[y] = []
         for x in range(width):
             var cell_position = Vector2(x, y)
-            var atlas_coords = tilemap.get_cell_atlas_coords(cell_position)
-            var initial_state = GlacierCellState.STATE.INTACT  # You can set initial state based on atlas_coords if needed
-            mass_distribution[y].append(Tile.new())
-            mass_distribution[y][x].state = initial_state
-            # Initialize the TileMapLayer with the initial state
-            tilemap.set_cell(cell_position, initial_state)
+            mass_distribution[y].append(GlacierCellState.STATE.INTACT)
+            glacier_map.set_cell(cell_position, 0, Vector2i(0, GlacierCellState.STATE.INTACT))
+            #TODO: at some point figure out if you can just set the state via the atlas coords..
+            var atlas_coords = glacier_map.get_cell_atlas_coords(cell_position)
 
-func get_state(position: Vector2) -> int:
-    var x = int(position.x)
-    var y = int(position.y)
+func get_state(cell_position: Vector2) -> GlacierCellState.STATE:
+    var x = int(cell_position.x)
+    var y = int(cell_position.y)
     if y >= 0 and y < mass_distribution.size() and x >= 0 and x < mass_distribution[y].size():
-        return mass_distribution[y][x].state
+        return mass_distribution[y][x]
     return GlacierCellState.STATE.NONE  # Default state if out of bounds????
 
-func set_state(position: Vector2, state: int) -> void:
-    var x = int(position.x)
-    var y = int(position.y)
+func set_state(cell_position: Vector2, state: GlacierCellState.STATE, glacier_map: TileMapLayer) -> void:
+    var x = int(cell_position.x)
+    var y = int(cell_position.y)
     if y >= 0 and y < mass_distribution.size() and x >= 0 and x < mass_distribution[y].size():
-        mass_distribution[y][x].state = state
+        mass_distribution[y][x] = state
+        glacier_map.set_cell(cell_position, 0, Vector2i(0, state))

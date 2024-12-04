@@ -1,9 +1,9 @@
 extends Node2D
 class_name GlacierGen
 
-var glacier_surface: TileMapLayer
+var glacier_states_instance: GlacierCellState = GlacierCellState.new() #TODO: I REALLY DONT LIKE THIS, but godot..? and issue with true singletons
 
-var glacier_states_instance: GlacierCellState = GlacierCellState.new() #TODO: I REALLY DONT LIKE THIS, but godot.. and issue with true singletons
+var glacier_surface: TileMapLayer
 
 func _ready() -> void:
     initialize_glacier_surface()
@@ -12,7 +12,7 @@ func initialize_glacier_surface() -> void:
     glacier_surface = TileMapLayer.new()
     var glacier_tileset: TileSet = create_and_save_glacier_tile_set()
     glacier_surface.set_tile_set(glacier_tileset)
-    fill_with_intact_tiles() #THIS DOESNT WORK
+    fill_with_intact_tiles()
     var glacier_scene: PackedScene = PackedScene.new()
     glacier_scene.pack(glacier_surface)
     ResourceSaver.save(glacier_scene, "res://godot/Scenes/Glaciers/GlacierMap.tscn")
@@ -24,7 +24,6 @@ func fill_with_intact_tiles() -> void:
 
 func create_and_save_glacier_tile_set() -> TileSet:
     var glacier_states = GlacierCellState.STATE.values()
-
     var glacier_tileset: TileSet = TileSet.new()
     var atlas_source: TileSetAtlasSource = TileSetAtlasSource.new()
     var atlas_texture: Image = Image.create_empty(16, 16 * glacier_states.size(), false, Image.FORMAT_RGBA8)

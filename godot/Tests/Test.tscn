@@ -38,9 +38,3 @@ visible = false
 visible = false
 
 [node name="Glacier" parent="." instance=ExtResource("9_aunji")]
-hydrofracture_interval_seconds = 1.0
-fractures_per_cycle = 2
-fracturing_coefficient = 0.5
-max_fracture_depth = 10
-min_iceberg_mass = 10
-max_active_icebergs = 20

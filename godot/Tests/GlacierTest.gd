@@ -4,7 +4,7 @@ class_name GlacierTest
 @export var hydrofracture_interval_seconds: float = 3.0
 var glacier_surface: TileMapLayer
 var glacier_cell_state: GlacierCellState.STATE
-var timer: Timer
+var timer: Timer = Timer.new()
 const GLACIAL_PARTICLES_SCENE: PackedScene = preload("res://godot/Components/Particles/GlacialParticles.tscn")
 
 func _ready() -> void:
@@ -17,17 +17,15 @@ func initialize_glacier_cell() -> void:
     update_tile()
 
 func setup_timer() -> void:
-    timer = Timer.new()
-    timer.name = "HydrofractureTimer"
     timer.wait_time = hydrofracture_interval_seconds
     timer.timeout.connect(_on_timer_timeout)
     add_child(timer)
     timer.start()
 
 func _on_timer_timeout() -> void:
-    transition_state()
+    transition_glacier_cell_state()
 
-func transition_state() -> void:
+func transition_glacier_cell_state() -> void:
     match glacier_cell_state:
         GlacierCellState.STATE.INTACT:
             glacier_cell_state = GlacierCellState.STATE.FRACTURED

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name IcebergManager
 
 signal iceberg_created(position: Vector2i)
@@ -26,6 +26,7 @@ func identify_and_create_icebergs(mass_distribution: GlacierMassDistribution, gl
 
     return new_icebergs_count
 
+#TODO: Some standard minesweeper algo: https://en.wikipedia.org/wiki/Flood_fill, i havent even looked at it, i trust it works for now
 func perform_mass_flood_fill(mass_distribution: GlacierMassDistribution, glacier_map: TileMapLayer, start_position: Vector2i, visited: Dictionary) -> int:
     var stack: Array = [start_position]
     var mass: int = 0

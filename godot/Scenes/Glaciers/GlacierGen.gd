@@ -30,25 +30,27 @@ func fill_with_intact_tiles() -> void:
 #TODO: this is not creating a usable tileset/atlas. I should only be making a single Atlas that has multiple of those images in it
 # DO NOT MAKE A WHOLE AT LAS FOR EACH TILE. THATS BROKEN AND UNUSABLE
 func create_and_save_glacier_tile_set() -> TileSet:
+    var glacier_states = GlacierCellState.STATE.values()
+
     var glacier_tileset: TileSet = TileSet.new()
-    for tile_index: GlacierCellState.STATE in GlacierCellState.STATE.values():
-        var atlas_source: TileSetAtlasSource = TileSetAtlasSource.new()
-        atlas_source.set_texture_region_size(Vector2i(16, 16))
-        var color: Color = glacier_states_instance.get_color(tile_index)
+    var atlas_source: TileSetAtlasSource = TileSetAtlasSource.new()
+    var atlas_texture: Image = Image.create_empty(16, 16 * glacier_states.size(), false, Image.FORMAT_RGBA8)
+    atlas_source.set_texture_region_size(Vector2i(16, 16))
+    for tile_index in range(glacier_states.size()):
+        var state = glacier_states[tile_index]
+        var color: Color = glacier_states_instance.get_color(state)
+        var y_offset: int = 16 * tile_index
+        for i in range(16):
+            for j in range(16):
+                atlas_texture.set_pixel(i, j + y_offset, color)
 
-        var image: Image = Image.create_empty(16, 16, false, Image.FORMAT_RGBA8)
-        for i: int in range(16):
-            for j: int in range(16):
-                image.set_pixel(i, j, color)
+        var atlas_coords: Vector2i = Vector2i(0, tile_index)
+        atlas_source.create_tile(atlas_coords, Vector2i(1,1))  # ATLAS SOURCES ARE INDIVIDUAL SINGLE TILEDATA AHHHHHH!!!
 
-        var texture: ImageTexture = ImageTexture.create_from_image(image)
-
-        atlas_source.set_texture(texture)
-
-        var atlas_coords: Vector2i = Vector2i(tile_index, 0)
-        atlas_source.create_tile(atlas_coords)  # ATLAS SOURCES ARE INDIVIDUAL SINGLE TILEDATA AHHHHHH!!!
-        glacier_tileset.set_tile_size(Vector2i(16,16))
-        glacier_tileset.add_source(atlas_source)
+    var final_texture: ImageTexture = ImageTexture.create_from_image(atlas_texture)
+    atlas_source.set_texture(final_texture)
+    glacier_tileset.set_tile_size(Vector2i(16,16))
+    glacier_tileset.add_source(atlas_source)
 
     ResourceSaver.save(glacier_tileset, "res://Resources/TileSets/glacier_tileset.tres")
     return glacier_tileset

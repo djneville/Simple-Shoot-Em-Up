@@ -53,13 +53,8 @@ func transition_state() -> void:
 
 func update_tile() -> void:
     var cell_position = Vector2i(0, 0)
-    #TODO THIS next line IS INSANE, the cellstate is the index in the tileset (a set of atlases hahahhaa!!??? EWWW)
-    # and then the atlas-coordinate is the index in that atlas...
-    print("PREV ID! ", glacier_surface.get_cell_source_id(cell_position))
-    glacier_surface.get_used_cells()
-    glacier_surface.set_cell(cell_position, 1, Vector2i(0, 0))
-    print("CURRENT ID! ", glacier_surface.get_cell_source_id(cell_position))
-    glacier_surface.update_internals()
+    #TODO: This works now, study it and make it make sense for christs sake
+    glacier_surface.set_cell(cell_position, 0, Vector2i(0, glacier_cell_state))
 
 func create_glacial_particles() -> void:
     var particles_instance = GLACIAL_PARTICLES_SCENE.instantiate() as CPUParticles2D

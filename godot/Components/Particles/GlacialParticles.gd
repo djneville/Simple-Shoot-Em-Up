@@ -2,7 +2,7 @@ extends CPUParticles2D
 class_name GlacierParticles
 
 const SINGLE_FRAME_AVOIDANCE_BUFFER: float = 1 / 30
-const TILE_SIZE: float = 16.0
+const TILE_SIZE: float = 8.0
 
 func _ready() -> void:
     _initialize_particle_material()
@@ -15,8 +15,8 @@ func _initialize_particle_material() -> void:
     self.spread = 360.0
     self.initial_velocity_min = 10.0
     self.initial_velocity_max = 20.0
-    self.scale_amount_min = 16.0
-    self.scale_amount_max = 16.0
+    self.scale_amount_min = 8.0
+    self.scale_amount_max = 8.0
     self.gravity = Vector2(0, 4)
 
     self.color_ramp = Gradient.new()

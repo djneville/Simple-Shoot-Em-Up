@@ -1,5 +1,6 @@
 extends Node
 
+signal play_sfx(sound_name: String)
 signal score_bonus(amount: int)
 signal life_lost
 signal game_over

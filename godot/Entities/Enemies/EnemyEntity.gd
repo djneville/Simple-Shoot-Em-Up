@@ -62,6 +62,7 @@ func _process(_delta: float) -> void:
 
 func _death() -> void:
     self.health.entity_died.disconnect(_death)  # TODO: is this the only way to prevent the signal from occuring more than once??? seems wack
+    SignalBus.play_sfx.emit(preload(AudioConsts.SFX_534_OCARINA)) #TODO: cant post yet
     self.upgrade_component.active_explosion_sprite.visible = true
     self.upgrade_component.active_explosion_animation.play("Explosion")
 
@@ -76,7 +77,7 @@ func _on_animation_finished(anim_name: String) -> void:
         #TODO: figure out a better way to handle all this score signalling and autoload vars
         GameStatsManager.score += self.points
         SignalBus.score_updated.emit()
-        self.give_points.emit(self.points)
+        self.give_points.emit(self.points) #TODO: this does nothing still
         self.queue_free()
 
 

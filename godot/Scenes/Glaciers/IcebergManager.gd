@@ -3,6 +3,9 @@ class_name IcebergManager
 
 signal iceberg_created(position: Vector2i)
 
+const SFX_462_BUBBLY: String = "res://Resources/Audio/SFX/462_bubbly.wav"
+
+
 @export var min_mass: int
 @export var max_icebergs: int
 
@@ -52,4 +55,5 @@ func perform_mass_flood_fill(mass_distribution: GlacierMassDistribution, glacier
 func create_iceberg(mass_distribution: GlacierMassDistribution, position: Vector2i, glacier_map: TileMapLayer) -> void:
     mass_distribution.set_state(position, GlacierCellState.STATE.ICEBERG, glacier_map)
     iceberg_created.emit(position)
+    SignalBus.play_sfx.emit(preload(SFX_462_BUBBLY)) #TODO: cant post yet
     print("ICEBERG CREATED AT: ", position)

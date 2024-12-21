@@ -58,9 +58,6 @@ func create_and_save_glacier_tile_set() -> TileSet:
             for j in range(IMAGE_TEXTURE_SIZE.y):
                 atlas_texture.set_pixel(x_offset + i, y_offset + j, color)
 
-        #var atlas_coords: Vector2i = Vector2i(0, tile_index)
-        #atlas_source.create_tile(atlas_coords, GRID_TILE_SIZE)
-
     var final_texture: ImageTexture = ImageTexture.create_from_image(atlas_texture)
     atlas_source.set_texture(final_texture)
 
@@ -68,13 +65,7 @@ func create_and_save_glacier_tile_set() -> TileSet:
         var atlas_coords: Vector2i = Vector2i(0, tile_index)
         atlas_source.create_tile(atlas_coords, GRID_TILE_SIZE)
 
-    #TODO: this is gross, and a bug I hope... but current workaround for setting the tiles to usable
-    #atlas_source.set("0:1/0", 0)
-    #atlas_source.set("0:2/0", 0)
-    #atlas_source.set("0:3/0", 0)
-    #atlas_source.set("0:0/0", 0)
     glacier_tileset.add_source(atlas_source)
     glacier_tileset.set_source_id(0, SOURCE_ID) #some random id to test the set_cell later on
-    #TODO: something about when you save this tileset you have to go into the tile set and select them all to use them??
     ResourceSaver.save(glacier_tileset, "res://Resources/TileSets/glacier_tileset.tres")
     return glacier_tileset

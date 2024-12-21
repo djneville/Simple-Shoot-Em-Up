@@ -53,42 +53,25 @@ func _on_iceberg_created(_position: Vector2i) -> void:
     particles_instance.position = _position * 16
     add_child(particles_instance)
 
-#TODO: this should probably move to the HydrofractureManager? if this "Manager pattern is even the way to go...
 func _on_hydrofracture_cycle() -> void:
-    var fracture_zones: Array[Vector2i] = find_fracture_zones()
-    if fracture_zones.is_empty():
+    var fractures_started = hydrofracture_manager.run_cycle(glacier_mass_distribution, glacier_map, fractures_per_cycle)
+    if fractures_started == 0:
         return
 
-    fracture_zones.shuffle()
-    var selected_fracture_starts: Array[Vector2i] = fracture_zones.slice(0, min(fractures_per_cycle, fracture_zones.size()))
-
-    for fracture_start_coordinates: Vector2i in selected_fracture_starts:
-        hydrofracture_manager.propagate_fracture(glacier_mass_distribution, glacier_map, fracture_start_coordinates)
-
-    var new_icebergs: int = iceberg_manager.identify_and_create_icebergs(glacier_mass_distribution, glacier_map)
+    var new_icebergs = iceberg_manager.identify_and_create_icebergs(glacier_mass_distribution, glacier_map)
     active_icebergs_count += new_icebergs
 
     if active_icebergs_count >= max_active_icebergs:
         hydrofracture_timer.stop()
 
-func find_fracture_zones() -> Array[Vector2i]:
-    var fracture_zones: Array[Vector2i] = []
-    for y: int in range(GLACIER_MAP_WIDTH):
-        for x: int in range(GLACIER_MAP_HEIGHT):
-            var cell_position: Vector2i = Vector2i(x, y)
-            if is_fracture_zone(cell_position):
-                fracture_zones.append(cell_position)
-    return fracture_zones
+# New drawing function to visualize fractures
+func _draw() -> void:
+    var lines = hydrofracture_manager.fracture_renderer.get_lines()
+    for line in lines:
+        # line is [Vector2, Vector2]
+        var start: Vector2 = line[0]
+        var end: Vector2 = line[1]
+        draw_line(start, end, hydrofracture_manager.fracture_renderer.line_color, hydrofracture_manager.fracture_renderer.line_width)
 
-func is_fracture_zone(position: Vector2i) -> bool:
-    var current_state: int = glacier_mass_distribution.get_state(position)
-    if current_state not in [GlacierCellState.STATE.INTACT, GlacierCellState.STATE.FRACTURED]:
-        return false
-
-    var surrounding_cells: Array[Vector2i] = glacier_map.get_surrounding_cells(position)
-    for cell: Vector2i in surrounding_cells:
-        var adjacent_state: int = glacier_mass_distribution.get_state(cell)
-        if adjacent_state == GlacierCellState.STATE.NONE:
-            return true
-
-    return false
+func _process(_delta: float) -> void:
+    queue_redraw()
